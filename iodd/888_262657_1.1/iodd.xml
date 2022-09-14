@@ -1,0 +1,585 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<IODevice xmlns="http://www.io-link.com/IODD/2010/10" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.io-link.com/IODD/2010/10 IODD1.1.xsd">
+  <DocumentInfo version="V1.2" releaseDate="2015-01-30" copyright="BALLUFF" />
+  <ProfileHeader>
+    <ProfileIdentification>IO Device Profile</ProfileIdentification>
+    <ProfileRevision>1.1</ProfileRevision>
+    <ProfileName>Device Profile for IO Devices</ProfileName>
+    <ProfileSource>IO-Link Consortium</ProfileSource>
+    <ProfileClassID>Device</ProfileClassID>
+    <ISO15745Reference>
+      <ISO15745Part>1</ISO15745Part>
+      <ISO15745Edition>1</ISO15745Edition>
+      <ProfileTechnology>IODD</ProfileTechnology>
+    </ISO15745Reference>
+  </ProfileHeader>
+  <ProfileBody>
+    <DeviceIdentity vendorId="888" vendorName="BALLUFF" deviceId="262657">
+      <VendorText textId="TI_VendorText" />
+      <VendorUrl textId="TI_VendorUrl" />
+      <VendorLogo name="Balluff-logo.png" />
+      <DeviceName textId="TI_DeviceName" />
+      <DeviceFamily textId="TI_DeviceFamily" />
+      <DeviceVariantCollection>
+        <DeviceVariant productId="BOS0171" deviceSymbol="Balluff-BOS0171-pic.png" deviceIcon="Balluff-BOS0171-icon.png">
+          <Name textId="TI_SPI_Name" />
+          <Description textId="TI_SPI_Text" />
+        </DeviceVariant>
+      </DeviceVariantCollection>
+    </DeviceIdentity>
+    <DeviceFunction>
+      <Features blockParameter="true" dataStorage="true" profileCharacteristic="6">
+        <SupportedAccessLocks parameter="false" dataStorage="true" localParameterization="false" localUserInterface="true" />
+      </Features>
+      <DatatypeCollection>
+        <Datatype xsi:type="RecordT" id="DT_ProcessDataIn" bitLength="16" subindexAccessSupported="true">
+          <RecordItem subindex="1" bitOffset="0">
+            <SimpleDatatype xsi:type="BooleanT">
+              <SingleValue value="false">
+                <Name textId="TI_PD_ProcessDataIn_Q1_off" />
+              </SingleValue>
+              <SingleValue value="true">
+                <Name textId="TI_PD_ProcessDataIn_Q1_on" />
+              </SingleValue>
+            </SimpleDatatype>
+            <Name textId="TI_PD_ProcessDataIn_Q1" />
+          </RecordItem>
+          <RecordItem subindex="2" bitOffset="1">
+            <SimpleDatatype xsi:type="BooleanT">
+              <SingleValue value="false">
+                <Name textId="TI_PD_ProcessDataIn_Q2_off" />
+              </SingleValue>
+              <SingleValue value="true">
+                <Name textId="TI_PD_ProcessDataIn_Q2_on" />
+              </SingleValue>
+            </SimpleDatatype>
+            <Name textId="TI_PD_ProcessDataIn_Q2" />
+          </RecordItem>
+          <RecordItem subindex="3" bitOffset="6">
+            <SimpleDatatype xsi:type="UIntegerT" bitLength="10" />
+            <Name textId="TI_PD_ProcessDataIn_level" />
+          </RecordItem>
+        </Datatype>
+        <Datatype xsi:type="RecordT" id="DT_SetPointValueBDC1" bitLength="32" subindexAccessSupported="true">
+          <RecordItem subindex="1" bitOffset="16">
+            <SimpleDatatype xsi:type="UIntegerT" bitLength="16">
+              <ValueRange lowerValue="20" upperValue="1000">
+                <Name textId="TI_Range_SetPointValueBDC_SP1" />
+              </ValueRange>
+            </SimpleDatatype>
+            <Name textId="TI_SetPointValueBDC_SP1" />
+          </RecordItem>
+          <RecordItem subindex="2" bitOffset="0">
+            <SimpleDatatype xsi:type="UIntegerT" bitLength="16">
+              <SingleValue value="0">
+                <Name textId="TI_Range_SetPointValueBDC1_SP2" />
+              </SingleValue>
+            </SimpleDatatype>
+            <Name textId="TI_SetPointValueBDC_SP2" />
+          </RecordItem>
+        </Datatype>
+        <Datatype xsi:type="RecordT" id="DT_SetPointValueBDC2" bitLength="32" subindexAccessSupported="true">
+          <RecordItem subindex="1" bitOffset="16">
+            <SimpleDatatype xsi:type="UIntegerT" bitLength="16">
+              <ValueRange lowerValue="20" upperValue="1000">
+                <Name textId="TI_Range_SetPointValueBDC_SP1" />
+              </ValueRange>
+            </SimpleDatatype>
+            <Name textId="TI_SetPointValueBDC_SP1" />
+          </RecordItem>
+          <RecordItem subindex="2" bitOffset="0">
+            <SimpleDatatype xsi:type="UIntegerT" bitLength="16">
+              <ValueRange lowerValue="20" upperValue="1000">
+                <Name textId="TI_Range_SetPointValueBDC_SP2" />
+              </ValueRange>
+            </SimpleDatatype>
+            <Name textId="TI_SetPointValueBDC_SP2" />
+          </RecordItem>
+        </Datatype>
+        <Datatype xsi:type="RecordT" id="DT_SwitchPointConfigurationBDC1" bitLength="32" subindexAccessSupported="true">
+          <RecordItem subindex="1" bitOffset="24">
+            <SimpleDatatype xsi:type="UIntegerT" bitLength="8">
+              <SingleValue value="0">
+                <Name textId="TI_normally_closed" />
+              </SingleValue>
+              <SingleValue value="1">
+                <Name textId="TI_normally_open" />
+              </SingleValue>
+            </SimpleDatatype>
+            <Name textId="TI_switchpoint_logic" />
+          </RecordItem>
+          <RecordItem subindex="2" bitOffset="16">
+            <SimpleDatatype xsi:type="UIntegerT" bitLength="8">
+              <SingleValue value="128">
+                <Name textId="TI_custom" />
+              </SingleValue>
+            </SimpleDatatype>
+            <Name textId="TI_switchpoint_mode" />
+          </RecordItem>
+          <RecordItem subindex="3" bitOffset="0">
+            <SimpleDatatype xsi:type="UIntegerT" bitLength="16" />
+            <Name textId="TI_switchpoint_hysteresis" />
+          </RecordItem>
+        </Datatype>
+        <Datatype xsi:type="RecordT" id="DT_SwitchPointConfigurationBDC2" bitLength="32" subindexAccessSupported="true">
+          <RecordItem subindex="1" bitOffset="24">
+            <SimpleDatatype xsi:type="UIntegerT" bitLength="8">
+              <SingleValue value="0">
+                <Name textId="TI_normally_closed" />
+              </SingleValue>
+              <SingleValue value="1">
+                <Name textId="TI_normally_open" />
+              </SingleValue>
+            </SimpleDatatype>
+            <Name textId="TI_switchpoint_logic" />
+          </RecordItem>
+          <RecordItem subindex="2" bitOffset="16">
+            <SimpleDatatype xsi:type="UIntegerT" bitLength="8">
+              <SingleValue value="0">
+                <Name textId="TI_disabled" />
+              </SingleValue>
+              <SingleValue value="1">
+                <Name textId="TI_single_point" />
+              </SingleValue>
+              <SingleValue value="2">
+                <Name textId="TI_window" />
+              </SingleValue>
+              <SingleValue value="3">
+                <Name textId="TI_two_point" />
+              </SingleValue>
+            </SimpleDatatype>
+            <Name textId="TI_switchpoint_mode" />
+          </RecordItem>
+          <RecordItem subindex="3" bitOffset="0">
+            <SimpleDatatype xsi:type="UIntegerT" bitLength="16" />
+            <Name textId="TI_switchpoint_hysteresis" />
+          </RecordItem>
+        </Datatype>
+        <Datatype xsi:type="RecordT" id="DT_Configuration" bitLength="8" subindexAccessSupported="false">
+          <RecordItem subindex="1" bitOffset="0">
+            <SimpleDatatype xsi:type="BooleanT">
+              <SingleValue value="0">
+                <Name textId="TI_transmitter_off" />
+              </SingleValue>
+              <SingleValue value="1">
+                <Name textId="TI_transmitter_on" />
+              </SingleValue>
+            </SimpleDatatype>
+            <Name textId="TI_transmitter" />
+          </RecordItem>
+        </Datatype>
+        <Datatype xsi:type="RecordT" id="DT_TeachStatus" bitLength="8" subindexAccessSupported="false">
+          <RecordItem subindex="1" bitOffset="0">
+            <SimpleDatatype xsi:type="UIntegerT" bitLength="4">
+              <SingleValue value="0">
+                <Name textId="TI_TeachState_Idle" />
+              </SingleValue>
+              <SingleValue value="1">
+                <Name textId="TI_TeachState_SP1_success" />
+              </SingleValue>
+              <SingleValue value="2">
+                <Name textId="TI_TeachState_SP2_success" />
+              </SingleValue>
+              <SingleValue value="3">
+                <Name textId="TI_TeachState_SP1_and_SP2_success" />
+              </SingleValue>
+              <SingleValue value="4">
+                <Name textId="TI_TeachState_WaitForCommand" />
+              </SingleValue>
+              <SingleValue value="5">
+                <Name textId="TI_TeachState_Busy" />
+              </SingleValue>
+              <SingleValue value="6">
+                <Name textId="TI_TeachState_Reserved" />
+              </SingleValue>
+              <SingleValue value="7">
+                <Name textId="TI_TeachState_Error" />
+              </SingleValue>
+              <SingleValue value="8">
+                <Name textId="TI_TeachState_Reserved8" />
+              </SingleValue>
+              <SingleValue value="9">
+                <Name textId="TI_TeachState_Reserved9" />
+              </SingleValue>
+              <SingleValue value="10">
+                <Name textId="TI_TeachState_Reserved10" />
+              </SingleValue>
+              <SingleValue value="11">
+                <Name textId="TI_TeachState_Reserved11" />
+              </SingleValue>
+              <SingleValue value="12">
+                <Name textId="TI_TeachState_Manufacturer12" />
+              </SingleValue>
+              <SingleValue value="13">
+                <Name textId="TI_TeachState_Manufacturer13" />
+              </SingleValue>
+              <SingleValue value="14">
+                <Name textId="TI_TeachState_Manufacturer14" />
+              </SingleValue>
+              <SingleValue value="15">
+                <Name textId="TI_TeachState_Manufacturer15" />
+              </SingleValue>
+            </SimpleDatatype>
+            <Name textId="TI_TeachState" />
+          </RecordItem>
+          <RecordItem subindex="2" bitOffset="4">
+            <SimpleDatatype xsi:type="BooleanT">
+              <SingleValue value="0">
+                <Name textId="TI_TeachState_TeachFlag_SP1_TP1_NotSuccessful" />
+              </SingleValue>
+              <SingleValue value="1">
+                <Name textId="TI_TeachState_TeachFlag_SP1_TP1_Successful" />
+              </SingleValue>
+            </SimpleDatatype>
+            <Name textId="TI_TeachState_TeachFlag_SP1_TP1" />
+          </RecordItem>
+          <RecordItem subindex="3" bitOffset="5">
+            <SimpleDatatype xsi:type="BooleanT">
+              <SingleValue value="0">
+                <Name textId="TI_TeachState_TeachFlag_SP1_TP2_NotSuccessful" />
+              </SingleValue>
+              <SingleValue value="1">
+                <Name textId="TI_TeachState_TeachFlag_SP1_TP2_Successful" />
+              </SingleValue>
+            </SimpleDatatype>
+            <Name textId="TI_TeachState_TeachFlag_SP1_TP2" />
+          </RecordItem>
+          <RecordItem subindex="4" bitOffset="6">
+            <SimpleDatatype xsi:type="BooleanT">
+              <SingleValue value="0">
+                <Name textId="TI_TeachState_TeachFlag_SP2_TP1_NotSuccessful" />
+              </SingleValue>
+              <SingleValue value="1">
+                <Name textId="TI_TeachState_TeachFlag_SP2_TP1_Successful" />
+              </SingleValue>
+            </SimpleDatatype>
+            <Name textId="TI_TeachState_TeachFlag_SP2_TP1" />
+          </RecordItem>
+          <RecordItem subindex="5" bitOffset="7">
+            <SimpleDatatype xsi:type="BooleanT">
+              <SingleValue value="0">
+                <Name textId="TI_TeachState_TeachFlag_SP2_TP2_NotSuccessful" />
+              </SingleValue>
+              <SingleValue value="1">
+                <Name textId="TI_TeachState_TeachFlag_SP2_TP2_Successful" />
+              </SingleValue>
+            </SimpleDatatype>
+            <Name textId="TI_TeachState_TeachFlag_SP2_TP2" />
+          </RecordItem>
+        </Datatype>
+        <Datatype xsi:type="RecordT" id="DT_TeachChannel" bitLength="8" subindexAccessSupported="false">
+          <RecordItem subindex="1" bitOffset="0">
+            <SimpleDatatype xsi:type="UIntegerT" bitLength="8" />
+            <Name textId="TI_TeachChannelNum" />
+          </RecordItem>
+        </Datatype>
+      </DatatypeCollection>
+      <VariableCollection>
+        <StdVariableRef id="V_DirectParameters_1" />
+        <StdVariableRef id="V_DirectParameters_2" />
+        <StdVariableRef id="V_SystemCommand">
+          <StdSingleValueRef value="130" />
+          <SingleValue value="64">
+            <Name textId="TI_TeachApply" />
+          </SingleValue>
+          <SingleValue value="65">
+            <Name textId="TI_Single_Value_Teach_SP1" />
+          </SingleValue>
+          <SingleValue value="66">
+            <Name textId="TI_Single_Value_Teach_SP2" />
+          </SingleValue>
+          <SingleValue value="67">
+            <Name textId="TI_Two_Value_Teach_SP1_TP1" />
+          </SingleValue>
+          <SingleValue value="68">
+            <Name textId="TI_Two_Value_Teach_SP1_TP2" />
+          </SingleValue>
+          <SingleValue value="69">
+            <Name textId="TI_Two_Value_Teach_SP2_TP1" />
+          </SingleValue>
+          <SingleValue value="70">
+            <Name textId="TI_Two_Value_Teach_SP2_TP2" />
+          </SingleValue>
+          <SingleValue value="71">
+            <Name textId="TI_Dynamic_Teach_SP1_Start" />
+          </SingleValue>
+          <SingleValue value="72">
+            <Name textId="TI_Dynamic_Teach_SP1_Stop" />
+          </SingleValue>
+          <SingleValue value="73">
+            <Name textId="TI_Dynamic_Teach_SP2_Start" />
+          </SingleValue>
+          <SingleValue value="74">
+            <Name textId="TI_Dynamic_Teach_SP2_Stop" />
+          </SingleValue>
+          <SingleValue value="79">
+            <Name textId="TI_TeachCancel" />
+          </SingleValue>
+        </StdVariableRef>
+        <StdVariableRef id="V_DeviceAccessLocks" />
+        <StdVariableRef id="V_VendorName" />
+        <StdVariableRef id="V_VendorText" />
+        <StdVariableRef id="V_ProductName" />
+        <StdVariableRef id="V_ProductID" />
+        <StdVariableRef id="V_ProductText" />
+        <StdVariableRef id="V_HardwareRevision" />
+        <StdVariableRef id="V_FirmwareRevision" />
+        <StdVariableRef id="V_ApplicationSpecificTag" />
+        <Variable id="V_SetPointValueBDC1" index="60" accessRights="rw">
+          <DatatypeRef datatypeId="DT_SetPointValueBDC1" />
+          <Name textId="TI_SetPointValueBDC1" />
+        </Variable>
+        <Variable id="V_SwitchPointConfigurationBDC1" index="61" accessRights="rw">
+          <DatatypeRef datatypeId="DT_SwitchPointConfigurationBDC1" />
+          <Name textId="TI_SwitchPointConfigurationBDC1" />
+        </Variable>
+        <Variable id="V_SetPointValueBDC2" index="62" accessRights="rw">
+          <DatatypeRef datatypeId="DT_SetPointValueBDC2" />
+          <Name textId="TI_SetPointValueBDC2" />
+        </Variable>
+        <Variable id="V_SwitchPointConfigurationBDC2" index="63" accessRights="rw">
+          <DatatypeRef datatypeId="DT_SwitchPointConfigurationBDC2" />
+          <Name textId="TI_SwitchPointConfigurationBDC2" />
+        </Variable>
+        <Variable id="V_TeachChannel" index="58" accessRights="rw">
+          <DatatypeRef datatypeId="DT_TeachChannel" />
+          <Name textId="TI_TeachChannel" />
+        </Variable>
+        <Variable id="V_TeachStatus" index="59" accessRights="ro">
+          <DatatypeRef datatypeId="DT_TeachStatus" />
+          <Name textId="TI_TeachState" />
+        </Variable>
+        <Variable id="V_Configuration" index="80" accessRights="rw" excludedFromDataStorage="true">
+          <DatatypeRef datatypeId="DT_Configuration" />
+          <Name textId="TI_Configuration" />
+        </Variable>
+      </VariableCollection>
+      <ProcessDataCollection>
+        <ProcessData id="PD_ProcessData">
+          <ProcessDataIn id="PD_ProcessDataIn" bitLength="16">
+            <DatatypeRef datatypeId="DT_ProcessDataIn" />
+            <Name textId="TI_PD_ProcessDataIn" />
+          </ProcessDataIn>
+        </ProcessData>
+      </ProcessDataCollection>
+      <EventCollection>
+        <StdEventRef code="25424" />
+      </EventCollection>
+      <UserInterface>
+        <MenuCollection>
+          <Menu id="ME_OR_Ident">
+            <VariableRef variableId="V_VendorName" accessRightRestriction="ro" />
+            <VariableRef variableId="V_ProductName" accessRightRestriction="ro" />
+            <VariableRef variableId="V_ProductID" accessRightRestriction="ro" />
+            <VariableRef variableId="V_ProductText" accessRightRestriction="ro" />
+          </Menu>
+          <Menu id="ME_OR_Observe">
+            <VariableRef variableId="V_DeviceAccessLocks" accessRightRestriction="ro" />
+            <VariableRef variableId="V_ApplicationSpecificTag" accessRightRestriction="ro" />
+            <RecordItemRef variableId="V_SetPointValueBDC1" subindex="1" accessRightRestriction="ro" />
+            <RecordItemRef variableId="V_SetPointValueBDC1" subindex="2" accessRightRestriction="ro" />
+            <RecordItemRef variableId="V_SwitchPointConfigurationBDC1" subindex="1" accessRightRestriction="ro" />
+            <RecordItemRef variableId="V_SwitchPointConfigurationBDC1" subindex="2" accessRightRestriction="ro" />
+            <RecordItemRef variableId="V_SwitchPointConfigurationBDC1" subindex="3" accessRightRestriction="ro" />
+            <RecordItemRef variableId="V_SetPointValueBDC2" subindex="1" accessRightRestriction="ro" />
+            <RecordItemRef variableId="V_SetPointValueBDC2" subindex="2" accessRightRestriction="ro" />
+            <RecordItemRef variableId="V_SwitchPointConfigurationBDC2" subindex="1" accessRightRestriction="ro" />
+            <RecordItemRef variableId="V_SwitchPointConfigurationBDC2" subindex="2" accessRightRestriction="ro" />
+            <RecordItemRef variableId="V_SwitchPointConfigurationBDC2" subindex="3" accessRightRestriction="ro" />
+            <RecordItemRef variableId="V_TeachChannel" subindex="1" accessRightRestriction="ro" />
+            <RecordItemRef variableId="V_TeachStatus" subindex="1" accessRightRestriction="ro" />
+            <RecordItemRef variableId="V_TeachStatus" subindex="2" accessRightRestriction="ro" />
+            <RecordItemRef variableId="V_TeachStatus" subindex="3" accessRightRestriction="ro" />
+            <RecordItemRef variableId="V_TeachStatus" subindex="4" accessRightRestriction="ro" />
+            <RecordItemRef variableId="V_TeachStatus" subindex="5" accessRightRestriction="ro" />
+            <RecordItemRef variableId="V_Configuration" subindex="1" accessRightRestriction="ro" />
+          </Menu>
+          <Menu id="ME_MR_Ident">
+            <VariableRef variableId="V_VendorName" accessRightRestriction="ro" />
+            <VariableRef variableId="V_VendorText" accessRightRestriction="ro" />
+            <VariableRef variableId="V_ProductName" accessRightRestriction="ro" />
+            <VariableRef variableId="V_ProductID" accessRightRestriction="ro" />
+            <VariableRef variableId="V_ProductText" accessRightRestriction="ro" />
+            <VariableRef variableId="V_HardwareRevision" accessRightRestriction="ro" />
+            <VariableRef variableId="V_FirmwareRevision" accessRightRestriction="ro" />
+          </Menu>
+          <Menu id="ME_MR_Observe">
+            <VariableRef variableId="V_ApplicationSpecificTag" accessRightRestriction="ro" />
+          </Menu>
+          <Menu id="ME_MR_Param">
+            <VariableRef variableId="V_SystemCommand" accessRightRestriction="wo" />
+            <VariableRef variableId="V_DeviceAccessLocks" />
+            <RecordItemRef variableId="V_SetPointValueBDC1" subindex="1" />
+            <RecordItemRef variableId="V_SetPointValueBDC1" subindex="2" />
+            <RecordItemRef variableId="V_SwitchPointConfigurationBDC1" subindex="1" />
+            <RecordItemRef variableId="V_SwitchPointConfigurationBDC1" subindex="2" />
+            <RecordItemRef variableId="V_SwitchPointConfigurationBDC1" subindex="3" />
+            <RecordItemRef variableId="V_SetPointValueBDC2" subindex="1" />
+            <RecordItemRef variableId="V_SetPointValueBDC2" subindex="2" />
+            <RecordItemRef variableId="V_SwitchPointConfigurationBDC2" subindex="1" />
+            <RecordItemRef variableId="V_SwitchPointConfigurationBDC2" subindex="2" />
+            <RecordItemRef variableId="V_SwitchPointConfigurationBDC2" subindex="3" />
+            <RecordItemRef variableId="V_TeachChannel" subindex="1" />
+            <RecordItemRef variableId="V_TeachStatus" subindex="1" accessRightRestriction="ro" />
+            <RecordItemRef variableId="V_TeachStatus" subindex="2" accessRightRestriction="ro" />
+            <RecordItemRef variableId="V_TeachStatus" subindex="3" accessRightRestriction="ro" />
+            <RecordItemRef variableId="V_TeachStatus" subindex="4" accessRightRestriction="ro" />
+            <RecordItemRef variableId="V_TeachStatus" subindex="5" accessRightRestriction="ro" />
+            <RecordItemRef variableId="V_Configuration" subindex="1" />
+          </Menu>
+          <Menu id="ME_SR_Ident">
+            <VariableRef variableId="V_VendorName" accessRightRestriction="ro" />
+            <VariableRef variableId="V_VendorText" accessRightRestriction="ro" />
+            <VariableRef variableId="V_ProductName" accessRightRestriction="ro" />
+            <VariableRef variableId="V_ProductID" accessRightRestriction="ro" />
+            <VariableRef variableId="V_ProductText" accessRightRestriction="ro" />
+            <VariableRef variableId="V_HardwareRevision" accessRightRestriction="ro" />
+            <VariableRef variableId="V_FirmwareRevision" accessRightRestriction="ro" />
+          </Menu>
+          <Menu id="ME_SR_Param">
+            <VariableRef variableId="V_SystemCommand" accessRightRestriction="wo" />
+            <VariableRef variableId="V_DeviceAccessLocks" />
+            <VariableRef variableId="V_ApplicationSpecificTag" />
+            <RecordItemRef variableId="V_SetPointValueBDC1" subindex="1" />
+            <RecordItemRef variableId="V_SetPointValueBDC1" subindex="2" />
+            <RecordItemRef variableId="V_SwitchPointConfigurationBDC1" subindex="1" />
+            <RecordItemRef variableId="V_SwitchPointConfigurationBDC1" subindex="2" />
+            <RecordItemRef variableId="V_SwitchPointConfigurationBDC1" subindex="3" />
+            <RecordItemRef variableId="V_SetPointValueBDC2" subindex="1" />
+            <RecordItemRef variableId="V_SetPointValueBDC2" subindex="2" />
+            <RecordItemRef variableId="V_SwitchPointConfigurationBDC2" subindex="1" />
+            <RecordItemRef variableId="V_SwitchPointConfigurationBDC2" subindex="2" />
+            <RecordItemRef variableId="V_SwitchPointConfigurationBDC2" subindex="3" />
+            <RecordItemRef variableId="V_TeachChannel" subindex="1" />
+            <RecordItemRef variableId="V_TeachStatus" subindex="1" accessRightRestriction="ro" />
+            <RecordItemRef variableId="V_TeachStatus" subindex="2" accessRightRestriction="ro" />
+            <RecordItemRef variableId="V_TeachStatus" subindex="3" accessRightRestriction="ro" />
+            <RecordItemRef variableId="V_TeachStatus" subindex="4" accessRightRestriction="ro" />
+            <RecordItemRef variableId="V_TeachStatus" subindex="5" accessRightRestriction="ro" />
+            <RecordItemRef variableId="V_Configuration" subindex="1" />
+          </Menu>
+        </MenuCollection>
+        <ObserverRoleMenuSet>
+          <IdentificationMenu menuId="ME_OR_Ident" />
+          <ObservationMenu menuId="ME_OR_Observe" />
+        </ObserverRoleMenuSet>
+        <MaintenanceRoleMenuSet>
+          <IdentificationMenu menuId="ME_MR_Ident" />
+          <ParameterMenu menuId="ME_MR_Param" />
+          <ObservationMenu menuId="ME_MR_Observe" />
+        </MaintenanceRoleMenuSet>
+        <SpecialistRoleMenuSet>
+          <IdentificationMenu menuId="ME_SR_Ident" />
+          <ParameterMenu menuId="ME_SR_Param" />
+        </SpecialistRoleMenuSet>
+      </UserInterface>
+    </DeviceFunction>
+  </ProfileBody>
+  <CommNetworkProfile xsi:type="IOLinkCommNetworkProfileT" iolinkRevision="V1.1">
+    <TransportLayers>
+      <PhysicalLayer minCycleTime="5000" sioSupported="true" bitrate="COM2" mSequenceCapability="1">
+        <Connection xsi:type="M5ConnectionT">
+          <ProductRef productId="BOS0171" />
+          <Wire1 xsi:type="Wire1T" />
+          <Wire2 function="NC" />
+          <Wire3 />
+          <Wire4 />
+        </Connection>
+      </PhysicalLayer>
+    </TransportLayers>
+    <Test>
+      <Config1 index="82" testValue="0x01"></Config1>
+      <Config2 index="256" testValue="0x00,0x02" />
+      <Config3 index="24" testValue="0x01,0x02,0x03,0x04,0x05,0x06,0x07,0x08,0x09,0x0a,0x01,0x02,0x03,0x04,0x05,0x06,0x07,0x08,0x09,0x0a,0x01,0x02,0x03,0x04,0x05,0x06,0x07,0x08,0x09,0x0a,0x01,0x02" />
+      <Config7 index="81">
+        <EventTrigger appearValue="1" disappearValue="0" />
+        <EventTrigger appearValue="3" disappearValue="2" />
+      </Config7>
+    </Test>
+  </CommNetworkProfile>
+  <ExternalTextCollection>
+    <PrimaryLanguage xml:lang="en">
+      <Text id="TI_VendorText" value="BALLUFF" />
+      <Text id="TI_Range_SetPointValueBDC_SP1" value="Range SetPoint BDC SP1" />
+      <Text id="TI_Range_SetPointValueBDC_SP2" value="Range SetPoint BDC SP2" />
+      <Text id="TI_Range_SetPointValueBDC1_SP2" value="0" />
+      <Text id="TI_VendorUrl" value="www.balluff.com" />
+      <Text id="TI_DeviceFamily" value="BOS - Optical Sensor" />
+      <Text id="TI_DeviceName" value="Diffuse sensor red light" />
+      <Text id="TI_SPI_Name" value="BOS 23K-GI-RD10-S4" />
+      <Text id="TI_SPI_Text" value="Diffuse sensor red light" />
+      <Text id="TI_PD_ProcessDataIn" value="Process Data" />
+      <Text id="TI_TeachApply" value="teach apply" />
+      <Text id="TI_Single_Value_Teach_SP1" value="single value teach sp1" />
+      <Text id="TI_Single_Value_Teach_SP2" value="single value teach sp2" />
+      <Text id="TI_Two_Value_Teach_SP1_TP1" value="two value teach sp1 tp1" />
+      <Text id="TI_Two_Value_Teach_SP1_TP2" value="two value teach sp1 tp2" />
+      <Text id="TI_Two_Value_Teach_SP2_TP1" value="two value teach sp2 tp1" />
+      <Text id="TI_Two_Value_Teach_SP2_TP2" value="two value teach sp2 tp2" />
+      <Text id="TI_Dynamic_Teach_SP1_Start" value="dynamic teach sp1 start" />
+      <Text id="TI_Dynamic_Teach_SP1_Stop" value="dynamic teach sp1 stop" />
+      <Text id="TI_Dynamic_Teach_SP2_Start" value="dynamic teach sp2 start" />
+      <Text id="TI_Dynamic_Teach_SP2_Stop" value="dynamic teach sp2 stop" />
+      <Text id="TI_TeachCancel" value="cancel teach" />
+      <Text id="TI_SetPointValueBDC1" value="BDC1" />
+      <Text id="TI_SwitchPointConfigurationBDC1" value="switch point config BDC1" />
+      <Text id="TI_SetPointValueBDC2" value="BDC2" />
+      <Text id="TI_SwitchPointConfigurationBDC2" value="switch point config BDC2" />
+      <Text id="TI_TeachChannel" value="teach channel" />
+      <Text id="TI_TeachState" value="teach in status" />
+      <Text id="TI_Configuration" value="configuration" />
+      <Text id="TI_PD_ProcessDataIn_Q1" value="Q1" />
+      <Text id="TI_PD_ProcessDataIn_Q1_off" value="Q1 off" />
+      <Text id="TI_PD_ProcessDataIn_Q1_on" value="Q1 on" />
+      <Text id="TI_PD_ProcessDataIn_Q2" value="Q2" />
+      <Text id="TI_PD_ProcessDataIn_Q2_off" value="Q2 off" />
+      <Text id="TI_PD_ProcessDataIn_Q2_on" value="Q2 on" />
+      <Text id="TI_PD_ProcessDataIn_level" value="receive level" />
+      <Text id="TI_SetPointValueBDC_SP1" value="set point sp1" />
+      <Text id="TI_SetPointValueBDC_SP2" value="set point sp2" />
+      <Text id="TI_switchpoint_logic" value="switch point logic" />
+      <Text id="TI_normally_open" value="normally open" />
+      <Text id="TI_normally_closed" value="normally closed" />
+      <Text id="TI_switchpoint_mode" value="switchpoint mode" />
+      <Text id="TI_disabled" value="disabled" />
+      <Text id="TI_single_point" value="single point" />
+      <Text id="TI_window" value="window" />
+      <Text id="TI_two_point" value="two point" />
+      <Text id="TI_custom" value="custom" />
+      <Text id="TI_switchpoint_hysteresis" value="switchpoint hysteresis" />
+      <Text id="TI_transmitter" value="transmitter" />
+      <Text id="TI_transmitter_off" value="transmitter off" />
+      <Text id="TI_transmitter_on" value="transmitter on" />
+      <Text id="TI_TeachState_Idle" value="teach idle" />
+      <Text id="TI_TeachState_SP1_success" value="teach sp1 success" />
+      <Text id="TI_TeachState_SP2_success" value="teach sp2 success" />
+      <Text id="TI_TeachState_SP1_and_SP2_success" value="teach sp1+sp2 success" />
+      <Text id="TI_TeachState_WaitForCommand" value="wait for command" />
+      <Text id="TI_TeachState_Busy" value="busy" />
+      <Text id="TI_TeachState_Reserved" value="reserved" />
+      <Text id="TI_TeachState_Error" value="error" />
+      <Text id="TI_TeachState_Reserved8" value="reserved" />
+      <Text id="TI_TeachState_Reserved9" value="reserved" />
+      <Text id="TI_TeachState_Reserved10" value="reserved" />
+      <Text id="TI_TeachState_Reserved11" value="reserved" />
+      <Text id="TI_TeachState_Manufacturer12" value="manufacturer state" />
+      <Text id="TI_TeachState_Manufacturer13" value="manufacturer state" />
+      <Text id="TI_TeachState_Manufacturer14" value="manufacturer state" />
+      <Text id="TI_TeachState_Manufacturer15" value="manufacturer state" />
+      <Text id="TI_TeachState_TeachFlag_SP1_TP1" value="teach state sp1 tp1" />
+      <Text id="TI_TeachState_TeachFlag_SP1_TP1_NotSuccessful" value="not successful" />
+      <Text id="TI_TeachState_TeachFlag_SP1_TP1_Successful" value="successful" />
+      <Text id="TI_TeachState_TeachFlag_SP1_TP2" value="teach state sp1 tp2" />
+      <Text id="TI_TeachState_TeachFlag_SP1_TP2_NotSuccessful" value="not successful" />
+      <Text id="TI_TeachState_TeachFlag_SP1_TP2_Successful" value="successful" />
+      <Text id="TI_TeachState_TeachFlag_SP2_TP1" value="teach state sp2 tp1" />
+      <Text id="TI_TeachState_TeachFlag_SP2_TP1_NotSuccessful" value="not successful" />
+      <Text id="TI_TeachState_TeachFlag_SP2_TP1_Successful" value="successful" />
+      <Text id="TI_TeachState_TeachFlag_SP2_TP2" value="teach state sp2 tp2" />
+      <Text id="TI_TeachState_TeachFlag_SP2_TP2_NotSuccessful" value="not successful" />
+      <Text id="TI_TeachState_TeachFlag_SP2_TP2_Successful" value="successful" />
+      <Text id="TI_TeachChannelNum" value="teach channel #" />
+    </PrimaryLanguage>
+  </ExternalTextCollection>
+  <Stamp crc="3853479470"><Checker name="IODD-Checker V1.1.1" version="V1.1.1.0"/></Stamp>
+</IODevice>

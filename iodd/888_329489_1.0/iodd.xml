@@ -1,0 +1,470 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<IODevice xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.io-link.com/IODD/2009/11" xsi:schemaLocation="http://www.io-link.com/IODD/2009/11 IODD1.0.1.xsd">
+  <DocumentInfo version="V1.2" releaseDate="2015-06-04" copyright="Copyright 2015, Balluff GmbH" />
+  <ProfileHeader>
+    <ProfileIdentification>IO-Link Device Profile</ProfileIdentification>
+    <ProfileRevision>1.00</ProfileRevision>
+    <ProfileName>Device Profile for IO-Link Devices</ProfileName>
+    <ProfileSource>IO-Link Consortium</ProfileSource>
+    <ProfileClassID>Device</ProfileClassID>
+    <ISO15745Reference>
+      <ISO15745Part>1</ISO15745Part>
+      <ISO15745Edition>1</ISO15745Edition>
+      <ProfileTechnology>IODD</ProfileTechnology>
+    </ISO15745Reference>
+  </ProfileHeader>
+  <ProfileBody>
+    <DeviceIdentity vendorId="888" vendorName="BALLUFF" deviceId="329489">
+      <VendorText textId="TI_VendorText" />
+      <VendorUrl textId="TI_VendorUrl" />
+      <VendorLogo name="Balluff-logo.png" />
+      <DeviceFamily textId="TI_DeviceFamily" />
+      <DeviceVariantCollection>
+        <DeviceVariant productId="BNI005P" hardwareRevision="1" firmwareRevision="1.2" deviceSymbol="Balluff-BNI005P-pic.png" deviceIcon="Balluff-BNI005P-icon.png">
+          <ProductName textId="TI_Product1_Name" />
+          <ProductText textId="TI_Product1_Descr" />
+        </DeviceVariant>
+      </DeviceVariantCollection>
+    </DeviceIdentity>
+    <DeviceFunction>
+      <DatatypeCollection>
+        <Datatype id="DT_DigitalIn" xsi:type="BooleanT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <SingleValue xsi:type="BooleanValueT" value="false">
+            <Name textId="TI_PD_DigitalIn_low" />
+          </SingleValue>
+          <SingleValue xsi:type="BooleanValueT" value="true">
+            <Name textId="TI_PD_DigitalIn_high" />
+          </SingleValue>
+        </Datatype>
+        <Datatype id="DT_ErrorIn" xsi:type="BooleanT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <SingleValue xsi:type="BooleanValueT" value="false">
+            <Name textId="TI_PD_ErrorIn_off" />
+          </SingleValue>
+          <SingleValue xsi:type="BooleanValueT" value="true">
+            <Name textId="TI_PD_ErrorIn_on" />
+          </SingleValue>
+        </Datatype>
+		<Datatype id="DT_ErrorUS" xsi:type="UIntegerT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bitLength="8">
+          <SingleValue value="0">
+            <Name textId="TI_PD_ErrorUS_off" />
+          </SingleValue>
+          <SingleValue value="1">
+            <Name textId="TI_PD_ErrorUS_on" />
+          </SingleValue>
+        </Datatype>
+		<Datatype id="DT_Error" xsi:type="BooleanT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <SingleValue xsi:type="BooleanValueT" value="false">
+            <Name textId="TI_VAR_Error_Off" />
+          </SingleValue>
+          <SingleValue xsi:type="BooleanValueT" value="true">
+            <Name textId="TI_VAR_Error_On" />
+          </SingleValue>
+        </Datatype>
+		<Datatype id="DT_Error_US" xsi:type="BooleanT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <SingleValue xsi:type="BooleanValueT" value="false">
+            <Name textId="TI_VAR_Error_US_Off" />
+          </SingleValue>
+          <SingleValue xsi:type="BooleanValueT" value="true">
+            <Name textId="TI_VAR_Error_US_On" />
+          </SingleValue>
+        </Datatype>
+		<Datatype id="DT_Tag" xsi:type="UIntegerT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bitLength="32">
+        </Datatype>
+		<Datatype id="DT_TagPD" xsi:type="OctetStringT" fixedLength="4">
+        </Datatype>
+        <Datatype id="DT_Inversion" xsi:type="BooleanT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <SingleValue xsi:type="BooleanValueT" value="false">
+            <Name textId="TI_VAR_Inversion_Off" />
+          </SingleValue>
+          <SingleValue xsi:type="BooleanValueT" value="true">
+            <Name textId="TI_VAR_Inversion_On" />
+          </SingleValue>
+        </Datatype>
+      </DatatypeCollection>
+      <VariableCollection>
+        <StdVariableRef id="V_DirectParameters_1" />
+        <StdVariableRef id="V_DirectParameters_2" />
+        <StdVariableRef id="V_VendorName" defaultValue="BALLUFF" />
+        <StdVariableRef id="V_VendorText" defaultValue="www.balluff.com" />
+        <StdVariableRef id="V_ProductName" defaultValue="BNI IOL-104-S01-Z012-C02" />
+        <StdVariableRef id="V_ProductID" defaultValue="BNI005P" />
+        <StdVariableRef id="V_ProductText" defaultValue="Sensor hub metal 16 inputs + ID" />
+        <StdVariableRef id="V_HardwareRevision" defaultValue="1" />
+        <StdVariableRef id="V_FirmwareRevision" defaultValue="1.2" />
+        <Variable id="V_Inv_Record" index="64" accessRights="rw">
+          <Datatype xsi:type="RecordT" bitLength="16" subindexAccessSupported="false">
+            <RecordItem subindex="1" bitOffset="8">
+              <DatatypeRef datatypeId="DT_Inversion" />
+              <Name textId="TI_VAR_Inversion_01" />
+            </RecordItem>
+            <RecordItem subindex="2" bitOffset="9">
+              <DatatypeRef datatypeId="DT_Inversion" />
+              <Name textId="TI_VAR_Inversion_02" />
+            </RecordItem>
+            <RecordItem subindex="3" bitOffset="10">
+              <DatatypeRef datatypeId="DT_Inversion" />
+              <Name textId="TI_VAR_Inversion_03" />
+            </RecordItem>
+            <RecordItem subindex="4" bitOffset="11">
+              <DatatypeRef datatypeId="DT_Inversion" />
+              <Name textId="TI_VAR_Inversion_04" />
+            </RecordItem>
+            <RecordItem subindex="5" bitOffset="12">
+              <DatatypeRef datatypeId="DT_Inversion" />
+              <Name textId="TI_VAR_Inversion_05" />
+            </RecordItem>
+            <RecordItem subindex="6" bitOffset="13">
+              <DatatypeRef datatypeId="DT_Inversion" />
+              <Name textId="TI_VAR_Inversion_06" />
+            </RecordItem>
+            <RecordItem subindex="7" bitOffset="14">
+              <DatatypeRef datatypeId="DT_Inversion" />
+              <Name textId="TI_VAR_Inversion_07" />
+            </RecordItem>
+            <RecordItem subindex="8" bitOffset="15">
+              <DatatypeRef datatypeId="DT_Inversion" />
+              <Name textId="TI_VAR_Inversion_08" />
+            </RecordItem>
+            <RecordItem subindex="9" bitOffset="0">
+              <DatatypeRef datatypeId="DT_Inversion" />
+              <Name textId="TI_VAR_Inversion_09" />
+            </RecordItem>
+            <RecordItem subindex="10" bitOffset="1">
+              <DatatypeRef datatypeId="DT_Inversion" />
+              <Name textId="TI_VAR_Inversion_10" />
+            </RecordItem>
+            <RecordItem subindex="11" bitOffset="2">
+              <DatatypeRef datatypeId="DT_Inversion" />
+              <Name textId="TI_VAR_Inversion_11" />
+            </RecordItem>
+            <RecordItem subindex="12" bitOffset="3">
+              <DatatypeRef datatypeId="DT_Inversion" />
+              <Name textId="TI_VAR_Inversion_12" />
+            </RecordItem>
+            <RecordItem subindex="13" bitOffset="4">
+              <DatatypeRef datatypeId="DT_Inversion" />
+              <Name textId="TI_VAR_Inversion_13" />
+            </RecordItem>
+            <RecordItem subindex="14" bitOffset="5">
+              <DatatypeRef datatypeId="DT_Inversion" />
+              <Name textId="TI_VAR_Inversion_14" />
+            </RecordItem>
+            <RecordItem subindex="15" bitOffset="6">
+              <DatatypeRef datatypeId="DT_Inversion" />
+              <Name textId="TI_VAR_Inversion_15" />
+            </RecordItem>
+            <RecordItem subindex="16" bitOffset="7">
+              <DatatypeRef datatypeId="DT_Inversion" />
+              <Name textId="TI_VAR_Inversion_16" />
+            </RecordItem>
+          </Datatype>
+          <Name textId="TI_VAR_Inversion" />
+          <Description textId="TI_VAR_Inversion_Descr" />
+        </Variable>
+		<Variable id="V_Error" index="68" accessRights="ro">
+          <Datatype xsi:type="RecordT" bitLength="16">
+            <RecordItem subindex="1" bitOffset="0">
+              <DatatypeRef datatypeId="DT_Error_US" />
+              <Name textId="TI_VAR_Error_US" />
+            </RecordItem>
+            <RecordItem subindex="3" bitOffset="8">
+              <DatatypeRef datatypeId="DT_Error" />
+              <Name textId="TI_VAR_Error_01" />
+            </RecordItem>
+            <RecordItem subindex="4" bitOffset="9">
+              <DatatypeRef datatypeId="DT_Error" />
+              <Name textId="TI_VAR_Error_02" />
+            </RecordItem>
+            <RecordItem subindex="5" bitOffset="10">
+              <DatatypeRef datatypeId="DT_Error" />
+              <Name textId="TI_VAR_Error_03" />
+            </RecordItem>
+            <RecordItem subindex="6" bitOffset="11">
+              <DatatypeRef datatypeId="DT_Error" />
+              <Name textId="TI_VAR_Error_04" />
+            </RecordItem>
+            <RecordItem subindex="7" bitOffset="12">
+              <DatatypeRef datatypeId="DT_Error" />
+              <Name textId="TI_VAR_Error_05" />
+            </RecordItem>
+            <RecordItem subindex="8" bitOffset="13">
+              <DatatypeRef datatypeId="DT_Error" />
+              <Name textId="TI_VAR_Error_06" />
+            </RecordItem>
+            <RecordItem subindex="9" bitOffset="14">
+              <DatatypeRef datatypeId="DT_Error" />
+              <Name textId="TI_VAR_Error_07" />
+            </RecordItem>
+            <RecordItem subindex="10" bitOffset="15">
+              <DatatypeRef datatypeId="DT_Error" />
+              <Name textId="TI_VAR_Error_08" />
+            </RecordItem>
+          </Datatype>
+          <Name textId="TI_VAR_Error" />
+          <Description textId="TI_VAR_Error_Descr" />
+        </Variable>
+		<Variable id="V_Tag" index="96" accessRights="rw">
+          <DatatypeRef datatypeId="DT_Tag" />
+		  <Name textId="TI_VAR_Tag" />
+          <Description textId="TI_VAR_Tag_Descr" />
+        </Variable>
+      </VariableCollection>
+      <ProcessDataCollection>
+        <ProcessData id="V_PdT">
+          <ProcessDataIn id="V_Pd_InT" bitLength="64">
+            <Datatype xsi:type="RecordT" bitLength="64">
+              <Name textId="TI_DT_IOL_Pd" />
+              <RecordItem subindex="1" bitOffset="56">
+                <DatatypeRef datatypeId="DT_DigitalIn" />
+                <Name textId="TI_PD_Switchstate_01" />
+              </RecordItem>
+              <RecordItem subindex="2" bitOffset="57">
+                <DatatypeRef datatypeId="DT_DigitalIn" />
+                <Name textId="TI_PD_Switchstate_02" />
+              </RecordItem>
+              <RecordItem subindex="3" bitOffset="58">
+                <DatatypeRef datatypeId="DT_DigitalIn" />
+                <Name textId="TI_PD_Switchstate_03" />
+              </RecordItem>
+              <RecordItem subindex="4" bitOffset="59">
+                <DatatypeRef datatypeId="DT_DigitalIn" />
+                <Name textId="TI_PD_Switchstate_04" />
+              </RecordItem>
+              <RecordItem subindex="5" bitOffset="60">
+                <DatatypeRef datatypeId="DT_DigitalIn" />
+                <Name textId="TI_PD_Switchstate_05" />
+              </RecordItem>
+              <RecordItem subindex="6" bitOffset="61">
+                <DatatypeRef datatypeId="DT_DigitalIn" />
+                <Name textId="TI_PD_Switchstate_06" />
+              </RecordItem>
+              <RecordItem subindex="7" bitOffset="62">
+                <DatatypeRef datatypeId="DT_DigitalIn" />
+                <Name textId="TI_PD_Switchstate_07" />
+              </RecordItem>
+              <RecordItem subindex="8" bitOffset="63">
+                <DatatypeRef datatypeId="DT_DigitalIn" />
+                <Name textId="TI_PD_Switchstate_08" />
+              </RecordItem>
+              <RecordItem subindex="9" bitOffset="48">
+                <DatatypeRef datatypeId="DT_DigitalIn" />
+                <Name textId="TI_PD_Switchstate_09" />
+              </RecordItem>
+              <RecordItem subindex="10" bitOffset="49">
+                <DatatypeRef datatypeId="DT_DigitalIn" />
+                <Name textId="TI_PD_Switchstate_10" />
+              </RecordItem>
+              <RecordItem subindex="11" bitOffset="50">
+                <DatatypeRef datatypeId="DT_DigitalIn" />
+                <Name textId="TI_PD_Switchstate_11" />
+              </RecordItem>
+              <RecordItem subindex="12" bitOffset="51">
+                <DatatypeRef datatypeId="DT_DigitalIn" />
+                <Name textId="TI_PD_Switchstate_12" />
+              </RecordItem>
+              <RecordItem subindex="13" bitOffset="52">
+                <DatatypeRef datatypeId="DT_DigitalIn" />
+                <Name textId="TI_PD_Switchstate_13" />
+              </RecordItem>
+              <RecordItem subindex="14" bitOffset="53">
+                <DatatypeRef datatypeId="DT_DigitalIn" />
+                <Name textId="TI_PD_Switchstate_14" />
+              </RecordItem>
+              <RecordItem subindex="15" bitOffset="54">
+                <DatatypeRef datatypeId="DT_DigitalIn" />
+                <Name textId="TI_PD_Switchstate_15" />
+              </RecordItem>
+              <RecordItem subindex="16" bitOffset="55">
+                <DatatypeRef datatypeId="DT_DigitalIn" />
+                <Name textId="TI_PD_Switchstate_16" />
+              </RecordItem>
+			  <RecordItem subindex="17" bitOffset="32">
+                <DatatypeRef datatypeId="DT_ErrorUS" />
+                <Name textId="TI_PD_Eror_US" />
+              </RecordItem>
+			  <RecordItem subindex="18" bitOffset="40">
+                <DatatypeRef datatypeId="DT_ErrorIn" />
+                <Name textId="TI_PD_Eror_01" />
+              </RecordItem>
+              <RecordItem subindex="19" bitOffset="41">
+                <DatatypeRef datatypeId="DT_ErrorIn" />
+                <Name textId="TI_PD_Eror_02" />
+              </RecordItem>
+              <RecordItem subindex="20" bitOffset="42">
+                <DatatypeRef datatypeId="DT_ErrorIn" />
+                <Name textId="TI_PD_Eror_03" />
+              </RecordItem>
+              <RecordItem subindex="21" bitOffset="43">
+                <DatatypeRef datatypeId="DT_ErrorIn" />
+                <Name textId="TI_PD_Eror_04" />
+              </RecordItem>
+              <RecordItem subindex="22" bitOffset="44">
+                <DatatypeRef datatypeId="DT_ErrorIn" />
+                <Name textId="TI_PD_Eror_05" />
+              </RecordItem>
+              <RecordItem subindex="23" bitOffset="45">
+                <DatatypeRef datatypeId="DT_ErrorIn" />
+                <Name textId="TI_PD_Eror_06" />
+              </RecordItem>
+              <RecordItem subindex="24" bitOffset="46">
+                <DatatypeRef datatypeId="DT_ErrorIn" />
+                <Name textId="TI_PD_Eror_07" />
+              </RecordItem>
+              <RecordItem subindex="25" bitOffset="47">
+                <DatatypeRef datatypeId="DT_ErrorIn" />
+                <Name textId="TI_PD_Eror_08" />
+              </RecordItem>
+			  <RecordItem subindex="26" bitOffset="0">
+                <DatatypeRef datatypeId="DT_TagPD" />
+                <Name textId="TI_PD_Tag" />
+              </RecordItem>
+            </Datatype>
+            <Name textId="TI_PD" />
+          </ProcessDataIn>
+        </ProcessData>
+      </ProcessDataCollection>
+      <EventCollection>
+        <!--0x5112-->
+        <Event code="20754" type="Warning" mode="AppearDisappear">
+          <Name textId="TI_Ev_LowSupply24" />
+          <Description textId="TI_EvDescr_LowSupply24" />
+        </Event>
+        <!--0x5160-->
+        <Event code="20832" type="Error" mode="AppearDisappear">
+          <Name textId="TI_Ev_ShortCircuit" />
+          <Description textId="TI_EvDescr_ShortCircuit" />
+        </Event>
+      </EventCollection>
+      <UserInterface>
+        <MenuCollection>
+          <Menu id="M_OR_MR_SR_Ident">
+            <VariableRef variableId="V_VendorName" />
+            <VariableRef variableId="V_VendorText" />
+            <VariableRef variableId="V_ProductName" />
+            <VariableRef variableId="V_ProductID" />
+            <VariableRef variableId="V_ProductText" />
+            <VariableRef variableId="V_HardwareRevision" />
+            <VariableRef variableId="V_FirmwareRevision" />
+          </Menu>
+          <Menu id="M_OR_Param">
+			<VariableRef variableId="V_Tag" accessRightRestriction="ro" displayFormat="Dec"/>
+            <VariableRef variableId="V_Inv_Record" accessRightRestriction="ro" displayFormat="Dec" />
+			<VariableRef variableId="V_Error" accessRightRestriction="ro"/>
+          </Menu>
+          <Menu id="M_MR_Param">
+			<VariableRef variableId="V_Tag" accessRightRestriction="rw" displayFormat="Dec"/>
+            <VariableRef variableId="V_Inv_Record" accessRightRestriction="rw" displayFormat="Dec" />
+			<VariableRef variableId="V_Error" accessRightRestriction="ro"/>
+          </Menu>
+          <Menu id="M_SR_Param">
+			<VariableRef variableId="V_Tag" accessRightRestriction="rw" displayFormat="Dec"/>
+            <VariableRef variableId="V_Inv_Record" accessRightRestriction="rw" displayFormat="Dec" />
+			<VariableRef variableId="V_Error" accessRightRestriction="ro"/>
+          </Menu>
+        </MenuCollection>
+        <ObserverRoleMenuSet>
+          <IdentificationMenu menuId="M_OR_MR_SR_Ident" />
+          <ParameterMenu menuId="M_OR_Param" />
+        </ObserverRoleMenuSet>
+        <MaintenanceRoleMenuSet>
+          <IdentificationMenu menuId="M_OR_MR_SR_Ident" />
+          <ParameterMenu menuId="M_MR_Param" />
+        </MaintenanceRoleMenuSet>
+        <SpecialistRoleMenuSet>
+          <IdentificationMenu menuId="M_OR_MR_SR_Ident" />
+          <ParameterMenu menuId="M_SR_Param" />
+        </SpecialistRoleMenuSet>
+      </UserInterface>
+    </DeviceFunction>
+  </ProfileBody>
+  <CommNetworkProfile xsi:type="IOLinkCommNetworkProfileT" iolinkRevision="V1.0">
+    <TransportLayers>
+      <PhysicalLayer physics="2" minCycleTime="3000" sioSupported="false" baudrate="COM2" />
+    </TransportLayers>
+  </CommNetworkProfile>
+  <ExternalTextCollection>
+    <PrimaryLanguage xml:lang="en">
+      <Text id="TI_VendorText" value="BALLUFF" />
+      <Text id="TI_VendorUrl" value="www.balluff.com" />
+      <Text id="TI_DeviceFamily" value="BNI - Sensor/Actor hub metal" />
+      <Text id="TI_Product1_Name" value="BNI IOL-104-S01-Z012-C02" />
+      <Text id="TI_Product1_Descr" value="Sensor hub metal + ID" />
+      <Text id="TI_DT_IOL_Pd" value="Datatype ProcessDataIn" />
+      <Text id="TI_PD" value="ProcessDataIn" />
+      <Text id="TI_PD_Switchstate_01" value="Switchstate port 0 pin 4" />
+      <Text id="TI_PD_Switchstate_02" value="Switchstate port 1 pin 4" />
+      <Text id="TI_PD_Switchstate_03" value="Switchstate port 2 pin 4" />
+      <Text id="TI_PD_Switchstate_04" value="Switchstate port 3 pin 4" />
+      <Text id="TI_PD_Switchstate_05" value="Switchstate port 4 pin 4" />
+      <Text id="TI_PD_Switchstate_06" value="Switchstate port 5 pin 4" />
+      <Text id="TI_PD_Switchstate_07" value="Switchstate port 6 pin 4" />
+      <Text id="TI_PD_Switchstate_08" value="Switchstate port 7 pin 4" />
+      <Text id="TI_PD_Switchstate_09" value="Switchstate port 0 pin 2" />
+      <Text id="TI_PD_Switchstate_10" value="Switchstate port 1 pin 2" />
+      <Text id="TI_PD_Switchstate_11" value="Switchstate port 2 pin 2" />
+      <Text id="TI_PD_Switchstate_12" value="Switchstate port 3 pin 2" />
+      <Text id="TI_PD_Switchstate_13" value="Switchstate port 4 pin 2" />
+      <Text id="TI_PD_Switchstate_14" value="Switchstate port 5 pin 2" />
+      <Text id="TI_PD_Switchstate_15" value="Switchstate port 6 pin 2" />
+      <Text id="TI_PD_Switchstate_16" value="Switchstate port 7 pin 2" />
+      <Text id="TI_PD_DigitalIn_high" value="true" />
+      <Text id="TI_PD_DigitalIn_low" value="false" />
+	  <Text id="TI_PD_Eror_01" value="Error port 0" />
+      <Text id="TI_PD_Eror_02" value="Error port 1" />
+      <Text id="TI_PD_Eror_03" value="Error port 2" />
+      <Text id="TI_PD_Eror_04" value="Error port 3" />
+      <Text id="TI_PD_Eror_05" value="Error port 4" />
+      <Text id="TI_PD_Eror_06" value="Error port 5" />
+      <Text id="TI_PD_Eror_07" value="Error port 6" />
+      <Text id="TI_PD_Eror_08" value="Error port 7" />
+      <Text id="TI_PD_ErrorIn_on" value="Short circuit" />
+      <Text id="TI_PD_ErrorIn_off" value="ok" />
+	  <Text id="TI_PD_Eror_US" value="Error sensor voltage" />
+	  <Text id="TI_PD_ErrorUS_on" value="Low sensor voltage" />
+      <Text id="TI_PD_ErrorUS_off" value="ok" />
+	  <Text id="TI_PD_Tag" value="Application specific tag " />
+	  <Text id="TI_VAR_Tag" value="Application specific tag" />
+	  <Text id="TI_VAR_Tag_Descr" value="Application specific tag" />
+	  <Text id="TI_VAR_Error" value="Error" />
+	  <Text id="TI_VAR_Error_01" value="Error Port 0" />
+      <Text id="TI_VAR_Error_02" value="Error Port 1" />
+      <Text id="TI_VAR_Error_03" value="Error Port 2" />
+      <Text id="TI_VAR_Error_04" value="Error Port 3" />
+      <Text id="TI_VAR_Error_05" value="Error Port 4" />
+      <Text id="TI_VAR_Error_06" value="Error Port 5" />
+      <Text id="TI_VAR_Error_07" value="Error Port 6" />
+      <Text id="TI_VAR_Error_08" value="Error Port 7" />
+      <Text id="TI_VAR_Error_On" value="Short circuit" />
+      <Text id="TI_VAR_Error_Off" value="Ok" />
+      <Text id="TI_VAR_Error_Descr" value="Error on single port" />
+	  <Text id="TI_VAR_Error_US" value="Undervoltage" />
+	  <Text id="TI_VAR_Error_US_On" value="Undervoltage" />
+      <Text id="TI_VAR_Error_US_Off" value="Ok" />
+      <Text id="TI_VAR_Inversion" value="Inversion" />
+      <Text id="TI_VAR_Inversion_01" value="Inversion port 0 pin 4" />
+      <Text id="TI_VAR_Inversion_02" value="Inversion port 1 pin 4" />
+      <Text id="TI_VAR_Inversion_03" value="Inversion port 2 pin 4" />
+      <Text id="TI_VAR_Inversion_04" value="Inversion port 3 pin 4" />
+      <Text id="TI_VAR_Inversion_05" value="Inversion port 4 pin 4" />
+      <Text id="TI_VAR_Inversion_06" value="Inversion port 5 pin 4" />
+      <Text id="TI_VAR_Inversion_07" value="Inversion port 6 pin 4" />
+      <Text id="TI_VAR_Inversion_08" value="Inversion port 7 pin 4" />
+      <Text id="TI_VAR_Inversion_09" value="Inversion port 0 pin 2" />
+      <Text id="TI_VAR_Inversion_10" value="Inversion port 1 pin 2" />
+      <Text id="TI_VAR_Inversion_11" value="Inversion port 2 pin 2" />
+      <Text id="TI_VAR_Inversion_12" value="Inversion port 3 pin 2" />
+      <Text id="TI_VAR_Inversion_13" value="Inversion port 4 pin 2" />
+      <Text id="TI_VAR_Inversion_14" value="Inversion port 5 pin 2" />
+      <Text id="TI_VAR_Inversion_15" value="Inversion port 6 pin 2" />
+      <Text id="TI_VAR_Inversion_16" value="Inversion port 7 pin 2" />
+      <Text id="TI_VAR_Inversion_On" value="Input inverted" />
+      <Text id="TI_VAR_Inversion_Off" value="Input not inverted" />
+      <Text id="TI_VAR_Inversion_Descr" value="Inverts the input signal" />
+      <Text id="TI_Ev_ShortCircuit" value="Short circuit" />
+      <Text id="TI_EvDescr_ShortCircuit" value="Short circuit" />
+      <Text id="TI_Ev_LowSupply24" value="Low supply voltage 24V" />
+      <Text id="TI_EvDescr_LowSupply24" value="Low supply voltage 24V" />
+    </PrimaryLanguage>
+  </ExternalTextCollection>
+  <Stamp crc="2783951073"><Checker name="IODD-Checker V1.0.10" version="V1.0.10.0"/></Stamp>
+</IODevice>

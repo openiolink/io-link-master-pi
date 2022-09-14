@@ -1,0 +1,644 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<IODevice xmlns="http://www.io-link.com/IODD/2010/10" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.io-link.com/IODD/2010/10 IODD1.1.xsd">
+    <DocumentInfo version="V1.02" releaseDate="2017-10-09" copyright="Copyright 2017, Balluff GmbH" />
+    <ProfileHeader>
+        <ProfileIdentification>IO Device Profile</ProfileIdentification>
+        <ProfileRevision>1.1</ProfileRevision>
+        <ProfileName>Device Profile for IO Devices</ProfileName>
+        <ProfileSource>IO-Link Consortium</ProfileSource>
+        <ProfileClassID>Device</ProfileClassID>
+        <ISO15745Reference>
+            <ISO15745Part>1</ISO15745Part>
+            <ISO15745Edition>1</ISO15745Edition>
+            <ProfileTechnology>IODD</ProfileTechnology>
+        </ISO15745Reference>
+    </ProfileHeader>
+    <ProfileBody>
+        <!-- legend for identifiers:
+            INF - information, identification
+            REC - record item (e.g. sub-indices within an index)
+            VAR - variable label or identifiers (V for standard variables)
+            CMD - system command label
+            VAL - specific value for a certain variable
+            PD - process data elements
+            DTYPE - name of a data type defined in DatatypeCollection
+            MENU - name of a menu
+            SMENU - name of a submenu
+            The textID (label) for those items are named the same with a "TI_" prefix
+        -->
+        <DeviceIdentity vendorId="888" vendorName="Balluff" deviceId="131847">  <!-- device ID: 0x02 0x03 0x07 -->
+            <VendorText textId="TI_INF_VendorText" />
+            <VendorUrl textId="TI_INF_VendorUrl" />
+            <VendorLogo name="Balluff-logo.png" />
+            <DeviceName textId="TI_INF_DeviceName" />
+            <DeviceFamily textId="TI_INF_DeviceFamily" />
+            <DeviceVariantCollection>
+                <DeviceVariant productId="BIP0014" deviceSymbol="Balluff-BIP0014-pic.png" deviceIcon="Balluff-BIP0014-icon.png">
+                    <Name textId="TI_Variant_BIP0014" />
+                    <Description textId="TI_Description_BIP0014" />
+                </DeviceVariant>
+            </DeviceVariantCollection>
+        </DeviceIdentity>
+        <DeviceFunction>
+            <Features blockParameter="true" dataStorage="true">
+                <SupportedAccessLocks dataStorage="true" parameter="true" localUserInterface="false" localParameterization="false" />
+            </Features>
+            <DatatypeCollection>
+            
+                <!-- Data type definition for the out-of-range bit in the Process Data -->
+                <Datatype id="DTYPE_PD_OutOfRange_Bit" xsi:type="BooleanT">
+                    <SingleValue xsi:type="BooleanValueT" value="false">
+                        <Name textId="TI_VAL_PD_TargetInRange" />
+                    </SingleValue>
+                    <SingleValue xsi:type="BooleanValueT" value="true">
+                        <Name textId="TI_VAL_PD_TargetOutOfRange" />
+                    </SingleValue>
+                </Datatype>
+                
+                <!-- Data type definition for the teach-in status byte (sub-index 0 access only!) -->
+                <Datatype id="DTYPE_Linear_TeachinStatus" xsi:type="RecordT" bitLength="8" subindexAccessSupported="false">
+                    <RecordItem subindex="1" bitOffset="6">
+                        <SimpleDatatype xsi:type="BooleanT">
+                            <SingleValue xsi:type="BooleanValueT" value="false">
+                                <Name textId="TI_VAL_Linear_TeachinStatus_End_NotSet" />
+                            </SingleValue>
+                            <SingleValue xsi:type="BooleanValueT" value="true">
+                                <Name textId="TI_VAL_Linear_TeachinStatus_End_Set" />
+                            </SingleValue>
+                        </SimpleDatatype>
+                        <Name textId="TI_REC_Linear_TeachinStatus_End_Bit" />
+                    </RecordItem>
+                    <RecordItem subindex="2" bitOffset="4">
+                        <SimpleDatatype xsi:type="BooleanT">
+                            <SingleValue xsi:type="BooleanValueT" value="false">
+                                <Name textId="TI_VAL_Linear_TeachinStatus_Start_NotSet" />
+                            </SingleValue>
+                            <SingleValue xsi:type="BooleanValueT" value="true">
+                                <Name textId="TI_VAL_Linear_TeachinStatus_Start_Set" />
+                            </SingleValue>
+                        </SimpleDatatype>
+                        <Name textId="TI_REC_Linear_TeachinStatus_Start_Bit" />
+                    </RecordItem>
+                    <RecordItem subindex="3" bitOffset="0">
+                        <SimpleDatatype xsi:type="UIntegerT" bitLength="4">
+                            <SingleValue value="0">
+                                <Name textId="TI_VAL_Linear_TeachinState_Idle" />
+                                <!-- No teach-in in progress -->
+                            </SingleValue>
+                            <SingleValue value="1">
+                                <Name textId="TI_VAL_Linear_TeachinState_Start" />
+                                <!-- Start-position is set, waiting for end-position -->
+                            </SingleValue>
+                            <SingleValue value="4">
+                                <Name textId="TI_VAL_Linear_TeachinState_WaitForCmd" />
+                                <!-- Start- and end-position is set, waiting for apply -->
+                            </SingleValue>
+                            <SingleValue value="7">
+                                <Name textId="TI_VAL_Linear_TeachinState_Error" />
+                                <!-- Error during SP1 set or apply(?) -->
+                            </SingleValue>
+                            <SingleValue value="14">
+                                <Name textId="TI_VAL_Linear_TeachinState_Success" />
+                                <!-- Linearity range taught-in successfully -->
+                            </SingleValue>
+                        </SimpleDatatype>
+                        <Name textId="TI_REC_Linear_TeachinStatus_State" />
+                    </RecordItem>
+                </Datatype>
+                
+                <!-- Data type definition for the sensor usage data -->
+                <Datatype id="DTYPE_SensorUsageCounters" xsi:type="RecordT" bitLength="96">
+                    <RecordItem subindex="1" bitOffset="64">
+                        <SimpleDatatype xsi:type="UIntegerT" bitLength="32" />
+                        <Name textId="TI_REC_OperatingHoursCounters_Total" />
+                    </RecordItem>
+                    <RecordItem subindex="2" bitOffset="32">
+                        <SimpleDatatype xsi:type="UIntegerT" bitLength="32" />
+                        <Name textId="TI_REC_OperatingHoursCounters_User" />
+                    </RecordItem>
+                    <RecordItem subindex="3" bitOffset="0">
+                        <SimpleDatatype xsi:type="UIntegerT" bitLength="32" />
+                        <Name textId="TI_REC_OperatingHoursCounters_Startup" />
+                    </RecordItem>
+                </Datatype>
+                
+                <!-- Data type definition for the sensor startup counters -->
+                <Datatype id="DTYPE_SensorStartupCounters" xsi:type="RecordT" bitLength="64">
+                    <RecordItem subindex="1" bitOffset="32">
+                        <SimpleDatatype xsi:type="UIntegerT" bitLength="32" />
+                        <Name textId="TI_REC_SensorStartupCounters_Total" />
+                    </RecordItem>
+                    <RecordItem subindex="2" bitOffset="0">
+                        <SimpleDatatype xsi:type="UIntegerT" bitLength="32" />
+                        <Name textId="TI_REC_SensorStartupCounters_User" />
+                    </RecordItem>
+                </Datatype>
+                
+                <!-- Data type definition for the internal temperature values -->
+                <Datatype id="DTYPE_DeviceTemperatures" xsi:type="RecordT" bitLength="40">
+                    <RecordItem subindex="1" bitOffset="32">
+                        <SimpleDatatype xsi:type="UIntegerT" bitLength="8" />
+                        <Name textId="TI_REC_DeviceTemperatures_Current" />
+                    </RecordItem>
+                    <RecordItem subindex="2" bitOffset="24">
+                        <SimpleDatatype xsi:type="UIntegerT" bitLength="8" />
+                        <Name textId="TI_REC_DeviceTemperatures_StartupMin" />
+                    </RecordItem>
+                    <RecordItem subindex="3" bitOffset="16">
+                        <SimpleDatatype xsi:type="UIntegerT" bitLength="8" />
+                        <Name textId="TI_REC_DeviceTemperatures_StartupMax" />
+                    </RecordItem>
+                    <RecordItem subindex="4" bitOffset="8">
+                        <SimpleDatatype xsi:type="UIntegerT" bitLength="8" />
+                        <Name textId="TI_REC_DeviceTemperatures_LifetimeMin" />
+                    </RecordItem>
+                    <RecordItem subindex="5" bitOffset="0">
+                        <SimpleDatatype xsi:type="UIntegerT" bitLength="8" />
+                        <Name textId="TI_REC_DeviceTemperatures_LifetimeMax" />
+                    </RecordItem>
+                </Datatype>
+            </DatatypeCollection>
+            
+            <VariableCollection>
+                <!-- List of the variables defined by the IO-link standard -->
+                <StdVariableRef id="V_DirectParameters_1" />
+                <StdVariableRef id="V_DirectParameters_2" excludedFromDataStorage="true" />
+                <StdVariableRef id="V_SystemCommand">
+                    <StdSingleValueRef value="130" />
+                    <SingleValue value="165">
+                        <Name textId="TI_CMD_Reset_Maintenance" />
+                    </SingleValue>
+                    <SingleValue value="224">
+                        <Name textId="TI_CMD_Linear_Teachin_Apply" />
+                    </SingleValue>
+                    <SingleValue value="225">
+                        <Name textId="TI_CMD_Linear_Teachin_Start" />
+                    </SingleValue>
+                    <SingleValue value="226">
+                        <Name textId="TI_CMD_Linear_Teachin_End" />
+                    </SingleValue>
+                    <SingleValue value="234">
+                        <Name textId="TI_CMD_Linear_Teachin_Init" />
+                    </SingleValue>
+                    <SingleValue value="235">
+                        <Name textId="TI_CMD_Linear_Teachin_Invert" />
+                    </SingleValue>
+                    <SingleValue value="238">
+                        <Name textId="TI_CMD_Linear_Teachin_Reset" />
+                    </SingleValue>
+                    <SingleValue value="239">
+                        <Name textId="TI_CMD_Linear_Teachin_Clear" />
+                    </SingleValue>
+                    
+                    <!-- Restore factory settings -->
+                </StdVariableRef>
+                <!-- <StdVariableRef id="V_DeviceAccessLocks" /> -->
+                <StdVariableRef id="V_DeviceAccessLocks" >
+                    <StdRecordItemRef subindex="1" defaultValue="false" />
+                    <StdRecordItemRef subindex="2" defaultValue="false" />
+                </StdVariableRef>
+                <StdVariableRef id="V_VendorName" defaultValue="BALLUFF" />
+                <StdVariableRef id="V_VendorText" defaultValue="innovating automation" />
+                <StdVariableRef id="V_ProductName" defaultValue="BIP LD2-T103-03-S75" />
+                <StdVariableRef id="V_ProductID" />     <!-- The productID should not have a default value! -->
+                <StdVariableRef id="V_ProductText" defaultValue="Inductive Positioning System" />
+                <StdVariableRef id="V_HardwareRevision" defaultValue="v01" />
+                <StdVariableRef id="V_FirmwareRevision" defaultValue="v1.00.002" />
+                <StdVariableRef id="V_ApplicationSpecificTag" defaultValue="***" fixedLengthRestriction="32" />
+                
+                <!-- Device Temperature values at index 0x0052 (Balluff) -->
+                <Variable id="VAR_DeviceTemperatures" index="82" accessRights="ro" dynamic="true">
+                    <DatatypeRef datatypeId="DTYPE_DeviceTemperatures" />
+                    <Name textId="TI_VAR_DeviceTemperatures" />
+                </Variable>
+                
+                <!-- User accessible variant at index 0x0055 (Balluff)-->
+                <Variable id="VAR_User_Variant" index="85" accessRights="rw" defaultValue="0">
+                    <Datatype xsi:type="UIntegerT" bitLength="8" />
+                    <Name textId="TI_VAR_User_Variant" />
+                </Variable>
+                
+                <!-- Communication Speed Value at index 0x0056 (Balluff) -->
+                <Variable id="VAR_CommunicationSpeed" index="86" accessRights="ro" defaultValue="2">
+                    <Datatype xsi:type="UIntegerT" bitLength="8">
+                        <SingleValue value="2">
+                            <Name textId="TI_VAL_CommunicationSpeed_COM2" />
+                        </SingleValue>
+                    </Datatype>
+                    <Name textId="TI_VAR_CommunicationSpeed" />
+                </Variable>
+                
+                <!-- Sensor Usage Hour Counters at index 0x0057 (Balluff) -->
+                <Variable id="VAR_OperatingHoursCounters" index="87" accessRights="ro" dynamic="true">
+                    <DatatypeRef datatypeId="DTYPE_SensorUsageCounters" />
+                    <Name textId="TI_VAR_OperatingHoursCounters" />
+                </Variable>
+                
+                <!-- Sensor Startup Counter at index 0x0058 (Balluff) -->
+                <Variable id="VAR_SensorStartupCounter" index="88" accessRights="ro" dynamic="true">
+                    <DatatypeRef datatypeId="DTYPE_SensorStartupCounters" />
+                    <Name textId="TI_VAR_SensorStartupCounter" />
+                </Variable>
+                
+                <!-- Output-to-distance transformation steepness at index 0x00C0 (Balluff-BM) -->
+                <Variable id="VAR_OutputSteepness" index="192" accessRights="ro" defaultValue="0.02515">
+                    <Datatype xsi:type="Float32T" />
+                    <Name textId="TI_VAR_OutputSteepness" />
+                </Variable>
+                
+                <!-- Output-to-distance transformation offset at index 0x00C1 (Balluff-BM) -->
+                <Variable id="VAR_OutputOffset" index="193" accessRights="ro" defaultValue="0">
+                    <Datatype xsi:type="Float32T" />
+                    <Name textId="TI_VAR_OutputOffset" />
+                </Variable>
+                
+                <!-- Output inversion byte at index 0x00C5 (Balluff-BM) -->
+                <Variable id="VAR_OutputInversion" index="197" accessRights="rw" defaultValue="0">
+                    <Datatype xsi:type="UIntegerT" bitLength="8">
+                        <SingleValue value="0">
+                            <Name textId="TI_VAL_OutputInversion_Normal" />
+                        </SingleValue>
+                        <SingleValue value="1">
+                            <Name textId="TI_VAL_OutputInversion_Inverted" />
+                        </SingleValue>
+                    </Datatype>
+                    <Name textId="TI_VAR_OutputInversion" />
+                </Variable>
+                
+                <!-- Current linearity range borders in um at index 0x00C8 (Balluff-BM) -->
+                <Variable id="VAR_CurrentDistances" index="200" accessRights="ro">
+                    <Datatype xsi:type="RecordT" bitLength="64">
+                        <RecordItem subindex="1" bitOffset="32">
+                            <SimpleDatatype xsi:type="Float32T">
+                                <ValueRange lowerValue="0" upperValue="103" />
+                            </SimpleDatatype>
+                            <Name textId="TI_REC_CurrentDistances_Slmin" />
+                        </RecordItem>
+                        <RecordItem subindex="2" bitOffset="0">
+                            <SimpleDatatype xsi:type="Float32T">
+                                <ValueRange lowerValue="0" upperValue="103" />
+                            </SimpleDatatype>
+                            <Name textId="TI_REC_CurrentDistances_Slmax" />
+                        </RecordItem>
+                    </Datatype>
+                    <RecordItemInfo subindex="1" defaultValue="0" />
+                    <RecordItemInfo subindex="2" defaultValue="103" />
+                    <Name textId="TI_VAR_CurrentDistances" />
+                </Variable>
+                
+                <!-- Record item to show the current teach-in status for linearity range -->
+                <Variable id="VAR_Linear_TeachinStatus" index="202" accessRights="ro">
+                    <DatatypeRef datatypeId="DTYPE_Linear_TeachinStatus" />
+                    <RecordItemInfo subindex="1" defaultValue="false" />
+                    <RecordItemInfo subindex="2" defaultValue="false" />
+                    <RecordItemInfo subindex="3" defaultValue="0" />
+                    <Name textId="TI_VAR_Linear_TeachinStatus" />
+                </Variable>
+            </VariableCollection>
+            <ProcessDataCollection>
+                <ProcessData id="V_ProcessData">
+                    <!-- Definition of the Process Data In structure including a 12-bit "analog" data (MSBs), an out-of-range bit and 3 BinaryDataChannels -->
+                    <ProcessDataIn id="V_ProcessDataIn" bitLength="16">
+                        <Datatype xsi:type="RecordT" bitLength="16">
+                            <RecordItem subindex="1" bitOffset="4">
+                                <SimpleDatatype xsi:type="UIntegerT" bitLength="12" />
+                                <Name textId="TI_REC_PD_TargetPosition" />
+                            </RecordItem>
+                            <RecordItem subindex="2" bitOffset="3">
+                                <DatatypeRef datatypeId="DTYPE_PD_OutOfRange_Bit" />
+                                <Name textId="TI_REC_PD_OutOfRangeBit" />
+                            </RecordItem>
+                        </Datatype>
+                        <Name textId="TI_VAR_PD_ProcessDataInput" />
+                    </ProcessDataIn>
+                </ProcessData>
+            </ProcessDataCollection>
+            
+            <ErrorTypeCollection>
+                <StdErrorTypeRef additionalCode="17" />     <!-- Index not available -->
+                <StdErrorTypeRef additionalCode="18" />     <!-- Sub-index not available -->
+                <StdErrorTypeRef additionalCode="35" />     <!-- Access denied -->
+                <StdErrorTypeRef additionalCode="48" />     <!-- Value out-of-range -->
+                <StdErrorTypeRef additionalCode="51" />     <!-- Parameter length overrun -->
+                <StdErrorTypeRef additionalCode="52" />     <!-- Parameter length underrun -->
+                <StdErrorTypeRef additionalCode="53" />     <!-- Function not available -->
+                <StdErrorTypeRef additionalCode="54" />     <!-- Function not available temp -->
+                <StdErrorTypeRef additionalCode="64" />     <!-- Invalid parameter set -->
+                <StdErrorTypeRef additionalCode="65" />     <!-- Inconsistent parameter set -->
+            </ErrorTypeCollection>
+            
+            <UserInterface>
+                <MenuCollection>
+                    <!-- The menu system consists of menus and sub-menus for different user access roles
+                        The following pre- and suffixes are used in this part:
+                        MENU_ - menu identifier
+                        MENU_SUB_ - sub-menu
+                        MMENU - main menu for different roles and types (e.g. IdentificationMenu in MaintenanceRoleMenuSet)
+                        _O/M/S - suffix for different user roles: (O)bserver, (M)aintenance, (S)pecialist
+                        The textID (label) for those items are named the same with a "TI_" prefix
+                    -->
+                    
+                    <!-- Menu for the direct parameter 1 structure elements can be found on Generic tab, no need to add it explicitly -->
+                    
+                    <!-- Menu for common sensor information (O/M/S roles) -->
+                    <Menu id="MENU_Information_OMS">
+                        <Name textId="TI_MENU_Information" />
+                        <VariableRef variableId="V_VendorName" />
+                        <VariableRef variableId="V_VendorText" />
+                        <VariableRef variableId="V_ProductName" />
+                        <VariableRef variableId="V_ProductText" />
+                        <VariableRef variableId="V_ProductID" />
+                        <VariableRef variableId="V_HardwareRevision" />
+                        <VariableRef variableId="V_FirmwareRevision" />
+                        <VariableRef variableId="VAR_CommunicationSpeed" />
+                    </Menu>
+                    
+                    <!-- Menu for user accessable sensor identification (O role) -->
+                    <Menu id="MENU_Identification_O">
+                        <Name textId="TI_MENU_Identification" />
+                        <VariableRef variableId="V_ApplicationSpecificTag" accessRightRestriction="ro" />
+                        <VariableRef variableId="VAR_User_Variant" accessRightRestriction="ro" />
+                    </Menu>
+                    
+                    <!-- Menu for user accessable sensor identification (M/S roles) -->
+                    <Menu id="MENU_Identification_MS">
+                        <Name textId="TI_MENU_Identification" />
+                        <VariableRef variableId="V_ApplicationSpecificTag" />
+                        <VariableRef variableId="VAR_User_Variant" />
+                    </Menu>
+                        
+                    <!-- Main menu for variables to identify the type and version of the sensor (O role) -->
+                    <Menu id="MMENU_Identification_O">
+                        <Name textId="TI_MMENU_Identification" />
+                        <MenuRef menuId="MENU_Information_OMS" />
+                        <MenuRef menuId="MENU_Identification_O" />
+                    </Menu>
+                    
+                    
+                    <!-- Main menu for variables to identify the type and version of the sensor (M/S roles) -->
+                    <Menu id="MMENU_Identification_MS">
+                        <Name textId="TI_MMENU_Identification" />
+                        <MenuRef menuId="MENU_Information_OMS" />
+                        <MenuRef menuId="MENU_Identification_MS" />
+                    </Menu>
+                    
+                    
+                    <!-- Menu for the internal temperature structure elements -->
+                    <Menu id="MENU_DeviceTemperatures_OMS">
+                        <Name textId="TI_MENU_DeviceTemperatures_OMS" />
+                        <RecordItemRef variableId="VAR_DeviceTemperatures" subindex="1" unitCode="1001" displayFormat="Dec" />
+                        <RecordItemRef variableId="VAR_DeviceTemperatures" subindex="2" unitCode="1001" displayFormat="Dec" />
+                        <RecordItemRef variableId="VAR_DeviceTemperatures" subindex="3" unitCode="1001" displayFormat="Dec" />
+                        <RecordItemRef variableId="VAR_DeviceTemperatures" subindex="4" unitCode="1001" displayFormat="Dec" />
+                        <RecordItemRef variableId="VAR_DeviceTemperatures" subindex="5" unitCode="1001" displayFormat="Dec" />
+                    </Menu>
+                    
+                    <!-- Menu for lifetime operation counters/timers (O/M/S roles) -->
+                    <Menu id="MENU_Diagnosis_Operating_OMS">
+                        <Name textId="TI_MENU_Diagnosis_Operating_OMS" />
+                        <RecordItemRef variableId="VAR_OperatingHoursCounters" subindex="1" unitCode="1059" displayFormat="Dec" />
+                        <RecordItemRef variableId="VAR_OperatingHoursCounters" subindex="2" unitCode="1059" displayFormat="Dec" />
+                        <RecordItemRef variableId="VAR_OperatingHoursCounters" subindex="3" unitCode="1059" displayFormat="Dec" />
+                    </Menu>
+                    
+                    <!-- Menu for startup counters (O/M/S roles) -->
+                    <Menu id="MENU_Diagnosis_Startup_OMS">
+                        <Name textId="TI_MENU_Diagnosis_Startup_OMS" />
+                        <RecordItemRef variableId="VAR_SensorStartupCounter" subindex="1" displayFormat="Dec" />
+                        <RecordItemRef variableId="VAR_SensorStartupCounter" subindex="2" displayFormat="Dec" />
+                    </Menu>
+                    
+                    <!-- Variables to add information about the sensor output (O role) -->
+                    <Menu id="MENU_Output_Information_O">
+                        <Name textId="TI_MENU_Output_Information" />
+                        <VariableRef variableId="VAR_OutputSteepness" displayFormat="Dec.4" />
+                        <VariableRef variableId="VAR_OutputOffset" displayFormat="Dec.4" />
+                        <VariableRef variableId="VAR_OutputInversion" accessRightRestriction="ro" />
+                        <RecordItemRef variableId="VAR_CurrentDistances" subindex="1" unitCode="1013" displayFormat="Dec" />
+                        <RecordItemRef variableId="VAR_CurrentDistances" subindex="2" unitCode="1013" displayFormat="Dec" />
+                    </Menu>
+                    
+                    <!-- Variables to add information about the sensor output (M/S roles) -->
+                    <Menu id="MENU_Output_Information_MS">
+                        <Name textId="TI_MENU_Output_Information" />
+                        <VariableRef variableId="VAR_OutputSteepness" displayFormat="Dec.4" />
+                        <VariableRef variableId="VAR_OutputOffset" displayFormat="Dec.4" />
+                        <VariableRef variableId="VAR_OutputInversion" />
+                        <RecordItemRef variableId="VAR_CurrentDistances" subindex="1" unitCode="1013" displayFormat="Dec" />
+                        <RecordItemRef variableId="VAR_CurrentDistances" subindex="2" unitCode="1013" displayFormat="Dec" />
+                    </Menu>
+                    
+                    <!-- Main menu for observation tab (O role) -->
+                    <Menu id="MMENU_Observation_O">
+                        <Name textId="TI_MMENU_Observation" />
+                        <MenuRef menuId="MENU_Output_Information_O" />
+                    </Menu>
+                    
+                    <!-- Main menu for observation tab (O role) -->
+                    <Menu id="MMENU_Observation_MS">
+                        <Name textId="TI_MMENU_Observation" />
+                        <MenuRef menuId="MENU_Output_Information_MS" />
+                    </Menu>
+                    
+                    <!-- Main menu for observation tab (O role) -->
+                    <Menu id="MMENU_Diagnosis_O">
+                        <Name textId="TI_MMENU_Diagnosis" />
+                        <MenuRef menuId="MENU_Diagnosis_Operating_OMS" />
+                        <MenuRef menuId="MENU_Diagnosis_Startup_OMS" />
+                    </Menu>
+                    
+                    <!-- Main menu for observation tab (O role) -->
+                    <Menu id="MMENU_Diagnosis_MS">
+                        <Name textId="TI_MMENU_Diagnosis" />
+                        <VariableRef variableId="V_SystemCommand">      <!-- System command button for reset maintenance -->
+                            <Button buttonValue="165" />
+                        </VariableRef>
+                        <MenuRef menuId="MENU_Diagnosis_Operating_OMS" />
+                        <MenuRef menuId="MENU_Diagnosis_Startup_OMS" />
+                        <MenuRef menuId="MENU_DeviceTemperatures_OMS" />
+                    </Menu>
+                    
+                    <!-- System commands for sensor output teach-in -->
+                    <Menu id="MENU_Teachin_MS">
+                        <Name textId="TI_MENU_Teachin_MS" />
+                        <VariableRef variableId="V_SystemCommand">      <!-- System command button for teach-in start -->
+                            <Button buttonValue="234" />
+                        </VariableRef>
+                        <VariableRef variableId="V_SystemCommand">      <!-- System command button for teach-in set start position -->
+                            <Button buttonValue="225" />
+                        </VariableRef>
+                        <VariableRef variableId="V_SystemCommand">      <!-- System command button for teach-in set end position -->
+                            <Button buttonValue="226" />
+                        </VariableRef>
+                        <VariableRef variableId="V_SystemCommand">      <!-- System command button for teach-in apply -->
+                            <Button buttonValue="224" />
+                        </VariableRef>
+                        <VariableRef variableId="V_SystemCommand">      <!-- System command button for output inversion -->
+                            <Button buttonValue="235" />
+                        </VariableRef>
+                        <VariableRef variableId="V_SystemCommand">      <!-- System command button for teach-in clear -->
+                            <Button buttonValue="239" />
+                        </VariableRef>
+                        <VariableRef variableId="V_SystemCommand">      <!-- System command button for teach-in reset -->
+                            <Button buttonValue="238" />
+                        </VariableRef>
+                        <RecordItemRef variableId="VAR_Linear_TeachinStatus" subindex="1" />
+                        <RecordItemRef variableId="VAR_Linear_TeachinStatus" subindex="2" />
+                        <RecordItemRef variableId="VAR_Linear_TeachinStatus" subindex="3" />
+                    </Menu>
+                    
+                    <Menu id="MENU_AccessLocks_MS">
+                        <Name textId="TI_MENU_AccessLocks_MS" />
+                        <VariableRef variableId="V_DeviceAccessLocks" />
+                        <!--<StdRecordItemRef variableId="V_DeviceAccessLocks" subindex="1" defaultValue="false" />
+                        <StdRecordItemRef variableId="V_DeviceAccessLocks" subindex="2" defaultValue="false" /> -->
+                    </Menu>
+                    
+                    <!-- Main menu for parameter tab (M/S role) -->
+                    <Menu id="MMENU_Parameter_MS">
+                        <Name textId="TI_MMENU_Parameter_MS" />
+                        <VariableRef variableId="V_SystemCommand">      <!-- System command button for restore factory settings -->
+                            <Button buttonValue="130" />
+                        </VariableRef>
+                        <MenuRef menuId="MENU_AccessLocks_MS" />
+                        <MenuRef menuId="MENU_Teachin_MS" />
+                    </Menu>
+                </MenuCollection>
+                
+                <ObserverRoleMenuSet>
+                    <IdentificationMenu menuId="MMENU_Identification_O" />
+                    <ObservationMenu menuId="MMENU_Observation_O" />
+                    <DiagnosisMenu menuId="MMENU_Diagnosis_O" />
+                </ObserverRoleMenuSet>
+                <MaintenanceRoleMenuSet>
+                    <IdentificationMenu menuId="MMENU_Identification_MS" />
+                    <ObservationMenu menuId="MMENU_Observation_MS" />
+                    <DiagnosisMenu menuId="MMENU_Diagnosis_MS" />
+                </MaintenanceRoleMenuSet>
+                <SpecialistRoleMenuSet>
+                    <IdentificationMenu menuId="MMENU_Identification_MS" />
+                    <ParameterMenu menuId="MMENU_Parameter_MS" />
+                    <ObservationMenu menuId="MMENU_Observation_MS" />
+                    <DiagnosisMenu menuId="MMENU_Diagnosis_MS" />
+                </SpecialistRoleMenuSet>
+                
+            </UserInterface>
+        </DeviceFunction>
+    </ProfileBody>
+    <CommNetworkProfile xsi:type="IOLinkCommNetworkProfileT" iolinkRevision="V1.1">
+        <TransportLayers>
+            <PhysicalLayer bitrate="COM2" minCycleTime="3000" sioSupported="false" mSequenceCapability="17">
+                <Connection xsi:type="M8ConnectionT" connectionSymbol="Balluff-S75-con-pic.png">
+                    <ProductRef productId="BIP0014" />
+                    <Wire1 function="L+" />
+                    <Wire2 function="NC" />
+                    <Wire3 function="L-" />
+                    <Wire4 function="C/Q" />
+                </Connection>
+            </PhysicalLayer>
+        </TransportLayers>
+        <Test>
+            <Config1 index="85" testValue="0xAC" />     <!-- customer HW descriptor byte for testing -->
+            <Config2 index="16368" testValue="0xB7" />
+            <!-- Read/write test value for the Application Specific Tag (index 0x0018) using text 'ISDU 16-bit write test value!' -->
+            <Config3 index="24" testValue="0x49,0x53,0x44,0x55,0x20,0x31,0x36,0x2d,0x62,0x69,0x74,0x20,0x77,0x72,0x69,0x74,0x65,0x20,0x74,0x65,0x73,0x74,0x20,0x76,0x61,0x6c,0x75,0x65,0x21" />
+        </Test>
+    </CommNetworkProfile>
+    <ExternalTextCollection>
+        <PrimaryLanguage xml:lang="en">
+            <!-- Text IDs for common internal parameters -->
+            <Text id="TI_INF_VendorText" value="innovating automation" />
+            <Text id="TI_INF_VendorUrl" value="http://www.balluff.com" />
+            <Text id="TI_INF_DeviceFamily" value="BIP - Balluff Inductive Positioning System" />
+            <Text id="TI_INF_DeviceName" value="BIP LD2-T103" />
+            <Text id="TI_Variant_BIP0014" value="BIP LD2-T103-03-S75" />
+            <Text id="TI_Description_BIP0014" value="Inductive Positioning System" />
+            <!-- Data type text IDs for Process Data elements -->
+            <Text id="TI_VAR_PD_ProcessDataInput" value="Process Data Inputs" />
+            <Text id="TI_REC_PD_OutOfRangeBit" value="Target out-of-range" />
+              <Text id="TI_VAL_PD_TargetOutOfRange" value="Target is out of measurement range" />
+              <Text id="TI_VAL_PD_TargetInRange" value="Target is in measurement range" />
+            <Text id="TI_REC_PD_TargetPosition" value="Analog output value" />
+            
+            <!-- Index text IDs for common teach-in registers for linearity range -->
+            <Text id="TI_VAR_Linear_TeachinStatus" value="Linear teach-in status" />
+              <Text id="TI_VAL_Linear_TeachinStatus_Start_Set" value="Startpoint set" />
+              <Text id="TI_VAL_Linear_TeachinStatus_Start_NotSet" value="Startpoint not set" />
+              <Text id="TI_VAL_Linear_TeachinStatus_End_Set" value="Endpoint set" />
+              <Text id="TI_VAL_Linear_TeachinStatus_End_NotSet" value="Endpoint not set" />
+            <Text id="TI_REC_Linear_TeachinStatus_Start_Bit" value="Startpoint" />
+            <Text id="TI_REC_Linear_TeachinStatus_End_Bit" value="Endpoint" />
+            <Text id="TI_REC_Linear_TeachinStatus_State" value="State" />
+              <Text id="TI_VAL_Linear_TeachinState_Idle" value="Idle" />
+              <Text id="TI_VAL_Linear_TeachinState_Start" value="Startpoint set" />
+              <Text id="TI_VAL_Linear_TeachinState_WaitForCmd" value="Waiting for apply" />
+              <Text id="TI_VAL_Linear_TeachinState_Error" value="Error" />
+              <Text id="TI_VAL_Linear_TeachinState_Success" value="Teach-in successful" />
+                
+            <!-- Command texts for teach-in process for linearity range -->
+            <Text id="TI_CMD_Reset_Maintenance" value="Reset maintenance counters" />
+            <Text id="TI_CMD_Linear_Teachin_Apply" value="Apply new teach-in of linearity range" />
+            <Text id="TI_CMD_Linear_Teachin_Init" value="Initiate teach-in of linearity range" />
+            <Text id="TI_CMD_Linear_Teachin_Start" value="Set START position of linearity range" />
+            <Text id="TI_CMD_Linear_Teachin_End" value="Set END position of linearity range" />
+            <Text id="TI_CMD_Linear_Teachin_Invert" value="Invert linearity range" />
+            <Text id="TI_CMD_Linear_Teachin_Reset" value="Reset linearity range to factory defaults" />
+            <Text id="TI_CMD_Linear_Teachin_Clear" value="Clear current teach-in process" />
+            
+            <!-- Index text IDs for temperature value elements -->
+            <Text id="TI_VAR_DeviceTemperatures" value="Device temperature values" />
+              <Text id="TI_REC_DeviceTemperatures_Current" value="Actual" />
+              <Text id="TI_REC_DeviceTemperatures_StartupMin" value="Minimum since startup" />
+              <Text id="TI_REC_DeviceTemperatures_StartupMax" value="Maximum since startup" />
+              <Text id="TI_REC_DeviceTemperatures_LifetimeMin" value="Minimum during lifetime" />
+              <Text id="TI_REC_DeviceTemperatures_LifetimeMax" value="Maximum during lifetime" />
+            
+            <!-- Index text IDs for communication speed (single value) -->
+            <Text id="TI_VAR_CommunicationSpeed" value="The IO-link communication speed" />
+              <Text id="TI_VAL_CommunicationSpeed_COM2" value="COM2" />
+            
+            <!-- Index text IDs for the operating hours counter index -->
+            <Text id="TI_VAR_OperatingHoursCounters" value="Sensor usage time" />
+              <Text id="TI_REC_OperatingHoursCounters_Total" value="Total number of operating hours" />
+              <Text id="TI_REC_OperatingHoursCounters_User" value="Operating hours since maintenance" />
+              <Text id="TI_REC_OperatingHoursCounters_Startup" value="Operating hours since startup" />
+            
+            <!-- Index text IDs for the sensor startup number counter index -->
+            <Text id="TI_VAR_SensorStartupCounter" value="Sensor startup counter" />
+              <Text id="TI_REC_SensorStartupCounters_Total" value="Total number of startups" />
+              <Text id="TI_REC_SensorStartupCounters_User" value="Startups since maintenance" />
+            
+            <Text id="TI_VAR_User_Variant" value="Application Specific Number" />
+            
+            <!-- Index text IDs for global user parameters -->
+            <Text id="TI_VAR_OutputSteepness" value="Output-to-distance conversion steepness" />
+            <Text id="TI_VAR_OutputOffset" value="Output-to-distance conversion offset" />
+            <Text id="TI_VAR_OutputInversion" value="Output inversion state" />
+              <Text id="TI_VAL_OutputInversion_Normal" value="Sensor output normal" />
+              <Text id="TI_VAL_OutputInversion_Inverted" value="Sensor output inverted" />
+            <Text id="TI_VAR_CurrentDistances" value="The current linearity range limits" />
+              <Text id="TI_REC_CurrentDistances_Slmin" value="Slmin Position" />
+              <Text id="TI_REC_CurrentDistances_Slmax" value="Slmax Position" />
+            
+            <!-- Menu text for menus and sub-menu entries -->
+            
+            <Text id="TI_MMENU_Identification" value="Identification menu" />
+              <Text id="TI_MENU_Information" value="Sensor Information" />
+              <Text id="TI_MENU_Identification" value="Sensor Identity" />
+            
+            <Text id="TI_MMENU_Observation" value="Observer menu" />
+            
+            <Text id="TI_MMENU_Parameter_MS" value="Parameter menu" />
+              <Text id="TI_MENU_Output_Information" value="Sensor Output Information" />
+              <Text id="TI_MENU_Teachin_MS" value="Teach-in" />
+              <Text id="TI_MENU_AccessLocks_MS" value="Device Access Locks" />
+            
+            <Text id="TI_MMENU_Diagnosis" value="Diagnosis menu" />
+              <Text id="TI_MENU_Diagnosis_Operating_OMS" value="Operating Hour Counters" />
+              <Text id="TI_MENU_Diagnosis_Startup_OMS" value="Startup Counters" />
+              <Text id="TI_MENU_DeviceTemperatures_OMS" value="Device Temperatures" />
+            
+        </PrimaryLanguage>
+    </ExternalTextCollection>
+    <Stamp crc="3756177371"><Checker name="IODD-Checker V1.1.3" version="V1.1.3.0"/></Stamp>
+</IODevice>

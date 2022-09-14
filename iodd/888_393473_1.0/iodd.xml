@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<IODevice xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.io-link.com/IODD/2009/11" xsi:schemaLocation="http://www.io-link.com/IODD/2009/11 IODD1.0.1.xsd">
+  <DocumentInfo version="V1.0" releaseDate="2015-04-09" copyright="Copyright 2011, Balluff GmbH" />
+  <ProfileHeader>
+    <ProfileIdentification>IO-Link Device Profile</ProfileIdentification>
+    <ProfileRevision>1.00</ProfileRevision>
+    <ProfileName>Device Profile for IO-Link Devices</ProfileName>
+    <ProfileSource>IO-Link Consortium</ProfileSource>
+    <ProfileClassID>Device</ProfileClassID>
+    <ISO15745Reference>
+      <ISO15745Part>1</ISO15745Part>
+      <ISO15745Edition>1</ISO15745Edition>
+      <ProfileTechnology>IODD</ProfileTechnology>
+    </ISO15745Reference>
+  </ProfileHeader>
+  <ProfileBody>
+    <DeviceIdentity deviceId="393473" vendorId="888" vendorName="Balluff GmbH">
+      <VendorText textId="TI_VendorText" />
+      <VendorUrl textId="TI_VendorUrl" />
+      <VendorLogo name="Balluff-logo.png" />
+      <DeviceFamily textId="TI_DeviceFamily" />
+      <DeviceVariantCollection>
+        <DeviceVariant deviceIcon="Balluff-BISL409-icon.png" deviceSymbol="Balluff-BISL409-pic.png" firmwareRevision="1.10" hardwareRevision="1.00" productId="BIS L-409-045-00x-07-S4">
+          <ProductName textId="TI_BISL409_Name" />
+          <ProductText textId="TI_BISL409_Text" />
+        </DeviceVariant>
+      </DeviceVariantCollection>
+    </DeviceIdentity>
+    <DeviceFunction>
+      <VariableCollection>
+        <StdVariableRef id="V_DirectParameters_1" />
+        <StdVariableRef id="V_DirectParameters_2" />
+		<StdVariableRef defaultValue="Balluff GmbH" id="V_VendorName"/>
+        <StdVariableRef defaultValue="BIS L-409-045-001-07-S4" id="V_ProductName"/>
+        <StdVariableRef defaultValue="V1.0" id="V_HardwareRevision"/>
+        <StdVariableRef defaultValue="V1.0" id="V_FirmwareRevision"/>
+		<StdDirectParameterRef accessRights="rw" id="V_DeviceSpecific_DirectParameters">
+          <Datatype xsi:type="RecordT" bitLength="128">
+            <RecordItem subindex="1" bitOffset="120">
+                <SimpleDatatype xsi:type="UIntegerT" bitLength="8">
+                <SingleValue xsi:type="UIntegerValueT" value="1">
+                  <Name textId="TI_BOOL_ON"/>
+                </SingleValue>
+                <SingleValue xsi:type="UIntegerValueT" value="0">
+                  <Name textId="TI_BOOL_OFF"/>
+                </SingleValue>
+              </SimpleDatatype>
+			  <Name textId="TI_CRC" />             
+            </RecordItem>
+            <RecordItem subindex="2" bitOffset="112">  
+				<SimpleDatatype xsi:type="UIntegerT" bitLength="8">
+                <SingleValue xsi:type="UIntegerValueT" value="1">
+                  <Name textId="TI_BOOL_ON"/>
+                </SingleValue>
+                <SingleValue xsi:type="UIntegerValueT" value="0">
+                  <Name textId="TI_BOOL_OFF"/>
+                </SingleValue>
+              </SimpleDatatype>
+              <Name textId="TI_CYCRES" />
+            </RecordItem>
+            <RecordItem subindex="3" bitOffset="104">
+              <SimpleDatatype xsi:type="UIntegerT" bitLength="8"></SimpleDatatype>
+              <Name textId="TI_COMPCOUNT" />
+            </RecordItem>
+          </Datatype>
+          <RecordItemInfo subindex="1" defaultValue="0" />
+          <RecordItemInfo subindex="2" defaultValue="0" />
+          <RecordItemInfo subindex="3" defaultValue="2" />
+          <Name textId="TI_V_DirectParams" />
+       </StdDirectParameterRef>     
+	</VariableCollection>
+      <ProcessDataCollection>
+        <ProcessData id="V_PD">
+          <ProcessDataIn id="V_PDI" bitLength="64">
+            <Datatype xsi:type="RecordT" bitLength="64">
+              <RecordItem subindex="1" bitOffset="0">
+                <SimpleDatatype xsi:type="UIntegerT" bitLength="8"></SimpleDatatype>
+                <Name textId="TI_V_PDI_secondBitheader"></Name>
+              </RecordItem>
+              <RecordItem subindex="2" bitOffset="8">
+                <SimpleDatatype xsi:type="UIntegerT" bitLength="8"></SimpleDatatype>
+                <Name textId="TI_V_PDI_sixthByte" />
+              </RecordItem>
+              <RecordItem subindex="3" bitOffset="16">
+                <SimpleDatatype xsi:type="UIntegerT" bitLength="8"></SimpleDatatype>
+                <Name textId="TI_V_PDI_fifthByte" />
+              </RecordItem>
+              <RecordItem subindex="4" bitOffset="24">
+                <SimpleDatatype xsi:type="UIntegerT" bitLength="8"></SimpleDatatype>
+                <Name textId="TI_V_PDI_fourthByte" />
+              </RecordItem>
+              <RecordItem subindex="5" bitOffset="32">
+                <SimpleDatatype xsi:type="UIntegerT" bitLength="8"></SimpleDatatype>
+                <Name textId="TI_V_PDI_thirdByte" />
+              </RecordItem>
+              <RecordItem subindex="6" bitOffset="40">
+                <SimpleDatatype xsi:type="UIntegerT" bitLength="8"></SimpleDatatype>
+                <Name textId="TI_V_PDI_secondByte" />
+              </RecordItem>
+              <RecordItem subindex="7" bitOffset="48">
+                <SimpleDatatype xsi:type="UIntegerT" bitLength="8"></SimpleDatatype>
+                <Name textId="TI_V_PDI_firstByte"></Name>
+              </RecordItem>
+              <RecordItem subindex="8" bitOffset="56">
+                <SimpleDatatype xsi:type="UIntegerT" bitLength="8"></SimpleDatatype>
+                <Name textId="TI_V_PDI_firstBitheader"></Name>
+              </RecordItem>
+            </Datatype>
+            <Name textId="TI_V_PDI" />
+          </ProcessDataIn>
+          <ProcessDataOut id="V_PDO" bitLength="64" >
+            <Datatype xsi:type="RecordT" bitLength="64">
+              <RecordItem subindex="1" bitOffset="0">
+                <SimpleDatatype xsi:type="UIntegerT" bitLength="8"></SimpleDatatype>
+                <Name textId="TI_V_PDO_secondBitheader"></Name>
+              </RecordItem>
+              <RecordItem subindex="2" bitOffset="8">
+                <SimpleDatatype xsi:type="UIntegerT" bitLength="8"></SimpleDatatype>
+                <Name textId="TI_V_PDO_sixthByte" />
+              </RecordItem>
+              <RecordItem subindex="3" bitOffset="16">
+                <SimpleDatatype xsi:type="UIntegerT" bitLength="8"></SimpleDatatype>
+                <Name textId="TI_V_PDO_fifthByte" />
+              </RecordItem>
+              <RecordItem subindex="4" bitOffset="24">
+                <SimpleDatatype xsi:type="UIntegerT" bitLength="8"></SimpleDatatype>
+                <Name textId="TI_V_PDO_fourthByte" />
+              </RecordItem>
+              <RecordItem subindex="5" bitOffset="32">
+                <SimpleDatatype xsi:type="UIntegerT" bitLength="8"></SimpleDatatype>
+                <Name textId="TI_V_PDO_thirdByte" />
+              </RecordItem>
+              <RecordItem subindex="6" bitOffset="40">
+                <SimpleDatatype xsi:type="UIntegerT" bitLength="8"></SimpleDatatype>
+                <Name textId="TI_V_PDO_secondByte" />
+              </RecordItem>
+              <RecordItem subindex="7" bitOffset="48">
+                <SimpleDatatype xsi:type="UIntegerT" bitLength="8"></SimpleDatatype>
+                <Name textId="TI_V_PDO_firstByte"></Name>
+              </RecordItem>
+              <RecordItem subindex="8" bitOffset="56">
+                <SimpleDatatype xsi:type="UIntegerT" bitLength="8"></SimpleDatatype>
+                <Name textId="TI_V_PDO_firstBitheader"></Name>
+              </RecordItem>
+            </Datatype>
+            <Name textId="TI_V_PDO"></Name>
+          </ProcessDataOut>
+        </ProcessData>
+      </ProcessDataCollection>
+      <UserInterface>
+        <MenuCollection>
+          <Menu id="ME_Ident">
+            <RecordItemRef variableId="V_DirectParameters_1" subindex="8" accessRightRestriction="ro" />
+            <!--Vendor ID 1-->
+            <RecordItemRef variableId="V_DirectParameters_1" subindex="9" accessRightRestriction="ro" />
+            <!--Vendor ID 2-->
+            <RecordItemRef variableId="V_DirectParameters_1" subindex="10" accessRightRestriction="ro" />
+            <!--Device ID 1-->
+            <RecordItemRef variableId="V_DirectParameters_1" subindex="11" accessRightRestriction="ro" />
+            <!--Device ID 2-->
+            <RecordItemRef variableId="V_DirectParameters_1" subindex="12" accessRightRestriction="ro" />
+            <!--Device ID 3-->
+          </Menu>          
+          <Menu id="ME_Parameter">
+            <RecordItemRef variableId="V_DeviceSpecific_DirectParameters" subindex="1" accessRightRestriction="rw" displayFormat="Bin"/>
+            <RecordItemRef variableId="V_DeviceSpecific_DirectParameters" subindex="2" accessRightRestriction="rw" displayFormat="Bin"/>
+            <RecordItemRef variableId="V_DeviceSpecific_DirectParameters" subindex="3" accessRightRestriction="rw" displayFormat="Dec"/>
+          </Menu>
+          <Menu id="ME_Parameter_RO">
+            <RecordItemRef variableId="V_DeviceSpecific_DirectParameters" subindex="1" accessRightRestriction="ro" displayFormat="Bin"/>
+            <RecordItemRef variableId="V_DeviceSpecific_DirectParameters" subindex="2" accessRightRestriction="ro" displayFormat="Bin"/>
+            <RecordItemRef variableId="V_DeviceSpecific_DirectParameters" subindex="3" accessRightRestriction="ro" displayFormat="Dec"/>
+          </Menu>         
+          
+        </MenuCollection>
+        <ObserverRoleMenuSet>
+		  <IdentificationMenu menuId="ME_Ident"/>
+          <ParameterMenu menuId="ME_Parameter_RO" />
+        </ObserverRoleMenuSet>
+        <MaintenanceRoleMenuSet>
+		  <IdentificationMenu menuId="ME_Ident"/>
+          <ParameterMenu menuId="ME_Parameter" />
+        </MaintenanceRoleMenuSet>
+        <SpecialistRoleMenuSet>
+	      <IdentificationMenu menuId="ME_Ident"/>
+          <ParameterMenu menuId="ME_Parameter" />
+        </SpecialistRoleMenuSet>
+      </UserInterface>
+    </DeviceFunction>
+  </ProfileBody>
+  <CommNetworkProfile xsi:type="IOLinkCommNetworkProfileT" iolinkRevision="V1.0">
+    <TransportLayers>
+      <PhysicalLayer baudrate="COM3" minCycleTime="2500" physics="2" sioSupported="true" />
+    </TransportLayers>
+  </CommNetworkProfile>
+  <ExternalTextCollection>
+    <PrimaryLanguage xml:lang="en">
+      <Text id="TI_VendorText" value="+++ Balluff +++" />
+      <Text id="TI_VendorUrl" value="http://www.balluff.de" />
+      <Text id="TI_DeviceFamily" value="Industrial RFID" />
+      <Text id="TI_BISL409_Name" value="BIS L-409-045-00x-07-S4" />
+      <Text id="TI_BISL409_Text" value="Read-Only Industrial RFID System (125kHz)" />
+      <Text id="TI_V_DirectParams" value="Direct Parameters"></Text>
+      <Text id="TI_CRC" value="CRC Check"></Text>
+      <Text id="TI_CYCRES" value="BIS L-10x-05"></Text>
+      <Text id="TI_COMPCOUNT" value="Compare-Count"></Text>
+	  <Text id="TI_BOOL_ON" value="On"/>
+      <Text id="TI_BOOL_OFF" value="Off"/>
+      <Text id="TI_V_PDO_firstBitheader" value="first Bitheader"></Text>
+      <Text id="TI_V_PDO_secondBitheader" value="second Bitheader"></Text>
+      <Text id="TI_V_PDO_firstByte" value="first Byte"></Text>
+      <Text id="TI_V_PDO_secondByte" value="second Byte"></Text>
+      <Text id="TI_V_PDO_thirdByte" value="third Byte"></Text>
+      <Text id="TI_V_PDO_fourthByte" value="fourth Byte"></Text>
+      <Text id="TI_V_PDO_fifthByte" value="fifth Byte"></Text>
+      <Text id="TI_V_PDO_sixthByte" value="sixth Byte"></Text>
+      <Text id="TI_V_PDI" value="Process Data Inputs"></Text>
+      <Text id="TI_V_PDI_firstBitheader" value="first Bitheader"></Text>
+      <Text id="TI_V_PDI_secondBitheader" value="second Bitheader"></Text>
+      <Text id="TI_V_PDI_firstByte" value="first Byte"></Text>
+      <Text id="TI_V_PDI_secondByte" value="second Byte"></Text>
+      <Text id="TI_V_PDI_thirdByte" value="third Byte"></Text>
+      <Text id="TI_V_PDI_fourthByte" value="fourth Byte"></Text>
+      <Text id="TI_V_PDI_fifthByte" value="fifth Byte"></Text>
+      <Text id="TI_V_PDI_sixthByte" value="sixth Byte"></Text>
+      <Text id="TI_V_PDO" value="Process Data Outputs"></Text>
+    </PrimaryLanguage>
+  </ExternalTextCollection>
+  <Stamp crc="386815974"><Checker name="IODD-Checker V1.0.9" version="V1.0.9.0"/></Stamp>
+</IODevice>

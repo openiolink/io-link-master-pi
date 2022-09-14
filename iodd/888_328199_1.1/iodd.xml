@@ -1,0 +1,546 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<IODevice xmlns="http://www.io-link.com/IODD/2010/10" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.io-link.com/IODD/2010/10 IODD1.1.xsd">
+    <DocumentInfo copyright="Copyright 2018, Balluff" releaseDate="2018-11-09" version="V2.0" />
+    <ProfileHeader>
+        <ProfileIdentification>IO Device Profile</ProfileIdentification>
+        <ProfileRevision>1.1</ProfileRevision>
+        <ProfileName>Device Profile for IO Devices</ProfileName>
+        <ProfileSource>IO-Link Consortium</ProfileSource>
+        <ProfileClassID>Device</ProfileClassID>
+        <ISO15745Reference>
+            <ISO15745Part>1</ISO15745Part>
+            <ISO15745Edition>1</ISO15745Edition>
+            <ProfileTechnology>IODD</ProfileTechnology>
+        </ISO15745Reference>
+    </ProfileHeader>
+    <ProfileBody>
+        <DeviceIdentity deviceId="328199" vendorId="888" vendorName="BALLUFF">
+            <VendorText   textId="TI_VendorText" />
+            <VendorUrl    textId="TI_VendorUrl" />
+            <VendorLogo   name  ="Balluff-logo.png"/>
+            <DeviceName   textId="TI_DeviceName" />
+            <DeviceFamily textId="TI_DeviceFamily" />
+            <DeviceVariantCollection>
+                <DeviceVariant deviceIcon="Balluff-BNI_IOL-7xx-002-E023-icon.png" deviceSymbol="Balluff-BNI_IOL-7xx-002-E023-pic.png" productId="BNI00C9">
+                    <Name textId="TI_AnalogDeviceVariant" />
+                    <Description textId="TD_AnalogDeviceVariant" />
+                </DeviceVariant>
+            </DeviceVariantCollection>
+        </DeviceIdentity>
+        <DeviceFunction>
+            <Features blockParameter="true" dataStorage="true">
+                <SupportedAccessLocks localUserInterface="false" dataStorage="true" parameter="true" localParameterization="false" />
+            </Features>
+            <DatatypeCollection>
+                <Datatype id="DT_Pdalignment" xsi:type="UIntegerT"  bitLength="2">
+                     <SingleValue value="0">
+                        <Name textId="TI_DT_Pdalignment_Left" />
+                    </SingleValue>
+                    <SingleValue value="1">
+                        <Name textId="TI_DT_Pdalignment_Right" />
+                    </SingleValue>
+                </Datatype>
+                <Datatype id="DT_Mode" xsi:type="UIntegerT"  bitLength="8">
+                    <!-- Listing in the same order as in the User's Manual chapter 3.3 - Voltage, Current, Pt100/1000 -->
+                    <SingleValue value="0">
+                        <Name textId="TI_DT_Mode_0_10V" />
+                    </SingleValue>
+                    <SingleValue value="2">
+                        <Name textId="TI_DT_Mode_5_10V" />
+                    </SingleValue>
+                    <SingleValue value="3">
+                        <Name textId="TI_DT_Mode_10_10V" />
+                    </SingleValue>
+                    <SingleValue value="4">
+                        <Name textId="TI_DT_Mode_0_5V" />
+                    </SingleValue>
+                    <SingleValue value="6">
+                        <Name textId="TI_DT_Mode_5_5V" />
+                    </SingleValue>
+                    <SingleValue value="1">
+                        <Name textId="TI_DT_Mode_4_20mA" />
+                    </SingleValue>
+                    <SingleValue value="5">
+                        <Name textId="TI_DT_Mode_0_20mA" />
+                    </SingleValue>
+                    <SingleValue value="7">
+                        <Name textId="TI_DT_Mode_Pt100" />
+                    </SingleValue>
+                    <SingleValue value="8">
+                        <Name textId="TI_DT_Mode_Pt1000" />
+                    </SingleValue>
+					<SingleValue value="255">
+						<Name textId="TI_DT_Mode_Off" />
+					</SingleValue>
+                </Datatype>
+                <Datatype id="DT_Resolution" xsi:type="UIntegerT" bitLength="2">
+                    <SingleValue value="0">
+                        <Name textId="TI_DT_Resolution16" />
+                    </SingleValue>
+                    <SingleValue value="1">
+                        <Name textId="TI_DT_Resolution14" />
+                    </SingleValue>
+                    <SingleValue value="2">
+                        <Name textId="TI_DT_Resolution12" />
+                    </SingleValue>
+                    <SingleValue value="3">
+                        <Name textId="TI_DT_Resolution10" />
+                    </SingleValue>
+                </Datatype>
+                <Datatype id="DT_PinAssignment" xsi:type="UIntegerT"  bitLength="2">
+                    <SingleValue value="0">
+                        <Name textId="TI_DT_PinAssignment_Pin4In" />
+                    </SingleValue>
+                    <SingleValue value="2">
+                        <Name textId="TI_DT_PinAssignment_Pin2In" />
+                    </SingleValue>
+                </Datatype>
+                <Datatype id="DT_PtMode" xsi:type="UIntegerT"  bitLength="2">
+                    <SingleValue value="0">
+                        <Name textId="TI_DT_PtMode_2W" />
+                    </SingleValue>
+                    <SingleValue value="1">
+                        <Name textId="TI_DT_PtMode_3W" />
+                    </SingleValue>
+                    <SingleValue value="2">
+                        <Name textId="TI_DT_PtMode_4W" />
+                    </SingleValue>
+                </Datatype>
+                <Datatype id="DT_ProcessDataFormat" xsi:type="UIntegerT"  bitLength="2">
+                    <SingleValue value="0">
+                        <Name textId="TI_DT_PdFormat_Signed" />
+                    </SingleValue>
+                    <SingleValue value="1">
+                        <Name textId="TI_DT_PdFormat_Unsigned" />
+                    </SingleValue>
+                    <SingleValue value="2">
+                        <Name textId="TI_DT_PdFormat_Dimensioned" />
+                    </SingleValue>
+                </Datatype>
+				<Datatype id="DT_SwitchPoint" xsi:type="BooleanT">
+					<SingleValue value="false" xsi:type="BooleanValueT">
+						<Name textId="TI_DT_SwitchPointInactive"/>
+					</SingleValue>
+					<SingleValue value="true" xsi:type="BooleanValueT">
+						<Name textId="TI_DT_SwitchPointActive"/>
+					</SingleValue>
+				</Datatype>			
+				<Datatype id="DT_SwitchingPoint" xsi:type="UIntegerT" bitLength="16">
+					<ValueRange lowerValue="0" upperValue="65535" />
+				</Datatype>
+				<Datatype id="DT_SwitchPointEnable" xsi:type="BooleanT">
+					<SingleValue value="false" xsi:type="BooleanValueT">
+						<Name textId="TI_DT_SwitchPointDisabled"/>
+					</SingleValue>
+					<SingleValue value="true" xsi:type="BooleanValueT">
+						<Name textId="TI_DT_SwitchPointEnabled"/>
+					</SingleValue>
+				</Datatype>
+            </DatatypeCollection>
+            <VariableCollection>
+                <StdVariableRef id="V_DirectParameters_1" />
+                <StdVariableRef id="V_DirectParameters_2" />
+                <StdVariableRef id="V_SystemCommand">
+                <StdSingleValueRef value="130" />
+                </StdVariableRef>
+                <StdVariableRef id="V_DeviceAccessLocks" />
+                <StdVariableRef defaultValue="BALLUFF" id="V_VendorName" />
+                <StdVariableRef defaultValue="www.balluff.com" id="V_VendorText" />
+                <StdVariableRef defaultValue="BNI IOL-717-002-E023" id="V_ProductName" />
+                <StdVariableRef defaultValue="BNI00C9" id="V_ProductID" />
+                <StdVariableRef defaultValue="Converter Analog Input" id="V_ProductText" />
+                <StdVariableRef id="V_HardwareRevision" />
+                <StdVariableRef id="V_FirmwareRevision" />
+                <StdVariableRef id="V_SerialNumber" />
+                <StdVariableRef id="V_ApplicationSpecificTag" />
+                <StdVariableRef id="V_ProcessDataInput"></StdVariableRef>
+                <Variable index="82" accessRights="ro" id="V_Par_DevTemp" dynamic="true">
+                    <Datatype xsi:type="RecordT" bitLength="40" subindexAccessSupported="false">
+                        <RecordItem subindex="1" bitOffset="32">
+                            <SimpleDatatype xsi:type="IntegerT" bitLength="8" />
+                            <Name textId="TI_DTempAct" />
+                        </RecordItem>
+                        <RecordItem subindex="2" bitOffset="24">
+                            <SimpleDatatype xsi:type="IntegerT" bitLength="8" />
+                            <Name textId="TI_DTempMaxOn" />
+                        </RecordItem>
+                        <RecordItem subindex="3" bitOffset="16">
+                            <SimpleDatatype xsi:type="IntegerT" bitLength="8" />
+                            <Name textId="TI_DTempMinOn" />
+                        </RecordItem>
+                        <RecordItem subindex="4" bitOffset="8">
+                            <SimpleDatatype xsi:type="IntegerT" bitLength="8" />
+                            <Name textId="TI_DTempMaxLife" />
+                        </RecordItem>
+                        <RecordItem subindex="5" bitOffset="0">
+                            <SimpleDatatype xsi:type="IntegerT" bitLength="8" />
+                            <Name textId="TI_DTempMinLife" />
+                        </RecordItem>
+                    </Datatype>
+                    <Name textId="TI_Par_DevTemp" />
+                </Variable>
+                <Variable accessRights="rw" excludedFromDataStorage="true" id="V_SN_RW" index="84">
+                    <Datatype encoding="UTF-8" fixedLength="16" xsi:type="StringT"/>
+                    <Name textId="TI_SN_RW"/>
+                    <Description textId="TD_SN_RW"/>
+                </Variable>        
+                <Variable index="87" accessRights="ro" id="V_Par_UsageHourCtr">
+                    <Datatype xsi:type="UIntegerT" bitLength="32" />
+                    <Name textId="TI_Par_UsageHourCtr" />
+                </Variable>
+                <Variable index="88" accessRights="ro" id="V_Par_BootCycleCtr">
+                    <Datatype xsi:type="UIntegerT" bitLength="32" />
+                    <Name textId="TI_Par_BootCycleCtr" />
+                </Variable>
+                <Variable index="89" accessRights="rw" id="V_Par_PD_Alignment">
+                    <DatatypeRef datatypeId="DT_Pdalignment"/>
+                    <Name textId="TI_PD_Alignment" />
+                </Variable>  
+                <Variable index="240" accessRights="rw" id="V_Par_AnalogMode">
+                    <DatatypeRef datatypeId="DT_Mode"/>
+                    <Name textId="TI_Par_AnalogMode" />
+                </Variable>
+                <Variable index="241" accessRights="rw" id="V_Par_Resolution">
+                    <DatatypeRef datatypeId="DT_Resolution"/>
+                    <Name textId="TI_Par_Resolution" />
+                </Variable>
+                <Variable index="242" accessRights="rw" id="V_Par_PinAssignment">
+                    <DatatypeRef datatypeId="DT_PinAssignment"/>
+                    <Name textId="TI_Par_PinAssignment" />
+                </Variable>
+                <Variable index="243" accessRights="rw" id="V_Par_PT100xMode">
+                    <DatatypeRef datatypeId="DT_PtMode"/>
+                    <Name textId="TI_Par_PT100xMode" />
+                </Variable>
+                <Variable index="245" accessRights="rw" defaultValue="0" id="V_Par_PDformat">
+                    <DatatypeRef datatypeId="DT_ProcessDataFormat"/>
+                    <Name textId="TI_Par_PDformat" />
+                </Variable>
+				<Variable index="246" accessRights="rw" id="V_Par_SwitchPoint1">
+					<DatatypeRef datatypeId="DT_SwitchingPoint" />
+					<Name textId="TI_Par_SwitchPoint1" />
+				</Variable>
+				<Variable index="247" accessRights="rw" id="V_Par_SwitchPoint2">
+					<DatatypeRef datatypeId="DT_SwitchingPoint" />
+					<Name textId="TI_Par_SwitchPoint2" />
+				</Variable>
+				<Variable accessRights="rw" id="V_SwitchPointEnable" index="248">
+					<Datatype bitLength="8" subindexAccessSupported="true" xsi:type="RecordT">
+						<RecordItem bitOffset="0" subindex="1">
+							<DatatypeRef datatypeId="DT_SwitchPointEnable"/>
+							<Name textId="TI_VAR_SwitchPoint_1_Enable"/>
+						</RecordItem>
+						<RecordItem bitOffset="1" subindex="2">
+							<DatatypeRef datatypeId="DT_SwitchPointEnable"/>
+							<Name textId="TI_VAR_SwitchPoint_2_Enable"/>
+						</RecordItem>
+					</Datatype>
+					<Name textId="TI_VAR_SwitchPointEnable"/>
+					<Description textId="TI_VAR_SwitchPointEnable_Descr"/>
+				</Variable>		
+            </VariableCollection>
+            <ProcessDataCollection>
+                <ProcessData id="V_PD">
+                    <ProcessDataIn bitLength="24" id="V_PDI">
+                        <Datatype xsi:type="RecordT" bitLength="24" subindexAccessSupported="false">
+                            <RecordItem subindex="1" bitOffset="8">
+                                <SimpleDatatype xsi:type="UIntegerT" bitLength="16" />
+                                <Name textId="TI_PDI_Analogvalue" />
+                            </RecordItem>
+							<RecordItem subindex="2" bitOffset="4">
+                                <DatatypeRef datatypeId="DT_SwitchPoint"/>
+                                <Name textId="TI_PDI_SwitchPoint1" />
+                            </RecordItem>
+							<RecordItem subindex="3" bitOffset="5">
+                                <DatatypeRef datatypeId="DT_SwitchPoint"/>
+                                <Name textId="TI_PDI_SwitchPoint2" />
+                            </RecordItem>
+                            <RecordItem subindex="4" bitOffset="1">
+                                <SimpleDatatype xsi:type="BooleanT" />
+                                <Name textId="TI_PDI_Underflow" />
+                            </RecordItem>
+                            <RecordItem subindex="5" bitOffset="0">
+                                <SimpleDatatype xsi:type="BooleanT" />
+                                <Name textId="TI_PDI_Overflow" />
+                            </RecordItem>
+                        </Datatype>
+                        <Name textId="TI_PDI" />
+                    </ProcessDataIn>
+                </ProcessData>
+            </ProcessDataCollection>	
+            <ErrorTypeCollection>
+                <!-- This device supports the standard error type "Index not available" -->
+                <StdErrorTypeRef additionalCode="17" />
+                <!-- This device supports the standard error type "Subindex not available" -->
+                <StdErrorTypeRef additionalCode="18" />
+                <!-- This device supports the standard error type "Access denied" -->
+                <StdErrorTypeRef additionalCode="35" />
+                <!-- This device supports the standard error type "Parameter Value out of Range" -->
+                <StdErrorTypeRef additionalCode="48" />
+                <!-- This device supports the standard error type "Parameter length overrun" -->
+                <StdErrorTypeRef additionalCode="51" />
+                <!-- This device supports the standard error type "Parameter length underrun" -->
+                <StdErrorTypeRef additionalCode="52" />
+            </ErrorTypeCollection>
+            <EventCollection>
+                <!-- 0x5111 Warning Primary supply voltage under-run (US) -->
+                <StdEventRef code="20753" />
+                <!-- 0x7710 Error Short circuit -->
+                <StdEventRef code="30480" />
+                <!-- 0x8C20 Measurement out of range -->
+                <StdEventRef code="35872" />
+            </EventCollection>	  
+            <UserInterface>
+                <MenuCollection>
+                    
+                    <!-- Main menus -->
+                    <!-- Identification tab -->
+                    <Menu id="M_OR_MR_SR_Ident">
+                        <VariableRef variableId="V_VendorName"/>
+                        <VariableRef variableId="V_VendorText"/>
+                        <VariableRef variableId="V_ProductName"/>
+                        <VariableRef variableId="V_ProductID"/>
+                        <VariableRef variableId="V_ProductText"/>
+                        <VariableRef variableId="V_HardwareRevision"/>
+                        <VariableRef variableId="V_FirmwareRevision"/>
+                        <VariableRef variableId="V_SerialNumber"/>
+                        <VariableRef variableId="V_ApplicationSpecificTag"/>
+                    </Menu>          
+                    
+                    <!-- Parameterization tab -->
+                    <Menu id="M_OR_Param">
+                        <MenuRef menuId="M_AccessLocks_RO" /> 
+                        <MenuRef menuId="M_DeviceConfig_RO" /> 
+                    </Menu>
+                    
+                    <Menu id="M_MR_Param">
+                        <MenuRef menuId="M_AccessLocks_RW" /> 
+                        <MenuRef menuId="M_DeviceSetup_RW" /> 
+                        <MenuRef menuId="M_Commands_WO" /> 
+                        <MenuRef menuId="M_DeviceConfig_RW" /> 
+                    </Menu>
+                    
+                    <Menu id="M_SR_Param">
+                        <MenuRef menuId="M_AccessLocks_RW" /> 
+                        <MenuRef menuId="M_DeviceSetup_RW" /> 
+                        <MenuRef menuId="M_Commands_WO" /> 
+                        <MenuRef menuId="M_DeviceConfig_RW" /> 
+                    </Menu> 
+                    
+                    <!-- Observation tab -->
+                    <Menu id="M_OR_MR_SR_Observ">
+                        <MenuRef menuId="M_Temperature" />
+                    </Menu>
+
+                    <!-- Diagnosis tab -->
+                    <Menu id="M_OR_MR_SR_Diag">
+                        <MenuRef menuId="M_Counters" />
+                    </Menu>                    
+                    
+
+                    <!-- Submenus -->
+                    <!-- Device Setup Menu -->
+                    <Menu id="M_DeviceSetup_RW">
+                        <Name textId="TI_M_DeviceSetup_Name" /> 
+                        <VariableRef variableId="V_SN_RW" />
+                    </Menu>
+
+                    <!-- Device Configuration Menu (RO) -->
+                    <Menu id="M_DeviceConfig_RO">
+                        <Name textId="TI_M_DeviceConfig_Name" /> 
+                        <VariableRef accessRightRestriction="ro" variableId="V_Par_PD_Alignment" />
+                        <VariableRef accessRightRestriction="ro" variableId="V_Par_AnalogMode" />
+                        <VariableRef accessRightRestriction="ro" variableId="V_Par_Resolution" />
+                        <VariableRef accessRightRestriction="ro" variableId="V_Par_PinAssignment" />
+                        <VariableRef accessRightRestriction="ro" variableId="V_Par_PT100xMode" />
+                        <VariableRef accessRightRestriction="ro" variableId="V_Par_PDformat" />
+						<VariableRef accessRightRestriction="ro" variableId="V_Par_SwitchPoint1"/>
+						<VariableRef accessRightRestriction="ro" variableId="V_Par_SwitchPoint2"/>
+						<VariableRef accessRightRestriction="ro" variableId="V_SwitchPointEnable"/>
+                    </Menu>
+
+                    <!-- Device Configuration Menu (RW) -->
+                    <Menu id="M_DeviceConfig_RW">
+                        <Name textId="TI_M_DeviceConfig_Name" /> 
+                        <VariableRef accessRightRestriction="rw" variableId="V_Par_PD_Alignment" />
+                        <VariableRef accessRightRestriction="rw" variableId="V_Par_AnalogMode" />
+                        <VariableRef accessRightRestriction="rw" variableId="V_Par_Resolution" />
+                        <VariableRef accessRightRestriction="rw" variableId="V_Par_PinAssignment" />
+                        <VariableRef accessRightRestriction="rw" variableId="V_Par_PT100xMode" />
+                        <VariableRef accessRightRestriction="rw" variableId="V_Par_PDformat" />	
+						<VariableRef accessRightRestriction="rw" variableId="V_Par_SwitchPoint1"/>
+						<VariableRef accessRightRestriction="rw" variableId="V_Par_SwitchPoint2"/>
+						<VariableRef accessRightRestriction="rw" variableId="V_SwitchPointEnable"/>
+                    </Menu>
+
+                    <!-- Access Locks Menu-->
+                    <Menu id="M_AccessLocks_RO">
+                        <Name textId="TI_M_AccessLocks_Name" /> 
+                        <RecordItemRef variableId="V_DeviceAccessLocks" accessRightRestriction="ro" subindex="1" />
+                        <RecordItemRef variableId="V_DeviceAccessLocks" accessRightRestriction="ro" subindex="2" />
+                    </Menu>
+                    <Menu id="M_AccessLocks_RW">
+                        <Name textId="TI_M_AccessLocks_Name" /> 
+                        <RecordItemRef variableId="V_DeviceAccessLocks" accessRightRestriction="rw" subindex="1" />
+                        <RecordItemRef variableId="V_DeviceAccessLocks" accessRightRestriction="rw" subindex="2" />
+                    </Menu>
+
+                    <!-- System command-->
+                    <Menu id="M_Commands_WO">
+                        <Name textId="TI_M_Commands_Name" /> 
+                        <VariableRef variableId="V_SystemCommand">
+                            <Button buttonValue="130">
+                                <Description textId="TD_FactoryReset" /> 
+                                <ActionStartedMessage textId="T_FactoryResetStarted" /> 
+                            </Button>
+                        </VariableRef>
+                    </Menu>                      
+                    
+                    <!-- Boot cycle counter, Usage hours counter-->
+                    <Menu id="M_Counters">
+                        <Name textId="TI_M_Counters_Name" />
+                        <VariableRef variableId="V_Par_UsageHourCtr" unitCode="1059"/>
+                        <VariableRef variableId="V_Par_BootCycleCtr" />
+                    </Menu>
+
+                    <!-- Temperature data -->
+                    <Menu id="M_Temperature">
+                        <Name textId="TI_M_Temperature_Name" />
+                        <!-- TI_DTempAct -->
+                        <RecordItemRef variableId="V_Par_DevTemp" subindex="1" unitCode="1001" />
+                        <!-- TI_DTempMaxOn -->
+                        <RecordItemRef variableId="V_Par_DevTemp" subindex="2" unitCode="1001" />
+                        <!-- TI_DTempMinOn -->
+                        <RecordItemRef variableId="V_Par_DevTemp" subindex="3" unitCode="1001" />
+                        <!-- TI_DTempMaxLife -->
+                        <RecordItemRef variableId="V_Par_DevTemp" subindex="4" unitCode="1001" />
+                        <!-- TI_DTempMinLife -->
+                        <RecordItemRef variableId="V_Par_DevTemp" subindex="5" unitCode="1001" />
+                    </Menu>
+          
+                </MenuCollection>
+                
+                <!-- Menu roles -->
+                <ObserverRoleMenuSet>
+                    <IdentificationMenu menuId="M_OR_MR_SR_Ident"/>
+                    <ParameterMenu      menuId="M_OR_Param"/>
+                    <ObservationMenu    menuId="M_OR_MR_SR_Observ"/>
+                    <DiagnosisMenu      menuId="M_OR_MR_SR_Diag" />
+                </ObserverRoleMenuSet>
+                <MaintenanceRoleMenuSet>
+                    <IdentificationMenu menuId="M_OR_MR_SR_Ident"/>
+                    <ParameterMenu      menuId="M_MR_Param"/>
+                    <ObservationMenu    menuId="M_OR_MR_SR_Observ"/>
+                    <DiagnosisMenu      menuId="M_OR_MR_SR_Diag" />
+                </MaintenanceRoleMenuSet>
+                <SpecialistRoleMenuSet>
+                    <IdentificationMenu menuId="M_OR_MR_SR_Ident"/>
+                    <ParameterMenu      menuId="M_SR_Param"/>
+                    <ObservationMenu    menuId="M_OR_MR_SR_Observ"/>
+                    <DiagnosisMenu      menuId="M_OR_MR_SR_Diag" />
+                </SpecialistRoleMenuSet>
+                
+            </UserInterface>
+        </DeviceFunction>        
+    </ProfileBody>
+    <CommNetworkProfile iolinkRevision="V1.1" xsi:type="IOLinkCommNetworkProfileT">
+        <TransportLayers>
+            <PhysicalLayer bitrate="COM2" mSequenceCapability="11" minCycleTime="10000" sioSupported="false">
+                <Connection xsi:type="M12-4ConnectionT">
+                    <ProductRef productId="BNI00C9" />
+                    <Wire1 function = "L+"/>
+                    <Wire2 color="WH" function="NC"/>
+                    <Wire3 function = "L-"/>
+                    <Wire4 function = "C/Q"/>
+                </Connection>
+            </PhysicalLayer>
+        </TransportLayers>
+        <Test>
+            <Config1 index="243" testValue="0x01" />
+            <Config2 index="1000" testValue="0x00" />  
+            <Config3 index="24" testValue="0x74,0x68,0x69,0x72,0x74,0x65,0x65,0x6e,0x62,0x79,0x74,0x65,0x73" />
+        </Test>
+    </CommNetworkProfile>
+    <ExternalTextCollection>
+        <PrimaryLanguage xml:lang="en">
+            <Text id="TI_VendorText"          value="innovating automation" />
+            <Text id="TI_VendorUrl"           value="www.balluff.com" />
+            <Text id="TI_DeviceFamily"        value="BNI - Analog converter" />
+            <Text id="TI_DeviceName"          value="BNI IOL-7xx-002-E023" />
+            <Text id="TI_AnalogDeviceVariant" value="BNI IOL-717-002-E023" />
+            <Text id="TD_AnalogDeviceVariant" value="Analog Converter with 1 x M12 port, input only (configurable for voltage, current, Pt100 and Pt1000), stainless steel housing" />
+            <Text id="TI_DT_Pdalignment_Left" value="Left"/>
+            <Text id="TI_DT_Pdalignment_Right" value="Right"/>
+            <Text id="TI_DT_Mode_0_10V"  value="Voltage input, 0V - 10V"/>
+            <Text id="TI_DT_Mode_4_20mA" value="Current input, 4mA - 20mA"/>
+            <Text id="TI_DT_Mode_5_10V"  value="Voltage input, 5V - 10V"/>
+            <Text id="TI_DT_Mode_10_10V" value="Voltage input, -10V - +10V"/>
+            <Text id="TI_DT_Mode_0_5V"   value="Voltage input, 0V - 5V"/>
+            <Text id="TI_DT_Mode_0_20mA" value="Current input, 0mA - 20mA"/>
+            <Text id="TI_DT_Mode_5_5V"   value="Voltage input, -5V - +5V"/>
+            <Text id="TI_DT_Mode_Pt100"  value="Pt sensor, Pt100"/>
+            <Text id="TI_DT_Mode_Pt1000" value="Pt sensor, Pt1000"/>
+			<Text id="TI_DT_Mode_Off" value="Off"/>			
+            <Text id="TI_DT_Resolution16" value="16 bit"/>			
+            <Text id="TI_DT_Resolution14" value="14 bit"/>			
+            <Text id="TI_DT_Resolution12" value="12 bit"/>			
+            <Text id="TI_DT_Resolution10" value="10 bit"/>			
+            <Text id="TI_DT_PinAssignment_Pin4In" value="Pin 4 input"/>			
+            <Text id="TI_DT_PinAssignment_Pin2In" value="Pin 2 input"/>			
+            <Text id="TI_DT_PtMode_2W" value="2 Wire"/>			
+            <Text id="TI_DT_PtMode_3W" value="3 Wire"/>			
+            <Text id="TI_DT_PtMode_4W" value="4 Wire"/>			
+            <Text id="TI_DT_PdFormat_Signed" value="Signed"/>
+            <Text id="TI_DT_PdFormat_Unsigned" value="Unsigned"/>
+            <Text id="TI_DT_PdFormat_Dimensioned" value="Dimensioned (mV uA 0.1 °C)"/>
+            <Text id="TI_PDI" value="Process Data In" />
+            <Text id="TI_PDI_Analogvalue" value="Analog Value" />
+            <Text id="TI_PDI_Underflow" value="Underflow" />
+            <Text id="TI_PDI_Overflow" value="Overflow" />
+            <Text id="TI_Par_DevTemp" value="Temperature" />
+            <Text id="TI_DTempAct" value="Actual Value" />
+            <Text id="TI_DTempMaxOn" value="Maximum Value Since Powerup" />
+            <Text id="TI_DTempMinOn" value="Minimum Value Since Powerup" />
+            <Text id="TI_DTempMaxLife" value="Maximum Value During Lifetime" />
+            <Text id="TI_DTempMinLife" value="Minimum Value During Lifetime" />
+			<Text id="TI_SN_RW" value="Serial number set"/>
+			<Text id="TD_SN_RW" value="Parameter to set SN."/>
+            <Text id="TI_Par_BootCycleCtr" value="Boot Cycle Counter" />
+            <Text id="TI_Par_UsageHourCtr" value="Operating Hours Counter" />
+            <Text id="TI_PD_Alignment" value="Processdata-alignment" />
+            <Text id="TI_Par_AnalogMode" value="Analog mode" />
+            <Text id="TI_Par_Resolution" value="Analog resolution" />
+            <Text id="TI_Par_PinAssignment" value="Pin assignment" />
+            <Text id="TI_Par_PT100xMode" value="PT100/PT1000 mode" />
+            <Text id="TI_Par_PDformat" value="Process Data Format" />
+            <Text id="TD_FactoryReset" value="Factory Reset" />
+            <Text id="T_FactoryResetStarted" value="Factory Reset is now in progress!" />
+            <Text id="TI_M_DeviceSetup_Name"  value="Device Setup" /> 
+            <Text id="TI_M_DeviceConfig_Name" value="Device Configuration" /> 
+            <Text id="TI_M_Counters_Name"     value="Counters"/>
+            <Text id="TI_M_Temperature_Name"  value="Device Temperature"/>
+            <Text id="TI_M_Commands_Name"     value="Commands" /> 
+            <Text id="TI_M_AccessLocks_Name"  value="Access Locks" /> 
+			
+			<Text id="TI_DT_SwitchPointInactive" value="Off"/>			
+			<Text id="TI_DT_SwitchPointActive" value="On"/>	
+			<Text id="TI_PDI_SwitchPoint1" value="Switch point 1"/>
+			<Text id="TI_PDI_SwitchPoint2" value="Switch point 2"/>	
+			<Text id="TI_Par_SwitchPoint1" value="Switch point 1"/>
+			<Text id="TI_Par_SwitchPoint2" value="Switch point 2"/>
+			
+			<Text id="TI_VAR_SwitchPointEnable" value="Switch point enable"/>
+			<Text id="TI_VAR_SwitchPointEnable_Descr" value="Switch point enable"/>
+			
+			
+			<Text id="TI_VAR_SwitchPoint_1_Enable" value="Switch point 1 enabled" />
+			<Text id="TI_VAR_SwitchPoint_2_Enable" value="Switch point 2 enabled" />
+			
+			
+			<Text id="TI_DT_SwitchPointDisabled" value="Disabled"/>			
+			<Text id="TI_DT_SwitchPointEnabled" value="Enabled"/>	
+			
+        </PrimaryLanguage>
+    </ExternalTextCollection>
+    <Stamp crc="3142830851"><Checker name="IODD-Checker V1.1.1" version="V1.1.1.0"/></Stamp>
+</IODevice>

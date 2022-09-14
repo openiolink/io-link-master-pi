@@ -1,0 +1,221 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<IODevice xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.io-link.com/IODD/2009/11" xsi:schemaLocation="http://www.io-link.com/IODD/2009/11 IODD1.0.1.xsd">
+  <DocumentInfo copyright="Copyright 2020, Balluff GmbH" releaseDate="2020-09-24" version="V2.4" />
+  <ProfileHeader>
+    <ProfileIdentification>IO-Link Device Profile</ProfileIdentification>
+    <ProfileRevision>1.00</ProfileRevision>
+    <ProfileName>Device Profile for IO-Link Devices</ProfileName>
+    <ProfileSource>IO-Link Consortium</ProfileSource>
+    <ProfileClassID>Device</ProfileClassID>
+    <ISO15745Reference>
+      <ISO15745Part>1</ISO15745Part>
+      <ISO15745Edition>1</ISO15745Edition>
+      <ProfileTechnology>IODD</ProfileTechnology>
+    </ISO15745Reference>
+  </ProfileHeader>
+  <ProfileBody>
+    <DeviceIdentity deviceId="131585" vendorId="888" vendorName="BALLUFF" >
+      <VendorText textId="TI_VendorText" />
+      <VendorUrl textId="TI_VendorUrl" />
+      <VendorLogo name="Balluff-logo.png" />
+      <DeviceFamily textId="TI_DeviceFamily" />
+      <DeviceVariantCollection>
+        <!-- original device -->
+        <DeviceVariant xsi:noNamespaceSchemaLocation="Balluff-BAW003A-icon.png" deviceSymbol="Balluff-BAW003A-pic.png" firmwareRevision="0.01" hardwareRevision="0.01" productId="BAW003A">
+          <ProductName textId="TI_Device1_Name" />
+          <ProductText textId="TI_Device1_Text" />
+        </DeviceVariant>
+        <!-- same device with different housing -->
+        <DeviceVariant xsi:noNamespaceSchemaLocation="Balluff-BAW003W-icon.png" deviceSymbol="Balluff-BAW003W-pic.png" firmwareRevision="0.01" hardwareRevision="0.01" productId="BAW003W">
+          <ProductName textId="TI_Device2_Name" />
+          <ProductText textId="TI_Device2_Text" />
+        </DeviceVariant>
+      </DeviceVariantCollection>
+    </DeviceIdentity>
+    <DeviceFunction>
+      <VariableCollection>
+        <StdVariableRef id="V_DirectParameters_1" />
+        <StdVariableRef id="V_DirectParameters_2" />
+        <StdVariableRef id="V_SystemCommand" />
+        <StdVariableRef defaultValue="BALLUFF" id="V_VendorName" />
+        <StdVariableRef defaultValue="www.balluff.com" id="V_VendorText" />        
+        <StdVariableRef id="V_ProductName"  /> <!-- No default Name because we have two variants -->
+        <StdVariableRef id="V_ProductID"    /> <!-- No default ID   because we have two variants -->
+        <StdVariableRef defaultValue="Inductive distance sensor, 1...5mm" id="V_ProductText" />
+        <StdVariableRef id="V_HardwareRevision" />
+        <StdVariableRef id="V_FirmwareRevision" />
+        <Variable accessRights="rw" id="V_CAM1" index="64" defaultValue="200">
+          <Datatype xsi:type="UIntegerT" bitLength="16">
+            <ValueRange upperValue="1023" lowerValue="0" />
+          </Datatype>
+          <Name textId="TI_V_CAM1" />
+          <Description textId="TID_V_CAM1" />
+        </Variable>
+        <Variable accessRights="rw" id="V_CAM2" index="65" defaultValue="500">
+          <Datatype xsi:type="UIntegerT" bitLength="16">
+            <ValueRange upperValue="1023" lowerValue="0" />
+          </Datatype>
+          <Name textId="TI_V_CAM2" />
+          <Description textId="TID_V_CAM2" />
+        </Variable>
+        <Variable accessRights="rw" id="V_CAM3" index="66" defaultValue="800">
+          <Datatype xsi:type="UIntegerT" bitLength="16">
+            <ValueRange upperValue="1023" lowerValue="0" />
+          </Datatype>
+          <Name textId="TI_V_CAM3" />
+          <Description textId="TID_V_CAM3" />
+        </Variable>
+        <Variable accessRights="rw" id="V_Hysteresis" index="67" defaultValue="10">
+          <Datatype xsi:type="UIntegerT" bitLength="8">
+            <ValueRange upperValue="255" lowerValue="0" />
+          </Datatype>
+          <Name textId="TI_V_Hysteresis" />
+          <Description textId="TID_V_Hysteresis" />
+        </Variable>
+        <Variable accessRights="ro" id="V_Temperature" index="68" defaultValue="20">
+          <Datatype xsi:type="UIntegerT" bitLength="8" />
+          <Name textId="TI_V_Temperature" />
+          <Description textId="TID_V_Temperature" />
+        </Variable>
+      </VariableCollection>
+      <ProcessDataCollection>
+        <ProcessData id="V_PD">
+          <ProcessDataIn id="V_PDI" bitLength="16">
+            <Datatype xsi:type="RecordT" bitLength="16">
+              <RecordItem subindex="1" bitOffset="0">
+                <SimpleDatatype xsi:type="UIntegerT" bitLength="10" />
+                <Name textId="TI_V_PDI_Distance" />
+              </RecordItem>
+              <RecordItem subindex="2" bitOffset="10">
+                <SimpleDatatype xsi:type="UIntegerT" bitLength="2" />
+                <Name textId="TI_V_PDI_Reserved" />
+              </RecordItem>
+              <RecordItem subindex="3" bitOffset="12">
+                <SimpleDatatype xsi:type="BooleanT">
+                  <SingleValue value="true">
+                    <Name textId="TI_ON" />
+                  </SingleValue>
+                  <SingleValue value="false">
+                    <Name textId="TI_OFF" />
+                  </SingleValue>
+                </SimpleDatatype>
+                <Name textId="TI_V_PDI_Cam1" />
+              </RecordItem>
+              <RecordItem subindex="4" bitOffset="13">
+                <SimpleDatatype xsi:type="BooleanT">
+                  <SingleValue value="true">
+                    <Name textId="TI_ON" />
+                  </SingleValue>
+                  <SingleValue value="false">
+                    <Name textId="TI_OFF" />
+                  </SingleValue>
+                </SimpleDatatype>
+                <Name textId="TI_V_PDI_Cam2" />
+              </RecordItem>
+              <RecordItem subindex="5" bitOffset="14">
+                <SimpleDatatype xsi:type="BooleanT">
+                  <SingleValue value="true">
+                    <Name textId="TI_ON" />
+                  </SingleValue>
+                  <SingleValue value="false">
+                    <Name textId="TI_OFF" />
+                  </SingleValue>
+                </SimpleDatatype>
+                <Name textId="TI_V_PDI_Cam3" />
+              </RecordItem>
+              <RecordItem subindex="6" bitOffset="15">
+                <SimpleDatatype xsi:type="BooleanT">
+                  <SingleValue value="true">
+                    <Name textId="TI_Error" />
+                  </SingleValue>
+                  <SingleValue value="false">
+                    <Name textId="TI_Ok" />
+                  </SingleValue>
+                </SimpleDatatype>
+                <Name textId="TI_V_PDI_Error" />
+              </RecordItem>
+            </Datatype>
+            <Name textId="TI_V_PDI" />
+          </ProcessDataIn>
+        </ProcessData>
+      </ProcessDataCollection>
+      <UserInterface>
+        <MenuCollection>
+          <Menu id="ME_Ident">
+            <VariableRef variableId="V_VendorName" />
+            <VariableRef variableId="V_VendorText" />
+            <VariableRef variableId="V_ProductName" />
+            <VariableRef variableId="V_ProductID" />
+            <VariableRef variableId="V_ProductText" />
+            <VariableRef variableId="V_HardwareRevision" />
+            <VariableRef variableId="V_FirmwareRevision" />
+          </Menu>
+          <Menu id="ME_Parameter">
+            <VariableRef variableId="V_CAM1" displayFormat="Dec" accessRightRestriction="ro" />
+            <VariableRef variableId="V_CAM2" displayFormat="Dec" accessRightRestriction="ro" />
+            <VariableRef variableId="V_CAM3" displayFormat="Dec" accessRightRestriction="ro" />
+            <VariableRef variableId="V_Hysteresis" displayFormat="Dec" accessRightRestriction="ro" />
+            <VariableRef variableId="V_Temperature" displayFormat="Dec" unitCode="1001" accessRightRestriction="ro" />
+          </Menu>
+          <Menu id="ME_S_Parameter">
+            <VariableRef variableId="V_CAM1" displayFormat="Dec" accessRightRestriction="rw" />
+            <VariableRef variableId="V_CAM2" displayFormat="Dec" accessRightRestriction="rw" />
+            <VariableRef variableId="V_CAM3" displayFormat="Dec" accessRightRestriction="rw" />
+            <VariableRef variableId="V_Hysteresis" displayFormat="Dec" accessRightRestriction="rw" />
+            <VariableRef variableId="V_Temperature" displayFormat="Dec" unitCode="1001" accessRightRestriction="ro" />
+          </Menu>
+        </MenuCollection>
+        <ObserverRoleMenuSet>
+          <IdentificationMenu menuId="ME_Ident" />
+          <ParameterMenu menuId="ME_Parameter" />
+        </ObserverRoleMenuSet>
+        <MaintenanceRoleMenuSet>
+          <IdentificationMenu menuId="ME_Ident" />
+          <ParameterMenu menuId="ME_Parameter" />
+        </MaintenanceRoleMenuSet>
+        <SpecialistRoleMenuSet>
+          <IdentificationMenu menuId="ME_Ident" />
+          <ParameterMenu menuId="ME_S_Parameter" />
+        </SpecialistRoleMenuSet>
+      </UserInterface>
+    </DeviceFunction>
+  </ProfileBody>
+  <CommNetworkProfile xsi:type="IOLinkCommNetworkProfileT" iolinkRevision="V1.0">
+    <TransportLayers>
+      <PhysicalLayer baudrate="COM2" minCycleTime="5000" physics="2" sioSupported="true" />
+    </TransportLayers>
+  </CommNetworkProfile>
+  <ExternalTextCollection>
+    <PrimaryLanguage xml:lang="en">
+      <Text id="TI_VendorText" value="BALLUFF" />
+      <Text id="TI_VendorUrl" value="www.balluff.com" />
+      <Text id="TI_DeviceFamily" value="BAW - Inductive distance sensor" />
+      <Text id="TI_Device1_Name" value="BAW Z01AC-BLD50B-DP03" />
+      <Text id="TI_Device1_Text" value="Inductive distance sensor, 1...5mm" />
+      <Text id="TI_Device2_Name" value="BAW Z05AC-BLD50B-BP00,75-GS04" />
+      <Text id="TI_Device2_Text" value="Inductive distance sensor, 1...5mm" />
+      <Text id="TI_V_CAM1" value="Cam 1" />
+      <Text id="TID_V_CAM1" value="behavior depends on CAM mode" />
+      <Text id="TI_V_CAM2" value="Cam 2" />
+      <Text id="TID_V_CAM2" value="behavior depends on CAM mode" />
+      <Text id="TI_V_CAM3" value="Cam 3" />
+      <Text id="TID_V_CAM3" value="behavior depends on CAM mode" />
+      <Text id="TI_V_Hysteresis" value="Hysteresis" />
+      <Text id="TID_V_Hysteresis" value="Hysteresis" />
+      <Text id="TI_V_Temperature" value="Temperature" />
+      <Text id="TID_V_Temperature" value="Temperature" />
+      <Text id="TI_ON" value="on" />
+      <Text id="TI_OFF" value="off" />
+      <Text id="TI_V_PDI_Cam1" value="Cam 1" />
+      <Text id="TI_V_PDI_Cam2" value="Cam 2" />
+      <Text id="TI_V_PDI_Cam3" value="Cam 3" />
+      <Text id="TI_V_PDI_Reserved" value="Reserved" />
+      <Text id="TI_V_PDI_Distance" value="Distance absolute" />
+      <Text id="TI_V_PDI" value="Process Data Inputs" />
+      <Text id="TI_Error" value="Out of Range" />
+      <Text id="TI_Ok" value="In Range" />
+      <Text id="TI_V_PDI_Error" value="Status device" />
+    </PrimaryLanguage>
+  </ExternalTextCollection>
+  <Stamp crc="2184966458"><Checker name="IODD-Checker V1.0.11" version="V1.0.11.0"/></Stamp>
+</IODevice>

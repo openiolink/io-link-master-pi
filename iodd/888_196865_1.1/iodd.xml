@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<IODevice xmlns="http://www.io-link.com/IODD/2010/10" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.io-link.com/IODD/2010/10 IODD1.1.xsd">
+  <DocumentInfo version="V1.9" releaseDate="2018-02-28" copyright="Balluff GmbH" />
+  <ProfileHeader>
+    <ProfileIdentification>IO Device Profile</ProfileIdentification>
+    <ProfileRevision>1.1</ProfileRevision>
+    <ProfileName>Device Profile for IO Devices</ProfileName>
+    <ProfileSource>IO-Link Consortium</ProfileSource>
+    <ProfileClassID>Device</ProfileClassID>
+    <ISO15745Reference>
+      <ISO15745Part>1</ISO15745Part>
+      <ISO15745Edition>1</ISO15745Edition>
+      <ProfileTechnology>IODD</ProfileTechnology>
+    </ISO15745Reference>
+  </ProfileHeader>
+  <ProfileBody>
+    <DeviceIdentity vendorId="888" vendorName="Balluff GmbH" deviceId="196865">
+      <VendorText textId="TI_VendorText" />
+      <VendorUrl textId="TI_VendorUrl" />
+      <VendorLogo name="Balluff-logo.png" />
+      <DeviceName textId="TI_Product_Name" />
+      <DeviceFamily textId="TI_DeviceFamily" />
+      <DeviceVariantCollection>
+        <DeviceVariant productId="BTL6PFIOL001" deviceSymbol="Balluff-BTL6PF-pic.png" deviceIcon="Balluff-BTL6PF-icon.png">
+          <Name textId="TI_Product_Name" />
+          <Description textId="TI_Product_Descr" />
+        </DeviceVariant>
+      </DeviceVariantCollection>
+    </DeviceIdentity>
+    <DeviceFunction>
+      <Features blockParameter="true" dataStorage="true" profileCharacteristic="0">
+        <SupportedAccessLocks dataStorage="true" localUserInterface="false" localParameterization="false" parameter="false" />
+      </Features>
+      <DatatypeCollection>
+        <Datatype id="DT_SetNullpointOffset" xsi:type="BooleanT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <SingleValue xsi:type="BooleanValueT" value="false">
+            <Name textId="TI_SetNullpointOffset_false" />
+          </SingleValue>
+          <SingleValue xsi:type="BooleanValueT" value="true">
+            <Name textId="TI_VAR_SetNullpointOffset_true" />
+          </SingleValue>
+        </Datatype>
+        <Datatype id="DT_Position" xsi:type="IntegerT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bitLength="32" />
+      </DatatypeCollection>
+      <VariableCollection>
+        <StdVariableRef id="V_DirectParameters_1" />
+        <StdVariableRef id="V_DirectParameters_2" />
+        <StdVariableRef id="V_SystemCommand">
+          <StdSingleValueRef value="130" />
+        </StdVariableRef>
+        <StdVariableRef id="V_DeviceAccessLocks" excludedFromDataStorage="false" />
+        <StdVariableRef id="V_VendorName" defaultValue="BALLUFF" />
+        <StdVariableRef id="V_VendorText" defaultValue="www.balluff.com" />
+        <StdVariableRef id="V_ProductName" defaultValue="BTL6-U110-Mxxxx-PF-S4" />
+        <StdVariableRef id="V_ProductID" defaultValue="BTL6PFIOL001"></StdVariableRef>
+        <StdVariableRef id="V_ProductText" defaultValue="Balluff Position Transducer" />
+        <StdVariableRef id="V_SerialNumber" />
+        <StdVariableRef id="V_HardwareRevision" defaultValue="XX" />
+        <StdVariableRef id="V_FirmwareRevision" defaultValue="vX.XX.XXX" />
+        <StdVariableRef id="V_ApplicationSpecificTag" />
+        <Variable id="V_NullPointOffset" index="64" accessRights="rw" defaultValue="0" dynamic="false" excludedFromDataStorage="true" modifiesOtherVariables="false">
+          <DatatypeRef datatypeId="DT_Position" />
+          <Name textId="TI_VAR_NullPointOffset" />
+        </Variable>
+        <Variable accessRights="wo" defaultValue="0" dynamic="false" excludedFromDataStorage="false" id="V_SetNullPointOffset" index="65" modifiesOtherVariables="false">
+          <DatatypeRef datatypeId="DT_SetNullpointOffset" />
+          <Name textId="TI_VAR_SetNullPointOffset" />
+        </Variable>
+      </VariableCollection>
+      <ProcessDataCollection>
+        <ProcessData id="V_PdT">
+          <ProcessDataIn id="V_Pd_InT" bitLength="32">
+            <DatatypeRef datatypeId="DT_Position" />
+            <Name textId="TI_PDin" />
+          </ProcessDataIn>
+        </ProcessData>
+      </ProcessDataCollection>
+      <EventCollection>
+        <StdEventRef code="35888" />
+        <StdEventRef code="35856" />
+        <StdEventRef code="35872" />
+      </EventCollection>
+      <UserInterface>
+        <ProcessDataRefCollection>
+          <ProcessDataRef processDataId="V_Pd_InT">
+            <ProcessDataInfo displayFormat="Dec" unitCode="1014" gradient="1" offset="0"></ProcessDataInfo>
+          </ProcessDataRef>
+        </ProcessDataRefCollection>
+        <MenuCollection>
+          <Menu id="M_OR_MR_Ident">
+            <VariableRef variableId="V_VendorName" />
+            <VariableRef variableId="V_VendorText" />
+            <VariableRef variableId="V_ProductName" />
+            <VariableRef variableId="V_ProductID" />
+            <VariableRef variableId="V_ProductText" />
+			<VariableRef variableId="V_SerialNumber" />
+            <VariableRef variableId="V_HardwareRevision" />
+            <VariableRef variableId="V_FirmwareRevision" />
+            <VariableRef variableId="V_ApplicationSpecificTag" />		
+          </Menu>
+          <Menu id="M_OR_Param">
+            <VariableRef variableId="V_NullPointOffset" accessRightRestriction="ro" displayFormat="Dec" unitCode="1014" />
+          </Menu>
+          <Menu id="M_MR_Param">
+            <VariableRef variableId="V_NullPointOffset" accessRightRestriction="rw" displayFormat="Dec" unitCode="1014" />
+            <VariableRef variableId="V_SetNullPointOffset" accessRightRestriction="wo">
+              <Button buttonValue="true">
+                <Description textId="TD_SetNullPoint" />
+                <ActionStartedMessage textId="T_SetNullPointStarted" />
+              </Button>
+            </VariableRef>
+            <VariableRef variableId="V_DeviceAccessLocks" accessRightRestriction="rw" />
+            <VariableRef variableId="V_SystemCommand">
+              <Button buttonValue="130">
+                <Description textId="TD_FactoryReset" />
+                <ActionStartedMessage textId="T_FactoryResetStarted" />
+              </Button>
+            </VariableRef>
+          </Menu>
+        </MenuCollection>
+        <ObserverRoleMenuSet>
+          <IdentificationMenu menuId="M_OR_MR_Ident" />
+          <ParameterMenu menuId="M_OR_Param" />
+        </ObserverRoleMenuSet>
+        <MaintenanceRoleMenuSet>
+          <IdentificationMenu menuId="M_OR_MR_Ident" />
+          <ParameterMenu menuId="M_MR_Param" />
+        </MaintenanceRoleMenuSet>
+        <SpecialistRoleMenuSet>
+          <IdentificationMenu menuId="M_OR_MR_Ident" />
+          <ParameterMenu menuId="M_MR_Param" />
+        </SpecialistRoleMenuSet>
+      </UserInterface>
+    </DeviceFunction>
+  </ProfileBody>
+  <CommNetworkProfile xsi:type="IOLinkCommNetworkProfileT" iolinkRevision="V1.1">
+    <TransportLayers>
+      <PhysicalLayer minCycleTime="1000" sioSupported="false" bitrate="COM3" mSequenceCapability="27">
+        <Connection xsi:type="M12-4ConnectionT">
+          <ProductRef productId="BTL6PFIOL001" />
+          <Description textId="TI_IOL_Connector" />
+          <Wire1 function="L+" color="BN"></Wire1>
+          <Wire2 function="Other" color="WH"></Wire2>
+          <Wire3 function="L-" color="BU"></Wire3>
+          <Wire4 function="C/Q" color="BK"></Wire4>
+        </Connection>
+      </PhysicalLayer>
+    </TransportLayers>
+    <Test>
+      <Config1 index="64" testValue="0x00,0x00,0x00,0x55" />
+      <Config2 index="256" testValue="0x00,0x00,0x01,0x55" />
+      <Config3 testValue="0x31,0x32,0x33,0x34,0x35,0x36,0x37,0x38,0x39,0x40,0x41,0x42,0x43,0x44,0x45,0x46,0x47" index="24" />
+      <Config7 index="16383">
+        <EventTrigger appearValue="00" disappearValue="01" />
+        <EventTrigger appearValue="02" disappearValue="03" />
+      </Config7>
+    </Test>
+  </CommNetworkProfile>
+  <ExternalTextCollection>
+    <PrimaryLanguage xml:lang="en">
+      <Text id="TI_VAR_SetNullpointOffset_true" value="take over actual Nullpoint" />
+      <Text id="TI_SetNullpointOffset_false" value="" />
+      <Text id="TI_VAR_SetNullPointOffset" value="Index 0x41: Nullpoint-Offset takeover " />
+      <Text id="TI_VAR_NullPointOffset" value="Index 0x40: Nullpoint-Offset" />
+      <Text id="TI_Product_Name" value="BTL6-U110-Mxxxx-PF-S4" />
+      <Text id="TI_PDin" value="Input Data" />
+      <Text id="TI_Product_Descr" value="Balluff Position Transducer" />
+      <Text id="TI_IOL_Connector" value="IO-Link Connector" />
+      <Text id="TI_VendorText" value="Balluff" />
+      <Text id="TI_VendorUrl" value="http://www.balluff.com" />
+      <Text id="TI_DeviceFamily" value="Balluff Position Transducer" />
+      <Text id="TD_FactoryReset" value="Factory Reset" />
+      <Text id="T_FactoryResetStarted" value="Factory Reset is now in progress!" />
+      <Text id="TD_SetNullPoint" value="Takeover actual position to nullpoint Offset" />
+      <Text id="T_SetNullPointStarted" value="Actual value is taken as new nullpoint" />
+    </PrimaryLanguage>
+  </ExternalTextCollection>
+  <Stamp crc="2060731881"><Checker name="IODD-Checker V1.1.3" version="V1.1.3.0"/></Stamp>
+</IODevice>

@@ -1,0 +1,1735 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<IODevice xmlns="http://www.io-link.com/IODD/2010/10" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.io-link.com/IODD/2010/10 IODD1.1.xsd">
+  <DocumentInfo version="V1.8" releaseDate="2017-07-14" copyright="Copyright 2011, Balluff GmbH" />
+  <ProfileHeader>
+    <ProfileIdentification>IO Device Profile</ProfileIdentification>
+    <ProfileRevision>1.1</ProfileRevision>
+    <ProfileName>Device Profile for IO Devices</ProfileName>
+    <ProfileSource>IO-Link Consortium</ProfileSource>
+    <ProfileClassID>Device</ProfileClassID>
+    <ISO15745Reference>
+      <ISO15745Part>1</ISO15745Part>
+      <ISO15745Edition>1</ISO15745Edition>
+      <ProfileTechnology>IODD</ProfileTechnology>
+    </ISO15745Reference>
+  </ProfileHeader>
+  <ProfileBody>
+    <DeviceIdentity vendorId="888" vendorName="BALLUFF" deviceId="330241">
+      <VendorText textId="TI_VendorText" />
+      <VendorUrl textId="TI_VendorUrl" />
+      <VendorLogo name="Balluff-logo.png" /> 
+      <DeviceName textId="TI_Product1_Name" />
+      <DeviceFamily textId="TI_DeviceFamily" />
+      <DeviceVariantCollection>
+        <DeviceVariant productId="BNI0072" deviceSymbol="Balluff-BNI_IOL-802-000-Z036-pic.png" deviceIcon="Balluff-BNI_IOL-802-000-Z036-icon.png">
+          <Name textId="TI_Product1_Name" />
+          <Description textId="TI_Product1_Descr" />
+        </DeviceVariant>
+        <DeviceVariant productId="BNI0081" deviceSymbol="Balluff-BNI_IOL-802-000-Z036-pic.png" deviceIcon="Balluff-BNI_IOL-802-000-Z036-icon.png">
+          <Name textId="TI_Product2_Name" />
+          <Description textId="TI_Product2_Descr" />
+        </DeviceVariant>
+      </DeviceVariantCollection>
+    </DeviceIdentity>
+    <DeviceFunction>
+      <Features blockParameter="true" dataStorage="true">
+         <SupportedAccessLocks parameter="true" dataStorage="true" localUserInterface="false" localParameterization="false"  />
+      </Features>
+      <DatatypeCollection>
+        <Datatype id="DT_Color" xsi:type="UIntegerT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bitLength="3">
+          <SingleValue value="0">
+            <Name textId="TI_VAR_Color_Off" />
+          </SingleValue>
+          <SingleValue value="1">
+            <Name textId="TI_VAR_Color_Green" />
+          </SingleValue>
+          <SingleValue value="2">
+            <Name textId="TI_VAR_Color_Red" />
+          </SingleValue>
+          <SingleValue value="3">
+            <Name textId="TI_VAR_Color_Yellow" />
+          </SingleValue>
+          <SingleValue value="4">
+            <Name textId="TI_VAR_Color_Blue" />
+          </SingleValue>
+          <SingleValue value="5">
+            <Name textId="TI_VAR_Color_Orange" />
+          </SingleValue>
+          <SingleValue value="6">
+            <Name textId="TI_VAR_Color_UserDefined" />
+          </SingleValue>
+          <SingleValue value="7">
+            <Name textId="TI_VAR_Color_White" />
+          </SingleValue>
+        </Datatype>
+        <Datatype id="DT_Blinking" xsi:type="BooleanT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <SingleValue xsi:type="BooleanValueT" value="false">
+            <Name textId="TI_VAR_notBlink" />
+          </SingleValue>
+          <SingleValue xsi:type="BooleanValueT" value="true">
+            <Name textId="TI_VAR_Blink" />
+          </SingleValue>
+        </Datatype>
+        <Datatype id="DT_SyncImp" xsi:type="BooleanT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <SingleValue xsi:type="BooleanValueT" value="false">
+            <Name textId="TI_VAR_SyncImpOff" />
+          </SingleValue>
+          <SingleValue xsi:type="BooleanValueT" value="true">
+            <Name textId="TI_VAR_SyncImpOn" />
+          </SingleValue>
+        </Datatype>
+		<Datatype id="DT_SyncStart" xsi:type="BooleanT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <SingleValue xsi:type="BooleanValueT" value="false">
+            <Name textId="TI_VAR_SyncStartOff" />
+          </SingleValue>
+          <SingleValue xsi:type="BooleanValueT" value="true">
+            <Name textId="TI_VAR_SyncStartOn" />
+          </SingleValue>
+        </Datatype>
+        <Datatype id="DT_Mode" xsi:type="UIntegerT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bitLength="2">
+          <SingleValue value="0">
+            <Name textId="TI_VAR_ModeSegment"/>
+          </SingleValue>
+          <SingleValue value="1">
+            <Name textId="TI_VAR_ModeLevel"/>
+          </SingleValue>
+          <SingleValue value="2">
+            <Name textId="TI_VAR_ModeRunlight"/>
+          </SingleValue>
+          <SingleValue value="3">
+            <Name textId="TI_VAR_ModeFlexible"/>
+          </SingleValue>
+        </Datatype>
+        <Datatype id="DT_Level" xsi:type="UIntegerT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bitLength="16">
+        </Datatype>
+        <Datatype id="DT_SegmentNr" xsi:type="UIntegerT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bitLength="3">
+          <SingleValue value="1">
+            <Name textId="TI_VAR_1Seg"/>
+          </SingleValue>
+          <SingleValue value="2">
+            <Name textId="TI_VAR_2Seg"/>
+          </SingleValue>
+          <SingleValue value="3">
+            <Name textId="TI_VAR_3Seg"/>
+          </SingleValue>
+          <SingleValue value="4">
+            <Name textId="TI_VAR_4Seg"/>
+          </SingleValue>
+          <SingleValue value="5">
+            <Name textId="TI_VAR_5Seg"/>
+          </SingleValue>
+        </Datatype>
+        <Datatype id="DT_LevelDirection" xsi:type="UIntegerT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bitLength="2">
+          <SingleValue value="0">
+            <Name textId="TI_VAR_BottomUp" />
+          </SingleValue>
+          <SingleValue value="1">
+            <Name textId="TI_VAR_TopDown" />
+          </SingleValue>
+        </Datatype>
+		<Datatype id="DT_SafeState" xsi:type="UIntegerT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bitLength="2">
+          <SingleValue value="0">
+            <Name textId="TI_VAR_NotActive" />
+          </SingleValue>
+          <SingleValue value="1">
+            <Name textId="TI_VAR_Active" />
+          </SingleValue>
+        </Datatype>
+        <Datatype id="DT_Resolution" xsi:type="UIntegerT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bitLength="3">
+          <SingleValue value="0">
+            <Name textId="TI_VAR_8bit"/>
+          </SingleValue>
+          <SingleValue value="1">
+            <Name textId="TI_VAR_10bit"/>
+          </SingleValue>
+          <SingleValue value="2">
+            <Name textId="TI_VAR_12bit"/>
+          </SingleValue>
+          <SingleValue value="3">
+            <Name textId="TI_VAR_14bit"/>
+          </SingleValue>
+          <SingleValue value="4">
+            <Name textId="TI_VAR_16bit"/>
+          </SingleValue>
+        </Datatype>
+        <Datatype id="DT_ColorDominance" xsi:type="BooleanT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <SingleValue xsi:type="BooleanValueT" value="false">
+            <Name textId="TI_VAR_NoDominance" />
+          </SingleValue>
+          <SingleValue xsi:type="BooleanValueT" value="true">
+            <Name textId="TI_VAR_Dominance" />
+          </SingleValue>
+        </Datatype>
+        <Datatype id="DT_Limit" xsi:type="UIntegerT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bitLength="16">
+        </Datatype>
+        <Datatype id="DT_RunlightSegmentNr" xsi:type="UIntegerT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bitLength="2">
+          <SingleValue value="1">
+            <Name textId="TI_VAR_1Seg"/>
+          </SingleValue>
+          <SingleValue value="2">
+            <Name textId="TI_VAR_2Seg"/>
+          </SingleValue>
+          <SingleValue value="3">
+            <Name textId="TI_VAR_3Seg"/>
+          </SingleValue>
+        </Datatype>
+        <Datatype id="DT_UsLow" xsi:type="BooleanT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <SingleValue xsi:type="BooleanValueT" value="false">
+            <Name textId="TI_VAR_UsVoltageOk" />
+          </SingleValue>
+          <SingleValue xsi:type="BooleanValueT" value="true">
+            <Name textId="TI_VAR_UsVoltageLow" />
+          </SingleValue>
+        </Datatype>
+        <Datatype id="DT_LEDVoltage" xsi:type="BooleanT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <SingleValue xsi:type="BooleanValueT" value="false">
+            <Name textId="TI_VAR_LEDVoltageOk" />
+          </SingleValue>
+          <SingleValue xsi:type="BooleanValueT" value="true">
+            <Name textId="TI_VAR_LEDVoltageLow" />
+          </SingleValue>
+        </Datatype>
+        <Datatype id="DT_Brightness" xsi:type="UIntegerT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bitLength="7">
+        </Datatype>
+        <Datatype id="DT_Frequency" xsi:type="UIntegerT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bitLength="3">
+          <SingleValue value="1">
+            <Name textId="TI_VAR_0Hz5"/>
+          </SingleValue>
+          <SingleValue value="2">
+            <Name textId="TI_VAR_1Hz"/>
+          </SingleValue>
+          <SingleValue value="3">
+            <Name textId="TI_VAR_2Hz"/>
+          </SingleValue>
+          <SingleValue value="4">
+            <Name textId="TI_VAR_5Hz"/>
+          </SingleValue>
+          <SingleValue value="5">
+            <Name textId="TI_VAR_10Hz"/>
+          </SingleValue>
+        </Datatype>
+        <Datatype id="DT_BlinkingMode" xsi:type="BooleanT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <SingleValue xsi:type="BooleanValueT" value="false">
+            <Name textId="TI_VAR_ModeBlink" />
+          </SingleValue>
+          <SingleValue xsi:type="BooleanValueT" value="true">
+            <Name textId="TI_VAR_ModeFlash" />
+          </SingleValue>
+        </Datatype>
+		<Datatype id="DT_RunDir" xsi:type="BooleanT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <SingleValue xsi:type="BooleanValueT" value="false">
+            <Name textId="TI_VAR_Up" />
+          </SingleValue>
+          <SingleValue xsi:type="BooleanValueT" value="true">
+            <Name textId="TI_VAR_Down" />
+          </SingleValue>
+        </Datatype>
+        <Datatype id="DT_LimitType" xsi:type="UIntegerT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bitLength="2">
+          <SingleValue value="0">
+            <Name textId="TI_VAR_LimitPercent"/>
+          </SingleValue>
+          <SingleValue value="1">
+            <Name textId="TI_VAR_LimitAbs"/>
+          </SingleValue>
+        </Datatype>
+        <Datatype id="DT_LED_State" xsi:type="BooleanT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <SingleValue xsi:type="BooleanValueT" value="false">
+            <Name textId="TI_VAR_LEDOff" />
+          </SingleValue>
+          <SingleValue xsi:type="BooleanValueT" value="true">
+            <Name textId="TI_VAR_LEDOn" />
+          </SingleValue>
+        </Datatype>
+		
+        <Datatype id="DT_Byte" xsi:type="UIntegerT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bitLength="8">
+        </Datatype>
+        <Datatype id="DT_ReservedByte" xsi:type="UIntegerT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bitLength="8">
+        </Datatype>
+		<Datatype id="DT_ReservedNib" xsi:type="UIntegerT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bitLength="4">
+        </Datatype>
+		<Datatype id="DT_UsageHoursCounter" xsi:type="UIntegerT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bitLength="32"></Datatype>
+        <Datatype id="DT_BootCycleCounter" xsi:type="UIntegerT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bitLength="32"></Datatype>
+        <Datatype id="DT_ActualTemperatureValue" xsi:type="IntegerT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bitLength="8"></Datatype>
+        <Datatype id="DT_VAR_MaxTemperatureValueSinceLastStart" xsi:type="IntegerT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bitLength="8"></Datatype>
+        <Datatype id="DT_VAR_MinTemperatureValueSinceLastStart" xsi:type="IntegerT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bitLength="8"></Datatype>
+        <Datatype id="DT_VAR_MaxTemperatureValueSinceFirstStart" xsi:type="IntegerT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bitLength="8"></Datatype>
+        <Datatype id="DT_VAR_MinTemperatureValueSinceFirstStart" xsi:type="IntegerT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bitLength="8"></Datatype>
+      </DatatypeCollection>
+      <VariableCollection>
+        <StdVariableRef id="V_DirectParameters_1" />
+        <StdVariableRef id="V_DirectParameters_2" />
+        <StdVariableRef id="V_DeviceAccessLocks" />
+        <StdVariableRef id="V_VendorName" defaultValue="BALLUFF" />
+        <StdVariableRef id="V_VendorText" defaultValue="www.balluff.com" />
+        <StdVariableRef id="V_ProductName" defaultValue="BNI IOL-802-000-Z036" />
+        <StdVariableRef id="V_ProductID" defaultValue="BNI0072" />
+        <StdVariableRef id="V_ProductText" defaultValue="Smart Light 5 segment" />
+        <StdVariableRef id="V_HardwareRevision" />
+        <StdVariableRef id="V_FirmwareRevision" />
+        <StdVariableRef id="V_ApplicationSpecificTag" />
+		<StdVariableRef id="V_SystemCommand">
+			<SingleValue value="165">
+				<Name textId="TD_MaintenanceReset"/>
+			</SingleValue>
+			<StdSingleValueRef value="130"/>
+		</StdVariableRef>
+		<Variable accessRights="rw" excludedFromDataStorage="true" id="V_SN_RW" index="84">
+			<Datatype encoding="UTF-8" fixedLength="16" xsi:type="StringT"/>
+			<Name textId="TI_SN_RW"/>
+			<Description textId="TI_SN_RW_Descr"/>
+		</Variable>
+        <Variable id="V_Mode" index="64" accessRights="rw" defaultValue="0">
+          <DatatypeRef datatypeId="DT_Mode" />
+          <Name textId="TI_VAR_Mode" />
+          <Description textId="TI_VAR_Mode" />
+        </Variable>
+        <Variable id="V_SegmentNr" index="65" accessRights="rw">
+          <DatatypeRef datatypeId="DT_SegmentNr" />
+          <Name textId="TI_VAR_SegmentNr" />
+        </Variable>
+        <Variable id="V_LevelType" index="66" accessRights="rw">
+          <DatatypeRef datatypeId="DT_LevelDirection" />
+          <Name textId="TI_VAR_LevelType" />
+        </Variable>
+		<Variable id="V_SafeState" index="251" accessRights="rw">
+          <DatatypeRef datatypeId="DT_SafeState" />
+          <Name textId="TI_VAR_SafeState" />
+        </Variable>
+        <Variable id="V_Resolution" index="67" accessRights="rw">
+          <DatatypeRef datatypeId="DT_Resolution" />
+          <Name textId="TI_VAR_Resolution" />
+        </Variable>
+        <Variable id="V_LevelSeg1Color" index="68" accessRights="rw">
+          <Datatype xsi:type="RecordT" bitLength="4" subindexAccessSupported = "false">
+            <RecordItem subindex="1" bitOffset="0">
+              <DatatypeRef datatypeId="DT_Color" />
+              <Name textId="TI_VAR_LevelSeg1Color" />
+            </RecordItem>
+            <RecordItem subindex="2" bitOffset="3">
+              <DatatypeRef datatypeId="DT_ColorDominance" />
+              <Name textId="TI_VAR_LevelSeg1Dominance" />
+            </RecordItem>
+          </Datatype>          
+          <Name textId="TI_VAR_LevelSeg1" />
+          <Description textId="TI_VAR_LevelSeg1" />
+        </Variable>
+        <Variable id="V_LevelSeg2Color" index="69" accessRights="rw">
+          <Datatype xsi:type="RecordT" bitLength="4" subindexAccessSupported = "false">
+            <RecordItem subindex="1" bitOffset="0">
+              <DatatypeRef datatypeId="DT_Color" />
+              <Name textId="TI_VAR_LevelSeg2Color" />
+            </RecordItem>
+            <RecordItem subindex="2" bitOffset="3">
+              <DatatypeRef datatypeId="DT_ColorDominance" />
+              <Name textId="TI_VAR_LevelSeg2Dominance" />
+            </RecordItem>
+          </Datatype>          
+          <Name textId="TI_VAR_LevelSeg2" />
+          <Description textId="TI_VAR_LevelSeg2" />
+        </Variable>
+        <Variable id="V_LevelSeg3Color" index="70" accessRights="rw">
+          <Datatype xsi:type="RecordT" bitLength="4" subindexAccessSupported = "false">
+            <RecordItem subindex="1" bitOffset="0">
+              <DatatypeRef datatypeId="DT_Color" />
+              <Name textId="TI_VAR_LevelSeg3Color" />
+            </RecordItem>
+            <RecordItem subindex="2" bitOffset="3">
+              <DatatypeRef datatypeId="DT_ColorDominance" />
+              <Name textId="TI_VAR_LevelSeg3Dominance" />
+            </RecordItem>
+          </Datatype>          
+          <Name textId="TI_VAR_LevelSeg3" />
+          <Description textId="TI_VAR_LevelSeg3" />
+        </Variable>
+        <Variable id="V_LevelSeg4Color" index="71" accessRights="rw">
+          <Datatype xsi:type="RecordT" bitLength="4" subindexAccessSupported = "false">
+            <RecordItem subindex="1" bitOffset="0">
+              <DatatypeRef datatypeId="DT_Color" />
+              <Name textId="TI_VAR_LevelSeg4Color" />
+            </RecordItem>
+            <RecordItem subindex="2" bitOffset="3">
+              <DatatypeRef datatypeId="DT_ColorDominance" />
+              <Name textId="TI_VAR_LevelSeg4Dominance" />
+            </RecordItem>
+          </Datatype>          
+          <Name textId="TI_VAR_LevelSeg4" />
+          <Description textId="TI_VAR_LevelSeg4" />
+        </Variable>
+        <Variable id="V_LevelSeg5Color" index="72" accessRights="rw">
+          <Datatype xsi:type="RecordT" bitLength="4" subindexAccessSupported = "false">
+            <RecordItem subindex="1" bitOffset="0">
+              <DatatypeRef datatypeId="DT_Color" />
+              <Name textId="TI_VAR_LevelSeg5Color" />
+            </RecordItem>
+            <RecordItem subindex="2" bitOffset="3">
+              <DatatypeRef datatypeId="DT_ColorDominance" />
+              <Name textId="TI_VAR_LevelSeg5Dominance" />
+            </RecordItem>
+          </Datatype>          
+          <Name textId="TI_VAR_LevelSeg5" />
+          <Description textId="TI_VAR_LevelSeg5" />
+        </Variable>
+        <Variable id="V_LevelLimit12" index="73" accessRights="rw" dynamic="true">
+          <DatatypeRef datatypeId="DT_Limit" />
+          <Name textId="TI_VAR_LevelLimit12" />
+        </Variable>
+        <Variable id="V_LevelLimit23" index="74" accessRights="rw" dynamic="true">
+          <DatatypeRef datatypeId="DT_Limit" />
+          <Name textId="TI_VAR_LevelLimit23" />
+        </Variable>
+        <Variable id="V_LevelLimit34" index="75" accessRights="rw" dynamic="true">
+          <DatatypeRef datatypeId="DT_Limit" />
+          <Name textId="TI_VAR_LevelLimit34" />
+        </Variable>
+        <Variable id="V_LevelLimit45" index="76" accessRights="rw" dynamic="true">
+          <DatatypeRef datatypeId="DT_Limit" />
+          <Name textId="TI_VAR_LevelLimit45" />
+        </Variable>
+        <Variable id="V_RunlightStaticColor" index="77" accessRights="rw">
+          <DatatypeRef datatypeId="DT_Color" />
+          <Name textId="TI_VAR_RunlightStaticColor" />
+          <Description textId="TI_VAR_RunlightStaticColor" />
+        </Variable>
+        <Variable id="V_RunlightRunningColor" index="78" accessRights="rw">
+          <DatatypeRef datatypeId="DT_Color" />
+          <Name textId="TI_VAR_RunlightRunningColor" />
+          <Description textId="TI_VAR_RunlightRunningColor" />
+        </Variable>
+        <Variable id="V_RunlightSegmentNr" index="79" accessRights="rw">
+          <DatatypeRef datatypeId="DT_RunlightSegmentNr" />
+          <Name textId="TI_VAR_RunlightSegmentNr" />
+          <Description textId="TI_VAR_RunlightSegmentNr" />
+        </Variable>
+        <Variable id="V_SupplyMonitor"  index="80" accessRights="ro">
+          <Datatype xsi:type="RecordT" bitLength="2">
+            <RecordItem subindex="1" bitOffset="0">
+              <DatatypeRef datatypeId="DT_UsLow" />
+              <Name textId="TI_VAR_UsVoltage" />
+            </RecordItem>
+            <RecordItem subindex="2" bitOffset="1">
+              <DatatypeRef datatypeId="DT_LEDVoltage" />
+              <Name textId="TI_VAR_LEDVoltage" />
+            </RecordItem>
+          </Datatype>          
+          <Name textId="TI_VAR_SupplyMonitor" />
+          <Description textId="TI_VAR_SupplyMonitor" />
+        </Variable>
+        <Variable id="V_Brightness" index="81" accessRights="rw">
+          <Datatype xsi:type="RecordT" bitLength="24">
+            <RecordItem subindex="1" bitOffset="16">
+              <DatatypeRef datatypeId="DT_Brightness" />
+              <Name textId="TI_VAR_BrightnessRed" />
+            </RecordItem>
+            <RecordItem subindex="2" bitOffset="8">
+              <DatatypeRef datatypeId="DT_Brightness" />
+              <Name textId="TI_VAR_BrightnessGreen" />
+            </RecordItem>
+            <RecordItem subindex="3" bitOffset="0">
+              <DatatypeRef datatypeId="DT_Brightness" />
+              <Name textId="TI_VAR_BrightnessBlue" />
+            </RecordItem>
+          </Datatype>          
+          <RecordItemInfo subindex="1" defaultValue="127" />
+          <RecordItemInfo subindex="2" defaultValue="127" />
+          <RecordItemInfo subindex="3" defaultValue="127" />
+          <Name textId="TI_VAR_Brightness" />
+          <Description textId="TI_VAR_Brightness" />
+        </Variable>
+        <Variable id="V_Frequency" index="82" accessRights="rw">
+          <DatatypeRef datatypeId="DT_Frequency" />
+          <Name textId="TI_VAR_Frequency" />
+          <Description textId="TI_VAR_Frequency" />
+        </Variable>
+        <Variable id="V_BlinkingMode" index="83" accessRights="rw">
+          <Datatype xsi:type="RecordT" bitLength="5" subindexAccessSupported = "false">
+            <RecordItem subindex="1" bitOffset="0">
+              <DatatypeRef datatypeId="DT_BlinkingMode" />
+              <Name textId="TI_VAR_BlinkingModeSeg1" />
+            </RecordItem>
+            <RecordItem subindex="2" bitOffset="1">
+              <DatatypeRef datatypeId="DT_BlinkingMode" />
+              <Name textId="TI_VAR_BlinkingModeSeg2" />
+            </RecordItem>
+            <RecordItem subindex="3" bitOffset="2">
+              <DatatypeRef datatypeId="DT_BlinkingMode" />
+              <Name textId="TI_VAR_BlinkingModeSeg3" />
+            </RecordItem>
+            <RecordItem subindex="4" bitOffset="3">
+              <DatatypeRef datatypeId="DT_BlinkingMode" />
+              <Name textId="TI_VAR_BlinkingModeSeg4" />
+            </RecordItem>
+            <RecordItem subindex="5" bitOffset="4">
+              <DatatypeRef datatypeId="DT_BlinkingMode" />
+              <Name textId="TI_VAR_BlinkingModeSeg5" />
+            </RecordItem>
+          </Datatype>          
+          <Name textId="TI_VAR_BlinkingMode" />
+          <Description textId="TI_VAR_BlinkingMode" />
+        </Variable>
+        <Variable id="V_UserColor" index="252" accessRights="rw">
+          <Datatype xsi:type="RecordT" bitLength="24">
+            <RecordItem subindex="1" bitOffset="16">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_UserColorRed" />
+            </RecordItem>
+            <RecordItem subindex="2" bitOffset="8">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_UserColorGreen" />
+            </RecordItem>
+            <RecordItem subindex="3" bitOffset="0">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_UserColorBlue" />
+            </RecordItem>
+          </Datatype>
+          <Name textId="TI_VAR_UserColor" />
+          <Description textId="TI_VAR_UserColor" />
+        </Variable>
+        <Variable id="V_LimitType" index="253" accessRights="rw" >
+          <DatatypeRef datatypeId="DT_LimitType" />
+          <Name textId="TI_VAR_LimitType" />
+        </Variable>
+        <Variable id="V_LED_1" index="161" accessRights="rw">
+          <Datatype xsi:type="RecordT" bitLength="40">
+            <RecordItem subindex="1" bitOffset="32">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDColorR" />
+            </RecordItem>
+            <RecordItem subindex="2" bitOffset="24">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDColorG" />
+            </RecordItem>
+            <RecordItem subindex="3" bitOffset="16">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDColorB" />
+            </RecordItem>
+            <RecordItem subindex="4" bitOffset="8">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDOnBrightness" />
+            </RecordItem>
+            <RecordItem subindex="5" bitOffset="0">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDOffBrightness" />
+            </RecordItem>
+          </Datatype>
+          <Name textId="TI_VAR_LED1" />
+          <Description textId="TI_VAR_LED1" />
+        </Variable>
+        <Variable id="V_LED_2" index="162" accessRights="rw">
+          <Datatype xsi:type="RecordT" bitLength="40">
+            <RecordItem subindex="1" bitOffset="32">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDColorR" />
+            </RecordItem>
+            <RecordItem subindex="2" bitOffset="24">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDColorG" />
+            </RecordItem>
+            <RecordItem subindex="3" bitOffset="16">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDColorB" />
+            </RecordItem>
+            <RecordItem subindex="4" bitOffset="8">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDOnBrightness" />
+            </RecordItem>
+            <RecordItem subindex="5" bitOffset="0">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDOffBrightness" />
+            </RecordItem>
+          </Datatype>
+          <Name textId="TI_VAR_LED2" />
+          <Description textId="TI_VAR_LED2" />
+        </Variable>
+        <Variable id="V_LED_3" index="163" accessRights="rw">
+          <Datatype xsi:type="RecordT" bitLength="40">
+            <RecordItem subindex="1" bitOffset="32">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDColorR" />
+            </RecordItem>
+            <RecordItem subindex="2" bitOffset="24">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDColorG" />
+            </RecordItem>
+            <RecordItem subindex="3" bitOffset="16">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDColorB" />
+            </RecordItem>
+            <RecordItem subindex="4" bitOffset="8">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDOnBrightness" />
+            </RecordItem>
+            <RecordItem subindex="5" bitOffset="0">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDOffBrightness" />
+            </RecordItem>
+          </Datatype>
+          <Name textId="TI_VAR_LED3" />
+          <Description textId="TI_VAR_LED3" />
+        </Variable>
+        <Variable id="V_LED_4" index="164" accessRights="rw">
+          <Datatype xsi:type="RecordT" bitLength="40">
+            <RecordItem subindex="1" bitOffset="32">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDColorR" />
+            </RecordItem>
+            <RecordItem subindex="2" bitOffset="24">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDColorG" />
+            </RecordItem>
+            <RecordItem subindex="3" bitOffset="16">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDColorB" />
+            </RecordItem>
+            <RecordItem subindex="4" bitOffset="8">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDOnBrightness" />
+            </RecordItem>
+            <RecordItem subindex="5" bitOffset="0">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDOffBrightness" />
+            </RecordItem>
+          </Datatype>
+          <Name textId="TI_VAR_LED4" />
+          <Description textId="TI_VAR_LED4" />
+        </Variable>
+        <Variable id="V_LED_5" index="165" accessRights="rw">
+          <Datatype xsi:type="RecordT" bitLength="40">
+            <RecordItem subindex="1" bitOffset="32">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDColorR" />
+            </RecordItem>
+            <RecordItem subindex="2" bitOffset="24">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDColorG" />
+            </RecordItem>
+            <RecordItem subindex="3" bitOffset="16">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDColorB" />
+            </RecordItem>
+            <RecordItem subindex="4" bitOffset="8">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDOnBrightness" />
+            </RecordItem>
+            <RecordItem subindex="5" bitOffset="0">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDOffBrightness" />
+            </RecordItem>
+          </Datatype>
+          <Name textId="TI_VAR_LED5" />
+          <Description textId="TI_VAR_LED5" />
+        </Variable>
+        <Variable id="V_LED_6" index="166" accessRights="rw">
+          <Datatype xsi:type="RecordT" bitLength="40">
+            <RecordItem subindex="1" bitOffset="32">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDColorR" />
+            </RecordItem>
+            <RecordItem subindex="2" bitOffset="24">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDColorG" />
+            </RecordItem>
+            <RecordItem subindex="3" bitOffset="16">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDColorB" />
+            </RecordItem>
+            <RecordItem subindex="4" bitOffset="8">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDOnBrightness" />
+            </RecordItem>
+            <RecordItem subindex="5" bitOffset="0">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDOffBrightness" />
+            </RecordItem>
+          </Datatype>
+          <Name textId="TI_VAR_LED6" />
+          <Description textId="TI_VAR_LED6" />
+        </Variable>
+        <Variable id="V_LED_7" index="167" accessRights="rw">
+          <Datatype xsi:type="RecordT" bitLength="40">
+            <RecordItem subindex="1" bitOffset="32">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDColorR" />
+            </RecordItem>
+            <RecordItem subindex="2" bitOffset="24">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDColorG" />
+            </RecordItem>
+            <RecordItem subindex="3" bitOffset="16">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDColorB" />
+            </RecordItem>
+            <RecordItem subindex="4" bitOffset="8">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDOnBrightness" />
+            </RecordItem>
+            <RecordItem subindex="5" bitOffset="0">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDOffBrightness" />
+            </RecordItem>
+          </Datatype>
+          <Name textId="TI_VAR_LED7" />
+          <Description textId="TI_VAR_LED7" />
+        </Variable>
+        <Variable id="V_LED_8" index="168" accessRights="rw">
+          <Datatype xsi:type="RecordT" bitLength="40">
+            <RecordItem subindex="1" bitOffset="32">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDColorR" />
+            </RecordItem>
+            <RecordItem subindex="2" bitOffset="24">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDColorG" />
+            </RecordItem>
+            <RecordItem subindex="3" bitOffset="16">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDColorB" />
+            </RecordItem>
+            <RecordItem subindex="4" bitOffset="8">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDOnBrightness" />
+            </RecordItem>
+            <RecordItem subindex="5" bitOffset="0">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDOffBrightness" />
+            </RecordItem>
+          </Datatype>
+          <Name textId="TI_VAR_LED8" />
+          <Description textId="TI_VAR_LED8" />
+        </Variable>
+        <Variable id="V_LED_9" index="169" accessRights="rw">
+          <Datatype xsi:type="RecordT" bitLength="40">
+            <RecordItem subindex="1" bitOffset="32">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDColorR" />
+            </RecordItem>
+            <RecordItem subindex="2" bitOffset="24">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDColorG" />
+            </RecordItem>
+            <RecordItem subindex="3" bitOffset="16">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDColorB" />
+            </RecordItem>
+            <RecordItem subindex="4" bitOffset="8">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDOnBrightness" />
+            </RecordItem>
+            <RecordItem subindex="5" bitOffset="0">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDOffBrightness" />
+            </RecordItem>
+          </Datatype>
+          <Name textId="TI_VAR_LED9" />
+          <Description textId="TI_VAR_LED9" />
+        </Variable>
+        <Variable id="V_LED_10" index="170" accessRights="rw">
+          <Datatype xsi:type="RecordT" bitLength="40">
+            <RecordItem subindex="1" bitOffset="32">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDColorR" />
+            </RecordItem>
+            <RecordItem subindex="2" bitOffset="24">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDColorG" />
+            </RecordItem>
+            <RecordItem subindex="3" bitOffset="16">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDColorB" />
+            </RecordItem>
+            <RecordItem subindex="4" bitOffset="8">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDOnBrightness" />
+            </RecordItem>
+            <RecordItem subindex="5" bitOffset="0">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDOffBrightness" />
+            </RecordItem>
+          </Datatype>
+          <Name textId="TI_VAR_LED10" />
+          <Description textId="TI_VAR_LED10" />
+        </Variable>
+        <Variable id="V_LED_11" index="171" accessRights="rw">
+          <Datatype xsi:type="RecordT" bitLength="40">
+            <RecordItem subindex="1" bitOffset="32">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDColorR" />
+            </RecordItem>
+            <RecordItem subindex="2" bitOffset="24">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDColorG" />
+            </RecordItem>
+            <RecordItem subindex="3" bitOffset="16">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDColorB" />
+            </RecordItem>
+            <RecordItem subindex="4" bitOffset="8">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDOnBrightness" />
+            </RecordItem>
+            <RecordItem subindex="5" bitOffset="0">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDOffBrightness" />
+            </RecordItem>
+          </Datatype>
+          <Name textId="TI_VAR_LED11" />
+          <Description textId="TI_VAR_LED11" />
+        </Variable>
+        <Variable id="V_LED_12" index="172" accessRights="rw">
+          <Datatype xsi:type="RecordT" bitLength="40">
+            <RecordItem subindex="1" bitOffset="32">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDColorR" />
+            </RecordItem>
+            <RecordItem subindex="2" bitOffset="24">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDColorG" />
+            </RecordItem>
+            <RecordItem subindex="3" bitOffset="16">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDColorB" />
+            </RecordItem>
+            <RecordItem subindex="4" bitOffset="8">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDOnBrightness" />
+            </RecordItem>
+            <RecordItem subindex="5" bitOffset="0">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDOffBrightness" />
+            </RecordItem>
+          </Datatype>
+          <Name textId="TI_VAR_LED12" />
+          <Description textId="TI_VAR_LED12" />
+        </Variable>
+        <Variable id="V_LED_13" index="173" accessRights="rw">
+          <Datatype xsi:type="RecordT" bitLength="40">
+            <RecordItem subindex="1" bitOffset="32">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDColorR" />
+            </RecordItem>
+            <RecordItem subindex="2" bitOffset="24">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDColorG" />
+            </RecordItem>
+            <RecordItem subindex="3" bitOffset="16">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDColorB" />
+            </RecordItem>
+            <RecordItem subindex="4" bitOffset="8">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDOnBrightness" />
+            </RecordItem>
+            <RecordItem subindex="5" bitOffset="0">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDOffBrightness" />
+            </RecordItem>
+          </Datatype>
+          <Name textId="TI_VAR_LED13" />
+          <Description textId="TI_VAR_LED13" />
+        </Variable>
+        <Variable id="V_LED_14" index="174" accessRights="rw">
+          <Datatype xsi:type="RecordT" bitLength="40">
+            <RecordItem subindex="1" bitOffset="32">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDColorR" />
+            </RecordItem>
+            <RecordItem subindex="2" bitOffset="24">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDColorG" />
+            </RecordItem>
+            <RecordItem subindex="3" bitOffset="16">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDColorB" />
+            </RecordItem>
+            <RecordItem subindex="4" bitOffset="8">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDOnBrightness" />
+            </RecordItem>
+            <RecordItem subindex="5" bitOffset="0">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDOffBrightness" />
+            </RecordItem>
+          </Datatype>
+          <Name textId="TI_VAR_LED14" />
+          <Description textId="TI_VAR_LED14" />
+        </Variable>
+        <Variable id="V_LED_15" index="175" accessRights="rw">
+          <Datatype xsi:type="RecordT" bitLength="40">
+            <RecordItem subindex="1" bitOffset="32">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDColorR" />
+            </RecordItem>
+            <RecordItem subindex="2" bitOffset="24">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDColorG" />
+            </RecordItem>
+            <RecordItem subindex="3" bitOffset="16">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDColorB" />
+            </RecordItem>
+            <RecordItem subindex="4" bitOffset="8">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDOnBrightness" />
+            </RecordItem>
+            <RecordItem subindex="5" bitOffset="0">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDOffBrightness" />
+            </RecordItem>
+          </Datatype>
+          <Name textId="TI_VAR_LED15" />
+          <Description textId="TI_VAR_LED15" />
+        </Variable>
+        <Variable id="V_LED_16" index="176" accessRights="rw">
+          <Datatype xsi:type="RecordT" bitLength="40">
+            <RecordItem subindex="1" bitOffset="32">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDColorR" />
+            </RecordItem>
+            <RecordItem subindex="2" bitOffset="24">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDColorG" />
+            </RecordItem>
+            <RecordItem subindex="3" bitOffset="16">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDColorB" />
+            </RecordItem>
+            <RecordItem subindex="4" bitOffset="8">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDOnBrightness" />
+            </RecordItem>
+            <RecordItem subindex="5" bitOffset="0">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDOffBrightness" />
+            </RecordItem>
+          </Datatype>
+          <Name textId="TI_VAR_LED16" />
+          <Description textId="TI_VAR_LED16" />
+        </Variable>
+        <Variable id="V_LED_17" index="177" accessRights="rw">
+          <Datatype xsi:type="RecordT" bitLength="40">
+            <RecordItem subindex="1" bitOffset="32">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDColorR" />
+            </RecordItem>
+            <RecordItem subindex="2" bitOffset="24">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDColorG" />
+            </RecordItem>
+            <RecordItem subindex="3" bitOffset="16">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDColorB" />
+            </RecordItem>
+            <RecordItem subindex="4" bitOffset="8">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDOnBrightness" />
+            </RecordItem>
+            <RecordItem subindex="5" bitOffset="0">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDOffBrightness" />
+            </RecordItem>
+          </Datatype>
+          <Name textId="TI_VAR_LED17" />
+          <Description textId="TI_VAR_LED17" />
+        </Variable>
+        <Variable id="V_LED_18" index="178" accessRights="rw">
+          <Datatype xsi:type="RecordT" bitLength="40">
+            <RecordItem subindex="1" bitOffset="32">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDColorR" />
+            </RecordItem>
+            <RecordItem subindex="2" bitOffset="24">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDColorG" />
+            </RecordItem>
+            <RecordItem subindex="3" bitOffset="16">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDColorB" />
+            </RecordItem>
+            <RecordItem subindex="4" bitOffset="8">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDOnBrightness" />
+            </RecordItem>
+            <RecordItem subindex="5" bitOffset="0">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDOffBrightness" />
+            </RecordItem>
+          </Datatype>
+          <Name textId="TI_VAR_LED18" />
+          <Description textId="TI_VAR_LED18" />
+        </Variable>
+        <Variable id="V_LED_19" index="179" accessRights="rw">
+          <Datatype xsi:type="RecordT" bitLength="40">
+            <RecordItem subindex="1" bitOffset="32">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDColorR" />
+            </RecordItem>
+            <RecordItem subindex="2" bitOffset="24">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDColorG" />
+            </RecordItem>
+            <RecordItem subindex="3" bitOffset="16">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDColorB" />
+            </RecordItem>
+            <RecordItem subindex="4" bitOffset="8">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDOnBrightness" />
+            </RecordItem>
+            <RecordItem subindex="5" bitOffset="0">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDOffBrightness" />
+            </RecordItem>
+          </Datatype>
+          <Name textId="TI_VAR_LED19" />
+          <Description textId="TI_VAR_LED19" />
+        </Variable>
+        <Variable id="V_LED_20" index="180" accessRights="rw">
+          <Datatype xsi:type="RecordT" bitLength="40">
+            <RecordItem subindex="1" bitOffset="32">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDColorR" />
+            </RecordItem>
+            <RecordItem subindex="2" bitOffset="24">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDColorG" />
+            </RecordItem>
+            <RecordItem subindex="3" bitOffset="16">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDColorB" />
+            </RecordItem>
+            <RecordItem subindex="4" bitOffset="8">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDOnBrightness" />
+            </RecordItem>
+            <RecordItem subindex="5" bitOffset="0">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDOffBrightness" />
+            </RecordItem>
+          </Datatype>
+          <Name textId="TI_VAR_LED20" />
+          <Description textId="TI_VAR_LED20" />
+        </Variable>
+		<Variable id="V_UsageHoursCounter" index="87" accessRights="ro">
+          <Datatype xsi:type="RecordT" bitLength="96">
+            <RecordItem subindex="1" bitOffset="64" >
+              <DatatypeRef datatypeId="DT_UsageHoursCounter" />
+              <Name textId="TI_VAR_UsageHoursCounterLifeTime" />
+            </RecordItem>
+            <RecordItem subindex="2" bitOffset="32">
+              <DatatypeRef datatypeId="DT_UsageHoursCounter" />
+              <Name textId="TI_VAR_UsageHoursCounterMaintenance" />
+            </RecordItem>
+            <RecordItem subindex="3" bitOffset="0">
+              <DatatypeRef datatypeId="DT_UsageHoursCounter" />
+              <Name textId="TI_VAR_UsageHoursCounterPowerOn" />
+            </RecordItem>
+          </Datatype>  
+		  <Name textId="TI_VAR_UsageHoursCounter" />
+          <Description textId="TI_VAR_UsageHoursCounter" />
+        </Variable>       
+        <Variable id="V_BootCycleCounter"  index="88" accessRights="ro">
+          <DatatypeRef datatypeId="DT_BootCycleCounter" />
+          <Name textId="TI_VAR_BootCycleCounter" />
+          <Description textId="TI_VAR_BootCycleCounter" />
+        </Variable>        
+        <Variable id="V_DeviceTemperature"  index="89" accessRights="ro">
+          <Datatype xsi:type="RecordT" bitLength="40">
+            <RecordItem subindex="1" bitOffset="32" >
+              <DatatypeRef datatypeId="DT_ActualTemperatureValue" />
+              <Name textId="TI_VAR_ActualTemperatureValue" />
+            </RecordItem>
+            <RecordItem subindex="2" bitOffset="24">
+              <DatatypeRef datatypeId="DT_VAR_MaxTemperatureValueSinceLastStart" />
+              <Name textId="TI_VAR_MaxTemperatureValueSinceLastStart" />
+            </RecordItem>
+            <RecordItem subindex="3" bitOffset="16">
+              <DatatypeRef datatypeId="DT_VAR_MinTemperatureValueSinceLastStart" />
+              <Name textId="TI_VAR_MinTemperatureValueSinceLastStart" />
+            </RecordItem>
+            <RecordItem subindex="4" bitOffset="8">
+              <DatatypeRef datatypeId="DT_VAR_MaxTemperatureValueSinceFirstStart" />
+              <Name textId="TI_VAR_MaxTemperatureValueSinceFirstStart" />
+            </RecordItem>
+            <RecordItem subindex="5" bitOffset="0">
+              <DatatypeRef datatypeId="DT_VAR_MinTemperatureValueSinceFirstStart" />
+              <Name textId="TI_VAR_MinTemperatureValueSinceFirstStart" />
+            </RecordItem>
+          </Datatype>   
+          <Name textId="TI_VAR_DeviceTemperature" />
+          <Description textId="TI_VAR_DeviceTemperature" />
+        </Variable> 
+      </VariableCollection>
+      <ProcessDataCollection>
+        <ProcessData id="V_PdT_Segment">
+          <Condition variableId="V_Mode" value="0"/>
+          <ProcessDataOut id="V_Pd_OutSegmentT" bitLength="24">
+            <Datatype xsi:type="RecordT" bitLength="24">
+              <RecordItem subindex="1" bitOffset="19">
+                <DatatypeRef datatypeId="DT_Blinking" />
+                <Name textId="TI_PD_Blinking_Segment1" />
+              </RecordItem>
+              <RecordItem subindex="2" bitOffset="16">
+                <DatatypeRef datatypeId="DT_Color" />
+                <Name textId="TI_PD_Color_Segment1" />
+              </RecordItem>
+              <RecordItem subindex="3" bitOffset="23">
+                <DatatypeRef datatypeId="DT_Blinking" />
+                <Name textId="TI_PD_Blinking_Segment2" />
+              </RecordItem>
+              <RecordItem subindex="4" bitOffset="20">
+                <DatatypeRef datatypeId="DT_Color" />
+                <Name textId="TI_PD_Color_Segment2" />
+              </RecordItem>
+              <RecordItem subindex="5" bitOffset="11">
+                <DatatypeRef datatypeId="DT_Blinking" />
+                <Name textId="TI_PD_Blinking_Segment3" />
+              </RecordItem>
+              <RecordItem subindex="6" bitOffset="8">
+                <DatatypeRef datatypeId="DT_Color" />
+                <Name textId="TI_PD_Color_Segment3" />
+              </RecordItem>
+              <RecordItem subindex="7" bitOffset="15">
+                <DatatypeRef datatypeId="DT_Blinking" />
+                <Name textId="TI_PD_Blinking_Segment4" />
+              </RecordItem>
+              <RecordItem subindex="8" bitOffset="12">
+                <DatatypeRef datatypeId="DT_Color" />
+                <Name textId="TI_PD_Color_Segment4" />
+              </RecordItem>
+              <RecordItem subindex="9" bitOffset="3">
+                <DatatypeRef datatypeId="DT_Blinking" />
+                <Name textId="TI_PD_Blinking_Segment5" />
+              </RecordItem>
+              <RecordItem subindex="10" bitOffset="0">
+                <DatatypeRef datatypeId="DT_Color" />
+                <Name textId="TI_PD_Color_Segment5" />
+              </RecordItem>
+			  <RecordItem subindex="11" bitOffset="6">	 
+                <DatatypeRef datatypeId="DT_SyncImp" />
+                <Name textId="TI_PD_SyncImp" />
+              </RecordItem>
+			  <RecordItem subindex="12" bitOffset="5">			 
+                <DatatypeRef datatypeId="DT_SyncStart" />
+                <Name textId="TI_PD_SyncStart" />
+              </RecordItem>		 	 
+            </Datatype>          
+            <Name textId="TI_PD_Out" />
+          </ProcessDataOut>
+        </ProcessData>
+        <ProcessData id="V_PdT_Level">
+          <Condition variableId="V_Mode" value="1"/>
+          <ProcessDataOut id="V_Pd_LevelOutT" bitLength="24">
+            <Datatype xsi:type="RecordT" bitLength="24">
+              <RecordItem subindex="1" bitOffset="8">
+                <DatatypeRef datatypeId="DT_Level" />
+                <Name textId="TI_PD_Level" />
+              </RecordItem>
+			  <RecordItem subindex="2" bitOffset="6">	 
+                <DatatypeRef datatypeId="DT_SyncImp" />
+                <Name textId="TI_PD_SyncImp" />
+              </RecordItem>
+			  <RecordItem subindex="3" bitOffset="5">			 
+                <DatatypeRef datatypeId="DT_SyncStart" />
+                <Name textId="TI_PD_SyncStart" />
+              </RecordItem>
+              <RecordItem subindex="4" bitOffset="0">
+                <DatatypeRef datatypeId="DT_ReservedNib" />
+                <Name textId="TI_PD_ReservedNib" />
+              </RecordItem>
+            </Datatype>          
+            <Name textId="TI_PD_Out" />
+          </ProcessDataOut>
+        </ProcessData>
+        <ProcessData id="V_PdT_Runlight">
+          <Condition variableId="V_Mode" value="2"/>
+          <ProcessDataOut id="V_Pd_RunlightOutT" bitLength="24">
+            <Datatype xsi:type="RecordT" bitLength="24">
+              <RecordItem subindex="1" bitOffset="16">
+                <DatatypeRef datatypeId="DT_ReservedByte" />
+                <Name textId="TI_PD_ReservedByte" />
+              </RecordItem>
+              <RecordItem subindex="2" bitOffset="8">
+                <DatatypeRef datatypeId="DT_ReservedByte" />
+                <Name textId="TI_PD_ReservedByte" />
+              </RecordItem>
+			 <RecordItem subindex="3" bitOffset="4">	 
+                <DatatypeRef datatypeId="DT_RunDir" />
+                <Name textId="TI_PD_RunDir" />
+              </RecordItem> 
+             <RecordItem subindex="4" bitOffset="6">	 
+                <DatatypeRef datatypeId="DT_SyncImp" />
+                <Name textId="TI_PD_SyncImp" />
+              </RecordItem>
+			  <RecordItem subindex="5" bitOffset="5">			 
+                <DatatypeRef datatypeId="DT_SyncStart" />
+                <Name textId="TI_PD_SyncStart" />
+              </RecordItem>
+			  <RecordItem subindex="6" bitOffset="0">
+                <DatatypeRef datatypeId="DT_ReservedNib" />
+                <Name textId="TI_PD_ReservedNib" />
+              </RecordItem>
+            </Datatype>          
+            <Name textId="TI_PD_Out" />
+          </ProcessDataOut>
+        </ProcessData>
+        <ProcessData id="V_PdT_Flexible">
+          <Condition variableId="V_Mode" value="3"/>
+          <ProcessDataOut id="V_Pd_OutFlexibleT" bitLength="24">
+            <Datatype xsi:type="RecordT" bitLength="24">
+              <RecordItem subindex="1" bitOffset="16">
+                <DatatypeRef datatypeId="DT_LED_State" />
+                <Name textId="TI_PD_LED1" />
+              </RecordItem>
+              <RecordItem subindex="2" bitOffset="17">
+                <DatatypeRef datatypeId="DT_LED_State" />
+                <Name textId="TI_PD_LED2" />
+              </RecordItem>
+              <RecordItem subindex="3" bitOffset="18">
+                <DatatypeRef datatypeId="DT_LED_State" />
+                <Name textId="TI_PD_LED3" />
+              </RecordItem>
+              <RecordItem subindex="4" bitOffset="19">
+                <DatatypeRef datatypeId="DT_LED_State" />
+                <Name textId="TI_PD_LED4" />
+              </RecordItem>
+              <RecordItem subindex="5" bitOffset="20">
+                <DatatypeRef datatypeId="DT_LED_State" />
+                <Name textId="TI_PD_LED5" />
+              </RecordItem>
+              <RecordItem subindex="6" bitOffset="21">
+                <DatatypeRef datatypeId="DT_LED_State" />
+                <Name textId="TI_PD_LED6" />
+              </RecordItem>
+              <RecordItem subindex="7" bitOffset="22">
+                <DatatypeRef datatypeId="DT_LED_State" />
+                <Name textId="TI_PD_LED7" />
+              </RecordItem>
+              <RecordItem subindex="8" bitOffset="23">
+                <DatatypeRef datatypeId="DT_LED_State" />
+                <Name textId="TI_PD_LED8" />
+              </RecordItem>
+              <RecordItem subindex="9" bitOffset="8">
+                <DatatypeRef datatypeId="DT_LED_State" />
+                <Name textId="TI_PD_LED9" />
+              </RecordItem>
+              <RecordItem subindex="10" bitOffset="9">
+                <DatatypeRef datatypeId="DT_LED_State" />
+                <Name textId="TI_PD_LED10" />
+              </RecordItem>
+              <RecordItem subindex="11" bitOffset="10">
+                <DatatypeRef datatypeId="DT_LED_State" />
+                <Name textId="TI_PD_LED11" />
+              </RecordItem>
+              <RecordItem subindex="12" bitOffset="11">
+                <DatatypeRef datatypeId="DT_LED_State" />
+                <Name textId="TI_PD_LED12" />
+              </RecordItem>
+              <RecordItem subindex="13" bitOffset="12">
+                <DatatypeRef datatypeId="DT_LED_State" />
+                <Name textId="TI_PD_LED13" />
+              </RecordItem>
+              <RecordItem subindex="14" bitOffset="13">
+                <DatatypeRef datatypeId="DT_LED_State" />
+                <Name textId="TI_PD_LED14" />
+              </RecordItem>
+              <RecordItem subindex="15" bitOffset="14">
+                <DatatypeRef datatypeId="DT_LED_State" />
+                <Name textId="TI_PD_LED15" />
+              </RecordItem>
+              <RecordItem subindex="16" bitOffset="15">
+                <DatatypeRef datatypeId="DT_LED_State" />
+                <Name textId="TI_PD_LED16" />
+              </RecordItem>
+              <RecordItem subindex="17" bitOffset="0">
+                <DatatypeRef datatypeId="DT_LED_State" />
+                <Name textId="TI_PD_LED17" />
+              </RecordItem>
+              <RecordItem subindex="18" bitOffset="1">
+                <DatatypeRef datatypeId="DT_LED_State" />
+                <Name textId="TI_PD_LED18" />
+              </RecordItem>
+              <RecordItem subindex="19" bitOffset="2">
+                <DatatypeRef datatypeId="DT_LED_State" />
+                <Name textId="TI_PD_LED19" />
+              </RecordItem>
+              <RecordItem subindex="20" bitOffset="3">
+                <DatatypeRef datatypeId="DT_LED_State" />
+                <Name textId="TI_PD_LED20" />
+              </RecordItem>
+			  <RecordItem subindex="21" bitOffset="6">	 
+                <DatatypeRef datatypeId="DT_SyncImp" />
+                <Name textId="TI_PD_SyncImp" />
+              </RecordItem>
+			  <RecordItem subindex="22" bitOffset="5">			 
+                <DatatypeRef datatypeId="DT_SyncStart" />
+                <Name textId="TI_PD_SyncStart" />
+              </RecordItem>		 
+            </Datatype>          
+            <Name textId="TI_PD_Out" />
+          </ProcessDataOut>
+        </ProcessData>
+      </ProcessDataCollection>
+      <EventCollection>
+        <StdEventRef code="20753" />
+      </EventCollection>
+      <UserInterface>
+        <MenuCollection>
+          <Menu id="M_OR_MR_SR_Ident">
+            <VariableRef variableId="V_VendorName" />
+            <VariableRef variableId="V_VendorText" />
+            <VariableRef variableId="V_ProductName" />
+            <VariableRef variableId="V_ProductID" />
+            <VariableRef variableId="V_ProductText" />
+            <VariableRef variableId="V_HardwareRevision" />
+            <VariableRef variableId="V_FirmwareRevision" />
+            <VariableRef variableId="V_ApplicationSpecificTag" />
+
+          </Menu>
+		  
+		  <!-- Parameterization tab -->
+          <Menu id="M_OR_Param">
+            <MenuRef menuId="M_AccessLocks_RO" /> 
+			<MenuRef menuId="M_AllModes_RO" />
+			<MenuRef menuId="M_Segment_RO" />
+			<MenuRef menuId="M_Level_RO" />
+			<MenuRef menuId="M_Runlight_RO" />			
+			<MenuRef menuId="M_Flex_RO" />
+          </Menu>
+          
+          <Menu id="M_MR_Param">
+            <MenuRef menuId="M_AccessLocks_RW" /> 
+            <MenuRef menuId="M_Commands_WO" /> 
+			<MenuRef menuId="M_AllModes_RW" />
+			<MenuRef menuId="M_Segment_RW" />
+			<MenuRef menuId="M_Level_RW" />
+			<MenuRef menuId="M_Runlight_RW" />			
+			<MenuRef menuId="M_Flex_RW" />
+          </Menu>
+          
+          <Menu id="M_SR_Param">
+            <MenuRef menuId="M_AccessLocks_RW" /> 
+            <MenuRef menuId="M_Commands_WO" /> 
+			<MenuRef menuId="M_AllModes_RW" />
+			<MenuRef menuId="M_Segment_RW" />
+			<MenuRef menuId="M_Level_RW" />
+			<MenuRef menuId="M_Runlight_RW" />			
+			<MenuRef menuId="M_Flex_RW" />
+          </Menu>
+
+		  <!-- Diagnosis tab -->
+          <Menu id="M_OR_MR_SR_Diag">
+			<MenuRef menuId="M_Counters" />
+			<MenuRef menuId="M_Temperature" />
+			<MenuRef menuId="M_PowerSupply" />
+          </Menu>
+		  
+		  <Menu id="M_AllModes_RO">
+            <Name textId="TI_M_AllModes_Name" />
+			<VariableRef accessRightRestriction="ro" variableId="V_SN_RW"/>
+			<VariableRef variableId="V_Mode" accessRightRestriction="ro" displayFormat="Dec" />
+			<VariableRef variableId="V_SafeState" accessRightRestriction="ro" displayFormat="Dec" />
+            <VariableRef variableId="V_Brightness" accessRightRestriction="ro" displayFormat="Dec" />
+			<VariableRef variableId="V_UserColor" accessRightRestriction="ro" displayFormat="Dec" />
+			<VariableRef variableId="V_Frequency" accessRightRestriction="ro" displayFormat="Dec" />
+		  </Menu>
+		  <Menu id="M_AllModes_RW">
+            <Name textId="TI_M_AllModes_Name" />
+			<VariableRef accessRightRestriction="rw" variableId="V_SN_RW"/>
+			<VariableRef variableId="V_Mode" accessRightRestriction="rw" displayFormat="Dec" />
+			<VariableRef variableId="V_SafeState" accessRightRestriction="rw" displayFormat="Dec" />
+            <VariableRef variableId="V_Brightness" accessRightRestriction="rw" displayFormat="Dec" />
+			<VariableRef variableId="V_UserColor" accessRightRestriction="rw" displayFormat="Dec" />
+			<VariableRef variableId="V_Frequency" accessRightRestriction="rw" displayFormat="Dec" />
+		  </Menu>
+		  <Menu id="M_Runlight_RO">
+            <Name textId="TI_M_Runlight_Name" />
+			<VariableRef variableId="V_RunlightStaticColor" accessRightRestriction="ro" displayFormat="Dec" />
+            <VariableRef variableId="V_RunlightRunningColor" accessRightRestriction="ro" displayFormat="Dec" />
+			<VariableRef variableId="V_RunlightSegmentNr" accessRightRestriction="ro" displayFormat="Dec" />
+		  </Menu>
+		  <Menu id="M_Runlight_RW">
+            <Name textId="TI_M_Runlight_Name" />
+			<VariableRef variableId="V_RunlightStaticColor" accessRightRestriction="rw" displayFormat="Dec" />
+            <VariableRef variableId="V_RunlightRunningColor" accessRightRestriction="rw" displayFormat="Dec" />
+			<VariableRef variableId="V_RunlightSegmentNr" accessRightRestriction="rw" displayFormat="Dec" />
+		  </Menu>
+		  <Menu id="M_Segment_RO">
+            <Name textId="TI_M_Segment_Name" />            
+            <VariableRef variableId="V_BlinkingMode" accessRightRestriction="ro" displayFormat="Dec" />
+			<VariableRef variableId="V_SegmentNr" accessRightRestriction="ro" displayFormat="Dec" />
+		  </Menu>
+		  <Menu id="M_Segment_RW">
+            <Name textId="TI_M_Segment_Name" />            
+            <VariableRef variableId="V_BlinkingMode" accessRightRestriction="rw" displayFormat="Dec" /> 
+			<VariableRef variableId="V_SegmentNr" accessRightRestriction="rw" displayFormat="Dec" />			
+		  </Menu>
+		  <Menu id="M_Level_RO">
+            <Name textId="TI_M_Level_Name" />            
+            <VariableRef variableId="V_LevelType" accessRightRestriction="ro" displayFormat="Dec" />
+            <VariableRef variableId="V_Resolution" accessRightRestriction="ro" displayFormat="Dec" />
+            <VariableRef variableId="V_LevelSeg1Color" accessRightRestriction="ro" displayFormat="Dec" />
+            <VariableRef variableId="V_LevelSeg2Color" accessRightRestriction="ro" displayFormat="Dec" />
+            <VariableRef variableId="V_LevelSeg3Color" accessRightRestriction="ro" displayFormat="Dec" />
+            <VariableRef variableId="V_LevelSeg4Color" accessRightRestriction="ro" displayFormat="Dec" />
+            <VariableRef variableId="V_LevelSeg5Color" accessRightRestriction="ro" displayFormat="Dec" />
+            <VariableRef variableId="V_LevelLimit12" accessRightRestriction="ro" displayFormat="Dec" />
+            <VariableRef variableId="V_LevelLimit23" accessRightRestriction="ro" displayFormat="Dec" />
+            <VariableRef variableId="V_LevelLimit34" accessRightRestriction="ro" displayFormat="Dec" />
+            <VariableRef variableId="V_LevelLimit45" accessRightRestriction="ro" displayFormat="Dec" />
+			<VariableRef variableId="V_LimitType" accessRightRestriction="ro" displayFormat="Dec" />
+		  </Menu>
+		  <Menu id="M_Level_RW">
+            <Name textId="TI_M_Level_Name" />            
+            <VariableRef variableId="V_LevelType" accessRightRestriction="rw" displayFormat="Dec" />
+            <VariableRef variableId="V_Resolution" accessRightRestriction="rw" displayFormat="Dec" />
+            <VariableRef variableId="V_LevelSeg1Color" accessRightRestriction="rw" displayFormat="Dec" />
+            <VariableRef variableId="V_LevelSeg2Color" accessRightRestriction="rw" displayFormat="Dec" />
+            <VariableRef variableId="V_LevelSeg3Color" accessRightRestriction="rw" displayFormat="Dec" />
+            <VariableRef variableId="V_LevelSeg4Color" accessRightRestriction="rw" displayFormat="Dec" />
+            <VariableRef variableId="V_LevelSeg5Color" accessRightRestriction="rw" displayFormat="Dec" />
+            <VariableRef variableId="V_LevelLimit12" accessRightRestriction="rw" displayFormat="Dec" />
+            <VariableRef variableId="V_LevelLimit23" accessRightRestriction="rw" displayFormat="Dec" />
+            <VariableRef variableId="V_LevelLimit34" accessRightRestriction="rw" displayFormat="Dec" />
+            <VariableRef variableId="V_LevelLimit45" accessRightRestriction="rw" displayFormat="Dec" />
+			<VariableRef variableId="V_LimitType" accessRightRestriction="rw" displayFormat="Dec" />			
+		  </Menu>
+          <Menu id="M_Flex_RO">
+            <Name textId="TI_M_Flex_Name" />
+            <VariableRef variableId="V_LED_1" accessRightRestriction="ro" displayFormat="Dec" />
+            <VariableRef variableId="V_LED_2" accessRightRestriction="ro" displayFormat="Dec" />
+            <VariableRef variableId="V_LED_3" accessRightRestriction="ro" displayFormat="Dec" />
+            <VariableRef variableId="V_LED_4" accessRightRestriction="ro" displayFormat="Dec" />
+			<VariableRef variableId="V_LED_5" accessRightRestriction="ro" displayFormat="Dec" />
+            <VariableRef variableId="V_LED_6" accessRightRestriction="ro" displayFormat="Dec" />
+            <VariableRef variableId="V_LED_7" accessRightRestriction="ro" displayFormat="Dec" />
+            <VariableRef variableId="V_LED_8" accessRightRestriction="ro" displayFormat="Dec" />
+            <VariableRef variableId="V_LED_9" accessRightRestriction="ro" displayFormat="Dec" />
+            <VariableRef variableId="V_LED_10" accessRightRestriction="ro" displayFormat="Dec" />
+            <VariableRef variableId="V_LED_11" accessRightRestriction="ro" displayFormat="Dec" />
+            <VariableRef variableId="V_LED_12" accessRightRestriction="ro" displayFormat="Dec" />
+            <VariableRef variableId="V_LED_13" accessRightRestriction="ro" displayFormat="Dec" />
+            <VariableRef variableId="V_LED_14" accessRightRestriction="ro" displayFormat="Dec" />
+            <VariableRef variableId="V_LED_15" accessRightRestriction="ro" displayFormat="Dec" />
+            <VariableRef variableId="V_LED_16" accessRightRestriction="ro" displayFormat="Dec" />
+            <VariableRef variableId="V_LED_17" accessRightRestriction="ro" displayFormat="Dec" />
+            <VariableRef variableId="V_LED_18" accessRightRestriction="ro" displayFormat="Dec" />
+            <VariableRef variableId="V_LED_19" accessRightRestriction="ro" displayFormat="Dec" />
+            <VariableRef variableId="V_LED_20" accessRightRestriction="ro" displayFormat="Dec" />
+		  </Menu>
+		  <Menu id="M_Flex_RW">
+            <Name textId="TI_M_Flex_Name" />
+            <VariableRef variableId="V_LED_1" accessRightRestriction="rw" displayFormat="Dec" />
+            <VariableRef variableId="V_LED_2" accessRightRestriction="rw" displayFormat="Dec" />
+            <VariableRef variableId="V_LED_3" accessRightRestriction="rw" displayFormat="Dec" />
+            <VariableRef variableId="V_LED_4" accessRightRestriction="rw" displayFormat="Dec" />
+			<VariableRef variableId="V_LED_5" accessRightRestriction="rw" displayFormat="Dec" />
+            <VariableRef variableId="V_LED_6" accessRightRestriction="rw" displayFormat="Dec" />
+            <VariableRef variableId="V_LED_7" accessRightRestriction="rw" displayFormat="Dec" />
+            <VariableRef variableId="V_LED_8" accessRightRestriction="rw" displayFormat="Dec" />
+            <VariableRef variableId="V_LED_9" accessRightRestriction="rw" displayFormat="Dec" />
+            <VariableRef variableId="V_LED_10" accessRightRestriction="rw" displayFormat="Dec" />
+            <VariableRef variableId="V_LED_11" accessRightRestriction="rw" displayFormat="Dec" />
+            <VariableRef variableId="V_LED_12" accessRightRestriction="rw" displayFormat="Dec" />
+            <VariableRef variableId="V_LED_13" accessRightRestriction="rw" displayFormat="Dec" />
+            <VariableRef variableId="V_LED_14" accessRightRestriction="rw" displayFormat="Dec" />
+            <VariableRef variableId="V_LED_15" accessRightRestriction="rw" displayFormat="Dec" />
+            <VariableRef variableId="V_LED_16" accessRightRestriction="rw" displayFormat="Dec" />
+            <VariableRef variableId="V_LED_17" accessRightRestriction="rw" displayFormat="Dec" />
+            <VariableRef variableId="V_LED_18" accessRightRestriction="rw" displayFormat="Dec" />
+            <VariableRef variableId="V_LED_19" accessRightRestriction="rw" displayFormat="Dec" />
+            <VariableRef variableId="V_LED_20" accessRightRestriction="rw" displayFormat="Dec" />
+		  </Menu>
+		  <Menu id="M_PowerSupply">
+            <Name textId="TI_M_PowerSupply_Name" />
+            <VariableRef variableId="V_SupplyMonitor" accessRightRestriction="ro" displayFormat="Dec" />
+		  </Menu>
+          
+          <Menu id="M_Counters">
+            <Name textId="TI_M_Counters_Name" />
+            <VariableRef variableId="V_UsageHoursCounter" accessRightRestriction="ro" displayFormat="Dec" />
+            <VariableRef variableId="V_BootCycleCounter" accessRightRestriction="ro" displayFormat="Dec" />
+		  </Menu>
+          
+          <Menu id="M_Temperature">
+            <Name textId="TI_M_Temperature_Name" />
+            <!-- todo unit for the structure element -->
+            <!-- VariableRef variableId="V_DeviceTemperature" accessRightRestriction="ro" displayFormat="Dec" /-->
+            <RecordItemRef variableId="V_DeviceTemperature" subindex="1" displayFormat="Dec" unitCode="1001"/>
+            <RecordItemRef variableId="V_DeviceTemperature" subindex="3" displayFormat="Dec" unitCode="1001"/>
+            <RecordItemRef variableId="V_DeviceTemperature" subindex="2" displayFormat="Dec" unitCode="1001"/>
+            <RecordItemRef variableId="V_DeviceTemperature" subindex="5" displayFormat="Dec" unitCode="1001"/>
+            <RecordItemRef variableId="V_DeviceTemperature" subindex="4" displayFormat="Dec" unitCode="1001"/>
+          </Menu>
+          
+          <Menu id="M_AccessLocks_RO">
+            <Name textId="TI_M_AccessLocks_Name" /> 
+            <RecordItemRef variableId="V_DeviceAccessLocks"  accessRightRestriction="ro" subindex="2" />
+          </Menu>
+          <Menu id="M_AccessLocks_RW">
+            <Name textId="TI_M_AccessLocks_Name" /> 
+            <RecordItemRef variableId="V_DeviceAccessLocks"  subindex="2" />
+          </Menu>
+          
+          <Menu id="M_Commands_WO">
+            <Name textId="TI_M_Commands_Name" /> 
+            <VariableRef variableId="V_SystemCommand">
+              <Button buttonValue="130">
+                <Description textId="TD_FactoryReset" /> 
+                <ActionStartedMessage textId="T_FactoryResetStarted" /> 
+              </Button>
+            </VariableRef>
+			<VariableRef variableId="V_SystemCommand">
+				<Button buttonValue="165">
+                <Description textId="TD_MaintenanceReset" /> 
+                <ActionStartedMessage textId="T_MaintenanceResetStarted" /> 
+              </Button>
+			</VariableRef>
+          </Menu>		  
+		  
+        </MenuCollection>
+        <ObserverRoleMenuSet>
+          <IdentificationMenu menuId="M_OR_MR_SR_Ident" />
+          <ParameterMenu menuId="M_OR_Param" />
+		  <DiagnosisMenu menuId="M_OR_MR_SR_Diag" />
+        </ObserverRoleMenuSet>
+        <MaintenanceRoleMenuSet>
+          <IdentificationMenu menuId="M_OR_MR_SR_Ident" />
+          <ParameterMenu menuId="M_MR_Param" />
+		  <DiagnosisMenu menuId="M_OR_MR_SR_Diag" />
+        </MaintenanceRoleMenuSet>
+        <SpecialistRoleMenuSet>
+          <IdentificationMenu menuId="M_OR_MR_SR_Ident" />
+          <ParameterMenu menuId="M_SR_Param" />
+		  <DiagnosisMenu menuId="M_OR_MR_SR_Diag" />
+        </SpecialistRoleMenuSet>
+      </UserInterface>
+    </DeviceFunction>
+  </ProfileBody>
+  <CommNetworkProfile xsi:type="IOLinkCommNetworkProfileT" iolinkRevision="V1.1">
+    <TransportLayers>
+      <PhysicalLayer minCycleTime="5000" sioSupported="false" bitrate="COM2" mSequenceCapability="11">
+        <Connection xsi:type="OtherConnectionT">
+          <ProductRef productId="BNI0072" />
+          <ProductRef productId="BNI0081" />
+          <Description textId="TI_IOL_Connector" />
+          <Wire1 function="L+" color="BN">
+            <Name textId="T_IOLWire1" />
+          </Wire1>
+          <Wire3 function="L-" color="BU">
+            <Name textId="T_IOLWire3" />
+          </Wire3>
+          <Wire4 function="C/Q" color="BK">
+            <Name textId="T_IOLWire4" />
+          </Wire4>
+        </Connection>
+      </PhysicalLayer>
+    </TransportLayers>
+    <Test>
+      <Config1 index="73" testValue="0x00,0x63" />
+      <Config2 index="1000" testValue="0x00" />
+      <Config3 index="24" testValue="0x31,0x32,0x33,0x34,0x35,0x36,0x37,0x38,0x39,0x40,0x41,0x42,0x43,0x44,0x45,0x46,0x47,0x48,0x49,0x50,0x51,0x52,0x56,0x57,0x31,0x32,0x33,0x34,0x35,0x36" />
+    </Test>
+  </CommNetworkProfile>
+  <ExternalTextCollection>
+    <PrimaryLanguage xml:lang="en">
+      <Text id="T_IOLWire1" value="Pin 1" />
+      <Text id="T_IOLWire3" value="Pin 3" />
+      <Text id="T_IOLWire4" value="Pin 4" />
+      <Text id="TI_IOL_Connector" value="IO-Link Connector" />
+      <Text id="TI_VendorText" value="innovating automation" />
+      <Text id="TI_VendorUrl" value="www.balluff.com" />
+      <Text id="TI_DeviceFamily" value="BNI - Smart Light" />
+      <Text id="TI_Product1_Name" value="BNI IOL-802-000-Z036" />
+      <Text id="TI_Product1_Descr" value="Smart Light 5 segment" />
+      <Text id="TI_Product2_Name" value="BNI IOL-802-000-Z036-006" />
+      <Text id="TI_Product2_Descr" value="Smart Light 5 segment in die-cast housing with chrome finishing." />
+      <Text id="TI_VAR_Color_Off" value="Off" />
+      <Text id="TI_VAR_Color_Green" value="Green" />
+      <Text id="TI_VAR_Color_Red" value="Red" />
+      <Text id="TI_VAR_Color_Yellow" value="Yellow" />
+      <Text id="TI_VAR_Color_Blue" value="Blue" />
+      <Text id="TI_VAR_Color_Orange" value="Orange" />
+      <Text id="TI_VAR_Color_UserDefined" value="User defined" />
+      <Text id="TI_VAR_Color_White" value="White" />
+      <Text id="TI_VAR_notBlink" value="Segment does not blink" />
+      <Text id="TI_VAR_Blink" value="Segment blinks" />
+      <Text id="TI_VAR_Mode" value="Operating mode"/>
+      <Text id="TI_VAR_ModeSegment" value="Segment mode"/>
+      <Text id="TI_VAR_ModeLevel" value="Level mode"/>
+      <Text id="TI_VAR_ModeRunlight" value="Runlight mode"/>
+      <Text id="TI_VAR_ModeFlexible" value="Flexible mode"/>
+      <Text id="TI_VAR_SegmentNr" value="Number of segments"/>
+      <Text id="TI_VAR_1Seg" value="One segment"/>
+      <Text id="TI_VAR_2Seg" value="Two segment"/>
+      <Text id="TI_VAR_3Seg" value="Three segment"/>
+      <Text id="TI_VAR_4Seg" value="Four segment"/>
+      <Text id="TI_VAR_5Seg" value="Five segment"/>
+      <Text id="TI_VAR_LevelType" value="Type of level indicator"/>
+	  <Text id="TI_VAR_SafeState" value="Safe State"/>
+	  <Text id="TI_VAR_NotActive" value="Not Activated"/>
+	  <Text id="TI_VAR_Active" value="Activated"/>
+      <Text id="TI_VAR_BottomUp" value="Bottom-up"/>
+      <Text id="TI_VAR_TopDown" value="Top-down"/>
+      <Text id="TI_VAR_Resolution" value="Resolution of level indicator"/>
+      <Text id="TI_VAR_8bit" value="8 bit"/>
+      <Text id="TI_VAR_10bit" value="10 bit"/>
+      <Text id="TI_VAR_12bit" value="12 bit"/>
+      <Text id="TI_VAR_14bit" value="14 bit"/>
+      <Text id="TI_VAR_16bit" value="16 bit"/>
+      <Text id="TI_VAR_LevelSeg1" value="Level mode, segment 1"/>
+      <Text id="TI_VAR_LevelSeg2" value="Level mode, segment 2"/>
+      <Text id="TI_VAR_LevelSeg3" value="Level mode, segment 3"/>
+      <Text id="TI_VAR_LevelSeg4" value="Level mode, segment 4"/>
+      <Text id="TI_VAR_LevelSeg5" value="Level mode, segment 5"/>
+      <Text id="TI_VAR_LevelSeg1Color" value="Level mode, segment 1 color"/>
+      <Text id="TI_VAR_LevelSeg2Color" value="Level mode, segment 2 color"/>
+      <Text id="TI_VAR_LevelSeg3Color" value="Level mode, segment 3 color"/>
+      <Text id="TI_VAR_LevelSeg4Color" value="Level mode, segment 4 color"/>
+      <Text id="TI_VAR_LevelSeg5Color" value="Level mode, segment 5 color"/>
+      <Text id="TI_VAR_LevelSeg1Dominance" value="Level mode, segment 1 dominance"/>
+      <Text id="TI_VAR_LevelSeg2Dominance" value="Level mode, segment 2 dominance"/>
+      <Text id="TI_VAR_LevelSeg3Dominance" value="Level mode, segment 3 dominance"/>
+      <Text id="TI_VAR_LevelSeg4Dominance" value="Level mode, segment 4 dominance"/>
+      <Text id="TI_VAR_LevelSeg5Dominance" value="Level mode, segment 5 dominance"/>
+      <Text id="TI_VAR_NoDominance" value="Color is not dominant"/>
+      <Text id="TI_VAR_Dominance" value="Color is dominant"/>
+      <Text id="TI_VAR_LevelLimit12" value="Level mode, limit segment 1 and 2"/>
+      <Text id="TI_VAR_LevelLimit23" value="Level mode, limit segment 2 and 3"/>
+      <Text id="TI_VAR_LevelLimit34" value="Level mode, limit segment 3 and 4"/>
+      <Text id="TI_VAR_LevelLimit45" value="Level mode, limit segment 4 and 5"/>
+      <Text id="TI_VAR_RunlightStaticColor" value="Runlight mode, Background color"/>
+      <Text id="TI_VAR_RunlightRunningColor" value="Runlight mode, Color of the running segment"/>
+      <Text id="TI_VAR_RunlightSegmentNr" value="Runlight mode, Number of the running segments"/>
+      <Text id="TI_VAR_SupplyMonitor" value="Supply monitoring"/>
+      <Text id="TI_VAR_UsVoltageOk" value="Ok"/>
+      <Text id="TI_VAR_UsVoltageLow" value="Low Us"/>
+      <Text id="TI_VAR_LEDVoltageOk" value="Ok"/>
+      <Text id="TI_VAR_LEDVoltageLow" value="Low LED Voltage"/>
+      <Text id="TI_VAR_UsVoltage" value="Supply Voltage"/>
+      <Text id="TI_VAR_LEDVoltage" value="Supply Voltage LED"/>
+      <Text id="TI_VAR_Brightness" value="Brightness"/> 
+      <Text id="TI_VAR_BrightnessRed" value="Red channel brightness"/> 
+      <Text id="TI_VAR_BrightnessGreen" value="Green channel brightness"/> 
+      <Text id="TI_VAR_BrightnessBlue" value="Blue channel brightness"/> 
+      <Text id="TI_VAR_UserColor" value="User defined color"/> 
+      <Text id="TI_VAR_UserColorRed" value="Red channel"/> 
+      <Text id="TI_VAR_UserColorGreen" value="Green channel"/> 
+      <Text id="TI_VAR_UserColorBlue" value="Blue channel"/> 
+      <Text id="TI_VAR_Frequency" value="Blinking frequency"/> 
+      <Text id="TI_VAR_SyncImpOn" value="On" />
+      <Text id="TI_VAR_SyncImpOff" value="Off" />
+      <Text id="TI_VAR_SyncStartOn" value="On" />
+      <Text id="TI_VAR_SyncStartOff" value="Off" />
+      <Text id="TI_VAR_LimitPercent" value="Percent"/>
+      <Text id="TI_VAR_LimitAbs" value="Absolute"/>
+      <Text id="TI_VAR_LimitType" value="Limit register type"/>
+      <Text id="TI_VAR_0Hz5" value="0.5 Hz"/> 
+      <Text id="TI_VAR_1Hz" value="1 Hz"/> 
+      <Text id="TI_VAR_2Hz" value="2 Hz"/> 
+      <Text id="TI_VAR_5Hz" value="5 Hz"/> 
+      <Text id="TI_VAR_10Hz" value="10 Hz"/> 
+      <Text id="TI_VAR_BlinkingMode" value="Blinking mode"/> 
+      <Text id="TI_VAR_BlinkingModeSeg1" value="Segment 1 blinking mode"/> 
+      <Text id="TI_VAR_BlinkingModeSeg2" value="Segment 2 blinking mode"/> 
+      <Text id="TI_VAR_BlinkingModeSeg3" value="Segment 3 blinking mode"/> 
+      <Text id="TI_VAR_BlinkingModeSeg4" value="Segment 4 blinking mode"/> 
+      <Text id="TI_VAR_BlinkingModeSeg5" value="Segment 5 blinking mode"/> 
+      <Text id="TI_VAR_ModeBlink" value="Blinking with 50% duty cycle"/> 
+      <Text id="TI_VAR_ModeFlash" value="Flashing"/>
+      <Text id="TI_VAR_LED1" value="LED 1 settings"/>
+      <Text id="TI_VAR_LED2" value="LED 2 settings"/>
+      <Text id="TI_VAR_LED3" value="LED 3 settings"/>
+      <Text id="TI_VAR_LED4" value="LED 4 settings"/>
+      <Text id="TI_VAR_LED5" value="LED 5 settings"/>
+      <Text id="TI_VAR_LED6" value="LED 6 settings"/>
+      <Text id="TI_VAR_LED7" value="LED 7 settings"/>
+      <Text id="TI_VAR_LED8" value="LED 8 settings"/>
+      <Text id="TI_VAR_LED9" value="LED 9 settings"/>
+      <Text id="TI_VAR_LED10" value="LED 10 settings"/>
+      <Text id="TI_VAR_LED11" value="LED 11 settings"/>
+      <Text id="TI_VAR_LED12" value="LED 12 settings"/>
+      <Text id="TI_VAR_LED13" value="LED 13 settings"/>
+      <Text id="TI_VAR_LED14" value="LED 14 settings"/>
+      <Text id="TI_VAR_LED15" value="LED 15 settings"/>
+      <Text id="TI_VAR_LED16" value="LED 16 settings"/>
+      <Text id="TI_VAR_LED17" value="LED 17 settings"/>
+      <Text id="TI_VAR_LED18" value="LED 18 settings"/>
+      <Text id="TI_VAR_LED19" value="LED 19 settings"/>
+      <Text id="TI_VAR_LED20" value="LED 20 settings"/>
+	  <Text id="TI_VAR_Up" value="Up"/>
+	  <Text id="TI_VAR_Down" value="Down"/>
+      <Text id="TI_VAR_LEDOff" value="Off"/>
+      <Text id="TI_VAR_LEDOn" value="On"/>
+      <Text id="TI_VAR_LEDColorR" value="Red component"/>
+      <Text id="TI_VAR_LEDColorG" value="Green component"/>
+      <Text id="TI_VAR_LEDColorB" value="Blue component"/>
+      <Text id="TI_VAR_LEDOnBrightness" value="On brightness"/>
+      <Text id="TI_VAR_LEDOffBrightness" value="Off brightness"/>
+	  <Text id="TI_VAR_UsageHoursCounter" value="Usage Hours Counter" />
+	  <Text id="TI_VAR_UsageHoursCounterLifeTime" value="Usage Hours Counter Lifetime" />
+	  <Text id="TI_VAR_UsageHoursCounterMaintenance" value="Usage Hours Counter Maintenance" />
+	  <Text id="TI_VAR_UsageHoursCounterPowerOn" value="Usage Hours Counter Power On" />
+      <Text id="TI_VAR_BootCycleCounter" value="Boot Cycle Counter" />
+      <Text id="TI_VAR_DeviceTemperature" value="Temperature" />
+      <Text id="TI_VAR_ActualTemperatureValue" value="Actual Value" />
+      <Text id="TI_VAR_MaxTemperatureValueSinceLastStart" value="Maximum Value Since Powerup" />
+      <Text id="TI_VAR_MinTemperatureValueSinceLastStart" value="Minimum Value Since Powerup" />
+      <Text id="TI_VAR_MaxTemperatureValueSinceFirstStart" value="Maximum Value During Lifetime" />
+      <Text id="TI_VAR_MinTemperatureValueSinceFirstStart" value="Minimum Value During Lifetime" />
+	  <Text id="TI_SN_RW" value="Serial number set"/>
+	  <Text id="TI_SN_RW_Descr" value="Parameter to set SN."/>
+      <Text id="TI_PD_Out" value="Process Data Out" />
+      <Text id="TI_PD_Blinking_Segment1" value="Segment 1 blinks"/>
+      <Text id="TI_PD_Color_Segment1" value="Color of segment 1"/>
+      <Text id="TI_PD_Blinking_Segment2" value="Segment 2 blinks"/>
+      <Text id="TI_PD_Color_Segment2" value="Color of segment 2"/>
+      <Text id="TI_PD_Blinking_Segment3" value="Segment 3 blinks"/>
+      <Text id="TI_PD_Color_Segment3" value="Color of segment 3"/>
+      <Text id="TI_PD_Blinking_Segment4" value="Segment 4 blinks"/>
+      <Text id="TI_PD_Color_Segment4" value="Color of segment 4"/>
+      <Text id="TI_PD_Blinking_Segment5" value="Segment 5 blinks"/>
+      <Text id="TI_PD_Color_Segment5" value="Color of segment 5"/>
+      <Text id="TI_PD_Level" value="Level value"/>
+      <Text id="TI_PD_ReservedByte" value="Reserved"/>
+      <Text id="TI_PD_ReservedNib" value="Reserved"/>
+      <Text id="TI_PD_SyncImp" value="Sync Impulse" />
+	  <Text id="TI_PD_SyncStart" value="Sync Start" />
+      <Text id="TI_PD_LED1" value="LED 1 state"/>
+      <Text id="TI_PD_LED2" value="LED 2 state"/>
+      <Text id="TI_PD_LED3" value="LED 3 state"/>
+      <Text id="TI_PD_LED4" value="LED 4 state"/>
+      <Text id="TI_PD_LED5" value="LED 5 state"/>
+      <Text id="TI_PD_LED6" value="LED 6 state"/>
+      <Text id="TI_PD_LED7" value="LED 7 state"/>
+      <Text id="TI_PD_LED8" value="LED 8 state"/>
+      <Text id="TI_PD_LED9" value="LED 9 state"/>
+      <Text id="TI_PD_LED10" value="LED 10 state"/>
+      <Text id="TI_PD_LED11" value="LED 11 state"/>
+      <Text id="TI_PD_LED12" value="LED 12 state"/>
+      <Text id="TI_PD_LED13" value="LED 13 state"/>
+      <Text id="TI_PD_LED14" value="LED 14 state"/>
+      <Text id="TI_PD_LED15" value="LED 15 state"/>
+      <Text id="TI_PD_LED16" value="LED 16 state"/>
+      <Text id="TI_PD_LED17" value="LED 17 state"/>
+      <Text id="TI_PD_LED18" value="LED 18 state"/>
+      <Text id="TI_PD_LED19" value="LED 19 state"/>
+      <Text id="TI_PD_LED20" value="LED 20 state"/>
+	  <Text id="TI_PD_RunDir" value="Runlight running direction"/>
+      <Text id="TD_FactoryReset" value="Factory Reset" />
+	  <Text id="TD_MaintenanceReset" value="Maintenance Reset" />
+
+      <Text id="T_FactoryResetStarted" value="Factory Reset is now in progress!" />
+	  <Text id="T_MaintenanceResetStarted" value="Maintenance Reset is now in progress!" />
+	  <Text id="TI_M_PowerSupply_Name"  value="Power Supply"/>
+      <Text id="TI_M_Counters_Name"     value="Counters"/>
+      <Text id="TI_M_Temperature_Name"  value="Device Temperature"/>
+      <Text id="TI_M_Commands_Name"     value="Commands" /> 
+	  <Text id="TI_M_Segment_Name"     value="Segment mode paramters" />
+	  <Text id="TI_M_Level_Name"     value="Level mode paramters" />	  
+	  <Text id="TI_M_Runlight_Name"     value="Runlight mode parameters" /> 
+	  <Text id="TI_M_AllModes_Name"     value="General paramters" /> 
+	  <Text id="TI_M_Flex_Name"     value="Flexible mode parameters" /> 
+      <Text id="TI_M_AccessLocks_Name"  value="Access Locks" />  
+    </PrimaryLanguage>
+  </ExternalTextCollection>
+  <Stamp crc="2958054013"><Checker name="IODD-Checker V1.1.1" version="V1.1.1.0"/></Stamp>
+</IODevice>

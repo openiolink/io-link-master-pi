@@ -1,0 +1,584 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<IODevice xmlns="http://www.io-link.com/IODD/2010/10" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.io-link.com/IODD/2010/10 IODD1.1.xsd">
+    <DocumentInfo version="V1.02" releaseDate="2020-12-17" copyright="Copyright 2020, Balluff GmbH" />
+    <ProfileHeader>
+        <ProfileIdentification>IO Device Profile</ProfileIdentification>
+        <ProfileRevision>1.1</ProfileRevision>
+        <ProfileName>Device Profile for IO Devices</ProfileName>
+        <ProfileSource>IO-Link Consortium</ProfileSource>
+        <ProfileClassID>Device</ProfileClassID>
+        <ISO15745Reference>
+            <ISO15745Part>1</ISO15745Part>
+            <ISO15745Edition>1</ISO15745Edition>
+            <ProfileTechnology>IODD</ProfileTechnology>
+        </ISO15745Reference>
+    </ProfileHeader>
+    <ProfileBody>
+        <DeviceIdentity vendorId="888" vendorName="BALLUFF" deviceId="131844">
+            <!-- 888 = 0x0378 (Balluff); 131844-->
+            <VendorText textId="TI_VendorText" />
+            <VendorUrl textId="TI_VendorUrl" />
+            <VendorLogo name="Balluff-logo.png" />
+            <DeviceName textId="TI_DeviceName" />
+            <DeviceFamily textId="TI_DeviceFamily" />
+            <DeviceVariantCollection>
+                <DeviceVariant productId="BIP001M" deviceSymbol="Balluff-BIP001x-pic.png" deviceIcon="Balluff-BIP001x-icon.png">
+                    <Name textId="TN_BIP001M" />
+                    <Description textId="TD_BIP001M" />
+                </DeviceVariant>
+                <DeviceVariant productId="BIP001N" deviceSymbol="Balluff-BIP001x-pic.png" deviceIcon="Balluff-BIP001x-icon.png">
+                    <Name textId="TN_BIP001N" />
+                    <Description textId="TD_BIP001N" />
+                </DeviceVariant>
+            </DeviceVariantCollection>
+        </DeviceIdentity>
+        <DeviceFunction>
+		    <Features blockParameter="true" dataStorage="true" profileCharacteristic="1 32768 32769 32770 32772"> <!-- 00 01 80 00 80 01 80 02 80 04  -->
+                <SupportedAccessLocks dataStorage="true" localUserInterface="false" localParameterization="false" parameter="true" />
+            </Features>
+            <DatatypeCollection>
+                <!-- Data type definition for the out-of-range bit in the Process Data -->
+                <Datatype id="DT_OutOfRange" xsi:type="BooleanT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <SingleValue xsi:type="BooleanValueT" value="false">
+                        <Name textId="TI_PD_TargetInRange" />
+                    </SingleValue>
+                    <SingleValue xsi:type="BooleanValueT" value="true">
+                        <Name textId="TI_PD_TargetOutOfRange" />
+                    </SingleValue>
+                </Datatype>
+                <!-- Data type definition for the binary channel bits in the Process Data -->
+                <Datatype id="DT_BinaryChannel" xsi:type="BooleanT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <SingleValue xsi:type="BooleanValueT" value="false">
+                        <Name textId="TI_PD_BinaryChannelInactive" />
+                    </SingleValue>
+                    <SingleValue xsi:type="BooleanValueT" value="true">
+                        <Name textId="TI_PD_BinaryChannelActive" />
+                    </SingleValue>
+                </Datatype>
+                <!-- Data type definition for the common binary data channel Set Point values -->
+                <Datatype id="DT_BinaryDataChannel_Values" xsi:type="RecordT" bitLength="32">
+                    <RecordItem subindex="1" bitOffset="16">
+                        <SimpleDatatype xsi:type="UIntegerT" bitLength="16">
+                            <!--<ValueRange lowerValue="20" upperValue="4075" />  -->
+                            <ValueRange lowerValue="20" upperValue="4075" />
+                        </SimpleDatatype>
+                        <Name textId="DT_T_BDC_SetPoint1" />
+                    </RecordItem>
+                    <RecordItem subindex="2" bitOffset="0">
+                        <SimpleDatatype xsi:type="UIntegerT" bitLength="16">
+                            <SingleValue value="0">
+                                <Name textId="DT_T_BDC_SetPoint2_Val" />
+                                <!-- SP2 is not implemented, but must be supported with "0" value -->
+                            </SingleValue>
+                        </SimpleDatatype>
+                        <Name textId="DT_T_BDC_SetPoint2" />
+                    </RecordItem>
+                </Datatype>
+                <!-- Data type definition for the common binary data channel parameters (Logic, Mode, Hysteresis) -->
+                <Datatype id="DT_BinaryDataChannel_Params" xsi:type="RecordT" bitLength="32">
+                    <RecordItem subindex="1" bitOffset="24">
+                        <SimpleDatatype xsi:type="UIntegerT" bitLength="8">
+                            <SingleValue value="0">
+                                <Name textId="DT_T_BDC_Logic_Normal" />
+                            </SingleValue>
+                            <SingleValue value="1">
+                                <Name textId="DT_T_BDC_Logic_Inverted" />
+                            </SingleValue>
+                        </SimpleDatatype>
+                        <Name textId="DT_T_BDC_Logic" />
+                    </RecordItem>
+                    <RecordItem subindex="2" bitOffset="16">
+                        <SimpleDatatype xsi:type="UIntegerT" bitLength="8">
+                            <SingleValue value="0">
+                                <Name textId="DT_T_BDC_Mode_Disabled" />
+                            </SingleValue>
+                            <SingleValue value="1">
+                                <Name textId="DT_T_BDC_Mode_Single" />
+                            </SingleValue>
+                        </SimpleDatatype>
+                        <Name textId="DT_T_BDC_Mode" />
+                    </RecordItem>
+                    <RecordItem subindex="3" bitOffset="0">
+                        <SimpleDatatype xsi:type="UIntegerT" bitLength="16">
+                            <ValueRange lowerValue="19" upperValue="4074" />
+                        </SimpleDatatype>
+                        <Name textId="DT_T_BDC_Hysteresis" />
+                    </RecordItem>
+                </Datatype>
+            </DatatypeCollection>
+            <VariableCollection>
+                <!-- List of the variables defined by the IO-link standard -->
+                <StdVariableRef id="V_DirectParameters_1" />
+                <StdVariableRef id="V_DirectParameters_2" excludedFromDataStorage="true" />
+                <StdVariableRef id="V_SystemCommand">
+                    <SingleValue value="64">
+                        <!--0x40 BDC übernehmen und aktivieren-->
+                        <Name textId="CMD_T_TeachApplyBDC" />
+                    </SingleValue>
+                    <SingleValue value="65">
+                        <!--0x41 BDC temp speichern-->
+                        <Name textId="CMD_T_TeachSetBDC" />
+                    </SingleValue>
+                    <SingleValue value="75">
+                        <!--0x4B SLmin temp setzen-->
+                        <Name textId="CMD_T_TeachSetSlMin" />
+                    </SingleValue>
+                    <SingleValue value="76">
+                        <!--0x4C SLmax temp setzen-->
+                        <Name textId="CMD_T_TeachSetSlMax" />
+                    </SingleValue>
+                    <SingleValue value="77">
+                        <!--0x4D SLmin und SLmax übernehmen-->
+                        <Name textId="CMD_T_TeachApplyLinrange" />
+                    </SingleValue>
+                    <SingleValue value="78">
+                        <!--0x4E SLmin und SLmax Werksreset-->
+                        <Name textId="CMD_T_TeachReset" />
+                    </SingleValue>
+                    <SingleValue value="79">
+                        <!--SLmin und SLmax temp löschen-->
+                        <Name textId="CMD_T_TeachCancel" />
+                    </SingleValue>
+                    <StdSingleValueRef value="130" />
+                </StdVariableRef>
+                <StdVariableRef id="V_DeviceAccessLocks" />
+                <StdVariableRef id="V_VendorName" defaultValue="BALLUFF" />
+                <StdVariableRef id="V_VendorText" defaultValue="www.balluff.com" />
+                <StdVariableRef id="V_ProductName" defaultValue="BIP LD2-T017-04-BPxx" />
+                <StdVariableRef id="V_ProductID" />
+                <!-- The productID should not have a default value! -->
+                <StdVariableRef id="V_ProductText" defaultValue="Inductive Positioning System"></StdVariableRef>
+				<StdVariableRef id="V_HardwareRevision" />
+                <StdVariableRef id="V_FirmwareRevision" />
+                <StdVariableRef id="V_ApplicationSpecificTag" defaultValue="***" fixedLengthRestriction="32" />
+                <!-- Teach-in channel for linearity range and BDC calibration at index 0x003A (fixed) -->
+                <Variable id="VB_TeachIn_Channel" index="58" accessRights="rw">
+                    <Datatype xsi:type="UIntegerT" bitLength="8">
+                        <SingleValue value="0">
+                            <!-- channel value for the default BDC (BDC1) -->
+                            <Name textId="VB_T_TeachIn_Channel_Default" />
+                        </SingleValue>
+                        <SingleValue value="1">
+                            <!-- channel value for the BDC1 -->
+                            <Name textId="VB_T_TeachIn_Channel_BDC1" />
+                        </SingleValue>
+                        <SingleValue value="2">
+                            <!-- channel value for the BDC2 -->
+                            <Name textId="VB_T_TeachIn_Channel_BDC2" />
+                        </SingleValue>
+                        <SingleValue value="3">
+                            <!-- channel value for the BDC3 -->
+                            <Name textId="VB_T_TeachIn_Channel_BDC3" />
+                        </SingleValue>
+                        <SingleValue value="192">
+                            <!-- channel value for the linear output -->
+                            <Name textId="VB_T_TeachIn_Channel_Linear" />
+                        </SingleValue>
+                        <SingleValue value="255">
+                            <!-- channel value for all of the binary data channels -->
+                            <Name textId="VB_T_TeachIn_Channel_All" />
+                        </SingleValue>
+                    </Datatype>
+                    <Name textId="VB_T_TeachIn_Channel" />
+                </Variable>
+                <!-- Teach-in state for linearity range and BDC calibration at index 0x003B (fixed) -->
+                <Variable id="VB_TeachIn_State" index="59" accessRights="ro">
+                    <Datatype xsi:type="UIntegerT" bitLength="8" />
+                    <Name textId="VB_T_TeachIn_State" />
+                </Variable>
+                <!-- Binary Data Channel 1 (BDC1) set point values at index 0x003C (fixed) - BDC1 SP ansprechen-->
+                <Variable id="VB_BinaryDataChannel1_Values" index="60" accessRights="rw">
+                    <DatatypeRef datatypeId="DT_BinaryDataChannel_Values" />
+                    <Name textId="VB_T_BDC1_Values" />
+                </Variable>
+                <!-- Binary Data Channel 1 (BDC1) parameter values at index 0x003D (fixed) - BDC1 Logik; Modus; Hysterese ansprechen-->
+                <Variable id="VB_BinaryDataChannel1_Params" index="61" accessRights="rw">
+                    <DatatypeRef datatypeId="DT_BinaryDataChannel_Params" />
+                    <Name textId="VB_T_BDC1_Params" />
+                </Variable>
+                <!-- Binary Data Channel 2 (BDC2) set point values at index 0x003E (fixed) - BDC2 SP ansprechen-->
+                <Variable id="VB_BinaryDataChannel2_Values" index="62" accessRights="rw">
+                    <DatatypeRef datatypeId="DT_BinaryDataChannel_Values" />
+                    <Name textId="VB_T_BDC2_Values" />
+                </Variable>
+                <!-- Binary Data Channel 2 (BDC2) parameter values at index 0x003F (fixed) - BDC2 Logik; Modus; Hysterese ansprechen-->
+                <Variable id="VB_BinaryDataChannel2_Params" index="63" accessRights="rw">
+                    <DatatypeRef datatypeId="DT_BinaryDataChannel_Params" />
+                    <Name textId="VB_T_BDC2_Params" />
+                </Variable>
+                <!-- Device Temperature values at index 0x0052 (Balluff) -->
+                <Variable id="VB_CurrentTemp" index="82" accessRights="ro">
+                    <Datatype xsi:type="IntegerT" bitLength="8" />
+                    <Name textId="VB_T_CurrentTemp" />
+                </Variable>
+                <!-- Communication Speed Value at index 0x0056 (Balluff) -->
+                <Variable id="VB_CommunicationSpeed" index="86" accessRights="ro">
+                    <Datatype xsi:type="UIntegerT" bitLength="8" />
+                    <Name textId="VB_T_CommunicationSpeed" />
+                </Variable>
+                <!-- Output-to-distance transformation steepness at index 0x00C0 (Balluff-BM) -->
+                <Variable id="VB_OutputSteepness" index="192" accessRights="ro">
+                    <Datatype xsi:type="Float32T" />
+                    <Name textId="VB_T_OutputSteepness" />
+                </Variable>
+                <!-- Output-to-distance transformation offset at index 0x00C1 (Balluff-BM) -->
+                <Variable id="VB_OutputOffset" index="193" accessRights="ro">
+                    <Datatype xsi:type="Float32T" />
+                    <Name textId="VB_T_OutputOffset" />
+                </Variable>
+                <!-- Output inversion byte at index 0x00C5 (Balluff-BM) -->
+                <Variable id="VB_OutputInversion" index="197" accessRights="rw">
+                    <Datatype xsi:type="UIntegerT" bitLength="8">
+                        <SingleValue value="0">
+                            <Name textId="VB_T_OutputInversion_Normal" />
+                        </SingleValue>
+                        <SingleValue value="1">
+                            <Name textId="VB_T_OutputInversion_Inverted" />
+                        </SingleValue>
+                    </Datatype>
+                    <Name textId="VB_T_OutputInversion" />
+                </Variable>
+                <!-- Current linearity range borders in um at index 0x00C8 (Balluff-BM) -->
+                <Variable id="VB_CurrentDistances" index="200" accessRights="rw">
+                    <Datatype xsi:type="RecordT" bitLength="32">
+                        <RecordItem subindex="1" bitOffset="16">
+                            <SimpleDatatype xsi:type="UIntegerT" bitLength="16">
+                                <ValueRange lowerValue="0" upperValue="4095" />
+                            </SimpleDatatype>
+                            <Name textId="VB_T_CurrentSlmin" />
+                        </RecordItem>
+                        <RecordItem subindex="2" bitOffset="0">
+                            <SimpleDatatype xsi:type="UIntegerT" bitLength="16">
+                                <ValueRange lowerValue="0" upperValue="4095" />
+                            </SimpleDatatype>
+                            <Name textId="VB_T_CurrentSlmax" />
+                        </RecordItem>
+                    </Datatype>
+                    <Name textId="VB_T_CurrentDistances" />
+                </Variable>
+                <!-- Binary Data Channel 3 (BDC3) set point values at index 0x4000 (fixed) - BDC3 SP ansprechen-->
+                <Variable id="VB_BinaryDataChannel3_Values" index="16384" accessRights="rw">
+                    <DatatypeRef datatypeId="DT_BinaryDataChannel_Values" />
+                    <Name textId="VB_T_BDC3_Values" />
+                </Variable>
+                <!-- Binary Data Channel 3 (BDC3) parameter values at index 0x4001 (fixed) - BDC3 Logik; Modus; Hysterese ansprechen-->
+                <Variable id="VB_BinaryDataChannel3_Params" index="16385" accessRights="rw">
+                    <DatatypeRef datatypeId="DT_BinaryDataChannel_Params" />
+                    <Name textId="VB_T_BDC3_Params" />
+                </Variable>
+            </VariableCollection>
+            <ProcessDataCollection>
+                <ProcessData id="V_ProcessData">
+                    <!-- Definition of the Process Data In structure including a 12-bit "analogue" data (MSBs), an out-of-range bit and 3 BDCs -->
+                    <ProcessDataIn id="V_ProcessDataIn" bitLength="16">
+                        <Datatype xsi:type="RecordT" bitLength="16">
+                            <RecordItem subindex="1" bitOffset="4">
+                                <SimpleDatatype xsi:type="UIntegerT" bitLength="12" />
+                                <Name textId="TI_TargetPosition" />
+                            </RecordItem>
+                            <RecordItem subindex="2" bitOffset="3">
+                                <DatatypeRef datatypeId="DT_OutOfRange" />
+                                <Name textId="TI_OutOfRangeBit" />
+                            </RecordItem>
+                            <RecordItem subindex="3" bitOffset="2">
+                                <DatatypeRef datatypeId="DT_BinaryChannel" />
+                                <Name textId="TI_BinaryChannel3" />
+                            </RecordItem>
+                            <RecordItem subindex="4" bitOffset="1">
+                                <DatatypeRef datatypeId="DT_BinaryChannel" />
+                                <Name textId="TI_BinaryChannel2" />
+                            </RecordItem>
+                            <RecordItem subindex="5" bitOffset="0">
+                                <DatatypeRef datatypeId="DT_BinaryChannel" />
+                                <Name textId="TI_BinaryChannel1" />
+                            </RecordItem>
+                        </Datatype>
+                        <Name textId="TI_V_PDI_Name" />
+                    </ProcessDataIn>
+                </ProcessData>
+            </ProcessDataCollection>
+            <UserInterface>
+                <MenuCollection>
+                    <!-- Menu for the direct parameter 1 structure elements -->
+                    <Menu id="M_Direct_Parameters_OMS">
+                        <Name textId="MT_Direct_Parameters_OMS" />
+                        <RecordItemRef variableId="V_DirectParameters_1" subindex="1" />
+                        <RecordItemRef variableId="V_DirectParameters_1" subindex="2" />
+                        <RecordItemRef variableId="V_DirectParameters_1" subindex="3" />
+                        <RecordItemRef variableId="V_DirectParameters_1" subindex="4" />
+                        <RecordItemRef variableId="V_DirectParameters_1" subindex="5" />
+                        <RecordItemRef variableId="V_DirectParameters_1" subindex="6" />
+                        <RecordItemRef variableId="V_DirectParameters_1" subindex="7" />
+                        <MenuRef menuId="MS_Direct_Parameters_Sub_OMS" />
+                    </Menu>
+                    <Menu id="MS_Direct_Parameters_Sub_OMS">
+                        <Name textId="MST_Direct_Parameters_Sub_OMS" />
+                        <RecordItemRef variableId="V_DirectParameters_1" subindex="8" />
+                        <RecordItemRef variableId="V_DirectParameters_1" subindex="9" />
+                        <RecordItemRef variableId="V_DirectParameters_1" subindex="10" />
+                        <RecordItemRef variableId="V_DirectParameters_1" subindex="11" />
+                        <RecordItemRef variableId="V_DirectParameters_1" subindex="12" />
+                    </Menu>
+                    <!-- Variables to identify the type and version of the sensor (O/M/S role) -->
+                    <Menu id="M_Sensor_Identification_OMS">
+                        <Name textId="MT_Sensor_Identification_OMS" />
+                        <MenuRef menuId="M_Direct_Parameters_OMS" />
+                        <VariableRef variableId="V_DirectParameters_2" />
+                        <VariableRef variableId="V_VendorName" />
+                        <VariableRef variableId="V_VendorText" />
+                        <VariableRef variableId="V_ProductName" />
+                        <VariableRef variableId="V_ProductID" />
+                        <VariableRef variableId="V_ProductText" />
+                        <VariableRef variableId="V_HardwareRevision" />
+                        <VariableRef variableId="V_FirmwareRevision" />
+                    </Menu>
+                    <!-- Sub-menu for the internal temperature structure elements  -->
+                    <Menu id="MS_Internal_Temp_OMS">
+                        <Name textId="MST_Internal_Temp_OMS" />
+                        <VariableRef variableId="VB_CurrentTemp" unitCode="1001" displayFormat="Dec" />
+                    </Menu>
+                    <!-- Variables to get extra information about the sensor's state (O role) -->
+                    <Menu id="M_Sensor_Information_O">
+                        <Name textId="MT_Sensor_Information_O" />
+                        <VariableRef variableId="V_ApplicationSpecificTag" accessRightRestriction="ro" />
+                        <VariableRef variableId="VB_CommunicationSpeed" />
+                        <MenuRef menuId="MS_Internal_Temp_OMS" />
+                    </Menu>
+                    <!-- Variables to get extra information about the sensor's state (M/S role) -->
+                    <Menu id="M_Sensor_Information_MS">
+                        <Name textId="MT_Sensor_Information_MS" />
+                        <VariableRef variableId="V_ApplicationSpecificTag" />
+                        <VariableRef variableId="VB_CommunicationSpeed" />
+                        <MenuRef menuId="MS_Internal_Temp_OMS" />
+                    </Menu>
+                    <!-- Variables to add information about the sensor output (O role) -->
+                    <Menu id="M_Output_Information_O">
+                        <Name textId="MT_Output_Information_O" />
+                        <VariableRef variableId="VB_OutputSteepness" displayFormat="Dec.4" />
+                        <VariableRef variableId="VB_OutputOffset" displayFormat="Dec.4" />
+                        <VariableRef variableId="VB_OutputInversion" accessRightRestriction="ro" />
+                        <RecordItemRef variableId="VB_CurrentDistances" subindex="1" displayFormat="Dec" accessRightRestriction="ro" />
+                        <RecordItemRef variableId="VB_CurrentDistances" subindex="2" displayFormat="Dec" accessRightRestriction="ro" />
+                    </Menu>
+                    <!-- Variables to add information about the sensor output (M/S role) -->
+                    <Menu id="M_Output_Information_MS">
+                        <Name textId="MT_Output_Information_MS" />
+                        <VariableRef variableId="VB_OutputSteepness" displayFormat="Dec.4" />
+                        <VariableRef variableId="VB_OutputOffset" displayFormat="Dec.4" />
+                        <VariableRef variableId="VB_OutputInversion" />
+                        <RecordItemRef variableId="VB_CurrentDistances" subindex="1" displayFormat="Dec" />
+                        <RecordItemRef variableId="VB_CurrentDistances" subindex="2" displayFormat="Dec" />
+                    </Menu>
+                    <!-- Sub-menu to set up the Binary Data Channel 1 -->
+                    <Menu id="MS_BDC1">
+                        <Name textId="MST_BDC1" />
+                        <RecordItemRef variableId="VB_BinaryDataChannel1_Values" subindex="1" />
+                        <RecordItemRef variableId="VB_BinaryDataChannel1_Values" subindex="2" />
+                        <RecordItemRef variableId="VB_BinaryDataChannel1_Params" subindex="1" />
+                        <RecordItemRef variableId="VB_BinaryDataChannel1_Params" subindex="2" />
+                        <RecordItemRef variableId="VB_BinaryDataChannel1_Params" subindex="3" />
+                    </Menu>
+                    <!-- Sub-menu to set up the Binary Data Channel 2 -->
+                    <Menu id="MS_BDC2">
+                        <Name textId="MST_BDC2" />
+                        <RecordItemRef variableId="VB_BinaryDataChannel2_Values" subindex="1" />
+                        <RecordItemRef variableId="VB_BinaryDataChannel2_Values" subindex="2" />
+                        <RecordItemRef variableId="VB_BinaryDataChannel2_Params" subindex="1" />
+                        <RecordItemRef variableId="VB_BinaryDataChannel2_Params" subindex="2" />
+                        <RecordItemRef variableId="VB_BinaryDataChannel2_Params" subindex="3" />
+                    </Menu>
+                    <!-- Sub-menu to set up the Binary Data Channel 3 -->
+                    <Menu id="MS_BDC3">
+                        <Name textId="MST_BDC3" />
+                        <RecordItemRef variableId="VB_BinaryDataChannel3_Values" subindex="1" />
+                        <RecordItemRef variableId="VB_BinaryDataChannel3_Values" subindex="2" />
+                        <RecordItemRef variableId="VB_BinaryDataChannel3_Params" subindex="1" />
+                        <RecordItemRef variableId="VB_BinaryDataChannel3_Params" subindex="2" />
+                        <RecordItemRef variableId="VB_BinaryDataChannel3_Params" subindex="3" />
+                    </Menu>
+                    <!-- Menu for the teach-in functions (M/S role) -->
+                    <Menu id="M_Sensor_Teachin_MS">
+                        <Name textId="MT_Sensor_Teachin_MS" />
+                        <VariableRef variableId="VB_TeachIn_Channel" />
+                        <VariableRef variableId="VB_TeachIn_State" />
+                        <MenuRef menuId="MS_BDC1" />
+                        <MenuRef menuId="MS_BDC2" />
+                        <MenuRef menuId="MS_BDC3" />
+                    </Menu>
+                    <Menu id="M_Sensor_Configuration_MS">
+                        <Name textId="MT_Sensor_Configuration_MS" />
+                        <VariableRef variableId="V_SystemCommand" />
+                        <VariableRef variableId="V_DeviceAccessLocks" />
+                    </Menu>
+                    <!-- Main observation menus for O and M/S roles -->
+                    <Menu id="MM_Observ_O">
+                        <Name textId="MMT_Observ_O" />
+                        <MenuRef menuId="M_Sensor_Information_O" />
+                        <MenuRef menuId="M_Output_Information_O" />
+                    </Menu>
+                    <Menu id="MM_Observ_MS">
+                        <Name textId="MMT_Observ_MS" />
+                        <MenuRef menuId="M_Sensor_Information_MS" />
+                        <MenuRef menuId="M_Output_Information_MS" />
+                    </Menu>
+                    <!-- Main parameter (configuration) menu for M/S roles -->
+                    <Menu id="MM_Param_MS">
+                        <Name textId="MMT_Param_MS" />
+                        <MenuRef menuId="M_Sensor_Configuration_MS" />
+                        <MenuRef menuId="M_Sensor_Teachin_MS" />
+                    </Menu>
+                </MenuCollection>
+                <ObserverRoleMenuSet>
+                    <IdentificationMenu menuId="M_Sensor_Identification_OMS" />
+                    <ObservationMenu menuId="MM_Observ_O" />
+                </ObserverRoleMenuSet>
+                <MaintenanceRoleMenuSet>
+                    <IdentificationMenu menuId="M_Sensor_Identification_OMS" />
+                    <ObservationMenu menuId="MM_Observ_MS" />
+                </MaintenanceRoleMenuSet>
+                <SpecialistRoleMenuSet>
+                    <IdentificationMenu menuId="M_Sensor_Identification_OMS" />
+                    <ParameterMenu menuId="MM_Param_MS" />
+                    <ObservationMenu menuId="MM_Observ_MS" />
+                </SpecialistRoleMenuSet>
+            </UserInterface>
+        </DeviceFunction>
+    </ProfileBody>
+    <!-- Aus IODD-Communication1.1.xsd -->
+    <CommNetworkProfile xsi:type="IOLinkCommNetworkProfileT" iolinkRevision="V1.1">
+        <TransportLayers>
+            <PhysicalLayer bitrate="COM2" minCycleTime="3000" sioSupported="false" mSequenceCapability="17">
+                <Connection xsi:type="M12-4ConnectionT">
+                    <ProductRef productId="BIP001M" />
+                    <Wire1 function="L+" />
+                    <Wire2 function="NC" />
+                    <Wire3 function="L-" />
+                    <Wire4 function="C/Q" />
+                </Connection>
+                <Connection xsi:type="CableConnectionT">
+                    <ProductRef productId="BIP001N" />
+                    <Wire1 function="L+" color="BN">
+                        <Name textId="TI_Wire_BN" />
+                    </Wire1>
+                    <Wire2 function="NC" color="WH">
+                        <Name textId="TI_Wire_WH"></Name>
+                    </Wire2>
+                    <Wire3 function="L-" color="BU">
+                        <Name textId="TI_Wire_BU" />
+                    </Wire3>
+                    <Wire4 function="C/Q" color="BK">
+                        <Name textId="TI_Wire_BK" />
+                    </Wire4>
+                </Connection>
+            </PhysicalLayer>
+        </TransportLayers>
+        <Test>
+            <!-- Costumer HW descriptor byte for testing (IOL Test Specification, page 107) -->
+            <Config1 index="58" testValue="0x01" />
+            <Config2 index="16368" testValue="0xB7" />
+            <!-- index 0x3FF0 -->
+            <!-- Read/write test value for the Application Specific Tag (index 0x0018) using text 'ISDU 16-bit write test value!' -->
+            <Config3 index="24" testValue="0x49,0x53,0x44,0x55,0x20,0x31,0x36,0x2d,0x62,0x69,0x74,0x20,0x77,0x72,0x69,0x74,0x65,0x20,0x74,0x65,0x73,0x74,0x20,0x76,0x61,0x6c,0x75,0x65,0x21" />
+        </Test>
+    </CommNetworkProfile>
+    <ExternalTextCollection>
+        <PrimaryLanguage xml:lang="en">
+            <!-- Text IDs for common internal parameters -->
+            <Text id="TI_VendorText" value="BALLUFF" />
+            <Text id="TI_VendorUrl" value="www.balluff.com" />
+            <Text id="TI_DeviceFamily" value="BIP - Balluff Inductive Positioning System" />
+            <Text id="TI_DeviceName" value="BIP LD2-T017-04-BPxx" />
+            
+            <Text id="TN_BIP001M" value="BIP LD2-T017-04-BP00.5-S04" />
+            <Text id="TN_BIP001N" value="BIP LD2-T017-04-BP01" />
+            <Text id="TD_BIP001M" value="Inductive Positioning System" />
+            <Text id="TD_BIP001N" value="Inductive Positioning System" />
+            <Text id="TI_V_PDI_Name" value="Process Data Inputs" />
+			
+            <!-- Data type text IDs for Process Data elements -->
+            <Text id="TI_PD_TargetInRange" value="Target is in measurement range" />
+            <Text id="TI_PD_TargetOutOfRange" value="Target is out of measurement range" />
+            <Text id="TI_PD_BinaryChannelActive" value="Binary channel is ON" />
+            <Text id="TI_PD_BinaryChannelInactive" value="Binary channel is OFF" />
+            <!-- Data type text IDs for binary data channel records -->
+            <Text id="DT_T_BDC_SetPoint1" value="Binary channel setpoint 1" />
+            <Text id="DT_T_BDC_SetPoint2" value="Binary channel setpoint 2" />
+            <Text id="DT_T_BDC_Logic" value="Binary channel logic parameter" />
+            <Text id="DT_T_BDC_Mode" value="Binary channel mode parameter" />
+            <Text id="DT_T_BDC_Hysteresis" value="Binary channel hysteresis" />
+            <Text id="DT_T_BDC_SetPoint2_Val" value="Not implemented (0)" />
+            <Text id="DT_T_BDC_Logic_Normal" value="Binary channel normal" />
+            <Text id="DT_T_BDC_Logic_Inverted" value="Binary channel inverted" />
+            <Text id="DT_T_BDC_Mode_Disabled" value="Binary channel deactivated" />
+            <Text id="DT_T_BDC_Mode_Single" value="Binary channel single point mode" />
+            <!-- Index text IDs for common teach-in registers -->
+            <Text id="VB_T_TeachIn_Channel" value="Teach-in channel register" />
+            <Text id="VB_T_TeachIn_State" value="Teach-in state register" />
+            <Text id="VB_T_TeachIn_Channel_BDC1" value="Binary data channel 1" />
+            <Text id="VB_T_TeachIn_Channel_BDC2" value="Binary data channel 2" />
+            <Text id="VB_T_TeachIn_Channel_BDC3" value="Binary data channel 3" />
+            <Text id="VB_T_TeachIn_Channel_Linear" value="Linearity range" />
+            <Text id="VB_T_TeachIn_Channel_All" value="All binary data channels" />
+            <!-- Index text IDs for individual binary data channels -->
+            <Text id="VB_T_BDC1_Values" value="Binary data channel 1 setpoint values" />
+            <Text id="VB_T_BDC1_Params" value="Binary data channel 1 parameters" />
+            <Text id="VB_T_BDC2_Values" value="Binary data channel 2 setpoint values" />
+            <Text id="VB_T_BDC2_Params" value="Binary data channel 2 parameters" />
+            <Text id="VB_T_BDC3_Values" value="Binary data channel 3 setpoint values" />
+            <Text id="VB_T_BDC3_Params" value="Binary data channel 3 parameters" />
+            <!-- Index text IDs for temperature value elements -->
+            <Text id="VB_T_CurrentTemp" value="Current internal temperature" />
+            <Text id="VB_T_CommunicationSpeed" value="The IO-link communication speed (COMx)" />
+            <!-- Index text IDs for process data elements -->
+            <Text id="VB_T_TeachIn_Channel_Default" value="Binary data channel default (BDC1)" />
+            <Text id="TI_BinaryChannel1" value="Binary data channel 1" />
+            <Text id="TI_BinaryChannel2" value="Binary data channel 2" />
+            <Text id="TI_BinaryChannel3" value="Binary data channel 3" />
+            <Text id="TI_OutOfRangeBit" value="Target out-of-range" />
+            <Text id="TI_TargetPosition" value="Digital output value" />
+            <Text id="VB_T_OutputSteepness" value="Output-to-distance conversion steepness" />
+            <Text id="VB_T_OutputOffset" value="Output-to-distance conversion offset" />
+            <Text id="VB_T_OutputInversion" value="The output inversion state" />
+            <Text id="VB_T_OutputInversion_Normal" value="Sensor output normal" />
+            <Text id="VB_T_OutputInversion_Inverted" value="Sensor output inverted" />
+            <Text id="VB_T_CurrentDistances" value="The current linearity range limits" />
+            <Text id="VB_T_CurrentSlmin" value="The current slmin value" />
+            <Text id="VB_T_CurrentSlmax" value="The current slmax value" />
+            <!-- Menu text for menus and sub-menu entries -->
+            <Text id="MT_Direct_Parameters_OMS" value="Direct Parameters 1" />
+            <Text id="MST_Direct_Parameters_Sub_OMS" value="Direct Parameters 1 Extra" />
+            <Text id="MST_Internal_Temp_OMS" value="Internal Temperature" />
+            <Text id="MT_Sensor_Identification_OMS" value="Sensor Identification" />
+            <Text id="MT_Sensor_Information_O" value="General Sensor Information" />
+            <Text id="MT_Sensor_Information_MS" value="General Sensor Configuration" />
+            <Text id="MT_Output_Information_O" value="Sensor Output Information" />
+            <Text id="MT_Output_Information_MS" value="Sensor Output Configuration" />
+            <!-- Index text IDs for menu entries -->
+            <Text id="MST_BDC1" value="Binary Data Channel 1" />
+            <Text id="MST_BDC2" value="Binary Data Channel 2" />
+            <Text id="MST_BDC3" value="Binary Data Channel 3" />
+            <Text id="MT_Sensor_Teachin_MS" value="Sensor teach-in" />
+            <Text id="MT_Sensor_Configuration_MS" value="Sensor configuration" />
+            <Text id="MMT_Observ_O" value="Observer menu" />
+            <Text id="MMT_Observ_MS" value="Observer menu" />
+            <Text id="MMT_Param_MS" value="Parameter menu" />
+            <!-- Command texts for teach-in process  -->
+            <Text id="CMD_T_TeachApplyBDC" value="Apply BDC teach-in" />
+            <Text id="CMD_T_TeachSetBDC" value="Set BDC Setpoint1" />
+            <Text id="CMD_T_TeachSetSlMin" value="Set Slmin distance" />
+            <Text id="CMD_T_TeachSetSlMax" value="Set Slmax distance" />
+            <Text id="CMD_T_TeachApplyLinrange" value="Apply linearity range teach-in" />
+            <Text id="CMD_T_TeachReset" value="Reset teach-in channel" />
+            <Text id="CMD_T_TeachCancel" value="Cancel teach-in process" />
+            
+            <!-- CableConnection naming --> 
+			<Text id="TI_Wire_BN" value="Power supply" />
+            <Text id="TI_Wire_WH" value="Not connected" />
+            <Text id="TI_Wire_BU" value="GND"/>
+            <Text id="TI_Wire_BK" value="Communication" />
+			
+        </PrimaryLanguage>
+    </ExternalTextCollection>
+
+    <Stamp crc="324261939"><Checker name="IODD-Checker V1.1.4" version="V1.1.4.0"/></Stamp>
+</IODevice>

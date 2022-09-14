@@ -1,0 +1,2251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<IODevice xmlns="http://www.io-link.com/IODD/2010/10" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.io-link.com/IODD/2010/10 IODD1.1.xsd">
+	<DocumentInfo version="V2.1" releaseDate="2020-03-30" copyright="Balluff GmbH"/>
+	<ProfileHeader>
+		<ProfileIdentification>IO Device Profile</ProfileIdentification>
+		<ProfileRevision>1.1</ProfileRevision>
+		<ProfileName>Device Profile for IO Devices</ProfileName>
+		<ProfileSource>IO-Link Consortium</ProfileSource>
+		<ProfileClassID>Device</ProfileClassID>
+		<ISO15745Reference>
+			<ISO15745Part>1</ISO15745Part>
+			<ISO15745Edition>1</ISO15745Edition>
+			<ProfileTechnology>IODD</ProfileTechnology>
+		</ISO15745Reference>
+	</ProfileHeader>
+	<ProfileBody>
+		<DeviceIdentity vendorId="888" vendorName="BALLUFF" deviceId="200710">
+			<VendorText textId="TI_VendorText"/>
+			<VendorUrl textId="TI_VendorUrl"/>
+			<VendorLogo name="Balluff-logo.png"/>
+			<DeviceName textId="TI_DeviceName_BOD002M"/>
+			<DeviceFamily textId="TI_DeviceFamily"/>
+			<DeviceVariantCollection>
+				<DeviceVariant productId="BOD002M" deviceSymbol="Balluff-BOD24K_200710-pic.png" deviceIcon="Balluff-BOD24K_200710-icon.png">
+					<Name textId="TI_ProductName_BOD002M"/>
+					<Description textId="TI_ProductText"/>
+				</DeviceVariant>
+			</DeviceVariantCollection>
+		</DeviceIdentity>
+		<DeviceFunction>
+			<Features blockParameter="true" dataStorage="true" profileCharacteristic="1 12 16384 32769 32772">
+				<SupportedAccessLocks parameter="false" dataStorage="true" localParameterization="true" localUserInterface="true"/>
+			</Features>
+			<DatatypeCollection>
+				<Datatype id="DT_ProfileComponent" xsi:type="UIntegerT" bitLength="16">
+					<SingleValue value="1">
+						<Name textId="TI_DT_SV_ProfileComponent_1"/>
+					</SingleValue>
+					<SingleValue value="12">
+						<Name textId="TI_DT_SV_ProfileComponent_12"/>
+					</SingleValue>
+					<SingleValue value="16384">
+						<Name textId="TI_DT_SV_ProfileComponent_16384"/>
+					</SingleValue>
+					<SingleValue value="32769">
+						<Name textId="TI_DT_SV_ProfileComponent_32769"/>
+					</SingleValue>
+					<SingleValue value="32772">
+						<Name textId="TI_DT_SV_ProfileComponent_32772"/>
+					</SingleValue>
+				</Datatype>
+				<Datatype id="DT_TI_Result_State" xsi:type="UIntegerT" bitLength="4">
+					<SingleValue value="0">
+						<Name textId="TI_DT_SV_TI_Result_State_IDLE"/>
+					</SingleValue>
+					<SingleValue value="1">
+						<Name textId="TI_DT_SV_TI_Result_State_SP1_SUCCESS"/>
+					</SingleValue>
+					<SingleValue value="2">
+						<Name textId="TI_DT_SV_TI_Result_State_SP2_SUCCESS"/>
+					</SingleValue>
+					<SingleValue value="3">
+						<Name textId="TI_DT_SV_TI_Result_State_SP12_SUCCESS"/>
+					</SingleValue>
+					<SingleValue value="5">
+						<Name textId="TI_DT_SV_TI_Result_State_BUSY"/>
+					</SingleValue>
+					<SingleValue value="7">
+						<Name textId="TI_DT_SV_TI_Result_State_ERROR"/>
+					</SingleValue>
+					<SingleValue value="12">
+						<Name textId="TI_DT_SV_TI_Result_State_Other_SUCCESS"/>
+					</SingleValue>
+				</Datatype>
+				<Datatype id="DT_TI_Result_Flag_SP1_TP1" xsi:type="BooleanT">
+					<SingleValue value="false">
+						<Name textId="TI_DT_SV_TI_Result_Flag_SP1_TP1_CLR"/>
+					</SingleValue>
+					<SingleValue value="true">
+						<Name textId="TI_DT_SV_TI_Result_Flag_SP1_TP1_SET"/>
+					</SingleValue>
+				</Datatype>
+				<Datatype id="DT_TI_Result_Flag_SP1_TP2" xsi:type="BooleanT">
+					<SingleValue value="false">
+						<Name textId="TI_DT_SV_TI_Result_Flag_SP1_TP2_CLR"/>
+					</SingleValue>
+					<SingleValue value="true">
+						<Name textId="TI_DT_SV_TI_Result_Flag_SP1_TP2_SET"/>
+					</SingleValue>
+				</Datatype>
+				<Datatype id="DT_TI_Result_Flag_SP2_TP1" xsi:type="BooleanT">
+					<SingleValue value="false">
+						<Name textId="TI_DT_SV_TI_Result_Flag_SP2_TP1_CLR"/>
+					</SingleValue>
+					<SingleValue value="true">
+						<Name textId="TI_DT_SV_TI_Result_Flag_SP2_TP1_SET"/>
+					</SingleValue>
+				</Datatype>
+				<Datatype id="DT_TI_Result_Flag_SP2_TP2" xsi:type="BooleanT">
+					<SingleValue value="false">
+						<Name textId="TI_DT_SV_TI_Result_Flag_SP2_TP2_CLR"/>
+					</SingleValue>
+					<SingleValue value="true">
+						<Name textId="TI_DT_SV_TI_Result_Flag_SP2_TP2_SET"/>
+					</SingleValue>
+				</Datatype>
+				<Datatype id="DT_SSC_Config_Logic" xsi:type="UIntegerT" bitLength="8">
+					<SingleValue value="0">
+						<Name textId="TI_DT_SV_Logic_HighActive"/>
+					</SingleValue>
+					<SingleValue value="1">
+						<Name textId="TI_DT_SV_Logic_LowActive"/>
+					</SingleValue>
+				</Datatype>
+				<Datatype id="DT_SSC_Config_Mode" xsi:type="UIntegerT" bitLength="8">
+					<SingleValue value="0">
+						<Name textId="TI_DT_SV_Mode_Deactivated"/>
+					</SingleValue>
+					<SingleValue value="1">
+						<Name textId="TI_DT_SV_Mode_SinglePointObject"/>
+					</SingleValue>
+					<SingleValue value="2">
+						<Name textId="TI_DT_SV_Mode_Window"/>
+					</SingleValue>
+					<SingleValue value="128">
+						<Name textId="TI_DT_SV_Mode_SinglePointBackground"/>
+					</SingleValue>
+				</Datatype>
+				<Datatype id="DT_SSC_Config_Hyst" xsi:type="UIntegerT" bitLength="16">
+					<ValueRange lowerValue="0" upperValue="32000"/>
+				</Datatype>
+				<Datatype id="DT_SysState00_Zero" xsi:type="BooleanT">
+					<SingleValue value="false">
+						<Name textId="TI_DT_SV_SysState00_Zero_CLR"/>
+					</SingleValue>
+				 <SingleValue value="true">
+						<Name textId="TI_DT_SV_SysState00_Zero_CLR"/>
+					</SingleValue>
+				</Datatype>
+				<Datatype id="DT_SysState01_Measure" xsi:type="BooleanT">
+					<SingleValue value="false">
+						<Name textId="TI_DT_SV_SysState01_Measure_CLR"/>
+					</SingleValue>
+					<SingleValue value="true">
+						<Name textId="TI_DT_SV_SysState01_Measure_SET"/>
+					</SingleValue>
+				</Datatype>
+				<Datatype id="DT_SysState02_Signal" xsi:type="BooleanT">
+					<SingleValue value="false">
+						<Name textId="TI_DT_SV_SysState02_Signal_CLR"/>
+					</SingleValue>
+					<SingleValue value="true">
+						<Name textId="TI_DT_SV_SysState02_Signal_SET"/>
+					</SingleValue>
+				</Datatype>
+				<Datatype id="DT_SysState03_Warning" xsi:type="BooleanT">
+					<SingleValue value="false">
+						<Name textId="TI_DT_SV_SysState03_Warning_CLR"/>
+					</SingleValue>
+					<SingleValue value="true">
+						<Name textId="TI_DT_SV_SysState03_Warning_SET"/>
+					</SingleValue>
+				</Datatype>
+				<Datatype id="DT_SysState04_Value" xsi:type="BooleanT">
+					<SingleValue value="false">
+						<Name textId="TI_DT_SV_SysState04_Value_CLR"/>
+					</SingleValue>
+					<SingleValue value="true">
+						<Name textId="TI_DT_SV_SysState04_Value_SET"/>
+					</SingleValue>
+				</Datatype>
+				<Datatype id="DT_SysState05_CalibratedRange" xsi:type="BooleanT">
+					<SingleValue value="false">
+						<Name textId="TI_DT_SV_SysState05_CalibratedRange_CLR"/>
+					</SingleValue>
+					<SingleValue value="true">
+						<Name textId="TI_DT_SV_SysState05_CalibratedRange_SET"/>
+					</SingleValue>
+				</Datatype>
+				<Datatype id="DT_SysState06_LimitedAccuracyRange" xsi:type="BooleanT">
+					<SingleValue value="false">
+						<Name textId="TI_DT_SV_SysState06_LimitedAccuracyRange_CLR"/>
+					</SingleValue>
+					<SingleValue value="true">
+						<Name textId="TI_DT_SV_SysState06_LimitedAccuracyRange_SET"/>
+					</SingleValue>
+				</Datatype>
+				<Datatype id="DT_SysState07_Deactivated" xsi:type="BooleanT">
+					<SingleValue value="false">
+						<Name textId="TI_DT_SV_SysState07_Deactivated_CLR"/>
+					</SingleValue>
+					<SingleValue value="true">
+						<Name textId="TI_DT_SV_SysState07_Deactivated_SET"/>
+					</SingleValue>
+				</Datatype>
+				<Datatype id="DT_SysState08_TriggerToggle" xsi:type="BooleanT">
+					<SingleValue value="false">
+						<Name textId="TI_DT_SV_SysState08_TriggerToggle_CLR"/>
+					</SingleValue>
+					<SingleValue value="true">
+						<Name textId="TI_DT_SV_SysState08_TriggerToggle_SET"/>
+					</SingleValue>
+				</Datatype>
+				<Datatype id="DT_SysState09_SSC1State" xsi:type="BooleanT">
+					<SingleValue value="false">
+						<Name textId="TI_DT_SV_SysState09_SSC1State_CLR"/>
+					</SingleValue>
+					<SingleValue value="true">
+						<Name textId="TI_DT_SV_SysState09_SSC1State_SET"/>
+					</SingleValue>
+				</Datatype>
+				<Datatype id="DT_SysState10_SSC2State" xsi:type="BooleanT">
+					<SingleValue value="false">
+						<Name textId="TI_DT_SV_SysState10_SSC2State_CLR"/>
+					</SingleValue>
+					<SingleValue value="true">
+						<Name textId="TI_DT_SV_SysState10_SSC2State_SET"/>
+					</SingleValue>
+				</Datatype>
+				<Datatype id="DT_SysState11_SSC3State" xsi:type="BooleanT">
+					<SingleValue value="false">
+						<Name textId="TI_DT_SV_SysState11_SSC3State_CLR"/>
+					</SingleValue>
+					<SingleValue value="true">
+						<Name textId="TI_DT_SV_SysState11_SSC3State_SET"/>
+					</SingleValue>
+				</Datatype>
+				<Datatype id="DT_SysState12_AnalogInRange" xsi:type="BooleanT">
+					<SingleValue value="false">
+						<Name textId="TI_DT_SV_SysState12_AnalogInRange_CLR"/>
+					</SingleValue>
+					<SingleValue value="true">
+						<Name textId="TI_DT_SV_SysState12_AnalogInRange_SET"/>
+					</SingleValue>
+				</Datatype>
+				<Datatype id="DT_SysState13_AnalogOutMin" xsi:type="BooleanT">
+					<SingleValue value="false">
+						<Name textId="TI_DT_SV_SysState13_AnalogOutMin_CLR"/>
+					</SingleValue>
+					<SingleValue value="true">
+						<Name textId="TI_DT_SV_SysState13_AnalogOutMin_SET"/>
+					</SingleValue>
+				</Datatype>
+				<Datatype id="DT_SysState14_AnalogOutMax" xsi:type="BooleanT">
+					<SingleValue value="false">
+						<Name textId="TI_DT_SV_SysState14_AnalogOutMax_CLR"/>
+					</SingleValue>
+					<SingleValue value="true">
+						<Name textId="TI_DT_SV_SysState14_AnalogOutMax_SET"/>
+					</SingleValue>
+				</Datatype>
+				<Datatype id="DT_SysState15_LaserError" xsi:type="BooleanT">
+					<SingleValue value="false">
+						<Name textId="TI_DT_SV_SysState15_LaserError_CLR"/>
+					</SingleValue>
+					<SingleValue value="true">
+						<Name textId="TI_DT_SV_SysState15_LaserError_SET"/>
+					</SingleValue>
+				</Datatype>
+				<Datatype id="DT_SysState16_Option1" xsi:type="BooleanT">
+					<SingleValue value="false">
+						<Name textId="TI_DT_SV_SysState16_Option1_CLR"/>
+					</SingleValue>
+					<SingleValue value="true">
+						<Name textId="TI_DT_SV_SysState16_Option1_SET"/>
+					</SingleValue>
+				</Datatype>
+				<Datatype id="DT_SysState17_Option2" xsi:type="BooleanT">
+					<SingleValue value="false">
+						<Name textId="TI_DT_SV_SysState17_Option2_CLR"/>
+					</SingleValue>
+					<SingleValue value="true">
+						<Name textId="TI_DT_SV_SysState17_Option2_SET"/>
+					</SingleValue>
+				</Datatype>
+				<Datatype id="DT_SysState_reserved" xsi:type="BooleanT">
+					<SingleValue value="false">
+						<Name textId="TI_DT_SV_SysState_reserved_CLR"/>
+					</SingleValue>
+					<SingleValue value="true">
+						<Name textId="TI_DT_SV_SysState_reserved_SET"/>
+					</SingleValue>
+				</Datatype>
+				<Datatype id="DT_SysState28_TeachBusy" xsi:type="BooleanT">
+					<SingleValue value="false">
+						<Name textId="TI_DT_SV_SysState28_TeachBusy_CLR"/>
+					</SingleValue>
+					<SingleValue value="true">
+						<Name textId="TI_DT_SV_SysState28_TeachBusy_SET"/>
+					</SingleValue>
+				</Datatype>
+				<Datatype id="DT_SysState29_TeachSuccess" xsi:type="BooleanT">
+					<SingleValue value="false">
+						<Name textId="TI_DT_SV_SysState29_TeachSuccess_CLR"/>
+					</SingleValue>
+					<SingleValue value="true">
+						<Name textId="TI_DT_SV_SysState29_TeachSuccess_SET"/>
+					</SingleValue>
+				</Datatype>
+				<Datatype id="DT_SysState30_TeachError" xsi:type="BooleanT">
+					<SingleValue value="false">
+						<Name textId="TI_DT_SV_SysState30_TeachError_CLR"/>
+					</SingleValue>
+					<SingleValue value="true">
+						<Name textId="TI_DT_SV_SysState30_TeachError_SET"/>
+					</SingleValue>
+				</Datatype>
+				<Datatype id="DT_SysState31_TeachReserved" xsi:type="BooleanT">
+					<SingleValue value="false">
+						<Name textId="TI_DT_SV_SysState31_TeachReserved_CLR"/>
+					</SingleValue>
+					<SingleValue value="true">
+						<Name textId="TI_DT_SV_SysState31_TeachReserved_SET"/>
+					</SingleValue>
+				</Datatype>
+				<Datatype id="DT_SysStateToStatusBit" xsi:type="UIntegerT" bitLength="8">
+					<SingleValue value="0">
+						<Name textId="TI_DT_SysState_00_Zero"/>
+					</SingleValue>
+					<SingleValue value="1">
+						<Name textId="TI_DT_SysState_01_Measure"/>
+					</SingleValue>
+					<SingleValue value="2">
+						<Name textId="TI_DT_SysState_02_Signal"/>
+					</SingleValue>
+					<SingleValue value="3">
+						<Name textId="TI_DT_SysState_03_Warning"/>
+					</SingleValue>
+					<SingleValue value="4">
+						<Name textId="TI_DT_SysState_04_Value"/>
+					</SingleValue>
+					<SingleValue value="5">
+						<Name textId="TI_DT_SysState_05_CalibratedRange"/>
+					</SingleValue>
+					<SingleValue value="6">
+						<Name textId="TI_DT_SysState_06_LimitedAccuracyRange"/>
+					</SingleValue>
+					<SingleValue value="7">
+						<Name textId="TI_DT_SysState_07_Deactivated"/>
+					</SingleValue>
+					<SingleValue value="8">
+						<Name textId="TI_DT_SysState_08_TriggerToggle"/>
+					</SingleValue>
+					<SingleValue value="9">
+						<Name textId="TI_DT_SysState_09_SSC1State"/>
+					</SingleValue>
+					<SingleValue value="10">
+						<Name textId="TI_DT_SysState_10_SSC2State"/>
+					</SingleValue>
+					<SingleValue value="11">
+						<Name textId="TI_DT_SysState_11_SSC3State"/>
+					</SingleValue>
+					<SingleValue value="12">
+						<Name textId="TI_DT_SysState_12_AnalogInRange"/>
+					</SingleValue>
+					<SingleValue value="13">
+						<Name textId="TI_DT_SysState_13_AnalogOutMin"/>
+					</SingleValue>
+					<SingleValue value="14">
+						<Name textId="TI_DT_SysState_14_AnalogOutMax"/>
+					</SingleValue>
+					<SingleValue value="15">
+						<Name textId="TI_DT_SysState_15_LaserError"/>
+					</SingleValue>
+					<SingleValue value="16">
+						<Name textId="TI_DT_SysState_16_Option1"/>
+					</SingleValue>
+					<SingleValue value="17">
+						<Name textId="TI_DT_SysState_17_Option2"/>
+					</SingleValue>
+					<SingleValue value="18">
+						<Name textId="TI_DT_SysState_reserved"/>
+					</SingleValue>
+					<SingleValue value="19">
+						<Name textId="TI_DT_SysState_reserved"/>
+					</SingleValue>
+					<SingleValue value="20">
+						<Name textId="TI_DT_SysState_reserved"/>
+					</SingleValue>
+					<SingleValue value="21">
+						<Name textId="TI_DT_SysState_reserved"/>
+					</SingleValue>
+					<SingleValue value="22">
+						<Name textId="TI_DT_SysState_reserved"/>
+					</SingleValue>
+					<SingleValue value="23">
+						<Name textId="TI_DT_SysState_reserved"/>
+					</SingleValue>
+					<SingleValue value="24">
+						<Name textId="TI_DT_SysState_reserved"/>
+					</SingleValue>
+					<SingleValue value="25">
+						<Name textId="TI_DT_SysState_reserved"/>
+					</SingleValue>
+					<SingleValue value="26">
+						<Name textId="TI_DT_SysState_reserved"/>
+					</SingleValue>
+					<SingleValue value="27">
+						<Name textId="TI_DT_SysState_reserved"/>
+					</SingleValue>
+					<SingleValue value="28">
+						<Name textId="TI_DT_SysState_28_TeachBusy"/>
+					</SingleValue>
+					<SingleValue value="29">
+						<Name textId="TI_DT_SysState_29_TeachSuccess"/>
+					</SingleValue>
+					<SingleValue value="30">
+						<Name textId="TI_DT_SysState_30_TeachError"/>
+					</SingleValue>
+					<SingleValue value="31">
+						<Name textId="TI_DT_SysState_31_TeachReserved"/>
+					</SingleValue>
+				</Datatype>
+				<Datatype id="DT_MDC_Descr_Limit" xsi:type="IntegerT" bitLength="32"/>
+				<Datatype id="DT_MDC_Descr_Unit_code" xsi:type="IntegerT" bitLength="16"/>
+				<Datatype id="DT_MDC_Descr_Scale" xsi:type="IntegerT" bitLength="8"/>
+				<Datatype id="DT_PDInValue" xsi:type="IntegerT" bitLength="16">
+					<SingleValue value="-32760">
+						<Name textId="TI_DT_PDInValue_OutOfRangeMinus"/>
+					</SingleValue>
+					<SingleValue value="32760">
+						<Name textId="TI_DT_PDInValue_OutOfRangePlus"/>
+					</SingleValue>
+					<SingleValue value="32764">
+						<Name textId="TI_DT_PDInValue_NoMeasurementData"/>
+					</SingleValue>
+					<ValueRange lowerValue="-32000" upperValue="32000"/>
+				</Datatype>
+				<Datatype id="DT_PDInScale" xsi:type="IntegerT" bitLength="8">
+					<SingleValue value="-4">
+						<Name textId="TI_DT_PDInScale_1_10mm"/>
+					</SingleValue>
+					<SingleValue value="-5">
+						<Name textId="TI_DT_PDInScale_1_100mm"/>
+					</SingleValue>
+				</Datatype>
+				<Datatype id="DT_PDIn8_0" xsi:type="BooleanT">
+					<SingleValue value="false">
+						<Name textId="TI_DT_PDIn8_0_SSC1_0"/>
+					</SingleValue>
+					<SingleValue value="true">
+						<Name textId="TI_DT_PDIn8_0_SSC1_1"/>
+					</SingleValue>
+				</Datatype>
+				<Datatype id="DT_PDIn8_1" xsi:type="BooleanT">
+					<SingleValue value="false">
+						<Name textId="TI_DT_PDIn8_1_SSC2_0"/>
+					</SingleValue>
+					<SingleValue value="true">
+						<Name textId="TI_DT_PDIn8_1_SSC2_1"/>
+					</SingleValue>
+				</Datatype>
+				<Datatype id="DT_PDIn8_2" xsi:type="BooleanT">
+					<SingleValue value="false">
+						<Name textId="TI_DT_PDIn8_2___0"/>
+					</SingleValue>
+					<SingleValue value="true">
+						<Name textId="TI_DT_PDIn8_2___1"/>
+					</SingleValue>
+				</Datatype>
+				<Datatype id="DT_PDIn8_3" xsi:type="BooleanT">
+					<SingleValue value="false">
+						<Name textId="TI_DT_PDIn8_3_M_0"/>
+					</SingleValue>
+					<SingleValue value="true">
+						<Name textId="TI_DT_PDIn8_3_M_1"/>
+					</SingleValue>
+				</Datatype>
+				<Datatype id="DT_PDIn8_4" xsi:type="BooleanT">
+					<SingleValue value="false">
+						<Name textId="TI_DT_PDIn8_4_S_0"/>
+					</SingleValue>
+					<SingleValue value="true">
+						<Name textId="TI_DT_PDIn8_4_S_1"/>
+					</SingleValue>
+				</Datatype>
+				<Datatype id="DT_PDIn8_5" xsi:type="BooleanT">
+					<SingleValue value="false">
+						<Name textId="TI_DT_PDIn8_5_W_0"/>
+					</SingleValue>
+					<SingleValue value="true">
+						<Name textId="TI_DT_PDIn8_5_W_1"/>
+					</SingleValue>
+				</Datatype>
+				<Datatype id="DT_PDIn8_6" xsi:type="BooleanT">
+					<SingleValue value="false">
+						<Name textId="TI_DT_PDIn8_6___0"/>
+					</SingleValue>
+					<SingleValue value="true">
+						<Name textId="TI_DT_PDIn8_6___1"/>
+					</SingleValue>
+				</Datatype>
+				<Datatype id="DT_PDIn8_7" xsi:type="BooleanT">
+					<SingleValue value="false">
+						<Name textId="TI_DT_PDIn8_7_T_0"/>
+					</SingleValue>
+					<SingleValue value="true">
+						<Name textId="TI_DT_PDIn8_7_T_1"/>
+					</SingleValue>
+				</Datatype>
+				<Datatype id="DT_PDOut_Disable" xsi:type="BooleanT">
+					<SingleValue value="false">
+						<Name textId="TI_DT_PDOut_Disable_0"/>
+					</SingleValue>
+					<SingleValue value="true">
+						<Name textId="TI_DT_PDOut_Disable_1"/>
+					</SingleValue>
+				</Datatype>
+				<Datatype id="DT_PDOutFiller" xsi:type="IntegerT" bitLength="7"/>
+				<Datatype id="DT_ProfileCharacteristic" xsi:type="RecordT" bitLength="80" subindexAccessSupported="false">
+					<RecordItem subindex="1" bitOffset="64">
+						<DatatypeRef datatypeId="DT_ProfileComponent"/>
+						<Name textId="TI_DT_DeviceProfile1"/>
+						<Description textId="TI_DTD_DeviceProfile1"/>
+					</RecordItem>
+					<RecordItem subindex="2" bitOffset="48">
+						<DatatypeRef datatypeId="DT_ProfileComponent"/>
+						<Name textId="TI_DT_DeviceProfile2"/>
+						<Description textId="TI_DTD_DeviceProfile2"/>
+					</RecordItem>
+					<RecordItem subindex="3" bitOffset="32">
+						<DatatypeRef datatypeId="DT_ProfileComponent"/>
+						<Name textId="TI_DT_ApplicationProfile"/>
+						<Description textId="TI_DTD_ApplicationProfile"/>
+					</RecordItem>
+					<RecordItem subindex="4" bitOffset="16">
+						<DatatypeRef datatypeId="DT_ProfileComponent"/>
+						<Name textId="TI_DT_FunctionClass1"/>
+						<Description textId="TI_DTD_FunctionClass1"/>
+					</RecordItem>
+					<RecordItem subindex="5" bitOffset="0">
+						<DatatypeRef datatypeId="DT_ProfileComponent"/>
+						<Name textId="TI_DT_FunctionClass2"/>
+						<Description textId="TI_DTD_FunctionClass2"/>
+					</RecordItem>
+				</Datatype>
+				<Datatype id="DT_Tags" xsi:type="StringT" fixedLength="32" encoding="UTF-8"/>
+				<Datatype id="DT_TI_Select" xsi:type="UIntegerT" bitLength="8">
+					<SingleValue value="0">
+						<Name textId="TI_DT_TI_Select_0"/>
+					</SingleValue>
+					<SingleValue value="1">
+						<Name textId="TI_DT_TI_Select_1"/>
+					</SingleValue>
+					<SingleValue value="2">
+						<Name textId="TI_DT_TI_Select_2"/>
+					</SingleValue>
+					<SingleValue value="255">
+						<Name textId="TI_DT_TI_Select_255"/>
+					</SingleValue>
+				</Datatype>
+				<Datatype id="DT_TI_Result" xsi:type="RecordT" bitLength="8" subindexAccessSupported="false">
+					<RecordItem subindex="1" bitOffset="0">
+						<DatatypeRef datatypeId="DT_TI_Result_State"/>
+						<Name textId="TI_DT_TI_STATE"/>
+					</RecordItem>
+					<RecordItem subindex="2" bitOffset="4">
+						<DatatypeRef datatypeId="DT_TI_Result_Flag_SP1_TP1"/>
+						<Name textId="TI_DT_TI_Result_Flag_SP1_TP1"/>
+					</RecordItem>
+					<RecordItem subindex="3" bitOffset="5">
+						<DatatypeRef datatypeId="DT_TI_Result_Flag_SP1_TP2"/>
+						<Name textId="TI_DT_TI_Result_Flag_SP1_TP2"/>
+					</RecordItem>
+					<RecordItem subindex="4" bitOffset="6">
+						<DatatypeRef datatypeId="DT_TI_Result_Flag_SP2_TP1"/>
+						<Name textId="TI_DT_TI_Result_Flag_SP2_TP1"/>
+					</RecordItem>
+					<RecordItem subindex="5" bitOffset="7">
+						<DatatypeRef datatypeId="DT_TI_Result_Flag_SP2_TP2"/>
+						<Name textId="TI_DT_TI_Result_Flag_SP2_TP2"/>
+					</RecordItem>
+				</Datatype>
+					<Datatype id="DT_MeasuringRange" xsi:type="IntegerT" bitLength="16">
+					<ValueRange lowerValue="-10000" upperValue="10000"/>
+				</Datatype>
+				<Datatype id="DT_SSC_Param" xsi:type="RecordT" bitLength="32" subindexAccessSupported="false">
+					<RecordItem subindex="1" bitOffset="16">
+						<DatatypeRef datatypeId="DT_MeasuringRange"/>
+						<Name textId="TI_DT_SP1"/>
+						<Description textId="TI_DD_SP1"/>
+					</RecordItem>
+					<RecordItem subindex="2" bitOffset="0">
+						<DatatypeRef datatypeId="DT_MeasuringRange"/>
+						<Name textId="TI_DT_SP2"/>
+						<Description textId="TI_DD_SP2"/>
+					</RecordItem>
+				</Datatype>
+				<Datatype id="DT_SSC_Config" xsi:type="RecordT" bitLength="32" subindexAccessSupported="false">
+					<RecordItem subindex="1" bitOffset="24">
+						<DatatypeRef datatypeId="DT_SSC_Config_Logic"/>
+						<Name textId="TI_DT_Logic"/>
+						<Description textId="TI_DD_Logic"/>
+					</RecordItem>
+					<RecordItem subindex="2" bitOffset="16">
+						<DatatypeRef datatypeId="DT_SSC_Config_Mode"/>
+						<Name textId="TI_DT_Mode"/>
+						<Description textId="TI_DD_Mode"/>
+					</RecordItem>
+					<RecordItem subindex="3" bitOffset="0">
+						<DatatypeRef datatypeId="DT_SSC_Config_Hyst"/>
+						<Name textId="TI_DT_Hyst"/>
+						<Description textId="TI_DD_Hyst"/>
+					</RecordItem>
+				</Datatype>			
+				<Datatype id="DT_Reserve" xsi:type="UIntegerT" bitLength="16">
+					<ValueRange lowerValue="0" upperValue="5000"/>
+				</Datatype>
+				<Datatype id="DT_SysState" xsi:type="RecordT" bitLength="32" subindexAccessSupported="false">
+					<RecordItem subindex="1" bitOffset="0">
+						<DatatypeRef datatypeId="DT_SysState00_Zero"/>
+						<Name textId="TI_DT_SysState_00_Zero"/>
+					</RecordItem>
+					<RecordItem subindex="2" bitOffset="1">
+						<DatatypeRef datatypeId="DT_SysState01_Measure"/>
+						<Name textId="TI_DT_SysState_01_Measure"/>
+					</RecordItem>
+					<RecordItem subindex="3" bitOffset="2">
+						<DatatypeRef datatypeId="DT_SysState02_Signal"/>
+						<Name textId="TI_DT_SysState_02_Signal"/>
+					</RecordItem>
+					<RecordItem subindex="4" bitOffset="3">
+						<DatatypeRef datatypeId="DT_SysState03_Warning"/>
+						<Name textId="TI_DT_SysState_03_Warning"/>
+					</RecordItem>
+					<RecordItem subindex="5" bitOffset="4">
+						<DatatypeRef datatypeId="DT_SysState04_Value"/>
+						<Name textId="TI_DT_SysState_04_Value"/>
+					</RecordItem>
+					<RecordItem subindex="6" bitOffset="5">
+						<DatatypeRef datatypeId="DT_SysState05_CalibratedRange"/>
+						<Name textId="TI_DT_SysState_05_CalibratedRange"/>
+					</RecordItem>
+					<RecordItem subindex="7" bitOffset="6">
+						<DatatypeRef datatypeId="DT_SysState06_LimitedAccuracyRange"/>
+						<Name textId="TI_DT_SysState_06_LimitedAccuracyRange"/>
+					</RecordItem>
+					<RecordItem subindex="8" bitOffset="7">
+						<DatatypeRef datatypeId="DT_SysState07_Deactivated"/>
+						<Name textId="TI_DT_SysState_07_Deactivated"/>
+					</RecordItem>
+					<RecordItem subindex="9" bitOffset="8">
+						<DatatypeRef datatypeId="DT_SysState08_TriggerToggle"/>
+						<Name textId="TI_DT_SysState_08_TriggerToggle"/>
+					</RecordItem>
+					<RecordItem subindex="10" bitOffset="9">
+						<DatatypeRef datatypeId="DT_SysState09_SSC1State"/>
+						<Name textId="TI_DT_SysState_09_SSC1State"/>
+					</RecordItem>
+					<RecordItem subindex="11" bitOffset="10">
+						<DatatypeRef datatypeId="DT_SysState10_SSC2State"/>
+						<Name textId="TI_DT_SysState_10_SSC2State"/>
+					</RecordItem>
+					<RecordItem subindex="12" bitOffset="11">
+						<DatatypeRef datatypeId="DT_SysState11_SSC3State"/>
+						<Name textId="TI_DT_SysState_11_SSC3State"/>
+					</RecordItem>
+					<RecordItem subindex="13" bitOffset="12">
+						<DatatypeRef datatypeId="DT_SysState12_AnalogInRange"/>
+						<Name textId="TI_DT_SysState_12_AnalogInRange"/>
+					</RecordItem>
+					<RecordItem subindex="14" bitOffset="13">
+						<DatatypeRef datatypeId="DT_SysState13_AnalogOutMin"/>
+						<Name textId="TI_DT_SysState_13_AnalogOutMin"/>
+					</RecordItem>
+					<RecordItem subindex="15" bitOffset="14">
+						<DatatypeRef datatypeId="DT_SysState14_AnalogOutMax"/>
+						<Name textId="TI_DT_SysState_14_AnalogOutMax"/>
+					</RecordItem>
+					<RecordItem subindex="16" bitOffset="15">
+						<DatatypeRef datatypeId="DT_SysState15_LaserError"/>
+						<Name textId="TI_DT_SysState_15_LaserError"/>
+					</RecordItem>
+					<RecordItem subindex="17" bitOffset="16">
+						<DatatypeRef datatypeId="DT_SysState16_Option1"/>
+						<Name textId="TI_DT_SysState_16_Option1"/>
+					</RecordItem>
+					<RecordItem subindex="18" bitOffset="17">
+						<DatatypeRef datatypeId="DT_SysState17_Option2"/>
+						<Name textId="TI_DT_SysState_17_Option2"/>
+					</RecordItem>
+					<RecordItem subindex="19" bitOffset="18">
+						<DatatypeRef datatypeId="DT_SysState_reserved"/>
+						<Name textId="TI_DT_SysState_reserved"/>
+					</RecordItem>
+					<RecordItem subindex="20" bitOffset="19">
+						<DatatypeRef datatypeId="DT_SysState_reserved"/>
+						<Name textId="TI_DT_SysState_reserved"/>
+					</RecordItem>
+					<RecordItem subindex="21" bitOffset="20">
+						<DatatypeRef datatypeId="DT_SysState_reserved"/>
+						<Name textId="TI_DT_SysState_reserved"/>
+					</RecordItem>
+					<RecordItem subindex="22" bitOffset="21">
+						<DatatypeRef datatypeId="DT_SysState_reserved"/>
+						<Name textId="TI_DT_SysState_reserved"/>
+					</RecordItem>
+					<RecordItem subindex="23" bitOffset="22">
+						<DatatypeRef datatypeId="DT_SysState_reserved"/>
+						<Name textId="TI_DT_SysState_reserved"/>
+					</RecordItem>
+					<RecordItem subindex="24" bitOffset="23">
+						<DatatypeRef datatypeId="DT_SysState_reserved"/>
+						<Name textId="TI_DT_SysState_reserved"/>
+					</RecordItem>
+					<RecordItem subindex="25" bitOffset="24">
+						<DatatypeRef datatypeId="DT_SysState_reserved"/>
+						<Name textId="TI_DT_SysState_reserved"/>
+					</RecordItem>
+					<RecordItem subindex="26" bitOffset="25">
+						<DatatypeRef datatypeId="DT_SysState_reserved"/>
+						<Name textId="TI_DT_SysState_reserved"/>
+					</RecordItem>
+					<RecordItem subindex="27" bitOffset="26">
+						<DatatypeRef datatypeId="DT_SysState_reserved"/>
+						<Name textId="TI_DT_SysState_reserved"/>
+					</RecordItem>
+					<RecordItem subindex="28" bitOffset="27">
+						<DatatypeRef datatypeId="DT_SysState_reserved"/>
+						<Name textId="TI_DT_SysState_reserved"/>
+					</RecordItem>
+					<RecordItem subindex="29" bitOffset="28">
+						<DatatypeRef datatypeId="DT_SysState28_TeachBusy"/>
+						<Name textId="TI_DT_SysState_28_TeachBusy"/>
+					</RecordItem>
+					<RecordItem subindex="30" bitOffset="29">
+						<DatatypeRef datatypeId="DT_SysState29_TeachSuccess"/>
+						<Name textId="TI_DT_SysState_29_TeachSuccess"/>
+					</RecordItem>
+					<RecordItem subindex="31" bitOffset="30">
+						<DatatypeRef datatypeId="DT_SysState30_TeachError"/>
+						<Name textId="TI_DT_SysState_30_TeachError"/>
+					</RecordItem>
+					<RecordItem subindex="32" bitOffset="31">
+						<DatatypeRef datatypeId="DT_SysState31_TeachReserved"/>
+						<Name textId="TI_DT_SysState_31_TeachReserved"/>
+					</RecordItem>
+				</Datatype>
+				<Datatype id="DT_DsUploadFlag" xsi:type="UIntegerT" bitLength="8">
+					<SingleValue value="0">
+						<Name textId="TI_DT_SV_DsUploadFlag_Clear"/>
+					</SingleValue>
+					<SingleValue value="128">
+						<Name textId="TI_DT_SV_DsUploadFlag_Set"/>
+					</SingleValue>
+				</Datatype>
+				<Datatype id="DT_IntTimeCnt" xsi:type="UIntegerT" bitLength="8"/>
+				<Datatype id="DT_SysStateToStatusBits" xsi:type="ArrayT" count="8" subindexAccessSupported="false">
+					<DatatypeRef datatypeId="DT_SysStateToStatusBit"/>
+				</Datatype>
+				<Datatype id="DT_TeachCount" xsi:type="UIntegerT" bitLength="16">
+					<ValueRange lowerValue="2" upperValue="1000"/>
+				</Datatype>
+				<Datatype id="DT_QProperty" xsi:type="UIntegerT" bitLength="8">
+					<SingleValue value="0">
+						<Name textId="TI_DT_SV_QProperty0"/>
+					</SingleValue>
+					<SingleValue value="1">
+						<Name textId="TI_DT_SV_QProperty1"/>
+					</SingleValue>
+					<SingleValue value="2">
+						<Name textId="TI_DT_SV_QProperty2"/>
+					</SingleValue>
+				</Datatype>
+				<Datatype id="DT_SSC_WindowWidth" xsi:type="UIntegerT" bitLength="16">
+					<ValueRange lowerValue="0" upperValue="5000"/>
+				</Datatype>
+				<Datatype id="DT_SSC_EvalDepth" xsi:type="UIntegerT" bitLength="8">
+					<ValueRange lowerValue="1" upperValue="100"/>
+				</Datatype>
+				<Datatype id="DT_AnalogOutProperty" xsi:type="UIntegerT" bitLength="8">
+					<SingleValue value="0">
+						<Name textId="TI_DT_SV_AnalogOutProperty0"/>
+					</SingleValue>
+					<SingleValue value="1">
+						<Name textId="TI_DT_SV_AnalogOutProperty1"/>
+					</SingleValue>
+					<SingleValue value="2">
+						<Name textId="TI_DT_SV_AnalogOutProperty2"/>
+					</SingleValue>
+				</Datatype>
+				<Datatype id="DT_Pin4Function" xsi:type="UIntegerT" bitLength="8">
+					<SingleValue value="1">
+						<Name textId="TI_DT_SV_Pin4Function1"/>
+					</SingleValue>
+				</Datatype>
+				<Datatype id="DT_Pin2Function" xsi:type="UIntegerT" bitLength="8">
+					<SingleValue value="0">
+						<Name textId="TI_DT_SV_Pin2Function0"/>
+					</SingleValue>
+					<SingleValue value="3">
+						<Name textId="TI_DT_SV_Pin2Function3"/>
+					</SingleValue>
+					<SingleValue value="11">
+						<Name textId="TI_DT_SV_Pin2Function11"/>
+					</SingleValue>
+					<SingleValue value="12">
+						<Name textId="TI_DT_SV_Pin2Function12"/>
+					</SingleValue>
+					<SingleValue value="13">
+						<Name textId="TI_DT_SV_Pin2Function13"/>
+					</SingleValue>
+				</Datatype>
+				<Datatype id="DT_CcdProcMode" xsi:type="UIntegerT" bitLength="8">
+					<SingleValue value="0">
+						<Name textId="TI_DT_SV_CcdProcMode0"/>
+					</SingleValue>
+					<SingleValue value="1">
+						<Name textId="TI_DT_SV_CcdProcMode1"/>
+					</SingleValue>
+					<SingleValue value="2">
+						<Name textId="TI_DT_SV_CcdProcMode2"/>
+					</SingleValue>
+				</Datatype>
+				<Datatype id="DT_MenuLanguage" xsi:type="UIntegerT" bitLength="8">
+					<SingleValue value="0">
+						<Name textId="TI_DT_SV_MenuLanguage0"/>
+					</SingleValue>
+					<SingleValue value="1">
+						<Name textId="TI_DT_SV_MenuLanguage1"/>
+					</SingleValue>
+				</Datatype>
+				<Datatype id="DT_DisplayMode" xsi:type="UIntegerT" bitLength="8">
+					<SingleValue value="0">
+						<Name textId="TI_DT_SV_DisplayMode0"/>
+					</SingleValue>
+					<SingleValue value="1">
+						<Name textId="TI_DT_SV_DisplayMode1"/>
+					</SingleValue>
+					<SingleValue value="2">
+						<Name textId="TI_DT_SV_DisplayMode2"/>
+					</SingleValue>
+					<SingleValue value="3">
+						<Name textId="TI_DT_SV_DisplayMode3"/>
+					</SingleValue>
+				</Datatype>
+				<Datatype id="DT_PasswordCheck" xsi:type="UIntegerT" bitLength="8">
+					<SingleValue value="0">
+						<Name textId="TI_DT_SV_PasswordCheck_Off"/>
+					</SingleValue>
+					<SingleValue value="255">
+						<Name textId="TI_DT_SV_PasswordCheck_On"/>
+					</SingleValue>
+				</Datatype>
+				<Datatype id="DT_MeasureGradient" xsi:type="IntegerT" bitLength="8">
+					<SingleValue value="1">
+						<Name textId="TI_DT_SV_MeasureGradient_Positive"/>
+					</SingleValue>
+					<SingleValue value="-1">
+						<Name textId="TI_DT_SV_MeasureGradient_Negative"/>
+					</SingleValue>
+				</Datatype>
+				<Datatype id="DT_Bool_Inactive_Activated" xsi:type="UIntegerT" bitLength="8">
+					<SingleValue value="0">
+						<Name textId="TI_DT_SV_Bool_Inactive"/>
+					</SingleValue>
+					<SingleValue value="255">
+						<Name textId="TI_DT_SV_Bool_Activated"/>
+					</SingleValue>
+				</Datatype>
+				<Datatype id="DT_MenuExitBehaviour" xsi:type="UIntegerT" bitLength="8">
+					<SingleValue value="0">
+						<Name textId="TI_DT_SV_MenuExitBehaviour_ReportToDS"/>
+					</SingleValue>
+					<SingleValue value="1">
+						<Name textId="TI_DT_SV_MenuExitBehaviour_OnlyLocalChanges"/>
+					</SingleValue>
+				</Datatype>
+				<Datatype id="DT_DeactivationProperty" xsi:type="UIntegerT" bitLength="8">
+					<SingleValue value="0">
+						<Name textId="TI_DT_SV_DeactivationProperty_NoMeasData"/>
+					</SingleValue>
+					<SingleValue value="1">
+						<Name textId="TI_DT_SV_DeactivationProperty_Freeze"/>
+					</SingleValue>
+				</Datatype>
+				<Datatype id="DT_CcdIntTimeCnt" xsi:type="UIntegerT" bitLength="8">
+					<ValueRange lowerValue="0" upperValue="48"/>
+				</Datatype>
+				<Datatype id="DT_MeasureFilterSelection" xsi:type="UIntegerT" bitLength="8">
+					<SingleValue value="0">
+						<Name textId="TI_DT_SV_MeasureFilterSelection0"/>
+					</SingleValue>
+					<SingleValue value="1">
+						<Name textId="TI_DT_SV_MeasureFilterSelection1"/>
+					</SingleValue>
+					<SingleValue value="2">
+						<Name textId="TI_DT_SV_MeasureFilterSelection2"/>
+					</SingleValue>
+				</Datatype>
+				<Datatype id="DT_MeasureFilterAvgCount" xsi:type="UIntegerT" bitLength="8">
+					<ValueRange lowerValue="2" upperValue="99"/>
+				</Datatype>
+				<Datatype id="DT_MeasureFilterSpikeCount" xsi:type="UIntegerT" bitLength="8">
+					<ValueRange lowerValue="5" upperValue="99"/>
+				</Datatype>
+				<Datatype id="DT_MeasureFilterSpikeDepth" xsi:type="UIntegerT" bitLength="8">
+					<SingleValue value="0">
+						<Name textId="TI_DT_SV_MeasureFilterSpikeDepth0"/>
+					</SingleValue>
+					<SingleValue value="1">
+						<Name textId="TI_DT_SV_MeasureFilterSpikeDepth1"/>
+					</SingleValue>
+					<SingleValue value="2">
+						<Name textId="TI_DT_SV_MeasureFilterSpikeDepth2"/>
+					</SingleValue>
+				</Datatype>
+				<Datatype id="DT_CcdProcLightSupprAddMax" xsi:type="UIntegerT" bitLength="8">
+					<ValueRange lowerValue="2" upperValue="32"/>
+				</Datatype>
+				<Datatype id="DT_Resolution" xsi:type="UIntegerT" bitLength="8">
+					<SingleValue value="0">
+						<Name textId="TI_DT_SV_Resolution0"/>
+					</SingleValue>
+					<SingleValue value="1">
+						<Name textId="TI_DT_SV_Resolution1"/>
+					</SingleValue>
+					<SingleValue value="2">
+						<Name textId="TI_DT_SV_Resolution2"/>
+					</SingleValue>
+				</Datatype>
+				<Datatype id="DT_INT16" xsi:type="IntegerT" bitLength="16"/>
+				<Datatype id="DT_UINT16" xsi:type="UIntegerT" bitLength="16"/>
+				<Datatype id="DT_MDC_Descr" xsi:type="RecordT" bitLength="88" subindexAccessSupported="false">
+					<RecordItem subindex="1" bitOffset="56">
+						<DatatypeRef datatypeId="DT_MDC_Descr_Limit"/>
+						<Name textId="TI_DT_Lower_Limit"/>
+					</RecordItem>
+					<RecordItem subindex="2" bitOffset="24">
+						<DatatypeRef datatypeId="DT_MDC_Descr_Limit"/>
+						<Name textId="TI_DT_Upper_Limit"/>
+					</RecordItem>
+					<RecordItem subindex="3" bitOffset="8">
+						<DatatypeRef datatypeId="DT_MDC_Descr_Unit_code"/>
+						<Name textId="TI_DT_Unit_code"/>
+					</RecordItem>
+					<RecordItem subindex="4" bitOffset="0">
+						<DatatypeRef datatypeId="DT_MDC_Descr_Scale"/>
+						<Name textId="TI_DT_Scale"/>
+					</RecordItem>
+				</Datatype>
+				<Datatype id="DT_PDIn" xsi:type="RecordT" bitLength="32" subindexAccessSupported="false">
+					<RecordItem subindex="1" bitOffset="16">
+						<DatatypeRef datatypeId="DT_PDInValue"/>
+						<Name textId="TI_DT_PDIn_Value"/>
+					</RecordItem>
+					<RecordItem subindex="2" bitOffset="8">
+						<DatatypeRef datatypeId="DT_PDInScale"/>
+						<Name textId="TI_DT_PDIn_Scale"/>
+					</RecordItem>
+					<RecordItem subindex="3" bitOffset="0">
+						<DatatypeRef datatypeId="DT_PDIn8_0"/>
+						<Name textId="TI_DT_PDIn8_0"/>
+					</RecordItem>
+					<RecordItem subindex="4" bitOffset="1">
+						<DatatypeRef datatypeId="DT_PDIn8_1"/>
+						<Name textId="TI_DT_PDIn8_1"/>
+					</RecordItem>
+					<RecordItem subindex="5" bitOffset="2">
+						<DatatypeRef datatypeId="DT_PDIn8_2"/>
+						<Name textId="TI_DT_PDIn8_2"/>
+					</RecordItem>
+					<RecordItem subindex="6" bitOffset="3">
+						<DatatypeRef datatypeId="DT_PDIn8_3"/>
+						<Name textId="TI_DT_PDIn8_3"/>
+					</RecordItem>
+					<RecordItem subindex="7" bitOffset="4">
+						<DatatypeRef datatypeId="DT_PDIn8_4"/>
+						<Name textId="TI_DT_PDIn8_4"/>
+					</RecordItem>
+					<RecordItem subindex="8" bitOffset="5">
+						<DatatypeRef datatypeId="DT_PDIn8_5"/>
+						<Name textId="TI_DT_PDIn8_5"/>
+					</RecordItem>
+					<RecordItem subindex="9" bitOffset="6">
+						<DatatypeRef datatypeId="DT_PDIn8_6"/>
+						<Name textId="TI_DT_PDIn8_6"/>
+					</RecordItem>
+					<RecordItem subindex="10" bitOffset="7">
+						<DatatypeRef datatypeId="DT_PDIn8_7"/>
+						<Name textId="TI_DT_PDIn8_7"/>
+					</RecordItem>
+				</Datatype>
+				<Datatype id="DT_PDOut" xsi:type="RecordT" bitLength="8" subindexAccessSupported="false">
+					<RecordItem subindex="1" bitOffset="0">
+						<DatatypeRef datatypeId="DT_PDOut_Disable"/>
+						<Name textId="TI_DT_PDOut_Disable"/>
+					</RecordItem>
+					<RecordItem subindex="2" bitOffset="1">
+						<DatatypeRef datatypeId="DT_PDOutFiller"/>
+						<Name textId="TI_PDO_Filler"/>
+					</RecordItem>
+				</Datatype>
+			</DatatypeCollection>
+			<VariableCollection>
+				<StdVariableRef id="V_DirectParameters_1" excludedFromDataStorage="true"/>
+				<StdVariableRef id="V_DirectParameters_2" excludedFromDataStorage="true"/>
+				<StdVariableRef id="V_SystemCommand">
+					<StdSingleValueRef value="128"/>
+					<StdSingleValueRef value="130"/>
+					<SingleValue value="65">
+						<Name textId="TI_V_SV_SC_65"/>
+					</SingleValue>
+					<SingleValue value="66">
+						<Name textId="TI_V_SV_SC_66"/>
+					</SingleValue>
+					<SingleValue value="75">
+						<Name textId="TI_V_SV_SC_75"/>
+					</SingleValue>
+					<SingleValue value="76">
+						<Name textId="TI_V_SV_SC_76"/>
+					</SingleValue>
+					<SingleValue value="160">
+						<Name textId="TI_V_SV_SC_160"/>
+					</SingleValue>
+					<SingleValue value="161">
+						<Name textId="TI_V_SV_SC_161"/>
+					</SingleValue>
+					<SingleValue value="176">
+						<Name textId="TI_V_SV_SC_176"/>
+					</SingleValue>
+					<SingleValue value="177">
+						<Name textId="TI_V_SV_SC_177"/>
+					</SingleValue>
+					<SingleValue value="178">
+						<Name textId="TI_V_SV_SC_178"/>
+					</SingleValue>
+					<SingleValue value="195">
+						<Name textId="TI_V_SV_SC_195"/>
+					</SingleValue>
+					<SingleValue value="196">
+						<Name textId="TI_V_SV_SC_196"/>
+					</SingleValue>
+					<SingleValue value="212">
+						<Name textId="TI_V_SV_SC_212"/>
+					</SingleValue>
+				</StdVariableRef>
+				<StdVariableRef id="V_DeviceAccessLocks"/>
+				<StdVariableRef id="V_VendorName" defaultValue="BALLUFF"/>
+				<StdVariableRef id="V_VendorText" defaultValue="www.balluff.com"/>
+				<StdVariableRef id="V_ProductName"/>
+				<StdVariableRef id="V_ProductID"/>
+				<StdVariableRef id="V_ProductText" defaultValue="BOD - Optical distance sensor"/>
+				<StdVariableRef id="V_SerialNumber"/>
+				<StdVariableRef id="V_HardwareRevision"/>
+				<StdVariableRef id="V_FirmwareRevision"/>
+				<StdVariableRef id="V_ApplicationSpecificTag" defaultValue="***"/>
+				<StdVariableRef id="V_DeviceStatus"/>
+				<StdVariableRef id="V_DetailedDeviceStatus" fixedLengthRestriction="2"/>
+				<StdVariableRef id="V_ProcessDataInput"/>
+				<StdVariableRef id="V_ProcessDataOutput"/>
+				<Variable id="V_ProfileCharacteristic" accessRights="ro" index="13">
+					<DatatypeRef datatypeId="DT_ProfileCharacteristic"/>
+					<RecordItemInfo subindex="1" defaultValue="1"/>
+					<RecordItemInfo subindex="2" defaultValue="12"/>
+					<RecordItemInfo subindex="3" defaultValue="16384"/>
+					<RecordItemInfo subindex="4" defaultValue="32769"/>
+					<RecordItemInfo subindex="5" defaultValue="32772"/>
+					<Name textId="TI_V_ProfileCharacteristic"/>
+					<Description textId="TI_VD_ProfileCharacteristic"/>
+				</Variable>
+				<Variable id="V_FunctionTag" accessRights="rw" index="25" defaultValue="***">
+					<DatatypeRef datatypeId="DT_Tags"/>
+					<Name textId="TI_V_FunctionTag"/>
+				</Variable>
+				<Variable id="V_LocationTag" accessRights="rw" index="26" defaultValue="***">
+					<DatatypeRef datatypeId="DT_Tags"/>
+					<Name textId="TI_V_LocationTag"/>
+				</Variable>
+				<Variable id="V_TI_Select" accessRights="rw" index="58">
+					<DatatypeRef datatypeId="DT_TI_Select"/>
+					<Name textId="TI_V_TI_Select"/>
+					<Description textId="TI_VD_TI_Select"/>
+				</Variable>
+				<Variable id="V_TI_Result" accessRights="ro" index="59" dynamic="true">
+					<DatatypeRef datatypeId="DT_TI_Result"/>
+					<Name textId="TI_V_TI_Result"/>
+					<Description textId="TI_VD_TI_Result"/>
+				</Variable>
+				<Variable id="V_SSC1_Param" accessRights="rw" index="60">
+					<DatatypeRef datatypeId="DT_SSC_Param"/>
+					<RecordItemInfo subindex="1" defaultValue="7500"/>
+					<RecordItemInfo subindex="2" defaultValue="5000"/>
+					<Name textId="TI_V_SSC1_Param"/>
+					<Description textId="TI_VD_SSC1_Param"/>
+				</Variable>
+				<Variable id="V_SSC1_Config" accessRights="rw" index="61">
+					<DatatypeRef datatypeId="DT_SSC_Config"/>
+					<RecordItemInfo subindex="1" defaultValue="0"/>
+					<RecordItemInfo subindex="2" defaultValue="1"/>
+					<RecordItemInfo subindex="3" defaultValue="200"/>
+					<Name textId="TI_V_SSC1_Config"/>
+					<Description textId="TI_VD_SSC1_Config"/>
+				</Variable>
+				<Variable id="V_SSC2_Param" accessRights="rw" index="62">
+					<DatatypeRef datatypeId="DT_SSC_Param"/>
+					<RecordItemInfo subindex="1" defaultValue="7500"/>
+					<RecordItemInfo subindex="2" defaultValue="5000"/>
+					<Name textId="TI_V_SSC2_Param"/>
+					<Description textId="TI_VD_SSC2_Param"/>
+				</Variable>
+				<Variable id="V_SSC2_Config" accessRights="rw" index="63">
+					<DatatypeRef datatypeId="DT_SSC_Config"/>
+					<RecordItemInfo subindex="1" defaultValue="0"/>
+					<RecordItemInfo subindex="2" defaultValue="1"/>
+					<RecordItemInfo subindex="3" defaultValue="200"/>
+					<Name textId="TI_V_SSC2_Config"/>
+					<Description textId="TI_VD_SSC2_Config"/>
+				</Variable>
+				<Variable id="V_SSC1_SP1a" accessRights="rw" index="64" defaultValue="-10000">
+					<DatatypeRef datatypeId="DT_MeasuringRange"/>
+					<Name textId="TI_V_SSC1_SP1a"/>
+					<Description textId="TI_VD_SSC1_SP1a"/>
+				</Variable>
+				<Variable id="V_SSC2_SP1a" accessRights="rw" index="65" defaultValue="-10000">
+					<DatatypeRef datatypeId="DT_MeasuringRange"/>
+					<Name textId="TI_V_SSC2_SP1a"/>
+					<Description textId="TI_VD_SSC2_SP1a"/>
+				</Variable>
+				<Variable id="V_SSC1_Reserve" accessRights="rw" index="67">
+					<DatatypeRef datatypeId="DT_Reserve"/>
+					<Name textId="TI_V_SSC1_Reserve"/>
+					<Description textId="TI_VD_SSC1_Reserve"/>
+				</Variable>
+				<Variable id="V_SSC2_Reserve" accessRights="rw" index="68">
+					<DatatypeRef datatypeId="DT_Reserve"/>
+					<Name textId="TI_V_SSC2_Reserve"/>
+					<Description textId="TI_VD_SSC2_Reserve"/>
+				</Variable>
+				<Variable id="V_SysState" accessRights="ro" index="72" dynamic="true">
+					<DatatypeRef datatypeId="DT_SysState"/>
+					<Name textId="TI_V_SysState"/>
+					<Description textId="TI_VD_SysState"/>
+				</Variable>
+				<Variable id="V_DsUploadFlag" accessRights="ro" index="73" dynamic="true">
+					<DatatypeRef datatypeId="DT_DsUploadFlag"/>
+					<Name textId="TI_V_DsUploadFlag"/>
+					<Description textId="TI_VD_DsUploadFlag"/>
+				</Variable>
+				<Variable id="V_IntTimeCnt" accessRights="ro" index="74" dynamic="true">
+					<DatatypeRef datatypeId="DT_IntTimeCnt"/>
+					<Name textId="TI_V_IntTimeCnt"/>
+					<Description textId="TI_VD_IntTimeCnt"/>
+				</Variable>
+				<Variable id="V_SysStateToStatusBits" accessRights="rw" index="79">
+					<DatatypeRef datatypeId="DT_SysStateToStatusBits"/>
+					<Name textId="TI_V_SysStateToStatusBits"/>
+					<Description textId="TI_VD_SysStateToStatusBits"/>
+				</Variable>
+				<Variable id="V_TeachCount" accessRights="rw" index="81" defaultValue="50">
+					<DatatypeRef datatypeId="DT_TeachCount"/>
+					<Name textId="TI_V_TeachCount"/>
+					<Description textId="TI_VD_TeachCount"/>
+				</Variable>
+				<Variable id="V_QProperty" accessRights="rw" index="82">
+					<DatatypeRef datatypeId="DT_QProperty"/>
+					<Name textId="TI_V_QProperty"/>
+					<Description textId="TI_VD_QProperty"/>
+				</Variable>
+				<Variable id="V_SSC1_WindowWidth" accessRights="rw" index="88">
+					<DatatypeRef datatypeId="DT_SSC_WindowWidth"/>
+					<Name textId="TI_V_SSC1_WindowWidth"/>
+					<Description textId="TI_VD_SSC1_WindowWidth"/>
+				</Variable>
+				<Variable id="V_SSC1_EvalDepth" accessRights="rw" index="89" defaultValue="2">
+					<DatatypeRef datatypeId="DT_SSC_EvalDepth"/>
+					<Name textId="TI_V_SSC1_EvalDepth"/>
+					<Description textId="TI_VD_SSC1_EvalDepth"/>
+				</Variable>
+				<Variable id="V_SSC2_WindowWidth" accessRights="rw" index="97">
+					<DatatypeRef datatypeId="DT_SSC_WindowWidth"/>
+					<Name textId="TI_V_SSC2_WindowWidth"/>
+					<Description textId="TI_VD_SSC2_WindowWidth"/>
+				</Variable>
+				<Variable id="V_SSC2_EvalDepth" accessRights="rw" index="98" defaultValue="2">
+					<DatatypeRef datatypeId="DT_SSC_EvalDepth"/>
+					<Name textId="TI_V_SSC2_EvalDepth"/>
+					<Description textId="TI_VD_SSC2_EvalDepth"/>
+				</Variable>
+				<Variable id="V_AnalogOutProperty" accessRights="rw" index="110">
+					<DatatypeRef datatypeId="DT_AnalogOutProperty"/>
+					<Name textId="TI_V_AnalogOutProperty"/>
+					<Description textId="TI_VD_AnalogOutProperty"/>
+				</Variable>
+				<Variable id="V_AnalogRangeMax" accessRights="rw" index="111" defaultValue="10000">
+					<DatatypeRef datatypeId="DT_MeasuringRange"/>
+					<Name textId="TI_V_AnalogRangeMax"/>
+					<Description textId="TI_VD_AnalogRangeMax"/>
+				</Variable>
+				<Variable id="V_AnalogRangeMin" accessRights="rw" index="112" defaultValue="5000">
+					<DatatypeRef datatypeId="DT_MeasuringRange"/>
+					<Name textId="TI_V_AnalogRangeMin"/>
+					<Description textId="TI_VD_AnalogRangeMin"/>
+				</Variable>
+				<Variable id="V_CcdProcMode" accessRights="rw" index="114">
+					<DatatypeRef datatypeId="DT_CcdProcMode"/>
+					<Name textId="TI_V_CcdProcMode"/>
+					<Description textId="TI_VD_CcdProcMode"/>
+				</Variable>
+				<Variable id="V_MenuLanguage" accessRights="rw" index="115">
+					<DatatypeRef datatypeId="DT_MenuLanguage"/>
+					<Name textId="TI_V_MenuLanguage"/>
+					<Description textId="TI_VD_MenuLanguage"/>
+				</Variable>
+				<Variable id="V_DisplayMode" accessRights="rw" index="116" defaultValue="1">
+					<DatatypeRef datatypeId="DT_DisplayMode"/>
+					<Name textId="TI_V_DisplayMode"/>
+					<Description textId="TI_VD_DisplayMode"/>
+				</Variable>
+				<Variable id="V_PasswordCheck" accessRights="rw" index="117">
+					<DatatypeRef datatypeId="DT_PasswordCheck"/>
+					<Name textId="TI_V_PasswordCheck"/>
+					<Description textId="TI_VD_PasswordCheck"/>
+				</Variable>
+				<Variable id="V_MeasureOffset" accessRights="rw" index="118">
+					<DatatypeRef datatypeId="DT_MeasuringRange"/>
+					<Name textId="TI_V_MeasureOffset"/>
+					<Description textId="TI_VD_MeasureOffset"/>
+				</Variable>
+				<Variable id="V_MeasureGradient" accessRights="rw" index="119" defaultValue="1">
+					<DatatypeRef datatypeId="DT_MeasureGradient"/>
+					<Name textId="TI_V_MeasureGradient"/>
+					<Description textId="TI_VD_MeasureGradient"/>
+				</Variable>
+				<Variable id="V_TeachRAM" accessRights="rw" index="120">
+					<DatatypeRef datatypeId="DT_Bool_Inactive_Activated"/>
+					<Name textId="TI_V_TeachRAM"/>
+					<Description textId="TI_VD_TeachRAM"/>
+				</Variable>
+				<Variable id="V_MenuExitBehaviour" accessRights="rw" index="121">
+					<DatatypeRef datatypeId="DT_MenuExitBehaviour"/>
+					<Name textId="TI_V_MenuExitBehaviour"/>
+					<Description textId="TI_VD_MenuExitBehaviour"/>
+				</Variable>
+				<Variable id="V_DeactivationProperty" accessRights="rw" index="122">
+					<DatatypeRef datatypeId="DT_DeactivationProperty"/>
+					<Name textId="TI_V_DeactivationProperty"/>
+					<Description textId="TI_VD_DeactivationProperty"/>
+				</Variable>
+				<Variable id="V_CcdIntTimeCntMin" accessRights="rw" index="123">
+					<DatatypeRef datatypeId="DT_CcdIntTimeCnt"/>
+					<Name textId="TI_V_CcdIntTimeCntMin"/>
+					<Description textId="TI_VD_CcdIntTimeCntMin"/>
+				</Variable>
+				<Variable id="V_CcdIntTimeCntMax" accessRights="rw" index="124" defaultValue="48">
+					<DatatypeRef datatypeId="DT_CcdIntTimeCnt"/>
+					<Name textId="TI_V_CcdIntTimeCntMax"/>
+					<Description textId="TI_VD_CcdIntTimeCntMax"/>
+				</Variable>
+				<Variable id="V_Preset" accessRights="rw" index="126">
+					<DatatypeRef datatypeId="DT_MeasuringRange"/>
+					<Name textId="TI_V_Preset"/>
+					<Description textId="TI_VD_Preset"/>
+				</Variable>
+				<Variable id="V_MeasureFilterSelection" accessRights="rw" index="129">
+					<DatatypeRef datatypeId="DT_MeasureFilterSelection"/>
+					<Name textId="TI_V_MeasureFilterSelection"/>
+					<Description textId="TI_VD_MeasureFilterSelection"/>
+				</Variable>
+				<Variable id="V_MeasureFilterAvgCount" accessRights="rw" index="130" defaultValue="10">
+					<DatatypeRef datatypeId="DT_MeasureFilterAvgCount"/>
+					<Name textId="TI_V_MeasureFilterAvgCount"/>
+					<Description textId="TI_VD_MeasureFilterAvgCount"/>
+				</Variable>
+				<Variable id="V_MeasureFilterSpikeCount" accessRights="rw" index="133" defaultValue="10">
+					<DatatypeRef datatypeId="DT_MeasureFilterSpikeCount"/>
+					<Name textId="TI_V_MeasureFilterSpikeCount"/>
+					<Description textId="TI_VD_MeasureFilterSpikeCount"/>
+				</Variable>
+				<Variable id="V_MeasureFilterSpikeDepth" accessRights="rw" index="134">
+					<DatatypeRef datatypeId="DT_MeasureFilterSpikeDepth"/>
+					<Name textId="TI_V_MeasureFilterSpikeDepth"/>
+					<Description textId="TI_VD_MeasureFilterSpikeDepth"/>
+				</Variable>
+				<Variable id="V_CcdProcLightSupprAddMax" accessRights="rw" index="135" defaultValue="32">
+					<DatatypeRef datatypeId="DT_CcdProcLightSupprAddMax"/>
+					<Name textId="TI_V_CcdProcLightSupprAddMax"/>
+					<Description textId="TI_VD_CcdProcLightSupprAddMax"/>
+				</Variable>
+				<Variable id="V_Resolution" accessRights="ro" index="213" defaultValue="2">
+					<DatatypeRef datatypeId="DT_Resolution"/>
+					<Name textId="TI_V_Resolution"/>
+					<Description textId="TI_VD_Resolution"/>
+				</Variable>
+				<Variable id="V_OperatingRangeMin" accessRights="ro" index="214" defaultValue="4500">
+					<DatatypeRef datatypeId="DT_INT16"/>
+					<Name textId="TI_V_OperatingRangeMin"/>
+					<Description textId="TI_VD_OperatingRangeMin"/>
+				</Variable>
+				<Variable id="V_OperatingRangeMax" accessRights="ro" index="215" defaultValue="11000">
+					<DatatypeRef datatypeId="DT_INT16"/>
+					<Name textId="TI_V_OperatingRangeMax"/>
+					<Description textId="TI_VD_OperatingRangeMax"/>
+				</Variable>
+				<Variable id="V_MeasuringRangeMin" accessRights="ro" index="216" defaultValue="5000">
+					<DatatypeRef datatypeId="DT_INT16"/>
+					<Name textId="TI_V_MeasuringRangeMin"/>
+					<Description textId="TI_VD_MeasuringRangeMin"/>
+				</Variable>
+				<Variable id="V_MeasuringRangeMax" accessRights="ro" index="217" defaultValue="10000">
+					<DatatypeRef datatypeId="DT_INT16"/>
+					<Name textId="TI_V_MeasuringRangeMax"/>
+					<Description textId="TI_VD_MeasuringRangeMax"/>
+				</Variable>
+				<Variable id="V_Temperature" accessRights="ro" index="220" dynamic="true">
+					<DatatypeRef datatypeId="DT_UINT16"/>
+					<Name textId="TI_V_Temperature"/>
+					<Description textId="TI_VD_Temperature"/>
+				</Variable>
+				<Variable id="V_Pin4Function" accessRights="ro" index="251" defaultValue="1">
+					<DatatypeRef datatypeId="DT_Pin4Function"/>
+					<Name textId="TI_V_Pin4Function"/>
+					<Description textId="TI_VD_Pin4Function"/>
+				</Variable>
+				<Variable id="V_Pin2Function" accessRights="rw" index="252" defaultValue="11">
+					<DatatypeRef datatypeId="DT_Pin2Function"/>
+					<Name textId="TI_V_Pin2Function"/>
+					<Description textId="TI_VD_Pin2Function"/>
+				</Variable>
+				<Variable id="V_MDC_Descr" accessRights="ro" index="16512">
+					<DatatypeRef datatypeId="DT_MDC_Descr"/>
+					<Name textId="TI_V_MDC_Descr"/>
+					<Description textId="TI_VD_MDC_Descr"/>
+				</Variable>
+			</VariableCollection>
+			<ProcessDataCollection>
+				<ProcessData id="V_ProcessData">
+					<ProcessDataIn id="V_PDIn" bitLength="32">
+						<DatatypeRef datatypeId="DT_PDIn"/>
+						<Name textId="TI_V_PDIn"/>
+					</ProcessDataIn>
+					<ProcessDataOut id="V_PDOut" bitLength="8">
+						<DatatypeRef datatypeId="DT_PDOut"/>
+						<Name textId="TI_V_PDOut"/>
+					</ProcessDataOut>
+				</ProcessData>
+			</ProcessDataCollection>
+			<EventCollection>
+				<Event code="6398" type="Warning">
+					<Name textId="VS_TN_0x18FE"/>
+					<Description textId="VS_TD_0x18FE"/>
+				</Event>
+				<Event code="6399" type="Error">
+					<Name textId="VS_TN_0x18FF"/>
+					<Description textId="VS_TD_0x18FF"/>
+				</Event>
+			</EventCollection>
+			<UserInterface>
+				<MenuCollection>
+					<Menu id="ME_SSC1">
+						<Name textId="TM_SSC1"/>
+						<VariableRef variableId="V_Pin4Function"/>
+						<VariableRef variableId="V_SSC1_Param"/>
+						<VariableRef variableId="V_SSC1_Config"/>
+						<VariableRef variableId="V_SSC1_EvalDepth"/>
+						<VariableRef variableId="V_SSC1_Reserve"/>
+						<VariableRef variableId="V_SSC1_WindowWidth"/>
+						<VariableRef variableId="V_SSC1_SP1a"/>
+					</Menu>
+					<Menu id="ME_SSC2">
+						<Name textId="TM_SSC2"/>
+						<VariableRef variableId="V_Pin2Function"/>
+						<VariableRef variableId="V_SSC2_Param"/>
+						<VariableRef variableId="V_SSC2_Config"/>
+						<VariableRef variableId="V_SSC2_EvalDepth"/>
+						<VariableRef variableId="V_SSC2_Reserve"/>
+						<VariableRef variableId="V_SSC2_WindowWidth"/>
+						<VariableRef variableId="V_SSC2_SP1a"/>
+					</Menu>
+					<Menu id="ME_Processing">
+						<Name textId="TM_Processing"/>
+						<VariableRef variableId="V_CcdProcMode"/>
+						<VariableRef variableId="V_CcdProcLightSupprAddMax"/>
+						<VariableRef variableId="V_CcdIntTimeCntMin"/>
+						<VariableRef variableId="V_CcdIntTimeCntMax"/>
+						<VariableRef variableId="V_DeactivationProperty"/>
+						<VariableRef variableId="V_SystemCommand" accessRightRestriction="wo">
+							<Button buttonValue="176"/>
+						</VariableRef>
+						<VariableRef variableId="V_SystemCommand" accessRightRestriction="wo">
+							<Button buttonValue="177"/>
+						</VariableRef>
+						<VariableRef variableId="V_SystemCommand" accessRightRestriction="wo">
+							<Button buttonValue="178"/>
+						</VariableRef>
+					</Menu>
+					<Menu id="ME_Filtering">
+						<Name textId="TM_Filtering"/>
+						<VariableRef variableId="V_MeasureFilterSelection"/>
+						<VariableRef variableId="V_MeasureFilterAvgCount"/>
+						<VariableRef variableId="V_MeasureFilterSpikeCount"/>
+						<VariableRef variableId="V_MeasureFilterSpikeDepth"/>
+					</Menu>
+					<Menu id="ME_DistanceCorrection">
+						<Name textId="TM_DistanceCorrection"/>
+						<VariableRef variableId="V_MeasureOffset"/>
+						<VariableRef variableId="V_MeasureGradient"/>
+						<VariableRef variableId="V_Preset"/>
+					</Menu>
+					<Menu id="ME_ProfileSupport">
+						<Name textId="TM_ProfileSupport"/>
+						<VariableRef variableId="V_ProfileCharacteristic" accessRightRestriction="ro"/>
+					</Menu>
+					<Menu id="ME_IdentSub">
+						<Name textId="TM_IdentSub"/>
+						<VariableRef variableId="V_VendorName" accessRightRestriction="ro"/>
+						<VariableRef variableId="V_VendorText" accessRightRestriction="ro"/>
+						<VariableRef variableId="V_ProductName" accessRightRestriction="ro"/>
+						<VariableRef variableId="V_ProductID" accessRightRestriction="ro"/>
+						<VariableRef variableId="V_ProductText" accessRightRestriction="ro"/>
+						<VariableRef variableId="V_SerialNumber" accessRightRestriction="ro"/>
+						<VariableRef variableId="V_HardwareRevision" accessRightRestriction="ro"/>
+						<VariableRef variableId="V_FirmwareRevision" accessRightRestriction="ro"/>
+						<VariableRef variableId="V_ApplicationSpecificTag"/>
+						<VariableRef variableId="V_FunctionTag"/>
+						<VariableRef variableId="V_LocationTag"/>
+					</Menu>
+					<Menu id="ME_SwitchingSignals">
+						<Name textId="TM_SwitchingSignals"/>
+						<VariableRef variableId="V_QProperty"/>
+						<MenuRef menuId="ME_SSC1"/>
+						<MenuRef menuId="ME_SSC2"/>
+					</Menu>
+					<Menu id="ME_Application">
+						<Name textId="TM_Application"/>
+						<MenuRef menuId="ME_Processing"/>
+						<MenuRef menuId="ME_Filtering"/>
+						<MenuRef menuId="ME_DistanceCorrection"/>
+					</Menu>
+					<Menu id="ME_Analog">
+						<Name textId="TM_Analog"/>
+						<VariableRef variableId="V_Pin2Function"/>
+						<VariableRef variableId="V_AnalogRangeMax"/>
+						<VariableRef variableId="V_AnalogRangeMin"/>
+						<VariableRef variableId="V_AnalogOutProperty"/>
+					</Menu>
+					<Menu id="ME_TeachIn_Ana">
+						<Name textId="TM_TeachIn"/>
+						<VariableRef variableId="V_TI_Select"/>
+						<VariableRef variableId="V_SystemCommand" accessRightRestriction="wo">
+							<Button buttonValue="65"/>
+						</VariableRef>
+						<VariableRef variableId="V_SystemCommand" accessRightRestriction="wo">
+							<Button buttonValue="66"/>
+						</VariableRef>
+						<VariableRef variableId="V_SystemCommand" accessRightRestriction="wo">
+							<Button buttonValue="75"/>
+						</VariableRef>
+						<VariableRef variableId="V_SystemCommand" accessRightRestriction="wo">
+							<Button buttonValue="76"/>
+						</VariableRef>
+						<VariableRef variableId="V_SystemCommand" accessRightRestriction="wo">
+							<Button buttonValue="195"/>
+						</VariableRef>
+						<VariableRef variableId="V_SystemCommand" accessRightRestriction="wo">
+							<Button buttonValue="196"/>
+						</VariableRef>
+						<VariableRef variableId="V_SystemCommand" accessRightRestriction="wo">
+							<Button buttonValue="212"/>
+						</VariableRef>
+						<VariableRef variableId="V_TI_Result"/>
+						<VariableRef variableId="V_TeachCount"/>
+						<VariableRef variableId="V_TeachRAM"/>
+					</Menu>
+					<Menu id="ME_Settings">
+						<Name textId="TM_Settings"/>
+						<VariableRef variableId="V_MenuLanguage"/>
+						<VariableRef variableId="V_DisplayMode"/>
+						<VariableRef variableId="V_PasswordCheck"/>
+						<VariableRef variableId="V_DeviceAccessLocks"/>
+					</Menu>
+					<Menu id="ME_DataStorage">
+						<Name textId="TM_DataStorage"/>
+						<VariableRef variableId="V_DsUploadFlag"/>
+						<VariableRef variableId="V_SystemCommand" accessRightRestriction="wo">
+							<Button buttonValue="161"/>
+						</VariableRef>
+						<VariableRef variableId="V_SystemCommand" accessRightRestriction="wo">
+							<Button buttonValue="160"/>
+						</VariableRef>
+						<VariableRef variableId="V_MenuExitBehaviour"/>
+					</Menu>
+					<Menu id="ME_ResetCommand">
+						<Name textId="TM_ResetCommand"/>
+						<VariableRef variableId="V_SystemCommand" accessRightRestriction="wo">
+							<Button buttonValue="128"/>
+						</VariableRef>
+						<VariableRef variableId="V_SystemCommand" accessRightRestriction="wo">
+							<Button buttonValue="130"/>
+						</VariableRef>
+					</Menu>
+					<Menu id="ME_IDENT">
+						<MenuRef menuId="ME_ProfileSupport"/>
+						<MenuRef menuId="ME_IdentSub"/>
+					</Menu>
+					<Menu id="ME_DIAG">
+						<VariableRef variableId="V_ProcessDataInput"/>
+						<VariableRef variableId="V_ProcessDataOutput"/>
+						<VariableRef variableId="V_MDC_Descr"/>
+						<VariableRef variableId="V_SysState"/>
+						<VariableRef variableId="V_SysStateToStatusBits"/>
+						<VariableRef variableId="V_IntTimeCnt"/>
+						<VariableRef variableId="V_Resolution"/>
+						<VariableRef variableId="V_OperatingRangeMin"/>
+						<VariableRef variableId="V_OperatingRangeMax"/>
+						<VariableRef variableId="V_MeasuringRangeMin"/>
+						<VariableRef variableId="V_MeasuringRangeMax"/>
+						<VariableRef variableId="V_Temperature"/>
+					</Menu>
+					<Menu id="ME_PARA_LA6">
+						<MenuRef menuId="ME_SwitchingSignals"/>
+						<MenuRef menuId="ME_Application"/>
+						<MenuRef menuId="ME_Analog"/>
+						<MenuRef menuId="ME_TeachIn_Ana"/>
+						<MenuRef menuId="ME_Settings"/>
+						<MenuRef menuId="ME_DataStorage"/>
+						<MenuRef menuId="ME_ResetCommand"/>
+					</Menu>
+				</MenuCollection>
+				<ObserverRoleMenuSet>
+					<IdentificationMenu menuId="ME_IDENT"/>
+					<DiagnosisMenu menuId="ME_DIAG"/>
+				</ObserverRoleMenuSet>
+				<MaintenanceRoleMenuSet>
+					<IdentificationMenu menuId="ME_IDENT"/>
+					<ParameterMenu menuId="ME_PARA_LA6"/>
+					<DiagnosisMenu menuId="ME_DIAG"/>
+				</MaintenanceRoleMenuSet>
+				<SpecialistRoleMenuSet>
+					<IdentificationMenu menuId="ME_IDENT"/>
+					<ParameterMenu menuId="ME_PARA_LA6"/>
+					<DiagnosisMenu menuId="ME_DIAG"/>
+				</SpecialistRoleMenuSet>
+			</UserInterface>
+		</DeviceFunction>
+	</ProfileBody>
+	<CommNetworkProfile xsi:type="IOLinkCommNetworkProfileT" iolinkRevision="V1.1">
+		<TransportLayers>
+			<PhysicalLayer bitrate="COM3" minCycleTime="500" sioSupported="true" mSequenceCapability="9">
+				<Connection xsi:type="M12-5ConnectionT">
+					<ProductRef productId="BOD002M"/>
+					<Wire1 color="BN" function="L+"/>
+					<Wire2 color="WH" function="Other"/>
+					<Wire3 color="BU" function="L-"/>
+					<Wire4 color="BK" function="C/Q"/>
+					<Wire5 color="GY" function="NC"/>
+				</Connection>
+			</PhysicalLayer>
+		</TransportLayers>
+		<Test>
+			<Config1 index="254" testValue="0x00,0x02"/>
+			<Config2 index="256" testValue="0x00,0x03"/>
+			<Config3 index="20" testValue="0x4F,0x70,0x74,0x69,0x63,0x61,0x6C,0x20,0x64,0x69,0x73,0x74,0x61,0x6E,0x63,0x65,0x20,0x73,0x65,0x6E,0x73,0x6F,0x72"/>
+			<Config7 index="244">
+				<EventTrigger appearValue="252" disappearValue="253"/>
+				<EventTrigger appearValue="254" disappearValue="255"/>
+			</Config7>
+		</Test>
+	</CommNetworkProfile>
+	<ExternalTextCollection>
+		<PrimaryLanguage xml:lang="en">
+			<Text id="TI_VendorText" value="BALLUFF"/>
+			<Text id="TI_VendorUrl" value="www.balluff.com"/>
+			<Text id="TI_DeviceName_BOD002M" value="BOD 24K-LPI07-S4"/>
+			<Text id="TI_DeviceFamily" value="BOD - Optical distance sensor"/>
+			<Text id="TI_ProductName_BOD002M" value="BOD 24K-LPI07-S4"/>
+			<Text id="TI_ProductText" value="BOD - Optical distance sensor"/>
+			<Text id="TI_V_SV_SC_65" value="Teach SP1 (Teach of distant setpoint)"/>
+			<Text id="TI_V_SV_SC_66" value="Teach SP2 (Teach of near setpoint)"/>
+			<Text id="TI_V_SV_SC_75" value="Custom Teach: Window (Teach of both setpoints)"/>
+			<Text id="TI_V_SV_SC_76" value="Custom Teach SP1a (Teach of alternative distant setpoint)"/>
+			<Text id="TI_V_SV_SC_160" value="Clear DS Upload Flag"/>
+			<Text id="TI_V_SV_SC_161" value="Set DS Upload Flag"/>
+			<Text id="TI_V_SV_SC_176" value="Activation with priority, overriding the PDout transducer disable signal. Only Input functions have a higher priority"/>
+			<Text id="TI_V_SV_SC_177" value="Deactivation with priority, overriding the PDout transducer disable signal. Only Input functions have a higher priority"/>
+			<Text id="TI_V_SV_SC_178" value="Reset priority to use the PDout transducer disable signal again. Only Input functions have a higher priority"/>
+			<Text id="TI_V_SV_SC_195" value="Teach distance of minimum analog output"/>
+			<Text id="TI_V_SV_SC_196" value="Teach distance of maximum analog output"/>
+			<Text id="TI_V_SV_SC_212" value="Teach offset in order to achieve the preset value"/>
+			<Text id="TI_V_ProfileCharacteristic" value="Profile Characteristic"/>
+			<Text id="TI_VD_ProfileCharacteristic" value="Collection of Profile Identifiers"/>
+			<Text id="TI_V_FunctionTag" value="Function Tag"/>
+			<Text id="TI_V_LocationTag" value="Location Tag"/>
+			<Text id="TI_V_TI_Select" value="TI - Select"/>
+			<Text id="TI_VD_TI_Select" value="select teach channel, 0=SSC1, 1=SSC1, 2=SSC2, 255=all SSCs"/>
+			<Text id="TI_V_TI_Result" value="TI Result"/>
+			<Text id="TI_VD_TI_Result" value="Teach-In Result"/>
+			<Text id="TI_V_SSC1_Param" value="SSC1 Param"/>
+			<Text id="TI_VD_SSC1_Param" value="Switching Signal Channel 1 Parameters"/>
+			<Text id="TI_V_SSC1_Config" value="SSC1 Config"/>
+			<Text id="TI_VD_SSC1_Config" value="Switching Signal Channel 1 Configuration"/>
+			<Text id="TI_V_SSC2_Param" value="SSC2 Param"/>
+			<Text id="TI_VD_SSC2_Param" value="Switching Signal Channel 2 Parameters"/>
+			<Text id="TI_V_SSC2_Config" value="SSC2 Config"/>
+			<Text id="TI_VD_SSC2_Config" value="Switching Signal Channel 2 Configuration"/>
+			<Text id="TI_V_SSC1_SP1a" value="SSC1_SP1a"/>
+			<Text id="TI_VD_SSC1_SP1a" value="SSC1_SP1a"/>
+			<Text id="TI_V_SSC2_SP1a" value="SSC2_SP1a"/>
+			<Text id="TI_VD_SSC2_SP1a" value="SSC2_SP1a"/>
+			<Text id="TI_V_SSC1_Reserve" value="SSC1_Reserve"/>
+			<Text id="TI_VD_SSC1_Reserve" value="SSC1_Reserve"/>
+			<Text id="TI_V_SSC2_Reserve" value="SSC2_Reserve"/>
+			<Text id="TI_VD_SSC2_Reserve" value="SSC2_Reserve"/>
+			<Text id="TI_V_SysState" value="System State Information Bits"/>
+			<Text id="TI_VD_SysState" value="Status information, measurement-, processing- and output states."/>
+			<Text id="TI_V_DsUploadFlag" value="Data Storage Upload Flag"/>
+			<Text id="TI_VD_DsUploadFlag" value="Shows the preference of local changes as opposed to the configuration data, stored in master DS"/>
+			<Text id="TI_V_IntTimeCnt" value="Integration Time Level"/>
+			<Text id="TI_VD_IntTimeCnt" value="Readout of the adjusted integration time level, depending on the target's diffuse reflectance. Small value = short integration time."/>
+			<Text id="TI_V_SysStateToStatusBits" value="SysState to Status Bits Assignment"/>
+			<Text id="TI_VD_SysStateToStatusBits" value="8 element array with SysState Bit numbers assigned to the 8 PDin Status Bits"/>
+			<Text id="TI_V_TeachCount" value="Teach Count"/>
+			<Text id="TI_VD_TeachCount" value="Number of measurement values, used for Teach averaging"/>
+			<Text id="TI_V_QProperty" value="Switching Output Property"/>
+			<Text id="TI_VD_QProperty" value="General behaviour of all the Switching Outputs in case of no measurement value is available"/>
+			<Text id="TI_V_SSC1_WindowWidth" value="SSC1_WindowWidth"/>
+			<Text id="TI_VD_SSC1_WindowWidth" value="SSC1_WindowWidth"/>
+			<Text id="TI_V_SSC1_EvalDepth" value="SSC1_EvalDepth"/>
+			<Text id="TI_VD_SSC1_EvalDepth" value="SSC1_EvalDepth"/>
+			<Text id="TI_V_SSC2_WindowWidth" value="SSC2_WindowWidth"/>
+			<Text id="TI_VD_SSC2_WindowWidth" value="SSC2_WindowWidth"/>
+			<Text id="TI_V_SSC2_EvalDepth" value="SSC2_EvalDepth"/>
+			<Text id="TI_VD_SSC2_EvalDepth" value="SSC2_EvalDepth"/>
+			<Text id="TI_V_AnalogOutProperty" value="Analog Output Property"/>
+			<Text id="TI_VD_AnalogOutProperty" value="Output behaviour in case of missing measurement value"/>
+			<Text id="TI_V_AnalogRangeMax" value="Position of maximum Analog Output"/>
+			<Text id="TI_VD_AnalogRangeMax" value="Distance giving maximum Analog Output"/>
+			<Text id="TI_V_AnalogRangeMin" value="Position of minimum Analog Output"/>
+			<Text id="TI_VD_AnalogRangeMin" value="Distance giving minimum Analog Output"/>
+			<Text id="TI_V_Pin4Function" value="Pin 4 Function"/>
+			<Text id="TI_VD_Pin4Function" value="Pin 4 Function"/>
+			<Text id="TI_V_Pin2Function" value="Pin 2 Function"/>
+			<Text id="TI_VD_Pin2Function" value="Selection of SSC2 Output, Analog Output current or voltage Range"/>
+			<Text id="TI_V_CcdProcMode" value="Measurement Mode"/>
+			<Text id="TI_VD_CcdProcMode" value="Application specific processing of raw measurement data"/>
+			<Text id="TI_V_MenuLanguage" value="Menu Language"/>
+			<Text id="TI_VD_MenuLanguage" value="Local device Menu Language settings"/>
+			<Text id="TI_V_DisplayMode" value="Display Mode"/>
+			<Text id="TI_VD_DisplayMode" value="Display behaviour. Auto: Maximum intensity when pushing a button; dimmed to lower intensity during stand-By."/>
+			<Text id="TI_V_PasswordCheck" value="Menu Password Lock"/>
+			<Text id="TI_VD_PasswordCheck" value="password-lock of the local device menu"/>
+			<Text id="TI_V_MeasureOffset" value="Distance Offset"/>
+			<Text id="TI_VD_MeasureOffset" value="Signed distance Offset Value. May be internally modified by preset calculation."/>
+			<Text id="TI_V_MeasureGradient" value="Gradient"/>
+			<Text id="TI_VD_MeasureGradient" value="Simple gradient with values 'rising' (+1) or 'falling' (-1). Can be used for fill level detection"/>
+			<Text id="TI_V_TeachRAM" value="RAM Teach Option"/>
+			<Text id="TI_VD_TeachRAM" value="If option is set to 'on', the teach results are only stored into the volatile RAM storage. Used for continually re-teaching applications."/>
+			<Text id="TI_V_MenuExitBehaviour" value="Menu Exit Behaviour"/>
+			<Text id="TI_VD_MenuExitBehaviour" value="Handling of local changed parameters relating to the IO-Link Master's Data Storage."/>
+			<Text id="TI_V_DeactivationProperty" value="Deactivation Property"/>
+			<Text id="TI_VD_DeactivationProperty" value="Behaviour of measurement output in deactivation state"/>
+			<Text id="TI_V_CcdIntTimeCntMin" value="Integration Time Level, Lower Limit"/>
+			<Text id="TI_VD_CcdIntTimeCntMin" value="set a lower limit to preven a value that is too high."/>
+			<Text id="TI_V_CcdIntTimeCntMax" value="Integration Time Level, Upper Limit"/>
+			<Text id="TI_VD_CcdIntTimeCntMax" value="set an upper limit to prevent long measurement loops. For faster detection of an appearing bright target in front of a dark distant background."/>
+			<Text id="TI_V_Preset" value="Preset Value"/>
+			<Text id="TI_VD_Preset" value="This requested measurement value will be displayed after a Preset-to-Offset calculation"/>
+			<Text id="TI_V_MeasureFilterSelection" value="Filter Selection"/>
+			<Text id="TI_VD_MeasureFilterSelection" value="Application specific selection of different filtering methods"/>
+			<Text id="TI_V_MeasureFilterAvgCount" value="Average Count"/>
+			<Text id="TI_VD_MeasureFilterAvgCount" value="Buffer size of 'Averaging' measurement filter"/>
+			<Text id="TI_V_MeasureFilterSpikeCount" value="Spike Suppression Count"/>
+			<Text id="TI_VD_MeasureFilterSpikeCount" value="Buffer size of 'Spike Suppression' measurement mode"/>
+			<Text id="TI_V_MeasureFilterSpikeDepth" value="Spike Suppression Depth"/>
+			<Text id="TI_VD_MeasureFilterSpikeDepth" value="Filter depth of 'Spike Suppression' measurement mode"/>
+			<Text id="TI_V_CcdProcLightSupprAddMax" value="Light Suppression Repetition Limit"/>
+			<Text id="TI_VD_CcdProcLightSupprAddMax" value="Reduction of repetition cycles in 'Light Suppression' measurement mode in order to limit the measurement duration."/>
+			<Text id="TI_V_Resolution" value="Resolution"/>
+			<Text id="TI_VD_Resolution" value="Distance = Measured Value * Resolution"/>
+			<Text id="TI_V_OperatingRangeMin" value="Minimum of Operating Range (SSP: Detection Range)"/>
+			<Text id="TI_VD_OperatingRangeMin" value="Minimum of the allowed output range, with Offset=0 and Gradient=rising."/>
+			<Text id="TI_V_OperatingRangeMax" value="Maximum of Operating Range (SSP: Detection Range)"/>
+			<Text id="TI_VD_OperatingRangeMax" value="Maximum of the allowed output range, with Offset=0 and Gradient=rising."/>
+			<Text id="TI_V_MeasuringRangeMin" value="Minimum of Measuring Range (SSP: Measurement Range)"/>
+			<Text id="TI_VD_MeasuringRangeMin" value="Minumum of the range with guaranteed accuracy (Offset=0 and Gradient=rising). Equals MDC Descr parameter Lower Limit."/>
+			<Text id="TI_V_MeasuringRangeMax" value="Maximum of Measuring Range (SSP: Measurement Range)"/>
+			<Text id="TI_VD_MeasuringRangeMax" value="Maximum of the range with guaranteed accuracy (Offset=0 and Gradient=rising). Equals MDC Descr parameter Upper Limit."/>
+			<Text id="TI_V_Temperature" value="Temperature"/>
+			<Text id="TI_VD_Temperature" value="Device temperature in 1/10 °C steps, accuracy: +/-5 °C"/>
+			<Text id="TI_V_MDC_Descr" value="MDC Descr"/>
+			<Text id="TI_VD_MDC_Descr" value="Measuring Data Channel"/>
+			<Text id="TI_V_PDIn" value="Process Data Input"/>
+			<Text id="TI_V_PDOut" value="Process Data Output"/>
+			<Text id="VS_TN_0x18FE" value="Test Event Warning"/>
+			<Text id="VS_TD_0x18FE" value="Test Event Warning"/>
+			<Text id="VS_TN_0x18FF" value="Test Event Error"/>
+			<Text id="VS_TD_0x18FF" value="Test Event Error"/>
+			<Text id="TM_SSC1" value="Switching Signal Channel 1"/>
+			<Text id="TM_SSC2" value="Switching Signal Channel 2"/>
+			<Text id="TM_Processing" value="Process Settings"/>
+			<Text id="TM_Filtering" value="Filter Settings"/>
+			<Text id="TM_DistanceCorrection" value="Distance Correction Settings"/>
+			<Text id="TM_ProfileSupport" value="Profile Support"/>
+			<Text id="TM_IdentSub" value="Identification"/>
+			<Text id="TM_SwitchingSignals" value="Switching Signals"/>
+			<Text id="TM_Application" value="Application"/>
+			<Text id="TM_Analog" value="Analog Output"/>
+			<Text id="TM_TeachIn" value="Teach-in"/>
+			<Text id="TM_Settings" value="Settings"/>
+			<Text id="TM_DataStorage" value="Data Storage"/>
+			<Text id="TM_ResetCommand" value="Reset Commands"/>
+			<Text id="TI_DT_SV_ProfileComponent_1" value="0x0001: Generic Profiled Sensor"/>
+			<Text id="TI_DT_SV_ProfileComponent_12" value="0x000C: DMS Digital Measuring Sensor 16bit, Transducer Disable"/>
+			<Text id="TI_DT_SV_ProfileComponent_16384" value="0x4000: Identification and Diagnosis"/>
+			<Text id="TI_DT_SV_ProfileComponent_32769" value="0x8001: Switching Signal Channel"/>
+			<Text id="TI_DT_SV_ProfileComponent_32772" value="0x8004: Teach-in"/>
+			<Text id="TI_DT_SV_TI_Result_State_IDLE" value="Idle. No Teach since power-on"/>
+			<Text id="TI_DT_SV_TI_Result_State_SP1_SUCCESS" value="Teach of SP1 succeeded"/>
+			<Text id="TI_DT_SV_TI_Result_State_SP2_SUCCESS" value="Teach of SP2 succeeded"/>
+			<Text id="TI_DT_SV_TI_Result_State_SP12_SUCCESS" value="Teach of SP1 and SP2 succeeded"/>
+			<Text id="TI_DT_SV_TI_Result_State_BUSY" value="Busy. Teach is running"/>
+			<Text id="TI_DT_SV_TI_Result_State_ERROR" value="Teach Error"/>
+			<Text id="TI_DT_SV_TI_Result_State_Other_SUCCESS" value="Other Teach succeeded (Analog or Offset)"/>
+			<Text id="TI_DT_SV_TI_Result_Flag_SP1_TP1_CLR" value="No teach of SP1 TP1 since power-on or teach error"/>
+			<Text id="TI_DT_SV_TI_Result_Flag_SP1_TP1_SET" value="Teach of SP1 TP1 was successful"/>
+			<Text id="TI_DT_SV_TI_Result_Flag_SP1_TP2_CLR" value="No teach of SP1 TP2 since power-on or teach error"/>
+			<Text id="TI_DT_SV_TI_Result_Flag_SP1_TP2_SET" value="Teach of SP1 TP2 was successful"/>
+			<Text id="TI_DT_SV_TI_Result_Flag_SP2_TP1_CLR" value="No teach of SP2 TP1 since power-on or teach error"/>
+			<Text id="TI_DT_SV_TI_Result_Flag_SP2_TP1_SET" value="Teach of SP2 TP1 was successful"/>
+			<Text id="TI_DT_SV_TI_Result_Flag_SP2_TP2_CLR" value="No teach of SP2 TP2 since power-on or teach error"/>
+			<Text id="TI_DT_SV_TI_Result_Flag_SP2_TP2_SET" value="Teach of SP1 TP2 was successful"/>
+			<Text id="TI_DT_SV_Logic_HighActive" value="high active"/>
+			<Text id="TI_DT_SV_Logic_LowActive" value="low active"/>
+			<Text id="TI_DT_SV_Mode_Deactivated" value="deactivated"/>
+			<Text id="TI_DT_SV_Mode_SinglePointObject" value="single point mode (object)"/>
+			<Text id="TI_DT_SV_Mode_Window" value="window mode"/>
+			<Text id="TI_DT_SV_Mode_SinglePointBackground" value="single point mode (background)"/>
+			<Text id="TI_DT_SV_SysState00_Zero_CLR" value="cleared bit"/>
+			<Text id="TI_DT_SV_SysState01_Measure_CLR" value="no measurement (Startup, Teach or deactivated)"/>
+			<Text id="TI_DT_SV_SysState01_Measure_SET" value="measurement is running"/>
+			<Text id="TI_DT_SV_SysState02_Signal_CLR" value="signal too less: no measurement value available"/>
+			<Text id="TI_DT_SV_SysState02_Signal_SET" value="signal and measurement value available"/>
+			<Text id="TI_DT_SV_SysState03_Warning_CLR" value="No Warning"/>
+			<Text id="TI_DT_SV_SysState03_Warning_SET" value="Warning: weak Signal"/>
+			<Text id="TI_DT_SV_SysState04_Value_CLR" value="Substitutional value sent to measurement output"/>
+			<Text id="TI_DT_SV_SysState04_Value_SET" value="Regular value sent to measurement output"/>
+			<Text id="TI_DT_SV_SysState05_CalibratedRange_CLR" value="Outside calibrated range"/>
+			<Text id="TI_DT_SV_SysState05_CalibratedRange_SET" value="Inside calibrated range"/>
+			<Text id="TI_DT_SV_SysState06_LimitedAccuracyRange_CLR" value="Outside limited accuracy range"/>
+			<Text id="TI_DT_SV_SysState06_LimitedAccuracyRange_SET" value="Inside limited accuracy range"/>
+			<Text id="TI_DT_SV_SysState07_Deactivated_CLR" value="Activated"/>
+			<Text id="TI_DT_SV_SysState07_Deactivated_SET" value="deactivated"/>
+			<Text id="TI_DT_SV_SysState08_TriggerToggle_CLR" value="Trigger Toggle Clear"/>
+			<Text id="TI_DT_SV_SysState08_TriggerToggle_SET" value="Trigger Toggle Set"/>
+			<Text id="TI_DT_SV_SysState09_SSC1State_CLR" value="SSC 1 inactive"/>
+			<Text id="TI_DT_SV_SysState09_SSC1State_SET" value="SSC 1 active"/>
+			<Text id="TI_DT_SV_SysState10_SSC2State_CLR" value="SSC 2 inactive"/>
+			<Text id="TI_DT_SV_SysState10_SSC2State_SET" value="SSC 2 active"/>
+			<Text id="TI_DT_SV_SysState11_SSC3State_CLR" value="SSC 3 inactive"/>
+			<Text id="TI_DT_SV_SysState11_SSC3State_SET" value="SSC 3 active"/>
+			<Text id="TI_DT_SV_SysState12_AnalogInRange_CLR" value="Analog Output outside configured range"/>
+			<Text id="TI_DT_SV_SysState12_AnalogInRange_SET" value="Analog Output inside configured range"/>
+			<Text id="TI_DT_SV_SysState13_AnalogOutMin_CLR" value="Analog Output not lower than configures minimum"/>
+			<Text id="TI_DT_SV_SysState13_AnalogOutMin_SET" value="Analog Output lower than configured minimum"/>
+			<Text id="TI_DT_SV_SysState14_AnalogOutMax_CLR" value="Analog Output not above configured minimum"/>
+			<Text id="TI_DT_SV_SysState14_AnalogOutMax_SET" value="Analog Output higher than configured maximum"/>
+			<Text id="TI_DT_SV_SysState15_LaserError_CLR" value="No laser error"/>
+			<Text id="TI_DT_SV_SysState15_LaserError_SET" value="Laser error detected"/>
+			<Text id="TI_DT_SV_SysState16_Option1_CLR" value="Option bit 1 clear"/>
+			<Text id="TI_DT_SV_SysState16_Option1_SET" value="Option bit 1 set"/>
+			<Text id="TI_DT_SV_SysState17_Option2_CLR" value="Option bit 2 clear"/>
+			<Text id="TI_DT_SV_SysState17_Option2_SET" value="Option bit 2 set"/>
+			<Text id="TI_DT_SV_SysState_reserved_CLR" value="reserved bit clear"/>
+			<Text id="TI_DT_SV_SysState_reserved_SET" value="reserved bit set"/>
+			<Text id="TI_DT_SV_SysState28_TeachBusy_CLR" value="-"/>
+			<Text id="TI_DT_SV_SysState28_TeachBusy_SET" value="Teach busy (running)"/>
+			<Text id="TI_DT_SV_SysState29_TeachSuccess_CLR" value="-"/>
+			<Text id="TI_DT_SV_SysState29_TeachSuccess_SET" value="Last Teach succeeded"/>
+			<Text id="TI_DT_SV_SysState30_TeachError_CLR" value="-"/>
+			<Text id="TI_DT_SV_SysState30_TeachError_SET" value="Last Teach failed"/>
+			<Text id="TI_DT_SV_SysState31_TeachReserved_CLR" value="-"/>
+			<Text id="TI_DT_SV_SysState31_TeachReserved_SET" value="Reserved bit set"/>
+			<Text id="TI_DT_SysState_00_Zero" value="Zero"/>
+			<Text id="TI_DT_SysState_01_Measure" value="Measure"/>
+			<Text id="TI_DT_SysState_02_Signal" value="Signal"/>
+			<Text id="TI_DT_SysState_03_Warning" value="Warning"/>
+			<Text id="TI_DT_SysState_04_Value" value="Value"/>
+			<Text id="TI_DT_SysState_05_CalibratedRange" value="Calibrated Range"/>
+			<Text id="TI_DT_SysState_06_LimitedAccuracyRange" value="Limited Accuracy"/>
+			<Text id="TI_DT_SysState_07_Deactivated" value="deactivated"/>
+			<Text id="TI_DT_SysState_08_TriggerToggle" value="Trigger Toggle"/>
+			<Text id="TI_DT_SysState_09_SSC1State" value="SSC1 State"/>
+			<Text id="TI_DT_SysState_10_SSC2State" value="SSC2 State"/>
+			<Text id="TI_DT_SysState_11_SSC3State" value="SSC3 State"/>
+			<Text id="TI_DT_SysState_12_AnalogInRange" value="Analog In Range"/>
+			<Text id="TI_DT_SysState_13_AnalogOutMin" value="Analog Out Min"/>
+			<Text id="TI_DT_SysState_14_AnalogOutMax" value="Analog Out Max"/>
+			<Text id="TI_DT_SysState_15_LaserError" value="Laser Error"/>
+			<Text id="TI_DT_SysState_16_Option1" value="Option 1"/>
+			<Text id="TI_DT_SysState_17_Option2" value="Option 2"/>
+			<Text id="TI_DT_SysState_reserved" value="reserved"/>
+			<Text id="TI_DT_SysState_28_TeachBusy" value="Teach Busy"/>
+			<Text id="TI_DT_SysState_29_TeachSuccess" value="Teach Success"/>
+			<Text id="TI_DT_SysState_30_TeachError" value="Teach Error"/>
+			<Text id="TI_DT_SysState_31_TeachReserved" value="Teach Reserved"/>
+			<Text id="TI_DT_PDInValue_OutOfRangeMinus" value="Out Of Range (-)"/>
+			<Text id="TI_DT_PDInValue_OutOfRangePlus" value="Out Of Range (+)"/>
+			<Text id="TI_DT_PDInValue_NoMeasurementData" value="No Measurement Data"/>
+			<Text id="TI_DT_PDInScale_1_10mm" value="Resolution 0.1 mm"/>
+			<Text id="TI_DT_PDInScale_1_100mm" value="Resolution 0.01 mm"/>
+			<Text id="TI_DT_PDIn8_0_SSC1_0" value="Bit0=0 - SSC1 Off"/>
+			<Text id="TI_DT_PDIn8_0_SSC1_1" value="Bit0=1 - SSC1 On"/>
+			<Text id="TI_DT_PDIn8_1_SSC2_0" value="Bit1=0 - SSC2 Off"/>
+			<Text id="TI_DT_PDIn8_1_SSC2_1" value="Bit1=1 - SSC2 On"/>
+			<Text id="TI_DT_PDIn8_2___0" value="Bit2=0"/>
+			<Text id="TI_DT_PDIn8_2___1" value="Bit2=1"/>
+			<Text id="TI_DT_PDIn8_3_M_0" value="Bit3=0 - No Measurement (Startup, Teach or deactivated)"/>
+			<Text id="TI_DT_PDIn8_3_M_1" value="Bit3=1 - Measurement is Running"/>
+			<Text id="TI_DT_PDIn8_4_S_0" value="Bit4=0 - No Signal received: no measurement value available"/>
+			<Text id="TI_DT_PDIn8_4_S_1" value="Bit4=1 - Signal and measurement value available"/>
+			<Text id="TI_DT_PDIn8_5_W_0" value="Bit5=0 - No Warning"/>
+			<Text id="TI_DT_PDIn8_5_W_1" value="Bit5=1 - Warning (low signal)"/>
+			<Text id="TI_DT_PDIn8_6___0" value="Bit6=0"/>
+			<Text id="TI_DT_PDIn8_6___1" value="Bit6=1"/>
+			<Text id="TI_DT_PDIn8_7_T_0" value="Bit7=0 - Toggle bit low"/>
+			<Text id="TI_DT_PDIn8_7_T_1" value="Bit7=1 - Toggle bit high"/>
+			<Text id="TI_DT_PDOut_Disable_0" value="Disable request inactive"/>
+			<Text id="TI_DT_PDOut_Disable_1" value="Disable request active"/>
+			<Text id="TI_DT_DeviceProfile1" value="Device Profile 1"/>
+			<Text id="TI_DTD_DeviceProfile1" value="0x0001: Generic Profiled Sensor"/>
+			<Text id="TI_DT_DeviceProfile2" value="Device Profile 2"/>
+			<Text id="TI_DTD_DeviceProfile2" value="0x000C: DMS Digital Measuring Sensor 16bit, Transducer Disable"/>
+			<Text id="TI_DT_ApplicationProfile" value="Application Profile"/>
+			<Text id="TI_DTD_ApplicationProfile" value="0x4000: Identification and Diagnosis"/>
+			<Text id="TI_DT_FunctionClass1" value="Function Class 1"/>
+			<Text id="TI_DTD_FunctionClass1" value="0x8001: Switching Signal Channel"/>
+			<Text id="TI_DT_FunctionClass2" value="Function Class 2"/>
+			<Text id="TI_DTD_FunctionClass2" value="0x8004: Teach-in"/>
+			<Text id="TI_DT_TI_Select_0" value="Select Default SSC (Q1, SSC1) for teach"/>
+			<Text id="TI_DT_TI_Select_1" value="Select Q1 equal SSC1 for teach"/>
+			<Text id="TI_DT_TI_Select_2" value="Select Q2 equal SSC2 for teach"/>
+			<Text id="TI_DT_TI_Select_255" value="Select all SSCs for teach"/>
+			<Text id="TI_DT_TI_STATE" value="TI Result - State"/>
+			<Text id="TI_DT_TI_Result_Flag_SP1_TP1" value="TI Result - Flag SP1 TP1"/>
+			<Text id="TI_DT_TI_Result_Flag_SP1_TP2" value="TI Result - Flag SP1 TP2"/>
+			<Text id="TI_DT_TI_Result_Flag_SP2_TP1" value="TI Result - Flag SP2 TP1"/>
+			<Text id="TI_DT_TI_Result_Flag_SP2_TP2" value="TI Result - Flag SP2 TP2"/>
+			<Text id="TI_DT_SP1" value="SP1"/>
+			<Text id="TI_DD_SP1" value="Value of distant setpoint"/>
+			<Text id="TI_DT_SP2" value="SP2"/>
+			<Text id="TI_DD_SP2" value="Value of near setpoint"/>
+			<Text id="TI_DT_Logic" value="Logic"/>
+			<Text id="TI_DD_Logic" value="Output level of switching output when object is detected"/>
+			<Text id="TI_DT_Mode" value="Mode"/>
+			<Text id="TI_DD_Mode" value="Configuration of the switching edge positions from one or both setpoints, using hysteresis and others."/>
+			<Text id="TI_DT_Hyst" value="Hyst"/>
+			<Text id="TI_DD_Hyst" value="distance range between the two opposite switching edges related to the same setpoint"/>
+			<Text id="TI_DT_SV_DsUploadFlag_Clear" value="Clear: No upload request for local sensor data"/>
+			<Text id="TI_DT_SV_DsUploadFlag_Set" value="Set: Upload request for local sensor data is set"/>
+			<Text id="TI_DT_SV_QProperty0" value="Switching Off"/>
+			<Text id="TI_DT_SV_QProperty1" value="Switching On"/>
+			<Text id="TI_DT_SV_QProperty2" value="Unchanged"/>
+			<Text id="TI_DT_SV_AnalogOutProperty0" value="Minimum Analog Output Value"/>
+			<Text id="TI_DT_SV_AnalogOutProperty1" value="Maximum Analog Output Value"/>
+			<Text id="TI_DT_SV_AnalogOutProperty2" value="Unchanged Analog Output Value"/>
+			<Text id="TI_DT_SV_Pin4Function1" value="SSC1 Output"/>
+			<Text id="TI_DT_SV_Pin2Function0" value="no function"/>
+			<Text id="TI_DT_SV_Pin2Function3" value="SSC2 Output"/>
+			<Text id="TI_DT_SV_Pin2Function11" value="4-20mA Current Output"/>
+			<Text id="TI_DT_SV_Pin2Function12" value="1-10V  Voltage Output"/>
+			<Text id="TI_DT_SV_Pin2Function13" value="0-10V  Voltage Output"/>
+			<Text id="TI_DT_SV_CcdProcMode0" value="Standard"/>
+			<Text id="TI_DT_SV_CcdProcMode1" value="Precision"/>
+			<Text id="TI_DT_SV_CcdProcMode2" value="Light Suppression"/>
+			<Text id="TI_DT_SV_MenuLanguage0" value="English"/>
+			<Text id="TI_DT_SV_MenuLanguage1" value="German"/>
+			<Text id="TI_DT_SV_DisplayMode0" value="On"/>
+			<Text id="TI_DT_SV_DisplayMode1" value="Auto"/>
+			<Text id="TI_DT_SV_DisplayMode2" value="Auto Off"/>
+			<Text id="TI_DT_SV_DisplayMode3" value="Off"/>
+			<Text id="TI_DT_SV_PasswordCheck_Off" value="Disabled"/>
+			<Text id="TI_DT_SV_PasswordCheck_On" value="Enabled"/>
+			<Text id="TI_DT_SV_MeasureGradient_Positive" value="rising"/>
+			<Text id="TI_DT_SV_MeasureGradient_Negative" value="falling"/>
+			<Text id="TI_DT_SV_Bool_Inactive" value="Inactive"/>
+			<Text id="TI_DT_SV_Bool_Activated" value="Activated"/>
+			<Text id="TI_DT_SV_MenuExitBehaviour_ReportToDS" value="Report changes to DS (set DSUpload Flag and generate an event)"/>
+			<Text id="TI_DT_SV_MenuExitBehaviour_OnlyLocalChanges" value="Only local changes (clear DSUpload flag)"/>
+			<Text id="TI_DT_SV_DeactivationProperty_NoMeasData" value="Show 'No Measurement Data' (Smart Sensor Profile standard behaviour)"/>
+			<Text id="TI_DT_SV_DeactivationProperty_Freeze" value="Freeze current value"/>
+			<Text id="TI_DT_SV_MeasureFilterSelection0" value="Off"/>
+			<Text id="TI_DT_SV_MeasureFilterSelection1" value="Averaging"/>
+			<Text id="TI_DT_SV_MeasureFilterSelection2" value="Spike Suppression"/>
+			<Text id="TI_DT_SV_MeasureFilterSpikeDepth0" value="Raw: averaging a huge amount of the values around the sorted center"/>
+			<Text id="TI_DT_SV_MeasureFilterSpikeDepth1" value="Medium: averaging half of the values around the sorted center"/>
+			<Text id="TI_DT_SV_MeasureFilterSpikeDepth2" value="Fine: averaging a little amount of the values around the sorted center"/>
+			<Text id="TI_DT_SV_Resolution0" value="Resolution 1 mm"/>
+			<Text id="TI_DT_SV_Resolution1" value="Resolution 0.1 mm"/>
+			<Text id="TI_DT_SV_Resolution2" value="Resolution 0.01 mm"/>
+			<Text id="TI_DT_Lower_Limit" value="MDC Descr - Lower Limit"/>
+			<Text id="TI_DT_Upper_Limit" value="MDC Descr - Upper Limit"/>
+			<Text id="TI_DT_Unit_code" value="MDC Descr - Unit"/>
+			<Text id="TI_DT_Scale" value="MDC Descr - Scale"/>
+			<Text id="TI_DT_PDIn_Value" value="Distance Value"/>
+			<Text id="TI_DT_PDIn_Scale" value="Distance Scale"/>
+			<Text id="TI_DT_PDIn8_0" value="Status Bit 0: SSC1 Output State"/>
+			<Text id="TI_DT_PDIn8_1" value="Status Bit 1: SSC2 Output State"/>
+			<Text id="TI_DT_PDIn8_2" value="Status Bit 2: reserved"/>
+			<Text id="TI_DT_PDIn8_3" value="Status Bit 3: Measure State"/>
+			<Text id="TI_DT_PDIn8_4" value="Status Bit 4: Signal available"/>
+			<Text id="TI_DT_PDIn8_5" value="Status Bit 5: Warning (low signal)"/>
+			<Text id="TI_DT_PDIn8_6" value="Status Bit 6: reserved"/>
+			<Text id="TI_DT_PDIn8_7" value="Status Bit 7: Toggle bit"/>
+			<Text id="TI_DT_PDOut_Disable" value="Transducer Disable"/>
+			<Text id="TI_PDO_Filler" value=""/>
+		</PrimaryLanguage>
+		<Language xml:lang="de">
+			<Text id="TI_VendorText" value="BALLUFF"/>
+			<Text id="TI_VendorUrl" value="www.balluff.com"/>
+			<Text id="TI_DeviceName_BOD002M" value="BOD 24K-LPI07-S4"/>
+			<Text id="TI_DeviceFamily" value="BOD - Optischer Distanzsensor"/>
+			<Text id="TI_ProductName_BOD002M" value="BOD 24K-LPI07-S4"/>
+			<Text id="TI_ProductText" value="BOD - Optischer Distanzsensor"/>
+			<Text id="TI_V_SV_SC_65" value="Teach SP1 (Teach des Setpoint in der Ferne)"/>
+			<Text id="TI_V_SV_SC_66" value="Teach SP2 (Teach des Setpoint in der Nähe)"/>
+			<Text id="TI_V_SV_SC_75" value="Custom Teach: Fenster (Teach von beiden Setpoints)"/>
+			<Text id="TI_V_SV_SC_76" value="Custom Teach SP1a (Teach des alternativen Setpoints in der Ferne)"/>
+			<Text id="TI_V_SV_SC_160" value="Löschen des DS Upload Flag"/>
+			<Text id="TI_V_SV_SC_161" value="Setzen des DS Upload Flag"/>
+			<Text id="TI_V_SV_SC_176" value="Aktivierung mit Priorität - das Transducer Disable Bit in PDout wird ignoriert. Nur Eingangsfunktionen Aktivieren/Deaktivieren haben eine höhere Priorität"/>
+			<Text id="TI_V_SV_SC_177" value="Deaktivierung mit Priorität - das Transducer Disable Bit in PDout wird ignoriert. Nur Eingangsfunktionen Aktivieren/Deaktivieren haben eine höhere Priorität"/>
+			<Text id="TI_V_SV_SC_178" value="Rücksetzen der Priorität - das Transducer Disable Bit in PDout wird wieder wirksam. Nur Eingangsfunktionen Aktivieren/Deaktivieren haben eine höhere Priorität"/>
+			<Text id="TI_V_SV_SC_195" value="Teach des Abstands des minimalen Analogausgangswertes"/>
+			<Text id="TI_V_SV_SC_196" value="Teach des Abstands des maximalen Analogausgangswertes"/>
+			<Text id="TI_V_SV_SC_212" value="Teach des Offset, so dass der unter Preset voreingestellte Messwert ausgegeben wird"/>
+			<Text id="TI_V_ProfileCharacteristic" value="Profile Characteristic"/>
+			<Text id="TI_VD_ProfileCharacteristic" value="Collection of Profile Identifiers"/>
+			<Text id="TI_V_FunctionTag" value="Function Tag"/>
+			<Text id="TI_V_LocationTag" value="Location Tag"/>
+			<Text id="TI_V_TI_Select" value="TI - Select"/>
+			<Text id="TI_VD_TI_Select" value="Auswahl des zu teachenden Schaltausgangs, 0=SSC1, 1=SSC1, 2=SSC2, 255=alle SSCs"/>
+			<Text id="TI_V_TI_Result" value="TI Ergebnis"/>
+			<Text id="TI_VD_TI_Result" value="Teach-In Ergebnis (Teachstatus und erfolgsanzeigende Flags)"/>
+			<Text id="TI_V_SSC1_Param" value="SSC1 Param"/>
+			<Text id="TI_VD_SSC1_Param" value="Switching Signal Channel 1 Parameter"/>
+			<Text id="TI_V_SSC1_Config" value="SSC1 Config"/>
+			<Text id="TI_VD_SSC1_Config" value="Switching Signal Channel 1 Konfiguration"/>
+			<Text id="TI_V_SSC2_Param" value="SSC2 Param"/>
+			<Text id="TI_VD_SSC2_Param" value="Switching Signal Channel 2 Parameter"/>
+			<Text id="TI_V_SSC2_Config" value="SSC2 Config"/>
+			<Text id="TI_VD_SSC2_Config" value="Switching Signal Channel 2 Konfiguration"/>
+			<Text id="TI_V_SSC1_SP1a" value="SSC1_SP1a"/>
+			<Text id="TI_VD_SSC1_SP1a" value="SSC1_SP1a"/>
+			<Text id="TI_V_SSC2_SP1a" value="SSC2_SP1a"/>
+			<Text id="TI_VD_SSC2_SP1a" value="SSC2_SP1a"/>
+			<Text id="TI_V_SSC1_Reserve" value="SSC1_Reserve"/>
+			<Text id="TI_VD_SSC1_Reserve" value="SSC1_Reserve"/>
+			<Text id="TI_V_SSC2_Reserve" value="SSC2_Reserve"/>
+			<Text id="TI_VD_SSC2_Reserve" value="SSC2_Reserve"/>
+			<Text id="TI_V_SysState" value="System Status Info Bits"/>
+			<Text id="TI_VD_SysState" value="Status information, Mess-, Prozess- und Ausgabe Stati."/>
+			<Text id="TI_V_DsUploadFlag" value="Data Storage Upload Flag"/>
+			<Text id="TI_VD_DsUploadFlag" value="Zeigt die Präferenz von lokalen Änderungen am Sensor im Gegensatz zu den Konfigurationsdaten, die im Master DS gespeichert sind"/>
+			<Text id="TI_V_IntTimeCnt" value="Integration time level"/>
+			<Text id="TI_VD_IntTimeCnt" value="Auslesen der eingestellten Integrationszeit, abhängig von der Reflektivität des Objektes. Kleiner Wert = kurze Integrationszeit."/>
+			<Text id="TI_V_SysStateToStatusBits" value="SysState to Status Bits Assignment"/>
+			<Text id="TI_VD_SysStateToStatusBits" value="8 Element Feld mit SysState Bit Nummern, die den 8 PDin Status Bits zugewiesen sind"/>
+			<Text id="TI_V_TeachCount" value="Teach Count"/>
+			<Text id="TI_VD_TeachCount" value="Anzahl der Messwerte, die zur Mittelwertbildung herangezogen werden"/>
+			<Text id="TI_V_QProperty" value="Switching Output Property"/>
+			<Text id="TI_VD_QProperty" value="Generelles Verhalten aller Schaltausgänge, wenn kein Messwert vorliegt."/>
+			<Text id="TI_V_SSC1_WindowWidth" value="SSC1_Fenstertiefe"/>
+			<Text id="TI_VD_SSC1_WindowWidth" value="SSC1_Fenstertiefe"/>
+			<Text id="TI_V_SSC1_EvalDepth" value="SSC1_Auswertetiefe"/>
+			<Text id="TI_VD_SSC1_EvalDepth" value="SSC1_Auswertetiefe"/>
+			<Text id="TI_V_SSC2_WindowWidth" value="SSC2_Fenstertiefe"/>
+			<Text id="TI_VD_SSC2_WindowWidth" value="SSC2_Fenstertiefe"/>
+			<Text id="TI_V_SSC2_EvalDepth" value="SSC2_Auswertetiefe"/>
+			<Text id="TI_VD_SSC2_EvalDepth" value="SSC2_Auswertetiefe"/>
+			<Text id="TI_V_AnalogOutProperty" value="Verhalten des Analogausgangs"/>
+			<Text id="TI_VD_AnalogOutProperty" value="Ausgangsverhalten bei nicht vorhandenem Messwert"/>
+			<Text id="TI_V_AnalogRangeMax" value="Position des maximalen Analogausgangswertes"/>
+			<Text id="TI_VD_AnalogRangeMax" value="Distanz, die den maximalen Analogwert ausgibt"/>
+			<Text id="TI_V_AnalogRangeMin" value="Position des minimalen Analogausgangswertes"/>
+			<Text id="TI_VD_AnalogRangeMin" value="Distanz, die den minimalen Analogwert ausgibt"/>
+			<Text id="TI_V_Pin4Function" value="Pin 4 Funktion"/>
+			<Text id="TI_VD_Pin4Function" value="Pin 4 Funktion"/>
+			<Text id="TI_V_Pin2Function" value="Pin 2 Funktion"/>
+			<Text id="TI_VD_Pin2Function" value="Auswahl von SSC2, Strom- oder Spannungsbereich auf Pin 2"/>
+			<Text id="TI_V_CcdProcMode" value="Messmodus"/>
+			<Text id="TI_VD_CcdProcMode" value="Anwendungsspezifische Messwertbearbeitung"/>
+			<Text id="TI_V_MenuLanguage" value="Menüsprache"/>
+			<Text id="TI_VD_MenuLanguage" value="Einstellung der Menüsprache"/>
+			<Text id="TI_V_DisplayMode" value="Display Modus"/>
+			<Text id="TI_VD_DisplayMode" value="Verhalten des Displays. Auto: Maximale Intensität beim betätigen der Tasten; gedimmte Intensität während des Stand-By Betriebs."/>
+			<Text id="TI_V_PasswordCheck" value="Menü Passwortsperre"/>
+			<Text id="TI_VD_PasswordCheck" value="Passwortsperre des lokalen Gerätemenü"/>
+			<Text id="TI_V_MeasureOffset" value="Distanz Offset"/>
+			<Text id="TI_VD_MeasureOffset" value="vorzeichenbehafteter Abstandswert. Kann durch die interne Preset-Berechnung modifiziert sein."/>
+			<Text id="TI_V_MeasureGradient" value="Gradient"/>
+			<Text id="TI_VD_MeasureGradient" value="Kennlinienverlauf mit steigenden (+1) oder fallenden Werten (-1). Kann für Füllstandsmessungen verwendet werden."/>
+			<Text id="TI_V_TeachRAM" value="RAM Teach Option"/>
+			<Text id="TI_VD_TeachRAM" value="Ist diese Option aktiviert, werden die Teach-Ergebnisse nur im flüchtigen RAM-Speicher gespeichert. Kann für Anwendungen verwendet werden, bei denen der 'Teach' mehrfach hintereinander wiederholt wird."/>
+			<Text id="TI_V_MenuExitBehaviour" value="Menüausstiegsverhalten"/>
+			<Text id="TI_VD_MenuExitBehaviour" value="Handhabung von Lokal geänderten Parameter im Zusammenhang mit der Datenhaltung im IO-Link-Master."/>
+			<Text id="TI_V_DeactivationProperty" value="Deaktivierungsverhalten"/>
+			<Text id="TI_VD_DeactivationProperty" value="Messdatenausgabe bei deaktiviertem Laser"/>
+			<Text id="TI_V_CcdIntTimeCntMin" value="Integrationszeit, unterer Grenzwert"/>
+			<Text id="TI_VD_CcdIntTimeCntMin" value="setzen des unteren Grenzwertes, damit Messwert möglichst genau wird."/>
+			<Text id="TI_V_CcdIntTimeCntMax" value="Integrationszeit, oberer Grenzwert"/>
+			<Text id="TI_VD_CcdIntTimeCntMax" value="Setzen eines oberen Grenzwertes, um zu häufige Messwiederholungen zu verhindern. Zur schnelleren Erkennung eines seitlich eintretenden hellen Objektes vor dunklem, weit entfernten Hintergrund."/>
+			<Text id="TI_V_Preset" value="Preset Wert"/>
+			<Text id="TI_VD_Preset" value="Dieser angeforderte Messwert wird nach einer Preset-to-Offset-Berechnung angezeigt"/>
+			<Text id="TI_V_MeasureFilterSelection" value="Filter Auswahl"/>
+			<Text id="TI_VD_MeasureFilterSelection" value="Anwendungsspezifische Auswahl verschiedener Filtermethoden"/>
+			<Text id="TI_V_MeasureFilterAvgCount" value="Anzahl der Messungen zur Mittelwertbildung"/>
+			<Text id="TI_VD_MeasureFilterAvgCount" value="Puffergröße des 'Mittelwert' Messmodus"/>
+			<Text id="TI_V_MeasureFilterSpikeCount" value="Anzahl der Messungen zur Außreißer-Unterdrückung"/>
+			<Text id="TI_VD_MeasureFilterSpikeCount" value="Puffergröße 'Außreißer-Unterdrückung' Messmodus"/>
+			<Text id="TI_V_MeasureFilterSpikeDepth" value="Außreißer-Unterdrückung Filtertiefe"/>
+			<Text id="TI_VD_MeasureFilterSpikeDepth" value="Filtertiefe 'Außreißer-Unterdrückung' Messmodus"/>
+			<Text id="TI_V_CcdProcLightSupprAddMax" value="Fremdlicht-Limit Wiederholungszyklus"/>
+			<Text id="TI_VD_CcdProcLightSupprAddMax" value="Reduktion der Messzyklen im 'Fremdlicht-Modus', um die Messdauer zu veringern."/>
+			<Text id="TI_V_Resolution" value="Auflösung"/>
+			<Text id="TI_VD_Resolution" value="Distanz = gemessener Wert * Auflösung"/>
+			<Text id="TI_V_OperatingRangeMin" value="Minimum des Arbeitsbereichs (SSP: Erfassungsbereich)"/>
+			<Text id="TI_VD_OperatingRangeMin" value="Minimum des zulässigen Ausgabebereichs bei Offset=0 und Gradient=steigend (+1)."/>
+			<Text id="TI_V_OperatingRangeMax" value="Maximum des Arbeitsbereichs (SSP: Erfassungsbereich)"/>
+			<Text id="TI_VD_OperatingRangeMax" value="Maximum des zulässigen Ausgabebereichs bei Offset=0 und Gradient=steigend (+1)."/>
+			<Text id="TI_V_MeasuringRangeMin" value="Minimum des Messbereichs (SSP: Messbereich)"/>
+			<Text id="TI_VD_MeasuringRangeMin" value="Minumum des Bereichs mit spezifizierter Genauigkeit bei Offset=0 und Gradient=steigend (+1). Entspricht MDC Descr Parameter, unterer Grenzwert."/>
+			<Text id="TI_V_MeasuringRangeMax" value="Maximum des Messbereichs (SSP: Messbereich)"/>
+			<Text id="TI_VD_MeasuringRangeMax" value="Maximum des Bereichs mit spezifizierter Genauigkeit bei Offset=0 und Gradient=steigend (+1). Entspricht MDC Descr Parameter, oberer Grenzwert."/>
+			<Text id="TI_V_Temperature" value="Temperatur"/>
+			<Text id="TI_VD_Temperature" value="Gerätetemperatur in 1/10 °C Schritten, Genauigkeit: +/-5 °C"/>
+			<Text id="TI_V_MDC_Descr" value="MDC Descr"/>
+			<Text id="TI_VD_MDC_Descr" value="Measuring Data Channel"/>
+			<Text id="TI_V_PDIn" value="Prozessdaten-Eingang"/>
+			<Text id="TI_V_PDOut" value="Prozessdaten-Ausgang"/>
+			<Text id="VS_TN_0x18FE" value="Test Event Warnung"/>
+			<Text id="VS_TD_0x18FE" value="Test Event Warnung"/>
+			<Text id="VS_TN_0x18FF" value="Test Event Fehler"/>
+			<Text id="VS_TD_0x18FF" value="Test Event Fehler"/>
+			<Text id="TM_SSC1" value="Switching Signal Channel 1"/>
+			<Text id="TM_SSC2" value="Switching Signal Channel 2"/>
+			<Text id="TM_Processing" value="Bearbeitungs-Einstellungen"/>
+			<Text id="TM_Filtering" value="Filter-Einstellungen"/>
+			<Text id="TM_DistanceCorrection" value="Entfernungs-Korrektur-Einstellungen"/>
+			<Text id="TM_ProfileSupport" value="Profil-Unterstützung"/>
+			<Text id="TM_IdentSub" value="Identifikation"/>
+			<Text id="TM_SwitchingSignals" value="Schaltausgangs-Signale"/>
+			<Text id="TM_Application" value="Applikation"/>
+			<Text id="TM_Analog" value="Analogausgang"/>
+			<Text id="TM_TeachIn" value="Teach-in"/>
+			<Text id="TM_Settings" value="Einstellungen"/>
+			<Text id="TM_DataStorage" value="Data Storage"/>
+			<Text id="TM_ResetCommand" value="Rücksetz-Kommandos"/>
+			<Text id="TI_DT_SV_ProfileComponent_1" value="0x0001: Generic Profiled Sensor"/>
+			<Text id="TI_DT_SV_ProfileComponent_12" value="0x000C: DMS Digital Measuring Sensor 16bit, Transducer Disable"/>
+			<Text id="TI_DT_SV_ProfileComponent_16384" value="0x4000: Identification and Diagnosis"/>
+			<Text id="TI_DT_SV_ProfileComponent_32769" value="0x8001: Switching Signal Channel"/>
+			<Text id="TI_DT_SV_ProfileComponent_32772" value="0x8004: Teach-in"/>
+			<Text id="TI_DT_SV_TI_Result_State_IDLE" value="Idle. Kein Teach seit power-on"/>
+			<Text id="TI_DT_SV_TI_Result_State_SP1_SUCCESS" value="Teach von SP1 erfolgreich"/>
+			<Text id="TI_DT_SV_TI_Result_State_SP2_SUCCESS" value="Teach von SP2 erfolgreich"/>
+			<Text id="TI_DT_SV_TI_Result_State_SP12_SUCCESS" value="Teach des SP1 und SP2 erfolgreich"/>
+			<Text id="TI_DT_SV_TI_Result_State_BUSY" value="Busy. Teach läuft"/>
+			<Text id="TI_DT_SV_TI_Result_State_ERROR" value="Teach Fehler"/>
+			<Text id="TI_DT_SV_TI_Result_State_Other_SUCCESS" value="Anderer Teach erfolgreich (Analog oder Offset)"/>
+			<Text id="TI_DT_SV_TI_Result_Flag_SP1_TP1_CLR" value="Kein Teach von SP1 TP1 seit power-on oder Teach-Fehler"/>
+			<Text id="TI_DT_SV_TI_Result_Flag_SP1_TP1_SET" value="Teach von SP1 TP1 war erfolgreich"/>
+			<Text id="TI_DT_SV_TI_Result_Flag_SP1_TP2_CLR" value="Kein Teach von SP1 TP2 seit power-on oder Teach-Fehler"/>
+			<Text id="TI_DT_SV_TI_Result_Flag_SP1_TP2_SET" value="Teach von SP1 TP2 war erfolgreich"/>
+			<Text id="TI_DT_SV_TI_Result_Flag_SP2_TP1_CLR" value="Kein Teach von SP2 TP1 seit power-on oder Teach-Fehler"/>
+			<Text id="TI_DT_SV_TI_Result_Flag_SP2_TP1_SET" value="Teach von SP2 TP1 war erfolgreich"/>
+			<Text id="TI_DT_SV_TI_Result_Flag_SP2_TP2_CLR" value="Kein Teach von SP2 TP2 seit power-on oder Teach-Fehler"/>
+			<Text id="TI_DT_SV_TI_Result_Flag_SP2_TP2_SET" value="Teach von SP1 TP2 war erfolgreich"/>
+			<Text id="TI_DT_SV_Logic_HighActive" value="high aktiv"/>
+			<Text id="TI_DT_SV_Logic_LowActive" value="low aktiv"/>
+			<Text id="TI_DT_SV_Mode_Deactivated" value="deaktiviert"/>
+			<Text id="TI_DT_SV_Mode_SinglePointObject" value="Einpunkt Modus (Objekt)"/>
+			<Text id="TI_DT_SV_Mode_Window" value="Fenster Modus"/>
+			<Text id="TI_DT_SV_Mode_SinglePointBackground" value="Einpunkt Modus (Hintergrund)"/>
+			<Text id="TI_DT_SV_SysState00_Zero_CLR" value="gelöschtes Bit"/>
+			<Text id="TI_DT_SV_SysState01_Measure_CLR" value="Keine Messung (Im Hochlauf, beim Teach oder deaktiviert)"/>
+			<Text id="TI_DT_SV_SysState01_Measure_SET" value="Messung läuft"/>
+			<Text id="TI_DT_SV_SysState02_Signal_CLR" value="Signal zu gering: Kein Messwert verfügbar"/>
+			<Text id="TI_DT_SV_SysState02_Signal_SET" value="Signal und Messwert verfügbar"/>
+			<Text id="TI_DT_SV_SysState03_Warning_CLR" value="Keine Warnung"/>
+			<Text id="TI_DT_SV_SysState03_Warning_SET" value="Warnung: schwaches Empfangssignal"/>
+			<Text id="TI_DT_SV_SysState04_Value_CLR" value="Ersatzwert wird zum Messwertausgang gesendet"/>
+			<Text id="TI_DT_SV_SysState04_Value_SET" value="Regulärer Wert wird zum Messwertausgang gesendet"/>
+			<Text id="TI_DT_SV_SysState05_CalibratedRange_CLR" value="Außerhalb des kalibrierten Bereichs"/>
+			<Text id="TI_DT_SV_SysState05_CalibratedRange_SET" value="Innerhalb des kalibrierten Bereichs"/>
+			<Text id="TI_DT_SV_SysState06_LimitedAccuracyRange_CLR" value="Außerhalb des limitierten Genauigkeitsbereichs"/>
+			<Text id="TI_DT_SV_SysState06_LimitedAccuracyRange_SET" value="Innerhalb des limitierten Genauigkeitsbereichs"/>
+			<Text id="TI_DT_SV_SysState07_Deactivated_CLR" value="Aktiviert"/>
+			<Text id="TI_DT_SV_SysState07_Deactivated_SET" value="Deaktiviert"/>
+			<Text id="TI_DT_SV_SysState08_TriggerToggle_CLR" value="Trigger Toggle gelöscht"/>
+			<Text id="TI_DT_SV_SysState08_TriggerToggle_SET" value="Trigger Toggle gesetzt"/>
+			<Text id="TI_DT_SV_SysState09_SSC1State_CLR" value="SSC 1 inaktiv"/>
+			<Text id="TI_DT_SV_SysState09_SSC1State_SET" value="SSC 1 aktiv"/>
+			<Text id="TI_DT_SV_SysState10_SSC2State_CLR" value="SSC 2 inaktiv"/>
+			<Text id="TI_DT_SV_SysState10_SSC2State_SET" value="SSC 2 aktiv"/>
+			<Text id="TI_DT_SV_SysState11_SSC3State_CLR" value="SSC 3 inaktiv"/>
+			<Text id="TI_DT_SV_SysState11_SSC3State_SET" value="SSC 3 aktiv"/>
+			<Text id="TI_DT_SV_SysState12_AnalogInRange_CLR" value="Analogausgang außerhalb des konfigurierten Bereichs"/>
+			<Text id="TI_DT_SV_SysState12_AnalogInRange_SET" value="Analogausgang innerhalb des konfigurierten Bereichs"/>
+			<Text id="TI_DT_SV_SysState13_AnalogOutMin_CLR" value="Analogausgang nicht oberhalb des konfigurierten Minimum"/>
+			<Text id="TI_DT_SV_SysState13_AnalogOutMin_SET" value="Analogausgang unterhalb des konfigurierten Minimum"/>
+			<Text id="TI_DT_SV_SysState14_AnalogOutMax_CLR" value="Analogausgang nicht oberhalb des konfigurierten Maximum"/>
+			<Text id="TI_DT_SV_SysState14_AnalogOutMax_SET" value="Analogausgang oberhalb des konfigurierten Maximum"/>
+			<Text id="TI_DT_SV_SysState15_LaserError_CLR" value="Laser OK"/>
+			<Text id="TI_DT_SV_SysState15_LaserError_SET" value="Laser Fehler erkannt"/>
+			<Text id="TI_DT_SV_SysState16_Option1_CLR" value="Option bit 1 gelöscht"/>
+			<Text id="TI_DT_SV_SysState16_Option1_SET" value="Option bit 1 gesetzt"/>
+			<Text id="TI_DT_SV_SysState17_Option2_CLR" value="Option bit 2 gelöscht"/>
+			<Text id="TI_DT_SV_SysState17_Option2_SET" value="Option bit 2 gesetzt"/>
+			<Text id="TI_DT_SV_SysState28_TeachBusy_CLR" value="-"/>
+			<Text id="TI_DT_SV_SysState28_TeachBusy_SET" value="Teach läuft"/>
+			<Text id="TI_DT_SV_SysState29_TeachSuccess_CLR" value="-"/>
+			<Text id="TI_DT_SV_SysState29_TeachSuccess_SET" value="Letzter Teach erfolgreich"/>
+			<Text id="TI_DT_SV_SysState30_TeachError_CLR" value="-"/>
+			<Text id="TI_DT_SV_SysState30_TeachError_SET" value="Letzter Teach fehlgeschlagen"/>
+			<Text id="TI_DT_SV_SysState31_TeachReserved_CLR" value="-"/>
+			<Text id="TI_DT_SV_SysState31_TeachReserved_SET" value="Reserviertes Bit gesetzt"/>
+			<Text id="TI_DT_SysState_00_Zero" value="Null"/>
+			<Text id="TI_DT_SysState_01_Measure" value="Messen"/>
+			<Text id="TI_DT_SysState_02_Signal" value="Signal"/>
+			<Text id="TI_DT_SysState_03_Warning" value="Warnung"/>
+			<Text id="TI_DT_SysState_04_Value" value="Wert"/>
+			<Text id="TI_DT_SysState_05_CalibratedRange" value="kalibrierter Bereich"/>
+			<Text id="TI_DT_SysState_06_LimitedAccuracyRange" value="Limitierte Genauigkeit"/>
+			<Text id="TI_DT_SysState_07_Deactivated" value="deaktiviert"/>
+			<Text id="TI_DT_SysState_08_TriggerToggle" value="Trigger Toggle"/>
+			<Text id="TI_DT_SysState_09_SSC1State" value="SSC1 Status"/>
+			<Text id="TI_DT_SysState_10_SSC2State" value="SSC2 Status"/>
+			<Text id="TI_DT_SysState_11_SSC3State" value="SSC3 Status"/>
+			<Text id="TI_DT_SysState_12_AnalogInRange" value="Analog In Bereich"/>
+			<Text id="TI_DT_SysState_13_AnalogOutMin" value="Analog Out Min"/>
+			<Text id="TI_DT_SysState_14_AnalogOutMax" value="Analog Out Max"/>
+			<Text id="TI_DT_SysState_15_LaserError" value="Laser Fehler"/>
+			<Text id="TI_DT_SysState_16_Option1" value="Option 1"/>
+			<Text id="TI_DT_SysState_17_Option2" value="Option 2"/>
+			<Text id="TI_DT_SysState_28_TeachBusy" value="Teach aktiv"/>
+			<Text id="TI_DT_SysState_29_TeachSuccess" value="Teach erfolgreich"/>
+			<Text id="TI_DT_SysState_30_TeachError" value="Teach Fehler"/>
+			<Text id="TI_DT_SysState_31_TeachReserved" value="Teach Reserviert"/>
+			<Text id="TI_DT_PDInValue_OutOfRangeMinus" value="Out Of Range (-) / Wertebereich unterschritten"/>
+			<Text id="TI_DT_PDInValue_OutOfRangePlus" value="Out Of Range (+) / Wertebereich überschritten"/>
+			<Text id="TI_DT_PDInValue_NoMeasurementData" value="Keine Messdaten"/>
+			<Text id="TI_DT_PDInScale_1_10mm" value="Auflösung 0.1 mm"/>
+			<Text id="TI_DT_PDInScale_1_100mm" value="Auflösung 0.01 mm"/>
+			<Text id="TI_DT_PDIn8_0_SSC1_0" value="Bit0=0 - SSC1 inaktiv"/>
+			<Text id="TI_DT_PDIn8_0_SSC1_1" value="Bit0=1 - SSC1 aktiv"/>
+			<Text id="TI_DT_PDIn8_1_SSC2_0" value="Bit1=0 - SSC2 inaktiv"/>
+			<Text id="TI_DT_PDIn8_1_SSC2_1" value="Bit1=1 - SSC2 aktiv"/>
+			<Text id="TI_DT_PDIn8_2___0" value="Bit2=0"/>
+			<Text id="TI_DT_PDIn8_2___1" value="Bit2=1"/>
+			<Text id="TI_DT_PDIn8_3_M_0" value="Bit3=0 - keine Messung (im Hochlauf, beim Teach oder deaktiviert)"/>
+			<Text id="TI_DT_PDIn8_3_M_1" value="Bit3=1 - Messung läuft"/>
+			<Text id="TI_DT_PDIn8_4_S_0" value="Bit4=0 - Kein Empfangssignal: Distanzwert nicht verfügbar"/>
+			<Text id="TI_DT_PDIn8_4_S_1" value="Bit4=1 - Signal und Messwert vorhanden"/>
+			<Text id="TI_DT_PDIn8_5_W_0" value="Bit5=0 - keine Warnung"/>
+			<Text id="TI_DT_PDIn8_5_W_1" value="Bit5=1 - Warnung (geringes Empfangssignal)"/>
+			<Text id="TI_DT_PDIn8_6___0" value="Bit6=0"/>
+			<Text id="TI_DT_PDIn8_6___1" value="Bit6=1"/>
+			<Text id="TI_DT_PDIn8_7_T_0" value="Bit7=0 - Toggle bit inaktiv"/>
+			<Text id="TI_DT_PDIn8_7_T_1" value="Bit7=1 - Toggle bit aktiv"/>
+			<Text id="TI_DT_PDOut_Disable_0" value="Keine Deaktivierung"/>
+			<Text id="TI_DT_PDOut_Disable_1" value="Deaktivierung wirkt"/>
+			<Text id="TI_DT_DeviceProfile1" value="Device Profile 1"/>
+			<Text id="TI_DTD_DeviceProfile1" value="0x0001: Generic Profiled Sensor"/>
+			<Text id="TI_DT_DeviceProfile2" value="Device Profile 2"/>
+			<Text id="TI_DTD_DeviceProfile2" value="0x000C: DMS Digital Measuring Sensor 16bit, Transducer Disable"/>
+			<Text id="TI_DT_ApplicationProfile" value="Application Profile"/>
+			<Text id="TI_DTD_ApplicationProfile" value="0x4000: Identification and Diagnosis"/>
+			<Text id="TI_DT_FunctionClass1" value="Function Class 1"/>
+			<Text id="TI_DTD_FunctionClass1" value="0x8001: Switching Signal Channel"/>
+			<Text id="TI_DT_FunctionClass2" value="Function Class 2"/>
+			<Text id="TI_DTD_FunctionClass2" value="0x8004: Teach-in"/>
+			<Text id="TI_DT_TI_Select_0" value="Select Default SSC (Q1, SSC1) for teach"/>
+			<Text id="TI_DT_TI_Select_1" value="Select Q1 equal SSC1 for teach"/>
+			<Text id="TI_DT_TI_Select_2" value="Select Q2 equal SSC2 for teach"/>
+			<Text id="TI_DT_TI_Select_255" value="Select all SSCs for teach"/>
+			<Text id="TI_DT_TI_STATE" value="TI Result - State"/>
+			<Text id="TI_DT_TI_Result_Flag_SP1_TP1" value="TI Result - Kennung SP1 TP1"/>
+			<Text id="TI_DT_TI_Result_Flag_SP1_TP2" value="TI Result - Kennung SP1 TP2"/>
+			<Text id="TI_DT_TI_Result_Flag_SP2_TP1" value="TI Result - Kennung SP2 TP1"/>
+			<Text id="TI_DT_TI_Result_Flag_SP2_TP2" value="TI Result - Kennung SP2 TP2"/>
+			<Text id="TI_DT_SP1" value="SP1"/>
+			<Text id="TI_DD_SP1" value="Wert des Setpoint in der Ferne"/>
+			<Text id="TI_DT_SP2" value="SP2"/>
+			<Text id="TI_DD_SP2" value="Wert des Setpoint in der Nähe"/>
+			<Text id="TI_DT_Logic" value="Logic"/>
+			<Text id="TI_DD_Logic" value="Pegel des Schaltausgangs bei erkanntem Objekt"/>
+			<Text id="TI_DT_Mode" value="Mode"/>
+			<Text id="TI_DD_Mode" value="Art der Umrechnung der Setpoints auf die Schaltflanken-Positionen unter Verwendung von Hysterese u.a."/>
+			<Text id="TI_DT_Hyst" value="Hyst"/>
+			<Text id="TI_DD_Hyst" value="Entfernungsbereich zwischen zwei entgegengesetzten Schaltflanken, die demselben Setpoint zugeordnet sind"/>
+			<Text id="TI_DT_SV_DsUploadFlag_Clear" value="Clear: Keine Aktualisierungsanfrage zum Hochladen der lokalen Sensordaten in den Master gesetzt"/>
+			<Text id="TI_DT_SV_DsUploadFlag_Set" value="Set: Aktualisierungsanfrage zum Hochladen der lokalen Sensordaten in den Master ist gesetzt"/>
+			<Text id="TI_DT_SV_QProperty0" value="Switching aus"/>
+			<Text id="TI_DT_SV_QProperty1" value="Switching an"/>
+			<Text id="TI_DT_SV_QProperty2" value="Unverändert"/>
+			<Text id="TI_DT_SV_AnalogOutProperty0" value="Minimaler Analogausgangswert"/>
+			<Text id="TI_DT_SV_AnalogOutProperty1" value="Maximaler Analogausgangswert"/>
+			<Text id="TI_DT_SV_AnalogOutProperty2" value="Unveränderter Analogausgangswert"/>
+			<Text id="TI_DT_SV_Pin2Function0" value="keine Funktion"/>
+			<Text id="TI_DT_SV_Pin2Function3" value="SSC2 Ausgang"/>
+			<Text id="TI_DT_SV_Pin2Function11" value="4-20mA Stromausgang"/>
+			<Text id="TI_DT_SV_Pin2Function12" value="1-10V  Spannungsausgang"/>
+			<Text id="TI_DT_SV_Pin2Function13" value="0-10V  Spannungsausgang"/>
+			<Text id="TI_DT_SV_CcdProcMode0" value="Standard"/>
+			<Text id="TI_DT_SV_CcdProcMode1" value="Präzision"/>
+			<Text id="TI_DT_SV_CcdProcMode2" value="Fremdlicht-Unterdrückung"/>
+			<Text id="TI_DT_SV_MenuLanguage0" value="Englisch"/>
+			<Text id="TI_DT_SV_MenuLanguage1" value="Deutsch"/>
+			<Text id="TI_DT_SV_DisplayMode0" value="An"/>
+			<Text id="TI_DT_SV_DisplayMode1" value="Automatisch"/>
+			<Text id="TI_DT_SV_DisplayMode2" value="Automatisch aus"/>
+			<Text id="TI_DT_SV_DisplayMode3" value="Aus"/>
+			<Text id="TI_DT_SV_PasswordCheck_Off" value="Deaktiviert"/>
+			<Text id="TI_DT_SV_PasswordCheck_On" value="Aktiviert"/>
+			<Text id="TI_DT_SV_MeasureGradient_Positive" value="Steigend"/>
+			<Text id="TI_DT_SV_MeasureGradient_Negative" value="Fallend"/>
+			<Text id="TI_DT_SV_Bool_Inactive" value="Inaktiv"/>
+			<Text id="TI_DT_SV_Bool_Activated" value="Aktiviert"/>
+			<Text id="TI_DT_SV_MenuExitBehaviour_ReportToDS" value="Veränderungen an DS melden (Setzen des DSUpload Flag und Generierung eines Events)"/>
+			<Text id="TI_DT_SV_MenuExitBehaviour_OnlyLocalChanges" value="Lokale Änderung (Löschen des DSUpload Flag)"/>
+			<Text id="TI_DT_SV_DeactivationProperty_NoMeasData" value="Anzeige 'Kein Messwert' (Smart Sensor Profil Standard)"/>
+			<Text id="TI_DT_SV_DeactivationProperty_Freeze" value="Einfrieren des aktuellen Messwerts"/>
+			<Text id="TI_DT_SV_MeasureFilterSelection0" value="Aus"/>
+			<Text id="TI_DT_SV_MeasureFilterSelection1" value="Mittelung"/>
+			<Text id="TI_DT_SV_MeasureFilterSelection2" value="Außreißer-Unterdrückung"/>
+			<Text id="TI_DT_SV_MeasureFilterSpikeDepth0" value="Grob: Mittelung von vielen, sortierten Werten"/>
+			<Text id="TI_DT_SV_MeasureFilterSpikeDepth1" value="Mittel: Mittelung der Hälfte der sortierten Werte"/>
+			<Text id="TI_DT_SV_MeasureFilterSpikeDepth2" value="Fein: Mittelung von wenigen, sortierten Werten"/>
+			<Text id="TI_DT_SV_Resolution0" value="Auflösung 1 mm"/>
+			<Text id="TI_DT_SV_Resolution1" value="Auflösung 0.1 mm"/>
+			<Text id="TI_DT_SV_Resolution2" value="Auflösung 0.01 mm"/>
+			<Text id="TI_DT_Lower_Limit" value="MDC Descr - Unterer Grenzwert"/>
+			<Text id="TI_DT_Upper_Limit" value="MDC Descr - Oberer Grenzwert"/>
+			<Text id="TI_DT_Unit_code" value="MDC Descr - Einheit"/>
+			<Text id="TI_DT_Scale" value="MDC Descr - Skala"/>
+			<Text id="TI_DT_PDIn_Value" value="Distanzwert"/>
+			<Text id="TI_DT_PDIn_Scale" value="Distanzauflösung"/>
+			<Text id="TI_DT_PDIn8_0" value="Status Bit 0: SSC1 Ausgangszustand"/>
+			<Text id="TI_DT_PDIn8_1" value="Status Bit 1: SSC2 Ausgangszustand"/>
+			<Text id="TI_DT_PDIn8_2" value="Status Bit 2: reserviert"/>
+			<Text id="TI_DT_PDIn8_3" value="Status Bit 3: Messung"/>
+			<Text id="TI_DT_PDIn8_4" value="Status Bit 4: Empfangsignal verfügbar"/>
+			<Text id="TI_DT_PDIn8_5" value="Status Bit 5: Warnung (verminderte Genauigkeit)"/>
+			<Text id="TI_DT_PDIn8_6" value="Status Bit 6: reserviert"/>
+			<Text id="TI_DT_PDIn8_7" value="Status Bit 7: Toggle bit"/>
+			<Text id="TI_DT_PDOut_Disable" value="Transducer Disable"/>
+			<Text id="TI_PDO_Filler" value=""/>
+		</Language>
+	</ExternalTextCollection>
+	<Stamp crc="90817921"><Checker name="IODD-Checker V1.1.4" version="V1.1.4.0"/></Stamp>
+</IODevice>

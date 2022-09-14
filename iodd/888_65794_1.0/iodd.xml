@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<IODevice xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.io-link.com/IODD/2009/11" xsi:schemaLocation="http://www.io-link.com/IODD/2009/11 IODD1.0.1.xsd">
+  <DocumentInfo version="V1.0" releaseDate="2016-06-07" copyright="Copyright 2016, Balluff GmbH" />
+  <ProfileHeader>
+    <ProfileIdentification>IO-Link Device Profile</ProfileIdentification>
+    <ProfileRevision>1.00</ProfileRevision>
+    <ProfileName>Device Profile for IO-Link Devices</ProfileName>
+    <ProfileSource>IO-Link Consortium</ProfileSource>
+    <ProfileClassID>Device</ProfileClassID>
+    <ISO15745Reference>
+      <ISO15745Part>1</ISO15745Part>
+      <ISO15745Edition>1</ISO15745Edition>
+      <ProfileTechnology>IODD</ProfileTechnology>
+    </ISO15745Reference>
+  </ProfileHeader>
+  <ProfileBody>
+    <DeviceIdentity vendorId="888" vendorName="Balluff GmbH" deviceId="65794">
+      <VendorText textId="TI_VendorText" />
+      <VendorUrl textId="TI_VendorUrl" />
+      <VendorLogo name="Balluff-logo.png" />
+      <DeviceFamily textId="TI_DeviceFamily" />
+      <DeviceVariantCollection>
+        <DeviceVariant productId="BNS04K7" deviceSymbol="Balluff-BNS04K7-pic.png" deviceIcon="Balluff-BNS04K7-icon.png">
+          <ProductName textId="TI_Product1_Name" />
+          <ProductText textId="TI_Product1_Descr" />
+        </DeviceVariant>
+        <DeviceVariant productId="BNS043F" deviceSymbol="Balluff-BNS043F-pic.png" deviceIcon="Balluff-BNS043F-icon.png">
+          <ProductName textId="TI_Product2_Name" />
+          <ProductText textId="TI_Product1_Descr" />
+        </DeviceVariant>
+      </DeviceVariantCollection>
+    </DeviceIdentity>
+    <DeviceFunction>
+      <VariableCollection>
+        <StdVariableRef id="V_DirectParameters_1" />
+        <StdVariableRef id="V_DirectParameters_2" />
+        <StdVariableRef id="V_VendorName" defaultValue="BALLUFF" />
+        <StdVariableRef id="V_VendorText" defaultValue="www.balluff.com" />
+        <StdVariableRef id="V_ProductName" />
+        <StdVariableRef id="V_ProductID" />
+        <StdVariableRef id="V_ProductText" defaultValue="BNS 2 switches" />
+        <StdVariableRef id="V_HardwareRevision" />
+        <StdVariableRef id="V_FirmwareRevision" />
+        <Variable id="V_Inv_Record" index="64" accessRights="rw">
+          <Datatype xsi:type="RecordT" bitLength="8">
+            <RecordItem subindex="1" bitOffset="0">
+              <SimpleDatatype xsi:type="BooleanT">
+                <SingleValue value="true">
+                  <Name textId="TI_VAR_Inversion_On" />
+                </SingleValue>
+                <SingleValue value="false">
+                  <Name textId="TI_VAR_Inversion_Off" />
+                </SingleValue>
+              </SimpleDatatype>
+              <Name textId="TI_VAR_Inversion_01" />
+            </RecordItem>
+            <RecordItem subindex="2" bitOffset="1">
+              <SimpleDatatype xsi:type="BooleanT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                <SingleValue value="true">
+                  <Name textId="TI_VAR_Inversion_On" />
+                </SingleValue>
+                <SingleValue value="false">
+                  <Name textId="TI_VAR_Inversion_Off" />
+                </SingleValue>
+              </SimpleDatatype>
+              <Name textId="TI_VAR_Inversion_02" />
+            </RecordItem>
+          </Datatype>
+          <Name textId="TI_VAR_Inversion" />
+          <Description textId="TI_VAR_Inversion_Descr" />
+        </Variable>
+      </VariableCollection>
+      <ProcessDataCollection>
+        <ProcessData id="V_PdT">
+          <ProcessDataIn id="V_Pd_InT" bitLength="8">
+            <Datatype xsi:type="RecordT" bitLength="8">
+              <RecordItem subindex="1" bitOffset="0">
+                <SimpleDatatype xsi:type="BooleanT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                  <SingleValue value="true">
+                    <Name textId="TI_PD_DigitalIn_high" />
+                  </SingleValue>
+                  <SingleValue value="false">
+                    <Name textId="TI_PD_DigitalIn_low" />
+                  </SingleValue>
+                </SimpleDatatype>
+                <Name textId="TI_PD_Switchstate_01" />
+              </RecordItem>
+              <RecordItem subindex="2" bitOffset="1">
+                <SimpleDatatype xsi:type="BooleanT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                  <SingleValue value="true">
+                    <Name textId="TI_PD_DigitalIn_high" />
+                  </SingleValue>
+                  <SingleValue value="false">
+                    <Name textId="TI_PD_DigitalIn_low" />
+                  </SingleValue>
+                </SimpleDatatype>
+                <Name textId="TI_PD_Switchstate_02" />
+              </RecordItem>
+            </Datatype>
+            <Name textId="TI_DT_IOL_Pd" />
+          </ProcessDataIn>
+        </ProcessData>
+      </ProcessDataCollection>
+      <EventCollection>
+        <!--0x5112-->
+        <Event code="20754" type="Warning" mode="AppearDisappear">
+          <Name textId="TI_Ev_LowSupply24" />
+          <Description textId="TI_EvDescr_LowSupply24" />
+        </Event>
+        <!--0x5160-->
+        <Event code="20832" type="Error" mode="AppearDisappear">
+          <Name textId="TI_Ev_ShortCircuit" />
+          <Description textId="TI_EvDescr_ShortCircuit" />
+        </Event>
+      </EventCollection>
+      <UserInterface>
+        <MenuCollection>
+          <Menu id="M_OR_MR_SR_Ident">
+            <VariableRef variableId="V_VendorName" />
+            <VariableRef variableId="V_VendorText" />
+            <VariableRef variableId="V_ProductName" />
+            <VariableRef variableId="V_ProductID" />
+            <VariableRef variableId="V_ProductText" />
+            <VariableRef variableId="V_HardwareRevision" />
+            <VariableRef variableId="V_FirmwareRevision" />
+          </Menu>
+          <Menu id="M_OR_Param">
+            <VariableRef variableId="V_Inv_Record" accessRightRestriction="ro" displayFormat="Dec" />
+          </Menu>
+          <Menu id="M_MR_Param">
+            <VariableRef variableId="V_Inv_Record" accessRightRestriction="rw" displayFormat="Dec" />
+          </Menu>
+          <Menu id="M_SR_Param">
+            <VariableRef variableId="V_Inv_Record" accessRightRestriction="rw" displayFormat="Dec" />
+          </Menu>
+        </MenuCollection>
+        <ObserverRoleMenuSet>
+          <IdentificationMenu menuId="M_OR_MR_SR_Ident" />
+          <ParameterMenu menuId="M_OR_Param" />
+        </ObserverRoleMenuSet>
+        <MaintenanceRoleMenuSet>
+          <IdentificationMenu menuId="M_OR_MR_SR_Ident" />
+          <ParameterMenu menuId="M_MR_Param" />
+        </MaintenanceRoleMenuSet>
+        <SpecialistRoleMenuSet>
+          <IdentificationMenu menuId="M_OR_MR_SR_Ident" />
+          <ParameterMenu menuId="M_SR_Param" />
+        </SpecialistRoleMenuSet>
+      </UserInterface>
+    </DeviceFunction>
+  </ProfileBody>
+  <CommNetworkProfile xsi:type="IOLinkCommNetworkProfileT" iolinkRevision="V1.0">
+    <TransportLayers>
+      <PhysicalLayer physics="2" minCycleTime="3000" sioSupported="false" baudrate="COM2" />
+    </TransportLayers>
+  </CommNetworkProfile>
+  <ExternalTextCollection>
+    <PrimaryLanguage xml:lang="en">
+      <Text id="TI_VendorText" value="BALLUFF" />
+      <Text id="TI_VendorUrl" value="http://www.balluff.com" />
+      <Text id="TI_DeviceFamily" value="BNS - Switch" />
+      <Text id="TI_Product1_Name" value="BNS 819-D02-D16-100-10-FD-S4R-I" />
+      <Text id="TI_Product2_Name" value="BNS 819-D02-R12-100-10-S4R-I"></Text>
+      <Text id="TI_Product1_Descr" value="BNS 2 switches" />
+      <Text id="TI_DT_IOL_Pd" value="Datatype ProcessDataIn" />
+      <Text id="TI_VAR_Inversion" value="Inversion" />
+      <Text id="TI_VAR_Inversion_01" value="Inversion switch 0" />
+      <Text id="TI_VAR_Inversion_02" value="Inversion switch 1" />
+      <Text id="TI_VAR_Inversion_On" value="Switch inverted" />
+      <Text id="TI_VAR_Inversion_Off" value="Switch not inverted" />
+      <Text id="TI_VAR_Inversion_Descr" value="Inverts the switch signal" />
+      <Text id="TI_PD_Switchstate_01" value="Switchstate 0" />
+      <Text id="TI_PD_Switchstate_02" value="Switchstate 1" />
+      <Text id="TI_PD_DigitalIn_high" value="true" />
+      <Text id="TI_PD_DigitalIn_low" value="false" />
+      <Text id="TI_Ev_ShortCircuit" value="Short circuit" />
+      <Text id="TI_EvDescr_ShortCircuit" value="Short circuit" />
+      <Text id="TI_Ev_LowSupply24" value="Low supply voltage 24V" />
+      <Text id="TI_EvDescr_LowSupply24" value="Low supply voltage 24V" />
+    </PrimaryLanguage>
+  </ExternalTextCollection>
+  <Stamp crc="914950"><Checker name="IODD-Checker V1.0.7" version="V1.0.7.0"/></Stamp>
+</IODevice>

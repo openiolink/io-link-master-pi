@@ -1,0 +1,187 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<IODevice xmlns="http://www.io-link.com/IODD/2010/10" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.io-link.com/IODD/2010/10 IODD1.1.xsd">
+  <DocumentInfo copyright="Copyright 2015, Balluff GmbH" releaseDate="2015-07-31" version="V1.0" />
+  <ProfileHeader>
+    <ProfileIdentification>IO Device Profile</ProfileIdentification>
+    <ProfileRevision>1.1</ProfileRevision>
+    <ProfileName>Device Profile for IO Devices</ProfileName>
+    <ProfileSource>IO-Link Consortium</ProfileSource>
+    <ProfileClassID>Device</ProfileClassID>
+    <ISO15745Reference>
+      <ISO15745Part>1</ISO15745Part>
+      <ISO15745Edition>1</ISO15745Edition>
+      <ProfileTechnology>IODD</ProfileTechnology>
+    </ISO15745Reference>
+  </ProfileHeader>
+  <ProfileBody>
+    <DeviceIdentity vendorId="888" vendorName="BALLUFF" deviceId="263684">
+      <VendorText textId="TI_VendorText" />
+      <VendorUrl textId="TI_VendorUrl" />
+      <VendorLogo name="Balluff-logo.png" />
+      <DeviceName textId="TI_DeviceName" />
+      <DeviceFamily textId="TI_DeviceFamily" />
+      <DeviceVariantCollection>
+        <DeviceVariant productId="BOS023J" deviceSymbol="Balluff-BOS18E-XI-pic.png" deviceIcon="Balluff-BOS18E-XI-icon.png">
+          <Name textId="TI_BOS18M_Name" />
+          <Description textId="TI_BOS18M_Text" />
+        </DeviceVariant>
+      </DeviceVariantCollection>
+    </DeviceIdentity>
+    <DeviceFunction>
+      <Features blockParameter="true" dataStorage="true" profileCharacteristic="1 32768 32771">
+        <SupportedAccessLocks parameter="false" dataStorage="true" localParameterization="false" localUserInterface="false" />
+      </Features>
+      <VariableCollection>
+        <StdVariableRef id="V_DirectParameters_1" />
+        <StdVariableRef id="V_DirectParameters_2" />
+        <StdVariableRef id="V_SystemCommand">
+          <StdSingleValueRef value="128"></StdSingleValueRef>
+        </StdVariableRef>
+        <StdVariableRef id="V_DeviceAccessLocks" />
+        <StdVariableRef defaultValue="BALLUFF" id="V_VendorName" />
+        <StdVariableRef defaultValue="www.balluff.com" id="V_VendorText" />
+        <StdVariableRef defaultValue="BOS 18E-XI-RS30-S4" id="V_ProductName" />
+        <StdVariableRef defaultValue="01" id="V_HardwareRevision" />
+        <StdVariableRef defaultValue="01" id="V_FirmwareRevision" />
+        <StdVariableRef defaultValue="BOS023J" id="V_ProductID" />
+        <StdVariableRef defaultValue="Thru-Beam Sensor Emitter Red Light" id="V_ProductText" />
+        <StdVariableRef id="V_ApplicationSpecificTag" defaultValue="Sensors Worldwide" fixedLengthRestriction="32" excludedFromDataStorage="false" />
+        <StdVariableRef id="V_DeviceStatus" />
+        <StdVariableRef id="V_DetailedDeviceStatus" fixedLengthRestriction="2"></StdVariableRef>
+        <StdVariableRef id="V_ProcessDataInput"></StdVariableRef>
+      </VariableCollection>
+      <ProcessDataCollection>
+        <ProcessData id="V_PD">
+          <ProcessDataIn id="V_PDI" bitLength="8">
+            <Datatype xsi:type="RecordT" subindexAccessSupported="false" bitLength="8">
+              <RecordItem subindex="1" bitOffset="0">
+                <SimpleDatatype xsi:type="BooleanT">
+                  <SingleValue value="true">
+                    <Name textId="TI_ACTIVE" />
+                  </SingleValue>
+                  <SingleValue value="false">
+                    <Name textId="TI_INACTIVE" />
+                  </SingleValue>
+                </SimpleDatatype>
+                <Name textId="TI_Defect" />
+              </RecordItem>
+            </Datatype>
+            <Name textId="TI_V_PDI" />
+          </ProcessDataIn>
+        </ProcessData>
+      </ProcessDataCollection>
+      <ErrorTypeCollection>
+        <StdErrorTypeRef code="128" additionalCode="0" />
+        <StdErrorTypeRef code="128" additionalCode="17" />
+        <StdErrorTypeRef code="128" additionalCode="18" />
+        <StdErrorTypeRef code="128" additionalCode="32" />
+        <StdErrorTypeRef code="128" additionalCode="48"></StdErrorTypeRef>
+        <StdErrorTypeRef code="128" additionalCode="51" />
+        <StdErrorTypeRef code="128" additionalCode="52"></StdErrorTypeRef>
+      </ErrorTypeCollection>
+      <EventCollection>
+        <StdEventRef code="16912"></StdEventRef>
+        <StdEventRef code="20496"></StdEventRef>
+        <StdEventRef code="20753"></StdEventRef>
+      </EventCollection>
+      <UserInterface>
+        <MenuCollection>
+          <Menu id="ME_OB_Identification">
+            <VariableRef variableId="V_VendorName" accessRightRestriction="ro" />
+            <VariableRef variableId="V_VendorText" accessRightRestriction="ro" />
+            <VariableRef variableId="V_ProductName" accessRightRestriction="ro" />
+            <VariableRef variableId="V_ProductText" accessRightRestriction="ro" />
+            <VariableRef variableId="V_HardwareRevision" accessRightRestriction="ro" />
+            <VariableRef variableId="V_FirmwareRevision" accessRightRestriction="ro" />
+            <VariableRef variableId="V_ApplicationSpecificTag" accessRightRestriction="ro" />
+          </Menu>
+          <Menu id="ME_SP_Identification">
+            <VariableRef variableId="V_VendorName" accessRightRestriction="ro" />
+            <VariableRef variableId="V_VendorText" accessRightRestriction="ro" />
+            <VariableRef variableId="V_ProductName" accessRightRestriction="ro" />
+            <VariableRef variableId="V_ProductText" accessRightRestriction="ro" />
+            <VariableRef variableId="V_HardwareRevision" accessRightRestriction="ro" />
+            <VariableRef variableId="V_FirmwareRevision" accessRightRestriction="ro" />
+            <VariableRef variableId="V_ApplicationSpecificTag" accessRightRestriction="rw" />
+          </Menu>
+          <Menu id="ME_OB_Parameter">
+            <RecordItemRef subindex="2" variableId="V_DeviceAccessLocks" displayFormat="Dec" accessRightRestriction="ro" />
+            <RecordItemRef subindex="3" variableId="V_DeviceAccessLocks" displayFormat="Dec" accessRightRestriction="ro" />
+          </Menu>
+          <Menu id="ME_M_Parameter">
+            <VariableRef variableId="V_SystemCommand" displayFormat="Hex" accessRightRestriction="wo" />
+            <RecordItemRef subindex="2" variableId="V_DeviceAccessLocks" displayFormat="Dec" accessRightRestriction="rw" />
+            <RecordItemRef subindex="3" variableId="V_DeviceAccessLocks" displayFormat="Dec" accessRightRestriction="rw" />
+          </Menu>
+          <Menu id="ME_SP_Parameter">
+            <VariableRef variableId="V_SystemCommand" displayFormat="Hex" accessRightRestriction="wo" />
+            <RecordItemRef subindex="2" variableId="V_DeviceAccessLocks" displayFormat="Dec" accessRightRestriction="rw" />
+            <RecordItemRef subindex="3" variableId="V_DeviceAccessLocks" displayFormat="Dec" accessRightRestriction="rw" />
+          </Menu>
+          <Menu id="ME_Diagnosis">
+            <VariableRef variableId="V_DeviceStatus" displayFormat="Dec" accessRightRestriction="ro" />
+            <VariableRef variableId="V_DetailedDeviceStatus" displayFormat="Hex" accessRightRestriction="ro" />
+          </Menu>
+          <Menu id="ME_Observation">
+            <VariableRef variableId="V_ProcessDataInput" displayFormat="Dec" accessRightRestriction="ro" />
+          </Menu>
+        </MenuCollection>
+        <ObserverRoleMenuSet>
+          <IdentificationMenu menuId="ME_OB_Identification" />
+          <ParameterMenu menuId="ME_OB_Parameter" />
+          <ObservationMenu menuId="ME_Observation" />
+          <DiagnosisMenu menuId="ME_Diagnosis" />
+        </ObserverRoleMenuSet>
+        <MaintenanceRoleMenuSet>
+          <IdentificationMenu menuId="ME_SP_Identification" />
+          <ParameterMenu menuId="ME_M_Parameter" />
+          <ObservationMenu menuId="ME_Observation" />
+          <DiagnosisMenu menuId="ME_Diagnosis" />
+        </MaintenanceRoleMenuSet>
+        <SpecialistRoleMenuSet>
+          <IdentificationMenu menuId="ME_SP_Identification" />
+          <ParameterMenu menuId="ME_SP_Parameter" />
+          <ObservationMenu menuId="ME_Observation" />
+          <DiagnosisMenu menuId="ME_Diagnosis" />
+        </SpecialistRoleMenuSet>
+      </UserInterface>
+    </DeviceFunction>
+  </ProfileBody>
+  <CommNetworkProfile xsi:type="IOLinkCommNetworkProfileT" iolinkRevision="V1.1">
+    <TransportLayers>
+      <PhysicalLayer bitrate="COM2" minCycleTime="3000" sioSupported="true" mSequenceCapability="17">
+        <Connection xsi:type="M12-4ConnectionT">
+          <ProductRef productId="BOS023J"></ProductRef>
+          <Wire1 />
+          <Wire2 function="NC" />
+          <Wire3 />
+          <Wire4 />
+        </Connection>
+      </PhysicalLayer>
+    </TransportLayers>
+    <Test>
+      <Config1 index="65" testValue="0x01,0x01"></Config1>
+      <Config2 index="256" testValue="0x01"></Config2>
+      <Config3 index="24" testValue="0x53,0x65,0x6E,0x73,0x6F,0x72,0x20,0x57,0x6F,0x72,0x6C,0x64,0x77,0x69,0x64,0x65" />
+      <Config7 index="64">
+        <EventTrigger disappearValue="161" appearValue="162"></EventTrigger>
+        <EventTrigger disappearValue="163" appearValue="164"></EventTrigger>
+      </Config7>
+    </Test>
+  </CommNetworkProfile>
+  <ExternalTextCollection>
+    <PrimaryLanguage xml:lang="en">
+      <Text id="TI_VendorText" value="Balluff"></Text>
+      <Text id="TI_VendorUrl" value="http://www.balluff.com" />
+      <Text id="TI_DeviceFamily" value="BOS - Thru-Beam Optical Sensor Emitter" />
+      <Text id="TI_DeviceName" value="BOS 18E IO-Link" />
+      <Text id="TI_BOS18M_Name" value="BOS 18E-XI-RS30-S4" />
+      <Text id="TI_BOS18M_Text" value="Thru-Beam Sensor Emitter Red Light" />
+      <Text id="TI_V_PDI" value="Process Data Inputs" />
+      <Text id="TI_Defect" value="Defect" />
+      <Text id="TI_ACTIVE" value="active"></Text>
+      <Text id="TI_INACTIVE" value="inactive"></Text>
+    </PrimaryLanguage>
+  </ExternalTextCollection>
+  <Stamp crc="1549503798"><Checker name="IODD-Checker V1.1.0 Beta 8" version="V1.1.0.8"/></Stamp>
+</IODevice>

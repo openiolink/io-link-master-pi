@@ -1,0 +1,687 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<IODevice xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.io-link.com/IODD/2009/11" xsi:schemaLocation="http://www.io-link.com/IODD/2009/11 IODD1.0.1.xsd">
+  <DocumentInfo version="V1.4" releaseDate="2017-05-25" copyright="Copyright 2017, Balluff GmbH" />
+  <ProfileHeader>
+    <ProfileIdentification>IO-Link Device Profile</ProfileIdentification>
+    <ProfileRevision>1.00</ProfileRevision>
+    <ProfileName>Device Profile for IO-Link Devices</ProfileName>
+    <ProfileSource>IO-Link Consortium</ProfileSource>
+    <ProfileClassID>Device</ProfileClassID>
+    <ISO15745Reference>
+      <ISO15745Part>1</ISO15745Part>
+      <ISO15745Edition>1</ISO15745Edition>
+      <ProfileTechnology>IODD</ProfileTechnology>
+    </ISO15745Reference>
+  </ProfileHeader>
+  <ProfileBody>
+    <DeviceIdentity vendorId="888" vendorName="Balluff" deviceId="329477">
+      <VendorText textId="TI_VendorText" />
+      <VendorUrl textId="TI_VendorUrl" />
+      <VendorLogo name="Balluff-logo.png" />
+      <DeviceFamily textId="TI_DeviceFamily" />
+      <DeviceVariantCollection>
+        <DeviceVariant productId="BNI0033" hardwareRevision="1" firmwareRevision="1.3" deviceSymbol="Balluff-BNI0033-pic.png" deviceIcon="Balluff-BNI0033-icon.png">
+          <ProductName textId="TI_Product1_Name" />
+          <ProductText textId="TI_Product1_Descr" />
+        </DeviceVariant>
+      </DeviceVariantCollection>
+    </DeviceIdentity>
+    <DeviceFunction>
+      <DatatypeCollection>
+		<Datatype id="DT_DigitalIn" xsi:type="BooleanT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <SingleValue xsi:type="BooleanValueT" value="false">
+            <Name textId="TI_PD_DigitalIn_low" />
+          </SingleValue>
+          <SingleValue xsi:type="BooleanValueT" value="true">
+            <Name textId="TI_PD_DigitalIn_high" />
+          </SingleValue>
+        </Datatype>
+        <Datatype id="DT_FaultState" xsi:type="UIntegerT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bitLength="2">
+          <SingleValue value="0">
+            <Name textId="TI_VAR_FaultState_0" />
+          </SingleValue>
+          <SingleValue value="1">
+            <Name textId="TI_VAR_FaultState_1" />
+          </SingleValue>
+          <SingleValue value="2">
+            <Name textId="TI_VAR_FaultState_Last" />
+          </SingleValue>
+        </Datatype>
+		<Datatype id="DT_Actuator_wrn" xsi:type="BooleanT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <SingleValue xsi:type="BooleanValueT" value="false">
+            <Name textId="TI_VAR_Actuator_wrn_low" />
+          </SingleValue>
+          <SingleValue xsi:type="BooleanValueT" value="true">
+            <Name textId="TI_VAR_Actuator_wrn_high" />
+          </SingleValue>
+        </Datatype>
+		<Datatype id="DT_Actuator_sc" xsi:type="BooleanT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <SingleValue xsi:type="BooleanValueT" value="false">
+            <Name textId="TI_VAR_Actuator_sc_low" />
+          </SingleValue>
+          <SingleValue xsi:type="BooleanValueT" value="true">
+            <Name textId="TI_VAR_Actuator_sc_high" />
+          </SingleValue>
+        </Datatype>
+		<Datatype id="DT_Actuator_feedback" xsi:type="BooleanT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <SingleValue xsi:type="BooleanValueT" value="false">
+            <Name textId="TI_VAR_Actuator_feedback_low" />
+          </SingleValue>
+          <SingleValue xsi:type="BooleanValueT" value="true">
+            <Name textId="TI_VAR_Actuator_feedback_high" />
+          </SingleValue>
+        </Datatype>
+		<Datatype id="DT_LowUS" xsi:type="BooleanT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <SingleValue xsi:type="BooleanValueT" value="false">
+            <Name textId="TI_VAR_LowUS_low" />
+          </SingleValue>
+          <SingleValue xsi:type="BooleanValueT" value="true">
+            <Name textId="TI_VAR_LowUS_high" />
+          </SingleValue>
+        </Datatype>
+		<Datatype id="DT_LowUA1" xsi:type="BooleanT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <SingleValue xsi:type="BooleanValueT" value="false">
+            <Name textId="TI_VAR_LowUA1_low" />
+          </SingleValue>
+          <SingleValue xsi:type="BooleanValueT" value="true">
+            <Name textId="TI_VAR_LowUA1_high" />
+          </SingleValue>
+        </Datatype>
+		<Datatype id="DT_LowUA2" xsi:type="BooleanT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <SingleValue xsi:type="BooleanValueT" value="false">
+            <Name textId="TI_VAR_LowUA2_low" />
+          </SingleValue>
+          <SingleValue xsi:type="BooleanValueT" value="true">
+            <Name textId="TI_VAR_LowUA2_high" />
+          </SingleValue>
+        </Datatype>
+		
+		<Datatype id="DT_EventSupprRec" xsi:type="BooleanT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <SingleValue xsi:type="BooleanValueT" value="false">
+            <Name textId="TI_VAR_Enable" />
+          </SingleValue>
+          <SingleValue xsi:type="BooleanValueT" value="true">
+            <Name textId="TI_VAR_Disable" />
+          </SingleValue>
+        </Datatype>
+		
+      </DatatypeCollection>
+      <VariableCollection>
+        <StdVariableRef id="V_DirectParameters_1" />
+        <StdVariableRef id="V_DirectParameters_2" />
+        <StdVariableRef id="V_VendorName" defaultValue="BALLUFF" />
+        <StdVariableRef id="V_VendorText" defaultValue="www.balluff.com" />
+        <StdVariableRef id="V_ProductName" defaultValue="BNI IOL-252-000-Z013" />
+        <StdVariableRef id="V_ProductID" defaultValue="BNI0033" />
+        <StdVariableRef id="V_ProductText" defaultValue="Actor hub metal 8 outputs" />
+        <StdVariableRef id="V_HardwareRevision" defaultValue="1" />
+        <StdVariableRef id="V_FirmwareRevision" defaultValue="1.2" />
+        <Variable id="V_FaultState4_Record" index="66" accessRights="rw">
+          <Datatype xsi:type="RecordT" bitLength="8">
+            <RecordItem subindex="1" bitOffset="0">
+              <DatatypeRef datatypeId="DT_FaultState" />
+              <Name textId="TI_VAR_FaultState4_01" />
+            </RecordItem>
+            <RecordItem subindex="2" bitOffset="2">
+              <DatatypeRef datatypeId="DT_FaultState" />
+              <Name textId="TI_VAR_FaultState4_02" />
+            </RecordItem>
+            <RecordItem subindex="3" bitOffset="4">
+              <DatatypeRef datatypeId="DT_FaultState" />
+              <Name textId="TI_VAR_FaultState4_03" />
+            </RecordItem>
+            <RecordItem subindex="4" bitOffset="6">
+              <DatatypeRef datatypeId="DT_FaultState" />
+              <Name textId="TI_VAR_FaultState4_04" />
+            </RecordItem>
+          </Datatype>
+          <Name textId="TI_VAR_FaultState4" />
+          <Description textId="TI_VAR_FaultState4_Descr" />
+        </Variable>
+        <Variable id="V_FaultState2_Record" index="67" accessRights="rw">
+          <Datatype xsi:type="RecordT" bitLength="8">
+            <RecordItem subindex="1" bitOffset="0">
+              <DatatypeRef datatypeId="DT_FaultState" />
+              <Name textId="TI_VAR_FaultState2_01" />
+            </RecordItem>
+            <RecordItem subindex="2" bitOffset="2">
+              <DatatypeRef datatypeId="DT_FaultState" />
+              <Name textId="TI_VAR_FaultState2_02" />
+            </RecordItem>
+            <RecordItem subindex="3" bitOffset="4">
+              <DatatypeRef datatypeId="DT_FaultState" />
+              <Name textId="TI_VAR_FaultState2_03" />
+            </RecordItem>
+            <RecordItem subindex="4" bitOffset="6">
+              <DatatypeRef datatypeId="DT_FaultState" />
+              <Name textId="TI_VAR_FaultState2_04" />
+            </RecordItem>
+          </Datatype>
+          <Name textId="TI_VAR_FaultState2" />
+          <Description textId="TI_VAR_FaultState2_Descr" />
+        </Variable>
+		<Variable id="V_SupplyVoltage_Control_Record" index="68" accessRights="ro">
+          <Datatype xsi:type="RecordT" bitLength="8">
+            <RecordItem subindex="1" bitOffset="0">
+              <DatatypeRef datatypeId="DT_LowUS" />
+              <Name textId="TI_VAR_SupplyVoltage_Control_01" />
+            </RecordItem>
+            <RecordItem subindex="2" bitOffset="1">
+              <DatatypeRef datatypeId="DT_LowUA1" />
+              <Name textId="TI_VAR_SupplyVoltage_Control_02" />
+            </RecordItem>
+            <RecordItem subindex="3" bitOffset="2">
+              <DatatypeRef datatypeId="DT_LowUA2" />
+              <Name textId="TI_VAR_SupplyVoltage_Control_03" />
+            </RecordItem>
+          </Datatype>
+          <Name textId="TI_VAR_SupplyVoltage_Control" />
+        </Variable>
+		<Variable id="V_Actuator_sc_Record" index="69" accessRights="ro">
+          <Datatype xsi:type="RecordT" bitLength="8">
+            <RecordItem subindex="1" bitOffset="0">
+              <DatatypeRef datatypeId="DT_Actuator_sc" />
+              <Name textId="TI_VAR_Actuator_sc_01" />
+            </RecordItem>
+            <RecordItem subindex="2" bitOffset="1">
+              <DatatypeRef datatypeId="DT_Actuator_sc" />
+              <Name textId="TI_VAR_Actuator_sc_02" />
+            </RecordItem>
+            <RecordItem subindex="3" bitOffset="2">
+              <DatatypeRef datatypeId="DT_Actuator_sc" />
+              <Name textId="TI_VAR_Actuator_sc_03" />
+            </RecordItem>
+            <RecordItem subindex="4" bitOffset="3">
+              <DatatypeRef datatypeId="DT_Actuator_sc" />
+              <Name textId="TI_VAR_Actuator_sc_04" />
+            </RecordItem>
+     		<RecordItem subindex="5" bitOffset="4">
+              <DatatypeRef datatypeId="DT_Actuator_sc" />
+              <Name textId="TI_VAR_Actuator_sc_09" />
+            </RecordItem>
+			<RecordItem subindex="6" bitOffset="5">
+              <DatatypeRef datatypeId="DT_Actuator_sc" />
+              <Name textId="TI_VAR_Actuator_sc_10" />
+            </RecordItem>
+			<RecordItem subindex="7" bitOffset="6">
+              <DatatypeRef datatypeId="DT_Actuator_sc" />
+              <Name textId="TI_VAR_Actuator_sc_11" />
+            </RecordItem>
+			<RecordItem subindex="8" bitOffset="7">
+              <DatatypeRef datatypeId="DT_Actuator_sc" />
+              <Name textId="TI_VAR_Actuator_sc_12" />
+            </RecordItem>
+			</Datatype>
+			<Name textId="TI_VAR_Actuator_sc" />
+		</Variable>
+		<Variable id="V_Actuator_wrn_Record" index="70" accessRights="ro">
+          <Datatype xsi:type="RecordT" bitLength="8">
+            <RecordItem subindex="1" bitOffset="0">
+              <DatatypeRef datatypeId="DT_Actuator_wrn" />
+              <Name textId="TI_VAR_Actuator_wrn_01" />
+            </RecordItem>
+            <RecordItem subindex="2" bitOffset="1">
+              <DatatypeRef datatypeId="DT_Actuator_wrn" />
+              <Name textId="TI_VAR_Actuator_wrn_02" />
+            </RecordItem>
+            <RecordItem subindex="3" bitOffset="2">
+              <DatatypeRef datatypeId="DT_Actuator_wrn" />
+              <Name textId="TI_VAR_Actuator_wrn_03" />
+            </RecordItem>
+            <RecordItem subindex="4" bitOffset="3">
+              <DatatypeRef datatypeId="DT_Actuator_wrn" />
+              <Name textId="TI_VAR_Actuator_wrn_04" />
+            </RecordItem>
+ 			<RecordItem subindex="5" bitOffset="4">
+              <DatatypeRef datatypeId="DT_Actuator_wrn" />
+              <Name textId="TI_VAR_Actuator_wrn_09" />
+            </RecordItem>
+			<RecordItem subindex="6" bitOffset="5">
+              <DatatypeRef datatypeId="DT_Actuator_wrn" />
+              <Name textId="TI_VAR_Actuator_wrn_10" />
+            </RecordItem>
+			<RecordItem subindex="7" bitOffset="6">
+              <DatatypeRef datatypeId="DT_Actuator_wrn" />
+              <Name textId="TI_VAR_Actuator_wrn_11" />
+            </RecordItem>
+			<RecordItem subindex="8" bitOffset="7">
+              <DatatypeRef datatypeId="DT_Actuator_wrn" />
+              <Name textId="TI_VAR_Actuator_wrn_12" />
+            </RecordItem>
+			</Datatype>
+          <Name textId="TI_VAR_Actuator_wrn" />
+		</Variable>
+		<Variable id="V_Actuator_feedback_Record" index="71" accessRights="ro">
+          <Datatype xsi:type="RecordT" bitLength="8">
+            <RecordItem subindex="1" bitOffset="0">
+              <DatatypeRef datatypeId="DT_Actuator_feedback" />
+              <Name textId="TI_VAR_Actuator_feedback_01" />
+            </RecordItem>
+            <RecordItem subindex="2" bitOffset="1">
+              <DatatypeRef datatypeId="DT_Actuator_feedback" />
+              <Name textId="TI_VAR_Actuator_feedback_02" />
+            </RecordItem>
+            <RecordItem subindex="3" bitOffset="2">
+              <DatatypeRef datatypeId="DT_Actuator_feedback" />
+              <Name textId="TI_VAR_Actuator_feedback_03" />
+            </RecordItem>
+            <RecordItem subindex="4" bitOffset="3">
+              <DatatypeRef datatypeId="DT_Actuator_feedback" />
+              <Name textId="TI_VAR_Actuator_feedback_04" />
+            </RecordItem>
+ 			<RecordItem subindex="5" bitOffset="4">
+              <DatatypeRef datatypeId="DT_Actuator_feedback" />
+              <Name textId="TI_VAR_Actuator_feedback_09" />
+            </RecordItem>
+			<RecordItem subindex="6" bitOffset="5">
+              <DatatypeRef datatypeId="DT_Actuator_feedback" />
+              <Name textId="TI_VAR_Actuator_feedback_10" />
+            </RecordItem>
+			<RecordItem subindex="7" bitOffset="6">
+              <DatatypeRef datatypeId="DT_Actuator_feedback" />
+              <Name textId="TI_VAR_Actuator_feedback_11" />
+            </RecordItem>
+			<RecordItem subindex="8" bitOffset="7">
+              <DatatypeRef datatypeId="DT_Actuator_feedback" />
+              <Name textId="TI_VAR_Actuator_feedback_12" />
+            </RecordItem>
+          </Datatype>
+          <Name textId="TI_VAR_Actuator_feedback" />
+		</Variable>
+		
+		<Variable id="V_Event_Suppression_Record" index="159" accessRights="rw" >
+          <Datatype xsi:type="RecordT" bitLength="5" subindexAccessSupported="false" >
+            <RecordItem subindex="1" bitOffset="0">
+              <DatatypeRef datatypeId="DT_EventSupprRec" />
+              <Name textId="TI_VAR_US_Event_Suppr" />
+            </RecordItem>
+            <RecordItem subindex="2" bitOffset="1">
+              <DatatypeRef datatypeId="DT_EventSupprRec" />
+              <Name textId="TI_VAR_UA1_Event_Suppr" />
+            </RecordItem>
+            <RecordItem subindex="3" bitOffset="2">
+              <DatatypeRef datatypeId="DT_EventSupprRec" />
+              <Name textId="TI_VAR_UA2_Event_Suppr" />
+            </RecordItem>
+            <RecordItem subindex="4" bitOffset="3">
+              <DatatypeRef datatypeId="DT_EventSupprRec" />
+              <Name textId="TI_VAR_Output_Event_Suppr_SEG1" />
+            </RecordItem> 
+			<RecordItem subindex="5" bitOffset="4">
+              <DatatypeRef datatypeId="DT_EventSupprRec" />
+              <Name textId="TI_VAR_Output_Event_Suppr_SEG2" />
+            </RecordItem> 			
+          </Datatype>
+          <Name textId="TI_VAR_EventSuppr" />
+          <Description textId="TI_VAR_EventSupprDsc" />
+        </Variable>
+		
+      </VariableCollection>
+	  <ProcessDataCollection>
+        <ProcessData id="V_PdT">	
+		<ProcessDataOut id="V_Pd_OutT" bitLength="8">
+            <Datatype xsi:type="RecordT" bitLength="8">
+              <Name textId="TI_DT_IOL_Pd" />
+              <RecordItem subindex="1" bitOffset="0">
+                <DatatypeRef datatypeId="DT_DigitalIn" />
+                <Name textId="TI_PD_Switchstate_01" />
+              </RecordItem>
+              <RecordItem subindex="2" bitOffset="1">
+                <DatatypeRef datatypeId="DT_DigitalIn" />
+                <Name textId="TI_PD_Switchstate_02" />
+              </RecordItem>
+              <RecordItem subindex="3" bitOffset="2">
+                <DatatypeRef datatypeId="DT_DigitalIn" />
+                <Name textId="TI_PD_Switchstate_03" />
+              </RecordItem>
+              <RecordItem subindex="4" bitOffset="3">
+                <DatatypeRef datatypeId="DT_DigitalIn" />
+                <Name textId="TI_PD_Switchstate_04" />
+              </RecordItem>
+              <RecordItem subindex="9" bitOffset="4">
+                <DatatypeRef datatypeId="DT_DigitalIn" />
+                <Name textId="TI_PD_Switchstate_09" />
+              </RecordItem>
+              <RecordItem subindex="10" bitOffset="5">
+                <DatatypeRef datatypeId="DT_DigitalIn" />
+                <Name textId="TI_PD_Switchstate_10" />
+              </RecordItem>
+              <RecordItem subindex="11" bitOffset="6">
+                <DatatypeRef datatypeId="DT_DigitalIn" />
+                <Name textId="TI_PD_Switchstate_11" />
+              </RecordItem>
+              <RecordItem subindex="12" bitOffset="7">
+                <DatatypeRef datatypeId="DT_DigitalIn" />
+                <Name textId="TI_PD_Switchstate_12" />
+              </RecordItem>
+            </Datatype>
+            <Name textId="TI_PD_Out" />
+          </ProcessDataOut>
+        </ProcessData>
+      </ProcessDataCollection>
+      <EventCollection>
+        <!--0x5112-->
+        <Event code="20754" type="Warning" mode="AppearDisappear">
+          <Name textId="TI_Ev_LowSupply24" />
+          <Description textId="TI_EvDescr_LowSupply24" />
+        </Event>
+        <!--0x5160-->
+        <Event code="20832" type="Error" mode="AppearDisappear">
+          <Name textId="TI_Ev_ShortCircuit" />
+          <Description textId="TI_EvDescr_ShortCircuit" />
+        </Event>
+      </EventCollection>
+       <UserInterface>
+        <MenuCollection>
+          <Menu id="M_OR_MR_SR_Ident">
+            <VariableRef variableId="V_VendorName" />
+            <VariableRef variableId="V_VendorText" />
+            <VariableRef variableId="V_ProductName" />
+            <VariableRef variableId="V_ProductID" />
+            <VariableRef variableId="V_ProductText" />
+            <VariableRef variableId="V_HardwareRevision" />
+            <VariableRef variableId="V_FirmwareRevision" />
+          </Menu>
+		  
+		  <!-- Configuration Menü -->
+          <Menu id="M_OR_Param">
+            <MenuRef menuId="M_ParamDevice" />  
+			<MenuRef menuId="M_ConfigPort0" />
+			<MenuRef menuId="M_ConfigPort1" />
+			<MenuRef menuId="M_ConfigPort2" />
+			<MenuRef menuId="M_ConfigPort3" />
+			<MenuRef menuId="M_ConfigPort4" />
+			<MenuRef menuId="M_ConfigPort5" />
+			<MenuRef menuId="M_ConfigPort6" />
+			<MenuRef menuId="M_ConfigPort7" />
+          </Menu>
+		  		  
+		  
+          <Menu id="M_MR_Param">
+            <MenuRef menuId="M_ParamDevice" />  
+			<MenuRef menuId="M_ConfigPort0" />
+			<MenuRef menuId="M_ConfigPort1" />
+			<MenuRef menuId="M_ConfigPort2" />
+			<MenuRef menuId="M_ConfigPort3" />
+			<MenuRef menuId="M_ConfigPort4" />
+			<MenuRef menuId="M_ConfigPort5" />
+			<MenuRef menuId="M_ConfigPort6" />
+			<MenuRef menuId="M_ConfigPort7" />			
+          </Menu>		  		  		  
+		  
+          <Menu id="M_SR_Param">
+            <MenuRef menuId="M_ParamDevice" />  
+			<MenuRef menuId="M_ConfigPort0" />
+			<MenuRef menuId="M_ConfigPort1" />
+			<MenuRef menuId="M_ConfigPort2" />
+			<MenuRef menuId="M_ConfigPort3" />
+			<MenuRef menuId="M_ConfigPort4" />
+			<MenuRef menuId="M_ConfigPort5" />
+			<MenuRef menuId="M_ConfigPort6" />
+			<MenuRef menuId="M_ConfigPort7" />
+          </Menu>
+		  
+		  
+		  <Menu id="M_ParamDevice"> 
+            <Name textId="TI_M_Device_Name" /> 
+            <VariableRef variableId="V_Event_Suppression_Record" accessRightRestriction="rw" displayFormat="Bin" />
+          </Menu>
+		  
+		  
+		  <Menu id="M_ConfigPort0"> 
+            <Name textId="TI_M_Port0_Name" /> 
+            <RecordItemRef variableId="V_FaultState4_Record"  displayFormat="Dec" subindex="1" />          
+          </Menu>
+		  
+		  <Menu id="M_ConfigPort1"> 
+            <Name textId="TI_M_Port1_Name" /> 
+            <RecordItemRef variableId="V_FaultState2_Record"  displayFormat="Dec" subindex="1" />
+          </Menu>
+		  
+		  <Menu id="M_ConfigPort2"> 
+            <Name textId="TI_M_Port2_Name" /> 
+            <RecordItemRef variableId="V_FaultState4_Record"  displayFormat="Dec" subindex="2" />
+          </Menu>
+		  
+		  <Menu id="M_ConfigPort3"> 
+            <Name textId="TI_M_Port3_Name" /> 
+            <RecordItemRef variableId="V_FaultState2_Record"  displayFormat="Dec" subindex="2" />
+          </Menu>
+		  
+		  <Menu id="M_ConfigPort4"> 
+            <Name textId="TI_M_Port4_Name" /> 
+            <RecordItemRef variableId="V_FaultState4_Record"  displayFormat="Dec" subindex="3" />           
+          </Menu>
+		  
+		  <Menu id="M_ConfigPort5"> 
+            <Name textId="TI_M_Port5_Name" /> 
+            <RecordItemRef variableId="V_FaultState2_Record"  displayFormat="Dec" subindex="3" />           
+          </Menu>
+		  
+		  <Menu id="M_ConfigPort6"> 
+            <Name textId="TI_M_Port6_Name" /> 
+            <RecordItemRef variableId="V_FaultState4_Record"  displayFormat="Dec" subindex="4" />          
+          </Menu>
+		  
+		  <Menu id="M_ConfigPort7"> 
+            <Name textId="TI_M_Port7_Name" /> 
+            <RecordItemRef variableId="V_FaultState2_Record"  displayFormat="Dec" subindex="4" />          
+          </Menu>
+		  
+		  
+		  <!--    Diagnostic Menü -->
+		  <Menu id="M_OR_MR_SR_Diagnosis">
+            <MenuRef menuId="M_DiagDevice" />  
+			<MenuRef menuId="M_DiagPort0" />
+  			<MenuRef menuId="M_DiagPort1" />
+			<MenuRef menuId="M_DiagPort2" />
+  			<MenuRef menuId="M_DiagPort3" />
+			<MenuRef menuId="M_DiagPort4" />
+  			<MenuRef menuId="M_DiagPort5" />
+			<MenuRef menuId="M_DiagPort6" />
+  			<MenuRef menuId="M_DiagPort7" />
+          </Menu>		  		  
+		  
+		  
+		   <Menu id="M_DiagDevice"> 
+            <Name textId="TI_M_Device_Name" /> 
+            <VariableRef variableId="V_SupplyVoltage_Control_Record" accessRightRestriction="ro" displayFormat="Dec" />
+          </Menu>
+		  		  		  		  		
+		  <Menu id="M_DiagPort0"> 
+            <Name textId="TI_M_Port0_Name" /> 
+            <RecordItemRef variableId="V_Actuator_sc_Record"  displayFormat="Dec" subindex="1" />
+            <RecordItemRef variableId="V_Actuator_wrn_Record" displayFormat="Dec" subindex="1" />
+			<RecordItemRef variableId="V_Actuator_feedback_Record" displayFormat="Dec" subindex="1" />		
+          </Menu>
+		  
+		   <Menu id="M_DiagPort1"> 
+            <Name textId="TI_M_Port1_Name" /> 
+            <RecordItemRef variableId="V_Actuator_sc_Record"  displayFormat="Dec" subindex="5" />
+            <RecordItemRef variableId="V_Actuator_wrn_Record" displayFormat="Dec" subindex="5" />
+			<RecordItemRef variableId="V_Actuator_feedback_Record" displayFormat="Dec" subindex="5" />
+          </Menu>
+		  
+		   <Menu id="M_DiagPort2"> 
+            <Name textId="TI_M_Port2_Name" /> 
+            <RecordItemRef variableId="V_Actuator_sc_Record"  displayFormat="Dec" subindex="2" />
+            <RecordItemRef variableId="V_Actuator_wrn_Record" displayFormat="Dec" subindex="2" />
+			<RecordItemRef variableId="V_Actuator_feedback_Record" displayFormat="Dec" subindex="2" />
+          </Menu>
+		  
+		   <Menu id="M_DiagPort3"> 
+            <Name textId="TI_M_Port3_Name" /> 
+            <RecordItemRef variableId="V_Actuator_sc_Record"  displayFormat="Dec" subindex="6" />
+            <RecordItemRef variableId="V_Actuator_wrn_Record" displayFormat="Dec" subindex="6" />
+			<RecordItemRef variableId="V_Actuator_feedback_Record" displayFormat="Dec" subindex="6" />
+          </Menu>
+		  
+		   <Menu id="M_DiagPort4"> 
+            <Name textId="TI_M_Port4_Name" /> 
+            <RecordItemRef variableId="V_Actuator_sc_Record"  displayFormat="Dec" subindex="3" />
+            <RecordItemRef variableId="V_Actuator_wrn_Record" displayFormat="Dec" subindex="3" />
+			<RecordItemRef variableId="V_Actuator_feedback_Record" displayFormat="Dec" subindex="3" />
+          </Menu>
+		  
+		   <Menu id="M_DiagPort5"> 
+            <Name textId="TI_M_Port5_Name" /> 
+            <RecordItemRef variableId="V_Actuator_sc_Record"  displayFormat="Dec" subindex="7" />
+            <RecordItemRef variableId="V_Actuator_wrn_Record" displayFormat="Dec" subindex="7" />
+			<RecordItemRef variableId="V_Actuator_feedback_Record" displayFormat="Dec" subindex="7" />
+          </Menu>
+		  
+		   <Menu id="M_DiagPort6"> 
+            <Name textId="TI_M_Port6_Name" /> 
+            <RecordItemRef variableId="V_Actuator_sc_Record"  displayFormat="Dec" subindex="4" />
+            <RecordItemRef variableId="V_Actuator_wrn_Record" displayFormat="Dec" subindex="4" />
+			<RecordItemRef variableId="V_Actuator_feedback_Record" displayFormat="Dec" subindex="4" />
+          </Menu>
+		  
+		   <Menu id="M_DiagPort7"> 
+            <Name textId="TI_M_Port7_Name" /> 
+            <RecordItemRef variableId="V_Actuator_sc_Record"  displayFormat="Dec" subindex="8" />
+            <RecordItemRef variableId="V_Actuator_wrn_Record" displayFormat="Dec" subindex="8" />
+			<RecordItemRef variableId="V_Actuator_feedback_Record" displayFormat="Dec" subindex="8" />
+          </Menu>
+
+		  
+        </MenuCollection>
+        <ObserverRoleMenuSet>
+          <IdentificationMenu menuId="M_OR_MR_SR_Ident" />
+          <ParameterMenu menuId="M_OR_Param" />
+		  <DiagnosisMenu      menuId="M_OR_MR_SR_Diagnosis" />
+        </ObserverRoleMenuSet>
+        <MaintenanceRoleMenuSet>
+          <IdentificationMenu menuId="M_OR_MR_SR_Ident" />
+          <ParameterMenu menuId="M_MR_Param" />
+		  <DiagnosisMenu      menuId="M_OR_MR_SR_Diagnosis" />
+        </MaintenanceRoleMenuSet>
+        <SpecialistRoleMenuSet>
+          <IdentificationMenu menuId="M_OR_MR_SR_Ident" />
+          <ParameterMenu menuId="M_SR_Param" />
+		  <DiagnosisMenu      menuId="M_OR_MR_SR_Diagnosis" />
+        </SpecialistRoleMenuSet>
+      </UserInterface>
+    </DeviceFunction>
+  </ProfileBody>
+  <CommNetworkProfile xsi:type="IOLinkCommNetworkProfileT" iolinkRevision="V1.0">
+    <TransportLayers>
+      <PhysicalLayer physics="2" minCycleTime="3000" sioSupported="false" baudrate="COM2" />
+    </TransportLayers>
+  </CommNetworkProfile>
+  <ExternalTextCollection>
+    <PrimaryLanguage xml:lang="en">
+      <Text id="TI_VendorText" value="innovating automation" />
+      <Text id="TI_VendorUrl" value="http://www.balluff.com" />
+      <Text id="TI_DeviceFamily" value="BNI - Actor hub metal" />
+      <Text id="TI_Product1_Name" value="BNI IOL-252-000-Z013" />
+      <Text id="TI_Product1_Descr" value="8 galvanically isolated outputs, 8xM12 connectors in metal housing" />
+	  
+	  <Text id="TI_DT_IOL_Pd" value="Datatype ProcessDataOutput" />
+	  <Text id="TI_PD_Out" value="ProcessDataOutput" />
+      <Text id="TI_PD_Switchstate_01" value="Output Segment 1 Port 0 Pin 4" />
+      <Text id="TI_PD_Switchstate_02" value="Output Segment 1 Port 2 Pin 4" />
+      <Text id="TI_PD_Switchstate_03" value="Output Segment 1 Port 4 Pin 4" />
+      <Text id="TI_PD_Switchstate_04" value="Output Segment 1 Port 6 Pin 4" />
+	  <Text id="TI_PD_Switchstate_09" value="Output Segment 2 Port 1 Pin 4" />
+      <Text id="TI_PD_Switchstate_10" value="Output Segment 2 Port 3 Pin 4" />
+      <Text id="TI_PD_Switchstate_11" value="Output Segment 2 Port 5 Pin 4" />
+      <Text id="TI_PD_Switchstate_12" value="Output Segment 2 Port 7 Pin 4" />
+	  <Text id="TI_PD_DigitalIn_high" value="true" />
+      <Text id="TI_PD_DigitalIn_low" value="false" />
+	  
+      <Text id="TI_VAR_FaultState4" value="Fault State Segment 1" />
+      <Text id="TI_VAR_FaultState4_01" value="Port 0 Pin 4" />
+      <Text id="TI_VAR_FaultState4_02" value="Port 2 Pin 4" />
+      <Text id="TI_VAR_FaultState4_03" value="Port 4 Pin 4" />
+      <Text id="TI_VAR_FaultState4_04" value="Port 6 Pin 4" />
+      <Text id="TI_VAR_FaultState4_Descr" value="Sets the signal fault state" />
+	  
+      <Text id="TI_VAR_FaultState2" value="Fault State Segment 2" />
+      <Text id="TI_VAR_FaultState2_01" value="Port 1 Pin 4" />
+      <Text id="TI_VAR_FaultState2_02" value="Port 3 Pin 4" />
+      <Text id="TI_VAR_FaultState2_03" value="Port 5 Pin 4" />
+      <Text id="TI_VAR_FaultState2_04" value="Port 7 Pin 4" />
+      <Text id="TI_VAR_FaultState2_Descr" value="Sets the signal fault state" />
+	  
+      <Text id="TI_VAR_FaultState_0" value="0" />
+      <Text id="TI_VAR_FaultState_1" value="1" />
+      <Text id="TI_VAR_FaultState_Last" value="Last state" />
+	  
+	  <Text id="TI_VAR_SupplyVoltage_Control" value="Supply Voltage" />
+      <Text id="TI_VAR_SupplyVoltage_Control_01" value="Low Voltage Sensor Supply" />
+      <Text id="TI_VAR_SupplyVoltage_Control_02" value="Low Voltage Actuator Supply Segment 1" />
+      <Text id="TI_VAR_SupplyVoltage_Control_03" value="Low Voltage Actuator Supply Segment 2" />
+	  
+	  <Text id="TI_VAR_Actuator_sc" value="Actuator short circuit" />
+      <Text id="TI_VAR_Actuator_sc_01" value="Segment 1 Port 0 Pin 4" />
+      <Text id="TI_VAR_Actuator_sc_02" value="Segment 1 Port 2 Pin 4" />
+	  <Text id="TI_VAR_Actuator_sc_03" value="Segment 1 Port 4 Pin 4" />
+      <Text id="TI_VAR_Actuator_sc_04" value="Segment 1 Port 6 Pin 4" />
+      <Text id="TI_VAR_Actuator_sc_09" value="Segment 2 Port 1 Pin 4" />
+	  <Text id="TI_VAR_Actuator_sc_10" value="Segment 2 Port 3 Pin 4" />
+      <Text id="TI_VAR_Actuator_sc_11" value="Segment 2 Port 5 Pin 4" />
+	  <Text id="TI_VAR_Actuator_sc_12" value="Segment 2 Port 7 Pin 4" />
+	  <Text id="TI_VAR_Actuator_sc_high" value="Actor short circuit" />
+      <Text id="TI_VAR_Actuator_sc_low" value="OK" />
+	  
+	  <Text id="TI_VAR_Actuator_wrn" value="Actuator warning" />
+      <Text id="TI_VAR_Actuator_wrn_01" value="Segment 1 Port 0 Pin 4" />
+      <Text id="TI_VAR_Actuator_wrn_02" value="Segment 1 Port 2 Pin 4" />
+	  <Text id="TI_VAR_Actuator_wrn_03" value="Segment 1 Port 4 Pin 4" />
+      <Text id="TI_VAR_Actuator_wrn_04" value="Segment 1 Port 6 Pin 4" />
+      <Text id="TI_VAR_Actuator_wrn_09" value="Segment 2 Port 1 Pin 4" />
+	  <Text id="TI_VAR_Actuator_wrn_10" value="Segment 2 Port 3 Pin 4" />
+      <Text id="TI_VAR_Actuator_wrn_11" value="Segment 2 Port 5 Pin 4" />
+	  <Text id="TI_VAR_Actuator_wrn_12" value="Segment 2 Port 7 Pin 4" />
+	  <Text id="TI_VAR_Actuator_wrn_high" value="Actuator warning" />
+      <Text id="TI_VAR_Actuator_wrn_low" value="OK" />
+	  
+	  <Text id="TI_VAR_Actuator_feedback" value="Feedback" />
+      <Text id="TI_VAR_Actuator_feedback_01" value="Segment 1 Port 0 Pin 4" />
+      <Text id="TI_VAR_Actuator_feedback_02" value="Segment 1 Port 2 Pin 4" />
+	  <Text id="TI_VAR_Actuator_feedback_03" value="Segment 1 Port 4 Pin 4" />
+      <Text id="TI_VAR_Actuator_feedback_04" value="Segment 1 Port 6 Pin 4" />
+      <Text id="TI_VAR_Actuator_feedback_09" value="Segment 2 Port 1 Pin 4" />
+	  <Text id="TI_VAR_Actuator_feedback_10" value="Segment 2 Port 3 Pin 4" />
+      <Text id="TI_VAR_Actuator_feedback_11" value="Segment 2 Port 5 Pin 4" />
+	  <Text id="TI_VAR_Actuator_feedback_12" value="Segment 2 Port 7 Pin 4" />
+	  <Text id="TI_VAR_Actuator_feedback_high" value="true" />
+      <Text id="TI_VAR_Actuator_feedback_low" value="false" />
+	  
+      <Text id="TI_Ev_ShortCircuit" value="Short circuit" />
+      <Text id="TI_EvDescr_ShortCircuit" value="Short circuit" />
+      <Text id="TI_Ev_LowSupply24" value="Low supply voltage 24V" />
+      <Text id="TI_EvDescr_LowSupply24" value="Low supply voltage 24V" />
+	  <Text id="TI_VAR_LowUS_low" value="OK" />
+	  <Text id="TI_VAR_LowUS_high" value="Low Sensor supply voltage" />
+	  <Text id="TI_VAR_LowUA1_low" value="OK" />
+	  <Text id="TI_VAR_LowUA1_high" value="Low Actuator voltage supply Segment 1" />
+	  <Text id="TI_VAR_LowUA2_low" value="OK" />
+	  
+	  
+	  <Text id="TI_VAR_LowUA2_high" value="Low Actuator voltage supply Segment 2" />
+	  <Text id="TI_VAR_EventSuppr" value="Event suppression register" />
+	  <Text id="TI_VAR_EventSupprDsc" value="Enable or disable the event transmission" />
+	  <Text id="TI_VAR_Enable" value="Enable" />
+	  <Text id="TI_VAR_Disable" value="Disable" />
+	  <Text id="TI_VAR_US_Event_Suppr" value="Low US Event" />
+	  <Text id="TI_VAR_UA1_Event_Suppr" value="Low UA1 Event" />
+	  <Text id="TI_VAR_UA2_Event_Suppr" value="Low UA2 Event" />
+	  <Text id="TI_VAR_Output_Event_Suppr_SEG1" value="Output Stage Failure Segment 1 Event" />
+	  <Text id="TI_VAR_Output_Event_Suppr_SEG2" value="Output Stage Failure Segment 2 Event" />	  
+	  
+	  <Text id="TI_M_Device_Name"         value="Device" /> 	  
+	  <Text id="TI_M_Port0_Name"          value="Port 0" />
+	  <Text id="TI_M_Port1_Name"          value="Port 1" />
+	  <Text id="TI_M_Port2_Name"          value="Port 2" />
+	  <Text id="TI_M_Port3_Name"          value="Port 3" />
+	  <Text id="TI_M_Port4_Name"          value="Port 4" />
+	  <Text id="TI_M_Port5_Name"          value="Port 5" />
+	  <Text id="TI_M_Port6_Name"          value="Port 6" />
+	  <Text id="TI_M_Port7_Name"          value="Port 7" />
+	  
+    </PrimaryLanguage>
+  </ExternalTextCollection>
+  <Stamp crc="1256229784"><Checker name="IODD-Checker V1.0.10" version="V1.0.10.0"/></Stamp>
+</IODevice>

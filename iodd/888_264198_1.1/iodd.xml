@@ -1,0 +1,803 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<IODevice xmlns="http://www.io-link.com/IODD/2010/10" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.io-link.com/IODD/2010/10 IODD1.1.xsd">
+<DocumentInfo version="V143276.471714" releaseDate="2015-02-16" copyright="Copyright 2015, Balluff GmbH"></DocumentInfo>
+
+
+
+
+
+	<ProfileHeader>
+		<ProfileIdentification>IO Device Profile</ProfileIdentification>
+		<ProfileRevision>1.1</ProfileRevision>
+		<ProfileName>Device Profile for IO Devices</ProfileName>
+		<ProfileSource>IO-Link Consortium</ProfileSource>
+		<ProfileClassID>Device</ProfileClassID>
+		<ISO15745Reference>
+			<ISO15745Part>1</ISO15745Part>
+			<ISO15745Edition>1</ISO15745Edition>
+			<ProfileTechnology>IODD</ProfileTechnology>
+		</ISO15745Reference>
+	</ProfileHeader>
+
+
+
+
+
+	<ProfileBody>
+		<DeviceIdentity vendorId="888" vendorName="Balluff GmbH" deviceId="264198">
+			<VendorText textId="TI_VendorText"></VendorText>
+			<VendorUrl textId="TI_VendorUrl"></VendorUrl>
+			<VendorLogo name="Balluff-logo.png"></VendorLogo>
+			<DeviceName textId="TI_DeviceName"></DeviceName>
+			<DeviceFamily textId="TI_DeviceFamily"></DeviceFamily>
+			<DeviceVariantCollection>
+				<DeviceVariant productId="BUS004Y" deviceSymbol="Balluff-BUS18M1_BUS004Y-pic.png" deviceIcon="Balluff-BUS18M1_BUS004Y-icon.png">
+					<Name textId="TI_ProductName_Name1"></Name>
+					<Description textId="TI_ProductText_Text1"></Description>
+				</DeviceVariant>
+</DeviceVariantCollection>
+		</DeviceIdentity>
+
+		<DeviceFunction>
+			<Features blockParameter="true" dataStorage="true">
+				<SupportedAccessLocks parameter="true" dataStorage="true" localParameterization="false" localUserInterface="false"></SupportedAccessLocks>
+			</Features>
+
+			<VariableCollection>
+				<StdVariableRef id="V_DirectParameters_1"></StdVariableRef>								<!--0-->
+				<StdVariableRef id="V_DirectParameters_2"></StdVariableRef>								<!--1-->
+				<StdVariableRef id="V_SystemCommand">													<!--2-->
+				<StdSingleValueRef value="130"/>
+								
+				<SingleValue value="161">
+					<Name textId="TI_SV_Teach_SwitchPoint"></Name>
+				</SingleValue>
+				
+				<SingleValue value="162">
+					<Name textId="TI_SV_Teach_SwitchPoint_Plus_8_percent"></Name>
+				</SingleValue>
+				
+				<SingleValue value="165">
+					<Name textId="TI_SV_Teach_Window_Mode_S1"></Name>
+				</SingleValue>
+				
+				<SingleValue value="166">
+					<Name textId="TI_SV_Teach_Window_Mode_S2"></Name>
+				</SingleValue>
+				
+				<SingleValue value="164">
+					<Name textId="TI_SV_Teach_Two_Way_Barrier"></Name>
+				</SingleValue>
+				
+				<SingleValue value="168">
+					<Name textId="TI_SV_Teach_Factory_Setting"></Name>
+				</SingleValue>
+								
+				</StdVariableRef>
+				<StdVariableRef id="V_DeviceAccessLocks"></StdVariableRef>								<!--3  -->
+				<StdVariableRef id="V_VendorName" defaultValue="Balluff GmbH"></StdVariableRef>			<!--16 -->
+				<StdVariableRef id="V_VendorText" defaultValue="www.balluff.com"></StdVariableRef>		<!--17 -->
+				<StdVariableRef id="V_ProductName" defaultValue="BUS_18M1"></StdVariableRef>			<!--18 -->
+				<StdVariableRef id="V_ProductID" defaultValue="BUS004Y"></StdVariableRef>				<!--19 -->
+				<StdVariableRef id="V_ProductText" defaultValue="Ultraschall-Sensor"></StdVariableRef>	<!--20 -->
+				<!--Serial Number /-->																	<!--21 -->
+				<StdVariableRef id="V_HardwareRevision" defaultValue="-"></StdVariableRef>				<!--22 -->
+				<StdVariableRef id="V_FirmwareRevision" defaultValue="-"></StdVariableRef>				<!--23 -->
+				<StdVariableRef id="V_ApplicationSpecificTag" defaultValue="********************************" fixedLengthRestriction="32"></StdVariableRef><!--24 -->
+				<!--StdVariableRef id="V_ErrorCount"/-->												<!--32: Read Error-->
+				<!--StdVariableRef id="V_LastEvent"/-->													<!--33: Read Error-->
+				<!--StdVariableRef id="V_ProcessDataIn"/-->												<!--40: Read Error-->
+				<!--StdVariableRef id="V_ProcessDataOut"/-->											<!--41: Read Error-->
+
+
+<!--64: Schaltausgang2 Schaltpunkt XA -->
+				<Variable accessRights="rw" id="V_SwitchPoint1" index="64" defaultValue="5094">
+					<Datatype xsi:type="UIntegerT" bitLength="16">
+						<ValueRange lowerValue="946" upperValue="8704"></ValueRange>
+					</Datatype>
+					<Name textId="TI_V_SwitchPoint1"></Name>
+					<Description textId="TID_V_SwitchPoint1"></Description>
+				</Variable>
+
+
+<!--65: Schaltausgang2 Rückschaltpunkt YA -->
+				<Variable accessRights="rw" id="V_BackspacePoint1" index="65" defaultValue="5167">
+					<Datatype xsi:type="UIntegerT" bitLength="16">
+						<ValueRange lowerValue="961" upperValue="8718"></ValueRange>
+					</Datatype>
+					<Name textId="TI_V_BackspacePoint1"></Name>
+					<Description textId="TID_V_BackspacePoint1"></Description>
+				</Variable>
+
+
+<!--72: Schaltausgang2 Rückschaltpunkt YB -->
+				<Variable accessRights="rw" id="V_BackspacePoint2" index="72" defaultValue="65512">
+					<Datatype xsi:type="UIntegerT" bitLength="16">
+						<ValueRange lowerValue="961" upperValue="65512"></ValueRange>
+					</Datatype>
+					<Name textId="TI_V_BackspacePoint2"></Name>
+					<Description textId="TID_V_BackspacePoint2"></Description>
+				</Variable>
+
+
+<!--71: Schaltausgang2 Schaltpunkt XB -->
+				<Variable accessRights="rw" id="V_SwitchPoint2" index="71" defaultValue="65512">
+					<Datatype xsi:type="UIntegerT" bitLength="16">
+						<ValueRange lowerValue="975" upperValue="65512"></ValueRange>
+					</Datatype>
+					<Name textId="TI_V_SwitchPoint2"></Name>
+					<Description textId="TID_V_SwitchPoint2"></Description>
+				</Variable>
+
+
+<!--73: Vordergrundausblendung -->
+				<Variable accessRights="rw" id="V_Foregroundsuppression" index="73" defaultValue="0">
+					<Datatype xsi:type="UIntegerT" bitLength="16">
+						<ValueRange lowerValue="0" upperValue="1979"></ValueRange>
+					</Datatype>
+					<Name textId="TI_V_Foregroundsuppression"></Name>
+					<Description textId="TID_V_Foregroundsuppression"></Description>
+				</Variable>
+
+
+<!--75: Grenztastweite GT -->
+				<Variable accessRights="rw" id="V_DetectionRange" index="75" defaultValue="8733">
+					<Datatype xsi:type="UIntegerT" bitLength="16">
+						<ValueRange lowerValue="8733" upperValue="14555"></ValueRange>
+					</Datatype>
+					<Name textId="TI_V_DetectionRange"></Name>
+					<Description textId="TID_V_DetectionRange"></Description>
+				</Variable>				
+
+
+<!--74: TouchControl sperren/freigeben  -->
+				<Variable accessRights="rw" id="V_TeachButton" index="74" defaultValue="0">
+					<Datatype xsi:type="UIntegerT" bitLength="8">
+						<SingleValue value="16">
+							<Name textId="TI_V_TeachButton_Lock"></Name>
+						</SingleValue>
+						<SingleValue value="0">
+							<Name textId="TI_V_TeachButton_Release"></Name>
+						</SingleValue>
+					</Datatype>
+					<Name textId="TI_V_TeachButton"></Name>
+					<Description textId="TID_V_TeachButton"></Description>
+				</Variable>				
+
+
+<!--66: Öffner / Schließer Funktion -->
+				<Variable accessRights="rw" id="V_SwitchingMode" index="66" defaultValue="0">
+					<Datatype xsi:type="UIntegerT" bitLength="8">
+						<SingleValue value="0">
+							<Name textId="TI_V_SwitchingMode_0"></Name>
+						</SingleValue>
+						<SingleValue value="2">
+							<Name textId="TI_V_SwitchingMode_2"></Name>
+						</SingleValue>
+					</Datatype>
+					<Name textId="TI_V_SwitchingMode"></Name>
+					<Description textId="TID_V_SwitchingMode"></Description>
+				</Variable>
+				
+				
+<!--67: Filter -->
+				<Variable accessRights="rw" id="V_Filter" index="67" defaultValue="1">
+					<Datatype xsi:type="UIntegerT" bitLength="8">
+						<SingleValue value="0">
+							<Name textId="TI_V_Filter_0"></Name>
+						</SingleValue>
+						<SingleValue value="1">
+							<Name textId="TI_V_Filter_1"></Name>
+						</SingleValue>
+						<SingleValue value="2">
+							<Name textId="TI_V_Filter_2"></Name>
+						</SingleValue>
+						<SingleValue value="3">
+							<Name textId="TI_V_Filter_3"></Name>
+						</SingleValue>
+						<SingleValue value="4">
+							<Name textId="TI_V_Filter_4"></Name>
+						</SingleValue>
+					</Datatype>
+					<Name textId="TI_V_Filter"></Name>
+					<Description textId="TID_V_Filter"></Description>
+				</Variable>
+
+
+<!--68 Filterstärke -->
+				<Variable accessRights="rw" id="V_FilterValue" index="68" defaultValue="0">
+					<Datatype xsi:type="UIntegerT" bitLength="8">
+						<SingleValue value="0">
+							<Name textId="TI_V_FilterStrength_0"></Name>
+						</SingleValue>
+						<SingleValue value="1">
+							<Name textId="TI_V_FilterStrength_1"></Name>
+						</SingleValue>
+						<SingleValue value="2">
+							<Name textId="TI_V_FilterStrength_2"></Name>
+						</SingleValue>
+						<SingleValue value="3">
+							<Name textId="TI_V_FilterStrength_3"></Name>
+						</SingleValue>
+						<SingleValue value="4">
+							<Name textId="TI_V_FilterStrength_4"></Name>
+						</SingleValue>
+						<SingleValue value="5">
+							<Name textId="TI_V_FilterStrength_5"></Name>
+						</SingleValue>
+						<SingleValue value="6">
+							<Name textId="TI_V_FilterStrength_6"></Name>
+						</SingleValue>
+						<SingleValue value="7">
+							<Name textId="TI_V_FilterStrength_7"></Name>
+						</SingleValue>
+						<SingleValue value="8">
+							<Name textId="TI_V_FilterStrength_8"></Name>
+						</SingleValue>
+						<SingleValue value="9">
+							<Name textId="TI_V_FilterStrength_9"></Name>
+						</SingleValue>
+					</Datatype>
+					<Name textId="TI_V_FilterStrength"></Name>
+					<Description textId="TID_V_FilterStrength"></Description>
+				</Variable>
+
+
+<!--76: Temperatorkompensation -->
+				<Variable accessRights="rw" id="V_TempMode" index="76" defaultValue="1">
+					<Datatype xsi:type="UIntegerT" bitLength="8">
+						<SingleValue value="0">
+							<Name textId="TI_V_TempMode_off"></Name>
+						</SingleValue>
+						<SingleValue value="1">
+							<Name textId="TI_V_TempMode_on"></Name>
+						</SingleValue>
+					</Datatype>
+					<Name textId="TI_V_TempMode"></Name>
+					<Description textId="TID_V_TempMode"></Description>
+				</Variable>
+
+
+<!--69: Einschaltverzögerung -->
+				<Variable accessRights="rw" id="V_SwitchOnDelay" index="69" defaultValue="0">
+					<Datatype xsi:type="UIntegerT" bitLength="8">
+						<SingleValue value="0">
+							<Name textId="TI_V_SwitchOnDelay_0"></Name>
+						</SingleValue>
+						<SingleValue value="1">
+							<Name textId="TI_V_SwitchOnDelay_1"></Name>
+						</SingleValue>
+						<SingleValue value="2">
+							<Name textId="TI_V_SwitchOnDelay_2"></Name>
+						</SingleValue>
+						<SingleValue value="3">
+							<Name textId="TI_V_SwitchOnDelay_3"></Name>
+						</SingleValue>
+						<SingleValue value="4">
+							<Name textId="TI_V_SwitchOnDelay_4"></Name>
+						</SingleValue>
+						<SingleValue value="5">
+							<Name textId="TI_V_SwitchOnDelay_5"></Name>
+						</SingleValue>
+						<SingleValue value="6">
+							<Name textId="TI_V_SwitchOnDelay_6"></Name>
+						</SingleValue>
+						<SingleValue value="7">
+							<Name textId="TI_V_SwitchOnDelay_7"></Name>
+						</SingleValue>
+						<SingleValue value="8">
+							<Name textId="TI_V_SwitchOnDelay_8"></Name>
+						</SingleValue>
+						<SingleValue value="9">
+							<Name textId="TI_V_SwitchOnDelay_9"></Name>
+						</SingleValue>
+						<SingleValue value="10">
+							<Name textId="TI_V_SwitchOnDelay_10"></Name>
+						</SingleValue>
+						<SingleValue value="11">
+							<Name textId="TI_V_SwitchOnDelay_11"></Name>
+						</SingleValue>
+						<SingleValue value="12">
+							<Name textId="TI_V_SwitchOnDelay_12"></Name>
+						</SingleValue>
+						<SingleValue value="13">
+							<Name textId="TI_V_SwitchOnDelay_13"></Name>
+						</SingleValue>
+						<SingleValue value="14">
+							<Name textId="TI_V_SwitchOnDelay_14"></Name>
+						</SingleValue>
+						<SingleValue value="15">
+							<Name textId="TI_V_SwitchOnDelay_15"></Name>
+						</SingleValue>
+						<SingleValue value="16">
+							<Name textId="TI_V_SwitchOnDelay_16"></Name>
+						</SingleValue>
+						<SingleValue value="17">
+							<Name textId="TI_V_SwitchOnDelay_17"></Name>
+						</SingleValue>
+						<SingleValue value="18">
+							<Name textId="TI_V_SwitchOnDelay_18"></Name>
+						</SingleValue>
+						<SingleValue value="19">
+							<Name textId="TI_V_SwitchOnDelay_19"></Name>
+						</SingleValue>
+						<SingleValue value="20">
+							<Name textId="TI_V_SwitchOnDelay_20"></Name>
+						</SingleValue>
+					</Datatype>
+					<Name textId="TI_V_SwitchOnDelay"></Name>
+					<Description textId="TID_V_SwitchOnDelay"></Description>
+				</Variable>
+
+
+<!--70: Störgeräuschunterdrückung -->
+				<Variable accessRights="rw" id="V_NoiseSuppression" index="70" defaultValue="0">
+					<Datatype xsi:type="UIntegerT" bitLength="8">
+						<SingleValue value="0">
+							<Name textId="TI_V_NoiseSuppression_off"></Name>
+						</SingleValue>
+						<SingleValue value="64">
+							<Name textId="TI_V_NoiseSuppression_on"></Name>
+						</SingleValue>
+					</Datatype>
+					<Name textId="TI_V_NoiseSuppression"></Name>
+					<Description textId="TID_V_NoiseSuppression"></Description>
+				</Variable>
+
+
+<!--77: Abstandswert = PD -->
+				<Variable accessRights="ro" id="V_PD" index="77" defaultValue="6000">
+					<Datatype xsi:type="UIntegerT" bitLength="16">
+					</Datatype>
+					<Name textId="TI_V_PD"></Name>
+					<Description textId="TID_V_PD"></Description>
+				</Variable>
+				
+				
+<!--78: Schaltzustand = PS -->
+				<Variable accessRights="ro" id="V_PS" index="78" defaultValue="0">
+					<Datatype xsi:type="UIntegerT" bitLength="16">
+						<SingleValue value="0">
+							<Name textId="TI_V_notcon"></Name>
+						</SingleValue>
+						<SingleValue value="1">
+							<Name textId="TI_V_con"></Name>
+						</SingleValue>
+					</Datatype>
+					<Name textId="TI_V_PS"></Name>
+					<Description textId="TID_V_PS"></Description>
+				</Variable>
+			</VariableCollection>
+
+
+
+
+
+<!-- Prozessdaten -->
+			<ProcessDataCollection>
+				<ProcessData id="PD_ProcessData">
+					<ProcessDataIn id="PD_ProcessDataIn" bitLength="16">
+						<Datatype xsi:type="RecordT" bitLength="16">
+							<RecordItem subindex="1" bitOffset="1">
+								<SimpleDatatype xsi:type="UIntegerT" bitLength="15"></SimpleDatatype>
+								<Name textId="TI_ProcessDataIn_Value"></Name>
+							</RecordItem>
+							<RecordItem subindex="2" bitOffset="0">
+								<SimpleDatatype xsi:type="BooleanT">
+									<SingleValue value="0">
+										<Name textId="TI_ProcessDataIn_Status_0"></Name>
+									</SingleValue>
+									<SingleValue value="1">
+										<Name textId="TI_ProcessDataIn_Status_1"></Name>
+									</SingleValue>
+								</SimpleDatatype>
+								<Name textId="TI_ProcessDataIn_Status"></Name>
+							</RecordItem>
+						</Datatype>
+						<Name textId="TI_PD_ProcessDataIn"></Name>
+					</ProcessDataIn>
+				</ProcessData>
+			</ProcessDataCollection>
+
+
+
+
+
+<!-- Events -->
+			<EventCollection>
+				<Event code="36001" type="Notification">
+					<Name textId="TI_ParameterChanged"></Name>
+					<Description textId="TID_ParameterChanged"></Description>
+				</Event>
+				<Event code="36000" type="Notification">
+					<Name textId="TI_TeachInFailed"></Name>
+					<Description textId="TID_TeachInFailed"></Description>
+				</Event>
+			</EventCollection>
+
+
+
+
+
+<!-- User Interface -->
+			<UserInterface>
+				<MenuCollection>
+					<Menu id="ME_OR_Ident">
+						<VariableRef variableId="V_VendorName"></VariableRef>
+						<VariableRef variableId="V_VendorText"></VariableRef>
+						<VariableRef variableId="V_ProductName"></VariableRef>
+						<VariableRef variableId="V_ProductID"></VariableRef>
+						<VariableRef variableId="V_ProductText"></VariableRef>
+					</Menu>
+					<Menu id="ME_MR_Ident">
+						<VariableRef variableId="V_VendorName"></VariableRef>
+						<VariableRef variableId="V_VendorText"></VariableRef>
+						<VariableRef variableId="V_ProductName"></VariableRef>
+						<VariableRef variableId="V_ProductID"></VariableRef>
+						<VariableRef variableId="V_ProductText"></VariableRef>
+						<VariableRef variableId="V_HardwareRevision"></VariableRef>
+						<VariableRef variableId="V_FirmwareRevision"></VariableRef>
+					</Menu>
+					<Menu id="ME_SR_Ident">
+						<VariableRef variableId="V_VendorName"></VariableRef>
+						<VariableRef variableId="V_VendorText"></VariableRef>
+						<VariableRef variableId="V_ProductName"></VariableRef>
+						<VariableRef variableId="V_ProductID"></VariableRef>
+						<VariableRef variableId="V_ProductText"></VariableRef>
+						<VariableRef variableId="V_HardwareRevision"></VariableRef>
+						<VariableRef variableId="V_FirmwareRevision"></VariableRef>
+						<VariableRef variableId="V_ApplicationSpecificTag"></VariableRef>
+					</Menu>
+
+
+
+
+
+					<Menu id="ME_OR_Observe">
+						<VariableRef variableId="V_SwitchPoint1" accessRightRestriction="ro" gradient="0.068704912401" offset="0" unitCode="1013"></VariableRef>
+						<VariableRef variableId="V_BackspacePoint1" accessRightRestriction="ro" gradient="0.068704912401" offset="0" unitCode="1013"></VariableRef>
+						<VariableRef variableId="V_BackspacePoint2" accessRightRestriction="ro" gradient="0.068704912401" offset="0" unitCode="1013"></VariableRef>
+						<VariableRef variableId="V_SwitchPoint2" accessRightRestriction="ro" gradient="0.068704912401" offset="0" unitCode="1013"></VariableRef>
+						<VariableRef variableId="V_Foregroundsuppression" accessRightRestriction="ro" gradient="0.068704912401" offset="59" unitCode="1013"></VariableRef>
+						<VariableRef variableId="V_DetectionRange" accessRightRestriction="ro" gradient="0.068704912401" offset="0" unitCode="1013"></VariableRef>
+						<VariableRef variableId="V_SwitchingMode" accessRightRestriction="ro"></VariableRef>
+						<VariableRef variableId="V_TeachButton" accessRightRestriction="ro"></VariableRef>
+						<VariableRef variableId="V_Filter" accessRightRestriction="ro"></VariableRef>
+						<VariableRef variableId="V_FilterValue" accessRightRestriction="ro"></VariableRef>
+						<VariableRef variableId="V_TempMode" accessRightRestriction="ro"></VariableRef>
+						<VariableRef variableId="V_SwitchOnDelay" accessRightRestriction="ro" unitCode="1054"></VariableRef>
+						<VariableRef variableId="V_NoiseSuppression" accessRightRestriction="ro"></VariableRef>
+						<VariableRef variableId="V_PD" accessRightRestriction="ro" gradient="0.1" offset="0" unitCode="1013"></VariableRef>
+						<VariableRef variableId="V_PS" accessRightRestriction="ro"></VariableRef>
+					</Menu>
+					<Menu id="ME_MR_Observe">
+						<VariableRef variableId="V_Filter" accessRightRestriction="ro"></VariableRef>
+						<VariableRef variableId="V_FilterValue" accessRightRestriction="ro"></VariableRef>
+						<VariableRef variableId="V_SwitchOnDelay" accessRightRestriction="ro" unitCode="1054"></VariableRef>
+						<VariableRef variableId="V_NoiseSuppression" accessRightRestriction="ro"></VariableRef>
+						<VariableRef variableId="V_PD" accessRightRestriction="ro" gradient="0.1" offset="0" unitCode="1013"></VariableRef>
+						<VariableRef variableId="V_PS" accessRightRestriction="ro"></VariableRef>
+					</Menu>
+					<Menu id="ME_SR_Observe">
+						<VariableRef variableId="V_PD" accessRightRestriction="ro" gradient="0.1" offset="0" unitCode="1013"></VariableRef>
+						<VariableRef variableId="V_PS" accessRightRestriction="ro"></VariableRef>
+					</Menu>
+
+
+
+
+
+					<!--Menu id="ME_OR_Param"-->
+					<!--/Menu-->
+					<Menu id="ME_MR_Param">
+						<VariableRef variableId="V_SwitchPoint1" gradient="0.068704912401" offset="0" unitCode="1013"></VariableRef>
+						<VariableRef variableId="V_BackspacePoint1" gradient="0.068704912401" offset="0" unitCode="1013"></VariableRef>
+						<VariableRef variableId="V_BackspacePoint2" gradient="0.068704912401" offset="0" unitCode="1013"></VariableRef>
+						<VariableRef variableId="V_SwitchPoint2" gradient="0.068704912401" offset="0" unitCode="1013"></VariableRef>
+						<VariableRef variableId="V_SwitchingMode"></VariableRef>
+					</Menu>
+					<Menu id="ME_SR_Param">
+						<!--<VariableRef variableId="V_SystemCommand" />-->
+						<VariableRef variableId="V_DeviceAccessLocks" accessRightRestriction="rw"></VariableRef> 
+						<VariableRef variableId="V_SwitchPoint1" gradient="0.068704912401" offset="0" unitCode="1013"></VariableRef>
+						<VariableRef variableId="V_BackspacePoint1" gradient="0.068704912401" offset="0" unitCode="1013"></VariableRef>
+						<VariableRef variableId="V_BackspacePoint2" gradient="0.068704912401" offset="0" unitCode="1013"></VariableRef>
+						<VariableRef variableId="V_SwitchPoint2" gradient="0.068704912401" offset="0" unitCode="1013"></VariableRef>
+						<VariableRef variableId="V_Foregroundsuppression" gradient="0.068704912401" offset="59" unitCode="1013"></VariableRef>
+						<VariableRef variableId="V_DetectionRange" gradient="0.068704912401" offset="0" unitCode="1013"></VariableRef>
+						<VariableRef variableId="V_SwitchingMode"></VariableRef>
+						<VariableRef variableId="V_TeachButton"></VariableRef>
+						<VariableRef variableId="V_Filter"></VariableRef>
+						<VariableRef variableId="V_FilterValue"></VariableRef>
+						<VariableRef variableId="V_TempMode"></VariableRef>
+						<VariableRef variableId="V_SwitchOnDelay" unitCode="1054"></VariableRef>
+						<VariableRef variableId="V_NoiseSuppression"></VariableRef>
+						<VariableRef variableId="V_SystemCommand">
+							<Button buttonValue="130"></Button>
+						</VariableRef>
+						<VariableRef variableId="V_SystemCommand">
+							<Button buttonValue="161"></Button>
+						</VariableRef>
+						<VariableRef variableId="V_SystemCommand">
+							<Button buttonValue="162"></Button>
+						</VariableRef>
+						<VariableRef variableId="V_SystemCommand">
+							<Button buttonValue="165"></Button>
+						</VariableRef>
+						<VariableRef variableId="V_SystemCommand">
+							<Button buttonValue="166"></Button>
+						</VariableRef>
+						<VariableRef variableId="V_SystemCommand">
+							<Button buttonValue="164"></Button>
+						</VariableRef>
+						<VariableRef variableId="V_SystemCommand">
+							<Button buttonValue="168"></Button>
+						</VariableRef>
+					</Menu>
+				</MenuCollection>
+
+
+				<ObserverRoleMenuSet>
+					<IdentificationMenu menuId="ME_OR_Ident"></IdentificationMenu>
+					<!--ParameterMenu menuId="ME_OR_Param" /-->
+					<ObservationMenu menuId="ME_OR_Observe"></ObservationMenu>
+				</ObserverRoleMenuSet>
+				<MaintenanceRoleMenuSet>
+					<IdentificationMenu menuId="ME_MR_Ident"></IdentificationMenu>
+					<ParameterMenu menuId="ME_MR_Param"></ParameterMenu>
+					<ObservationMenu menuId="ME_MR_Observe"></ObservationMenu>
+				</MaintenanceRoleMenuSet>
+				<SpecialistRoleMenuSet>
+					<IdentificationMenu menuId="ME_SR_Ident"></IdentificationMenu>
+					<ParameterMenu menuId="ME_SR_Param"></ParameterMenu>
+					<ObservationMenu menuId="ME_SR_Observe"></ObservationMenu>
+				</SpecialistRoleMenuSet>
+			
+			</UserInterface>
+		</DeviceFunction>
+	</ProfileBody>
+
+
+
+
+
+<!-- CommNetworkProfile -->
+	<CommNetworkProfile xsi:type="IOLinkCommNetworkProfileT" iolinkRevision="V1.1" compatibleWith="V1.0">
+		<TransportLayers>
+			<PhysicalLayer minCycleTime="16000" sioSupported="true" bitrate="COM2" mSequenceCapability="17"><!-- -0x2B -->
+			<Connection xsi:type="M5ConnectionT">
+			<ProductRef productId="BUS004Y"></ProductRef>
+			<Wire1></Wire1>
+			<Wire2 function="NC"></Wire2>
+			<Wire3></Wire3>
+			<Wire4></Wire4>
+			</Connection>
+			</PhysicalLayer>
+		</TransportLayers>
+		
+		<Test>
+			<Config1 index="200" testValue="0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00"></Config1>
+			<Config2 index="1000" testValue="0x00"></Config2>
+			<Config3 index="200" testValue="0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00"></Config3>
+			<Config7 index="155">
+				<EventTrigger appearValue="1" disappearValue="2"></EventTrigger>
+				<EventTrigger appearValue="3" disappearValue="4"></EventTrigger>
+			</Config7>
+		</Test>
+	</CommNetworkProfile>
+
+
+
+
+
+<!-- ExternalText -->
+	<ExternalTextCollection>
+		<PrimaryLanguage xml:lang="en">
+			<Text id="TI_VendorText" value="Balluff GmbH"></Text>
+			<Text id="TI_VendorUrl" value="http://www.balluff.com"></Text>
+			<Text id="TI_DeviceName" value="BUS W18M1-GPXI-07/035-S92G"></Text>
+			<Text id="TI_DeviceFamily" value="BUS W18M1-GPXI-07/035-S92G"></Text>
+			<Text id="TI_ProductName_Name1" value="BUS004Y"></Text>
+			<Text id="TI_ProductText_Text1" value="Ultrasonic proximity switch with 1 push-pull switched output, loadable to 100 mA, 350 mm operating range. 
+IODD is applicable to: BUS004Y"></Text>
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+			<Text id="TI_ProcessDataIn_Value" value="Interval"></Text>
+			<Text id="TI_ProcessDataIn_Status" value="Switching status"></Text>
+			<Text id="TI_ProcessDataIn_Status_0" value="Not connected"></Text>
+			<Text id="TI_ProcessDataIn_Status_1" value="Connected"></Text>
+			<Text id="TI_PD_ProcessDataIn" value="Interval, switching status"></Text>
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+			<Text id="TI_V_SwitchPoint1" value="Switching point 1 (SP1)"></Text>
+			<Text id="TID_V_SwitchPoint1" value="Switched output is activated when distance to an object is under SP1.
+Adjusting range: 64.99…598.01 mm
+Pointer: The entered value is rounded to a multiple of the measurement value resolution.
+"></Text>
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+			<Text id="TI_V_BackspacePoint1" value="Return switching point 1 (RP1)"></Text>
+			<Text id="TID_V_BackspacePoint1" value="Switched output is reactivated when distance to an object is greater than RP1 (SP1 + hysteresis).
+Adjusting range: 66.03…598.97 mm
+Pointer: RP1 must be greater than SP1.
+"></Text>
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+			<Text id="TI_V_BackspacePoint2" value="Return switching point 2 (RP2)"></Text>
+			<Text id="TID_V_BackspacePoint2" value="Switched output is reactivated when distance to an object is under RP2 (SP2 - hysteresis).
+Adjusting range: 66.03…4501.00 mm
+Pointer: RP2 must be greater than RP1. If SP2 and RP2 are above maximum range, window mode is disabled.
+"></Text>
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+			<Text id="TI_V_SwitchPoint2" value="Switching point 2 (SP2)"></Text>
+			<Text id="TID_V_SwitchPoint2" value="Switched output is activated when distance to an object is greater than SP2.
+Adjusting range: 66.99…4501.00 mm
+Pointer: SP2 must be graeter than RP2. If SP2 and RP2 are above maximum range, window mode is disabled.
+"></Text>
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+			<Text id="TI_V_Foregroundsuppression" value="Foreground suppression"></Text>
+			<Text id="TID_V_Foregroundsuppression" value="All echo signals closer than foreground suppression are ignored.
+Adjusting range: 59.02…194.98 mm
+Pointer: The foreground suppression is an offset on the blindzone
+"></Text>
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+			<Text id="TI_V_DetectionRange" value="Detection range"></Text>
+			<Text id="TID_V_DetectionRange" value="Maximum detection range of the sensor.
+Adjusting range: 600.00…1000.00 mm
+"></Text>
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+			<Text id="TI_V_TeachButton" value="Teach-In via Pin 5"></Text>
+			<Text id="TID_V_TeachButton" value="Activate/Deactivate external teach in via pin 5.
+Pointer: Teach in via Pin 5 is available only in SIO mode. During IO-Link mode pin 5 has no function."></Text>
+			<Text id="TI_V_TeachButton_Lock" value="Deactivated"></Text>
+			<Text id="TI_V_TeachButton_Release" value="Activated"></Text>
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+			<Text id="TI_V_SwitchingMode" value="NO/NC operation"></Text>
+			<Text id="TID_V_SwitchingMode" value="The NC or NO output function can be preset for the switched output."></Text>
+			<Text id="TI_V_SwitchingMode_0" value="NO normally open"></Text>
+			<Text id="TI_V_SwitchingMode_2" value="NC normally closed"></Text>
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+			<Text id="TI_V_Filter" value="Filter"></Text>
+			<Text id="TID_V_Filter" value="There are 5 filter settings: F00: No filter | F01: Standard filter | F02: Average value filter | F03: foreground filter | F04: background filter"></Text>
+			<Text id="TI_V_Filter_0" value="F00"></Text>
+			<Text id="TI_V_Filter_1" value="F01"></Text>
+			<Text id="TI_V_Filter_2" value="F02"></Text>
+			<Text id="TI_V_Filter_3" value="F03"></Text>
+			<Text id="TI_V_Filter_4" value="F04"></Text>
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+			<Text id="TI_V_FilterStrength" value="Filter strength"></Text>
+			<Text id="TID_V_FilterStrength" value="A filter strength between 0 – weak filter effect – and 9 – pronounced filter effect – can be selected for each measurement filter."></Text>
+			<Text id="TI_V_FilterStrength_0" value="P00"></Text>
+			<Text id="TI_V_FilterStrength_1" value="P01"></Text>
+			<Text id="TI_V_FilterStrength_2" value="P02"></Text>
+			<Text id="TI_V_FilterStrength_3" value="P03"></Text>
+			<Text id="TI_V_FilterStrength_4" value="P04"></Text>
+			<Text id="TI_V_FilterStrength_5" value="P05"></Text>
+			<Text id="TI_V_FilterStrength_6" value="P06"></Text>
+			<Text id="TI_V_FilterStrength_7" value="P07"></Text>
+			<Text id="TI_V_FilterStrength_8" value="P08"></Text>
+			<Text id="TI_V_FilterStrength_9" value="P09"></Text>
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+			<Text id="TI_V_TempMode" value="Temperature Compensation"></Text>
+			<Text id="TID_V_TempMode" value="The Temperature Compensation may be activated or deactivated."></Text>
+			<Text id="TI_V_TempMode_off" value="Temperature Compensation is off"></Text>
+			<Text id="TI_V_TempMode_on" value="Temperature Compensation is on"></Text>
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+			<Text id="TI_V_SwitchOnDelay" value="Switch-on/switch-off delay"></Text>
+			<Text id="TID_V_SwitchOnDelay" value="If an object approaches the sensor, the output state of the sensor only changes after a holding time.
+Adjusting range: 1...20 s"></Text>
+			<Text id="TI_V_SwitchOnDelay_0" value="Deactivated"></Text>
+			<Text id="TI_V_SwitchOnDelay_1" value="1"></Text>
+			<Text id="TI_V_SwitchOnDelay_2" value="2"></Text>
+			<Text id="TI_V_SwitchOnDelay_3" value="3"></Text>
+			<Text id="TI_V_SwitchOnDelay_4" value="4"></Text>
+			<Text id="TI_V_SwitchOnDelay_5" value="5"></Text>
+			<Text id="TI_V_SwitchOnDelay_6" value="6"></Text>
+			<Text id="TI_V_SwitchOnDelay_7" value="7"></Text>
+			<Text id="TI_V_SwitchOnDelay_8" value="8"></Text>
+			<Text id="TI_V_SwitchOnDelay_9" value="9"></Text>
+			<Text id="TI_V_SwitchOnDelay_10" value="10"></Text>
+			<Text id="TI_V_SwitchOnDelay_11" value="11"></Text>
+			<Text id="TI_V_SwitchOnDelay_12" value="12"></Text>
+			<Text id="TI_V_SwitchOnDelay_13" value="13"></Text>
+			<Text id="TI_V_SwitchOnDelay_14" value="14"></Text>
+			<Text id="TI_V_SwitchOnDelay_15" value="15"></Text>
+			<Text id="TI_V_SwitchOnDelay_16" value="16"></Text>
+			<Text id="TI_V_SwitchOnDelay_17" value="17"></Text>
+			<Text id="TI_V_SwitchOnDelay_18" value="18"></Text>
+			<Text id="TI_V_SwitchOnDelay_19" value="19"></Text>
+			<Text id="TI_V_SwitchOnDelay_20" value="20"></Text>
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+			<Text id="TI_V_NoiseSuppression" value="Interference noise suppression"></Text>
+			<Text id="TID_V_NoiseSuppression" value="The interference noise suppressor detects and shunts out interference which may, for instance, be caused by compressed air.
+The state of the switched output is frozen during the interference."></Text>
+			<Text id="TI_V_NoiseSuppression_off" value="Deactivated"></Text>
+			<Text id="TI_V_NoiseSuppression_on" value="Activated"></Text>
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+			<Text id="TI_V_PD" value="Prozess Data"></Text>
+			<Text id="TID_V_PD" value="The measured distance value is output with a resolution of 0,1 mm."></Text>
+			
+			<Text id="TI_V_PS" value="Switching status"></Text>
+			<Text id="TID_V_PS" value=""></Text>
+			<Text id="TI_V_con" value="Connected"></Text>
+			<Text id="TI_V_notcon" value="Not connected"></Text>
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+			<Text id="TI_SV_Teach_SwitchPoint" value="Teach one detect point"></Text>
+			<Text id="TI_SV_Teach_SwitchPoint_Plus_8_percent" value="Teach one detect point 8% behind object"></Text>
+			<Text id="TI_SV_Teach_Window_Mode_S1" value="Window-Mode: Teach first detect point"></Text>
+			<Text id="TI_SV_Teach_Window_Mode_S2" value="Window-Mode: Teach second detect point"></Text>
+			<Text id="TI_SV_Teach_Two_Way_Barrier" value="Window-Mode: Teach two-way barrier"></Text>
+			<Text id="TI_SV_Teach_Factory_Setting" value="Load factory settings"></Text>
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+			<Text id="TI_ParameterChanged" value="Parameter changed"></Text>
+			<Text id="TID_ParameterChanged" value="Parameter changed"></Text>
+			<Text id="TI_TeachInFailed" value="Teach in failed"></Text>
+			<Text id="TID_TeachInFailed" value="Teach in failed"></Text>
+		</PrimaryLanguage>
+	</ExternalTextCollection>
+	<Stamp crc="167399389"><Checker name="IODD-Checker V1.1.1" version="V1.1.1.0"/></Stamp>
+</IODevice>

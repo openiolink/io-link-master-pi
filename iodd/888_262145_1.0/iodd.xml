@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<IODevice xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.io-link.com/IODD/2009/11" xsi:schemaLocation="http://www.io-link.com/IODD/2009/11 IODD1.0.1.xsd">
+  <DocumentInfo copyright="Copyright 2011, Balluff GmbH" releaseDate="2015-01-30" version="V1.4" />
+  <ProfileHeader>
+    <ProfileIdentification>IO-Link Device Profile</ProfileIdentification>
+    <ProfileRevision>1.00</ProfileRevision>
+    <ProfileName>Device Profile for IO-Link Devices</ProfileName>
+    <ProfileSource>IO-Link Consortium</ProfileSource>
+    <ProfileClassID>Device</ProfileClassID>
+    <ISO15745Reference>
+      <ISO15745Part>1</ISO15745Part>
+      <ISO15745Edition>1</ISO15745Edition>
+      <ProfileTechnology>IODD</ProfileTechnology>
+    </ISO15745Reference>
+  </ProfileHeader>
+  <ProfileBody>
+    <DeviceIdentity deviceId="262145" vendorId="888" vendorName="BALLUFF" >
+      <VendorText textId="TI_VendorText" />
+      <VendorUrl textId="TI_VendorUrl" />
+      <VendorLogo name="Balluff-logo.png" />
+      <DeviceFamily textId="TI_DeviceFamily" />
+      <DeviceVariantCollection>
+        <DeviceVariant productId="BOD0012" deviceIcon="Balluff-BOD0012-icon.png" deviceSymbol="Balluff-BOD0012-pic.png" firmwareRevision="V1.1" hardwareRevision="V1.0">
+          <ProductName textId="TI_BOD63_Name" />
+          <ProductText textId="TI_BOD63_Text" />
+        </DeviceVariant>		
+      </DeviceVariantCollection>
+    </DeviceIdentity>
+    <DeviceFunction>
+      <VariableCollection>
+        <StdVariableRef id="V_DirectParameters_1" />
+        <StdVariableRef id="V_DirectParameters_2" />
+        <StdVariableRef id="V_SystemCommand" />
+        <StdVariableRef defaultValue="BALLUFF" id="V_VendorName" />
+        <StdVariableRef defaultValue="www.balluff.com" id="V_VendorText" />
+        <StdVariableRef defaultValue="BOD 63M-LI06-S4" id="V_ProductName" />
+        <StdVariableRef defaultValue="V1.0" id="V_HardwareRevision" />
+        <StdVariableRef defaultValue="V1.0" id="V_FirmwareRevision" />
+        <Variable accessRights="rw" id="V_CAM1" index="64" defaultValue="500">
+          <Datatype xsi:type="UIntegerT" bitLength="16">
+            <ValueRange upperValue="6000" lowerValue="200" />
+          </Datatype>
+          <Name textId="TI_V_CAM1" />
+          <Description textId="TID_V_CAM1" />
+        </Variable>
+        <Variable accessRights="rw" id="V_CAM2" index="65" defaultValue="1000">
+          <Datatype xsi:type="UIntegerT" bitLength="16">
+            <ValueRange upperValue="6000" lowerValue="200" />
+          </Datatype>
+          <Name textId="TI_V_CAM2" />
+          <Description textId="TID_V_CAM2" />
+        </Variable>
+        <Variable accessRights="rw" id="V_CAM3" index="66" defaultValue="2000">
+          <Datatype xsi:type="UIntegerT" bitLength="16">
+            <ValueRange upperValue="6000" lowerValue="200" />
+          </Datatype>
+          <Name textId="TI_V_CAM3" />
+          <Description textId="TID_V_CAM3" />
+        </Variable>
+        <Variable accessRights="rw" id="V_CAM4" index="67" defaultValue="3000">
+          <Datatype xsi:type="UIntegerT" bitLength="16">
+            <ValueRange upperValue="6000" lowerValue="200" />
+          </Datatype>
+          <Name textId="TI_V_CAM4" />
+          <Description textId="TID_V_CAM4" />
+        </Variable>
+      </VariableCollection>
+      <ProcessDataCollection>
+        <ProcessData id="V_PD">
+          <ProcessDataIn id="V_PDI" bitLength="24">
+            <Datatype xsi:type="RecordT" bitLength="24">
+              <RecordItem subindex="1" bitOffset="0">
+                <SimpleDatatype xsi:type="UIntegerT" bitLength="15" />
+                <Name textId="TI_V_PDI_Distance" />
+              </RecordItem>
+              <RecordItem subindex="2" bitOffset="15">
+                <SimpleDatatype xsi:type="BooleanT">
+                  <SingleValue value="false">
+                    <Name textId="TI_valid" />
+                  </SingleValue>
+                  <SingleValue value="true">
+                    <Name textId="TI_novalid" />
+                  </SingleValue>
+                </SimpleDatatype>
+                <Name textId="TI_V_PDI_Valid" />
+              </RecordItem>
+              <RecordItem subindex="3" bitOffset="16">
+                <SimpleDatatype xsi:type="BooleanT">
+                  <SingleValue value="true">
+                    <Name textId="TI_ON" />
+                  </SingleValue>
+                  <SingleValue value="false">
+                    <Name textId="TI_OFF" />
+                  </SingleValue>
+                </SimpleDatatype>
+                <Name textId="TI_V_PDI_Cam1" />
+              </RecordItem>
+              <RecordItem subindex="4" bitOffset="17">
+                <SimpleDatatype xsi:type="BooleanT">
+                  <SingleValue value="true">
+                    <Name textId="TI_ON" />
+                  </SingleValue>
+                  <SingleValue value="false">
+                    <Name textId="TI_OFF" />
+                  </SingleValue>
+                </SimpleDatatype>
+                <Name textId="TI_V_PDI_Cam2" />
+              </RecordItem>
+              <RecordItem subindex="5" bitOffset="18">
+                <SimpleDatatype xsi:type="BooleanT">
+                  <SingleValue value="true">
+                    <Name textId="TI_ON" />
+                  </SingleValue>
+                  <SingleValue value="false">
+                    <Name textId="TI_OFF" />
+                  </SingleValue>
+                </SimpleDatatype>
+                <Name textId="TI_V_PDI_Cam3" />
+              </RecordItem>
+              <RecordItem subindex="6" bitOffset="19">
+                <SimpleDatatype xsi:type="BooleanT">
+                  <SingleValue value="true">
+                    <Name textId="TI_ON" />
+                  </SingleValue>
+                  <SingleValue value="false">
+                    <Name textId="TI_OFF" />
+                  </SingleValue>
+                </SimpleDatatype>
+                <Name textId="TI_V_PDI_Cam4" />
+              </RecordItem>
+              <RecordItem subindex="7" bitOffset="20">
+                <SimpleDatatype xsi:type="BooleanT">
+                  <SingleValue value="true">
+                    <Name textId="TI_Error" />
+                  </SingleValue>
+                  <SingleValue value="false">
+                    <Name textId="TI_Ok" />
+                  </SingleValue>
+                </SimpleDatatype>
+                <Name textId="TI_V_PDI_Error" />
+              </RecordItem>
+              <RecordItem subindex="8" bitOffset="21">
+                <SimpleDatatype xsi:type="UIntegerT" bitLength="3" />
+                <Name textId="TI_Reserved" />
+              </RecordItem>
+            </Datatype>
+            <Name textId="TI_V_PDI" />
+          </ProcessDataIn>
+          <ProcessDataOut id="V_PDO" bitLength="8">
+            <Datatype xsi:type="RecordT" bitLength="8">
+              <RecordItem subindex="1" bitOffset="0">
+                <SimpleDatatype xsi:type="BooleanT">
+                  <SingleValue value="true">
+                    <Name textId="TI_ON" />
+                  </SingleValue>
+                  <SingleValue value="false">
+                    <Name textId="TI_OFF" />
+                  </SingleValue>
+                </SimpleDatatype>
+                <Name textId="TI_V_PDO_LaserOn" />
+              </RecordItem>
+              <RecordItem subindex="2" bitOffset="1">
+                <SimpleDatatype xsi:type="BooleanT">
+                  <SingleValue value="false">
+                    <Name textId="TI_disabled" />
+                  </SingleValue>
+                  <SingleValue value="true">
+                    <Name textId="TI_enabled" />
+                  </SingleValue>
+                </SimpleDatatype>
+                <Name textId="TI_V_PDO_KeyLockCommand" />
+              </RecordItem>
+              <RecordItem subindex="3" bitOffset="2">
+                <SimpleDatatype xsi:type="UIntegerT" bitLength="6" />
+                <Name textId="TI_Reserved" />
+              </RecordItem>
+            </Datatype>
+            <Name textId="TI_V_PDO" />
+          </ProcessDataOut>
+        </ProcessData>
+      </ProcessDataCollection>
+      <UserInterface>
+        <MenuCollection>
+          <Menu id="ME_Ident">
+            <VariableRef variableId="V_VendorName" />
+            <VariableRef variableId="V_VendorText" />
+            <VariableRef variableId="V_ProductName" />
+            <VariableRef variableId="V_HardwareRevision" />
+            <VariableRef variableId="V_FirmwareRevision" />
+          </Menu>
+          <Menu id="ME_Parameter">
+            <VariableRef variableId="V_CAM1" displayFormat="Dec" unitCode="1013" accessRightRestriction="ro" />
+            <VariableRef variableId="V_CAM2" displayFormat="Dec" unitCode="1013" accessRightRestriction="ro" />
+            <VariableRef variableId="V_CAM3" displayFormat="Dec" unitCode="1013" accessRightRestriction="ro" />
+            <VariableRef variableId="V_CAM4" displayFormat="Dec" unitCode="1013" accessRightRestriction="ro" />
+          </Menu>
+          <Menu id="ME_S_Parameter">
+            <VariableRef variableId="V_CAM1" displayFormat="Dec" unitCode="1013" accessRightRestriction="rw" />
+            <VariableRef variableId="V_CAM2" displayFormat="Dec" unitCode="1013" accessRightRestriction="rw" />
+            <VariableRef variableId="V_CAM3" displayFormat="Dec" unitCode="1013" accessRightRestriction="rw" />
+            <VariableRef variableId="V_CAM4" displayFormat="Dec" unitCode="1013" accessRightRestriction="rw" />
+          </Menu>
+        </MenuCollection>
+        <ObserverRoleMenuSet>
+          <IdentificationMenu menuId="ME_Ident" />
+          <ParameterMenu menuId="ME_Parameter" />
+        </ObserverRoleMenuSet>
+        <MaintenanceRoleMenuSet>
+          <IdentificationMenu menuId="ME_Ident" />
+          <ParameterMenu menuId="ME_Parameter" />
+        </MaintenanceRoleMenuSet>
+        <SpecialistRoleMenuSet>
+          <IdentificationMenu menuId="ME_Ident" />
+          <ParameterMenu menuId="ME_S_Parameter" />
+        </SpecialistRoleMenuSet>
+      </UserInterface>
+    </DeviceFunction>
+  </ProfileBody>
+  <CommNetworkProfile xsi:type="IOLinkCommNetworkProfileT" iolinkRevision="V1.0">
+    <TransportLayers>
+      <PhysicalLayer baudrate="COM2" minCycleTime="2000" physics="2" sioSupported="true" />
+    </TransportLayers>
+  </CommNetworkProfile>
+  <ExternalTextCollection>
+    <PrimaryLanguage xml:lang="en">
+      <Text id="TI_VendorText" value="BALLUFF" />
+      <Text id="TI_VendorUrl" value="www.balluff.com" />
+      <Text id="TI_DeviceFamily" value="BOD - Optical distance sensor" />
+      <Text id="TI_BOD63_Name" value="BOD 63M-LI06-S4" />
+      <Text id="TI_BOD63_Text" value="Laser distance sensor 0.2 .. 6m" />
+      <Text id="TI_V_CAM1" value="Cam 1" />
+      <Text id="TID_V_CAM1" value="behavior depends on CAM mode" />
+      <Text id="TI_V_CAM2" value="Cam 2" />
+      <Text id="TID_V_CAM2" value="behavior depends on CAM mode" />
+      <Text id="TI_V_CAM3" value="Cam 3" />
+      <Text id="TID_V_CAM3" value="behavior depends on CAM mode" />
+      <Text id="TI_V_CAM4" value="Cam 4" />
+      <Text id="TID_V_CAM4" value="behavior depends on CAM mode" />
+      <Text id="TI_ON" value="on" />
+      <Text id="TI_OFF" value="off" />
+      <Text id="TI_V_PDI_Cam1" value="Cam 1" />
+      <Text id="TI_V_PDI_Cam2" value="Cam 2" />
+      <Text id="TI_V_PDI_Cam3" value="Cam 3" />
+      <Text id="TI_V_PDI_Cam4" value="Cam 4" />
+      <Text id="TI_V_PDI_Distance" value="Distance absolute" />
+      <Text id="TI_V_PDI" value="Process Data Inputs" />
+      <Text id="TI_V_PDO_KeyLockCommand" value="Keylock" />
+      <Text id="TI_V_PDO" value="Process Data Outputs" />
+      <Text id="TI_valid" value="valid" />
+      <Text id="TI_novalid" value="not valid" />
+      <Text id="TI_V_PDI_Valid" value="Quality" />
+      <Text id="TI_Error" value="error" />
+      <Text id="TI_Ok" value="ok" />
+      <Text id="TI_V_PDI_Error" value="Status device" />
+      <Text id="TI_Reserved" value="reserved" />
+      <Text id="TI_V_PDO_LaserOn" value="Laser On/Off" />
+      <Text id="TI_disabled" value="disabled" />
+      <Text id="TI_enabled" value="enabled" />
+    </PrimaryLanguage>
+  </ExternalTextCollection>
+  <Stamp crc="3347528998"><Checker name="IODD-Checker V1.0.9" version="V1.0.9.0"/></Stamp>
+</IODevice>

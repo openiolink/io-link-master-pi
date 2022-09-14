@@ -1,0 +1,963 @@
+<?xml version="1.0" encoding="utf-8"?>
+<IODevice xmlns="http://www.io-link.com/IODD/2010/10" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.io-link.com/IODD/2010/10 IODD1.1.xsd">
+  <DocumentInfo version="V2.3" releaseDate="2021-05-10" copyright="Copyright 2021, Balluff GmbH" />
+  <ProfileHeader>
+    <ProfileIdentification>IO Device Profile</ProfileIdentification>
+    <ProfileRevision>1.1</ProfileRevision>
+    <ProfileName>Device Profile for IO Devices</ProfileName>
+    <ProfileSource>IO-Link Consortium</ProfileSource>
+    <ProfileClassID>Device</ProfileClassID>
+    <ISO15745Reference>
+      <ISO15745Part>1</ISO15745Part>
+      <ISO15745Edition>1</ISO15745Edition>
+      <ProfileTechnology>IODD</ProfileTechnology>
+    </ISO15745Reference>
+  </ProfileHeader>
+  <ProfileBody>
+    <DeviceIdentity vendorId="888" vendorName="Balluff" deviceId="330288"><!-- 0x 05 0A 30 -->
+      <VendorText   textId="TI_VendorText" />
+      <VendorUrl    textId="TI_VendorUrl" />
+      <VendorLogo   name  ="Balluff-logo.png" />
+      <DeviceName   textId="TI_Device" />
+      <DeviceFamily textId="TI_DeviceFamily" />
+      <DeviceVariantCollection>
+        <DeviceVariant productId="BNI00E0" deviceSymbol="Balluff-BNI_IOL-803-103-R036-pic.png" deviceIcon="Balluff-BNI_IOL-803-103-R036-icon.png">
+          <Name textId="TI_Product1_Name" />
+          <Description textId="TI_Product1_Descr" />
+        </DeviceVariant>
+      </DeviceVariantCollection>
+    </DeviceIdentity>
+    <DeviceFunction>
+	<Features blockParameter="true" dataStorage="true">
+        <SupportedAccessLocks parameter="false" dataStorage="true" localUserInterface="false" localParameterization="false" />
+      </Features>
+      <DatatypeCollection>
+	    <Datatype id="DT_Color" xsi:type="UIntegerT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bitLength="3">
+          <SingleValue value="0">
+            <Name textId="TI_VAR_Color_Off" />
+          </SingleValue>
+          <SingleValue value="1">
+            <Name textId="TI_VAR_Color_Green" />
+          </SingleValue>
+          <SingleValue value="2">
+            <Name textId="TI_VAR_Color_Red" />
+          </SingleValue>
+          <SingleValue value="3">
+            <Name textId="TI_VAR_Color_Yellow" />
+          </SingleValue>
+          <SingleValue value="4">
+            <Name textId="TI_VAR_Color_Blue" />
+          </SingleValue>
+          <SingleValue value="5">
+            <Name textId="TI_VAR_Color_Orange" />
+          </SingleValue>
+          <SingleValue value="6">
+            <Name textId="TI_VAR_Color_UserDefined" />
+          </SingleValue>
+          <SingleValue value="7">
+            <Name textId="TI_VAR_Color_White" />
+          </SingleValue>
+        </Datatype>
+		<Datatype id="DT_Blinking" xsi:type="BooleanT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <SingleValue xsi:type="BooleanValueT" value="false">
+            <Name textId="TI_VAR_notBlink" />
+          </SingleValue>
+          <SingleValue xsi:type="BooleanValueT" value="true">
+            <Name textId="TI_VAR_Blink" />
+          </SingleValue>
+        </Datatype>
+		<Datatype id="DT_SyncImp" xsi:type="BooleanT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <SingleValue xsi:type="BooleanValueT" value="false">
+            <Name textId="TI_VAR_SyncImpOff" />
+          </SingleValue>
+          <SingleValue xsi:type="BooleanValueT" value="true">
+            <Name textId="TI_VAR_SyncImpOn" />
+          </SingleValue>
+        </Datatype>
+		<Datatype id="DT_SyncStart" xsi:type="BooleanT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <SingleValue xsi:type="BooleanValueT" value="false">
+            <Name textId="TI_VAR_SyncStartOff" />
+          </SingleValue>
+          <SingleValue xsi:type="BooleanValueT" value="true">
+            <Name textId="TI_VAR_SyncStartOn" />
+          </SingleValue>
+        </Datatype>
+		<Datatype id="DT_UsLow" xsi:type="BooleanT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <SingleValue xsi:type="BooleanValueT" value="false">
+            <Name textId="TI_VAR_UsVoltageOk" />
+          </SingleValue>
+          <SingleValue xsi:type="BooleanValueT" value="true">
+            <Name textId="TI_VAR_UsVoltageLow" />
+          </SingleValue>
+        </Datatype>
+		<Datatype id="DT_Mode" xsi:type="UIntegerT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bitLength="8">
+          <SingleValue value="0">
+            <Name textId="TI_VAR_NoModeSelected"/>
+          </SingleValue>
+		  <SingleValue value="1">
+            <Name textId="TI_VAR_ModeSegment"/>
+          </SingleValue>
+          <SingleValue value="2">
+            <Name textId="TI_VAR_ModeLevel"/>
+          </SingleValue>
+          <SingleValue value="4">
+            <Name textId="TI_VAR_ModeRunlight"/>
+          </SingleValue>
+		  <SingleValue value="8">
+            <Name textId="TI_VAR_ModeColorWheel"/>
+          </SingleValue>
+        </Datatype>
+		<Datatype id="DT_Mode2" xsi:type="UIntegerT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bitLength="8">
+          <SingleValue value="0">
+            <Name textId="TI_VAR_NoModeSelected"/>
+          </SingleValue>
+		  <SingleValue value="1">
+            <Name textId="TI_VAR_ModeSegment"/>
+          </SingleValue>
+        </Datatype>
+		<Datatype id="DT_TouchInput" xsi:type="BooleanT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+		  <SingleValue value="false" xsi:type="BooleanValueT">
+			<Name textId="TI_DT_TouchInput_Off"/>
+		  </SingleValue>
+		  <SingleValue value="true" xsi:type="BooleanValueT">
+			<Name textId="TI_DT_TouchInput_On"/>
+		  </SingleValue>
+		</Datatype>
+		<Datatype id="DT_Brightness" xsi:type="UIntegerT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bitLength="7">
+        </Datatype>	
+		<Datatype id="DT_Error" xsi:type="UIntegerT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bitLength="3">
+          <SingleValue value="0">
+            <Name textId="TI_VAR_Error0" />
+          </SingleValue>
+          <SingleValue value="1">
+            <Name textId="TI_VAR_Error1" />
+          </SingleValue>
+          <SingleValue value="2">
+            <Name textId="TI_VAR_Error2" />
+          </SingleValue>
+          <SingleValue value="3">
+            <Name textId="TI_VAR_Error3" />
+          </SingleValue>
+          <SingleValue value="4">
+            <Name textId="TI_VAR_Error4" />
+          </SingleValue>
+          <SingleValue value="5">
+            <Name textId="TI_VAR_Error5" />
+          </SingleValue>
+        </Datatype>
+		<Datatype id="DT_RunDir" xsi:type="BooleanT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <SingleValue xsi:type="BooleanValueT" value="false">
+            <Name textId="TI_VAR_L" />
+          </SingleValue>
+          <SingleValue xsi:type="BooleanValueT" value="true">
+            <Name textId="TI_VAR_R" />
+          </SingleValue>
+        </Datatype>
+		<Datatype id="DT_AlternateMode" xsi:type="UIntegerT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bitLength="3">
+          <SingleValue value="0">
+            <Name textId="TI_VAR_NormalOperation" />
+          </SingleValue>
+          <SingleValue value="1">
+            <Name textId="TI_VAR_DemoMode_Active" />
+          </SingleValue>
+		  <SingleValue value="2">
+            <Name textId="TI_VAR_PowerOnMode_Active" />
+          </SingleValue>
+        </Datatype>
+		<Datatype id="DT_SensorTeach" xsi:type="UIntegerT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bitLength="7">
+        </Datatype>
+		<Datatype id="DT_ExcessGain" xsi:type="IntegerT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bitLength="8">
+		</Datatype>
+		<Datatype id="DT_SensorFilter" xsi:type="UIntegerT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bitLength="3">
+        </Datatype>
+		<Datatype id="DT_SafeState" xsi:type="UIntegerT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bitLength="2">
+          <SingleValue value="0">
+            <Name textId="TI_VAR_NotActive" />
+          </SingleValue>
+          <SingleValue value="1">
+            <Name textId="TI_VAR_Active" />
+          </SingleValue>
+        </Datatype>
+		<Datatype id="DT_LevelFadeLoadingMode" xsi:type="BooleanT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <SingleValue xsi:type="BooleanValueT" value="false">
+            <Name textId="TI_VAR_LevelFadeLoadingMode_Off" />
+          </SingleValue>
+          <SingleValue xsi:type="BooleanValueT" value="true">
+            <Name textId="TI_VAR_LevelFadeLoadingMode_On" />
+          </SingleValue>
+        </Datatype>
+		<Datatype id="DT_ReservedByte" xsi:type="UIntegerT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bitLength="8">
+        </Datatype>
+		<!-- Datatype id="DT_ReservedNib" xsi:type="UIntegerT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bitLength="4">
+        </Datatype -->
+		<Datatype id="DT_Byte" xsi:type="UIntegerT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bitLength="8">
+        </Datatype>
+		<Datatype id="DT_3bits" xsi:type="UIntegerT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bitLength="3">
+          <SingleValue value="0">
+            <Name textId="TI_WrongNumOfSeg" />
+          </SingleValue>
+          <SingleValue value="1">
+            <Name textId="TI_1Segment" />
+          </SingleValue>
+		  <SingleValue value="2">
+            <Name textId="TI_2Segment" />
+          </SingleValue>
+		  <SingleValue value="3">
+            <Name textId="TI_3Segment" />
+          </SingleValue>
+		  <SingleValue value="6">
+            <Name textId="TI_6Segment" />
+          </SingleValue>
+		</Datatype>	
+		<Datatype id="DT_3bits_2" xsi:type="UIntegerT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bitLength="3">
+          <SingleValue value="0">
+            <Name textId="TI_WrongNumOfSeg_1" />
+          </SingleValue>
+          <SingleValue value="1">
+            <Name textId="TI_1Segment_1" />
+          </SingleValue>
+		  <SingleValue value="2">
+            <Name textId="TI_2Segment_1" />
+          </SingleValue>
+		  <SingleValue value="3">
+            <Name textId="TI_3Segment_1" />
+          </SingleValue>
+		  <SingleValue value="6">
+            <Name textId="TI_6Segment_1" />
+          </SingleValue>
+		 </Datatype>
+		<Datatype id="DT_Frequency" xsi:type="UIntegerT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bitLength="3">
+          <SingleValue value="1">
+            <Name textId="TI_VAR_0Hz5"/>
+          </SingleValue>
+          <SingleValue value="2">
+            <Name textId="TI_VAR_1Hz"/>
+          </SingleValue>
+          <SingleValue value="3">
+            <Name textId="TI_VAR_2Hz"/>
+          </SingleValue>
+          <SingleValue value="4">
+            <Name textId="TI_VAR_5Hz"/>
+          </SingleValue>
+          <SingleValue value="5">
+            <Name textId="TI_VAR_10Hz"/>
+          </SingleValue>
+        </Datatype>
+        <Datatype id="DT_BlinkingMode" xsi:type="BooleanT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <SingleValue xsi:type="BooleanValueT" value="false">
+            <Name textId="TI_VAR_ModeBlink" />
+          </SingleValue>
+          <SingleValue xsi:type="BooleanValueT" value="true">
+            <Name textId="TI_VAR_ModeFlash" />
+          </SingleValue>
+        </Datatype>
+		<Datatype id="DT_PowerOnModeDisplay" xsi:type="RecordT" bitLength="64" subindexAccessSupported="false" >
+		  <RecordItem subindex="1" bitOffset="56">
+                <DatatypeRef datatypeId="DT_Color" />
+                <Name textId="TI_PD_Color1_1" />
+              </RecordItem>
+			  <RecordItem subindex="2" bitOffset="59">
+				<DatatypeRef datatypeId="DT_Blinking" />
+				<Name textId="TI_PD_Blink1" />
+			  </RecordItem>
+			  <RecordItem subindex="3" bitOffset="60">
+                <DatatypeRef datatypeId="DT_Color" />
+                <Name textId="TI_PD_Color2_2" />
+			  </RecordItem>
+			  <RecordItem subindex="4" bitOffset="63">
+				<DatatypeRef datatypeId="DT_Blinking" />
+				<Name textId="TI_PD_Blink2" />
+			  </RecordItem>
+			  <RecordItem subindex="5" bitOffset="48">
+                <DatatypeRef datatypeId="DT_Color" />
+                <Name textId="TI_PD_Color3_3" />
+			  </RecordItem>
+			  <RecordItem subindex="6" bitOffset="51">
+				<DatatypeRef datatypeId="DT_Blinking" />
+				<Name textId="TI_PD_Blink3" />
+			  </RecordItem>
+			  <RecordItem subindex="7" bitOffset="52">
+                <DatatypeRef datatypeId="DT_Color" />
+                <Name textId="TI_PD_Color4_4" />
+			  </RecordItem>
+			  <RecordItem subindex="8" bitOffset="55">
+				<DatatypeRef datatypeId="DT_Blinking" />
+				<Name textId="TI_PD_Blink4" />
+			  </RecordItem>
+			  <RecordItem subindex="9" bitOffset="40">
+                <DatatypeRef datatypeId="DT_Color" />
+                <Name textId="TI_PD_Color5_5" />
+			  </RecordItem>
+			  <RecordItem subindex="10" bitOffset="43">
+				<DatatypeRef datatypeId="DT_Blinking" />
+				<Name textId="TI_PD_Blink5" />
+			  </RecordItem>
+			  <RecordItem subindex="11" bitOffset="44">
+                <DatatypeRef datatypeId="DT_Color" />
+                <Name textId="TI_PD_Color6_6" />
+			  </RecordItem>
+			  <RecordItem subindex="12" bitOffset="47">
+				<DatatypeRef datatypeId="DT_Blinking" />
+				<Name textId="TI_PD_Blink6" />
+			  </RecordItem>		
+			  <RecordItem subindex="13" bitOffset="32">
+				<DatatypeRef datatypeId="DT_Mode2" />
+				<Name textId="TI_PD_Mode" />
+			  </RecordItem>	
+			  <RecordItem subindex="14" bitOffset="24">
+                <DatatypeRef datatypeId="DT_3bits_2" />
+                <Name textId="TI_PD_NumberOf_Of" />
+              </RecordItem>
+			  <RecordItem subindex="17" bitOffset="16">
+                <DatatypeRef datatypeId="DT_BlinkingMode" />
+                <Name textId="TI_PD_LevelLow_L" />
+              </RecordItem>
+			  <RecordItem subindex="18" bitOffset="8">
+                <DatatypeRef datatypeId="DT_Frequency" />
+                <Name textId="TI_PD_LevelHigh_H" />
+              </RecordItem>
+		</Datatype>
+		<Datatype id="DT_UsageHoursCounter" xsi:type="UIntegerT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bitLength="32"></Datatype>
+        <Datatype id="DT_BootCycleCounter" xsi:type="UIntegerT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bitLength="32"></Datatype>
+        <Datatype id="DT_ActualTemperatureValue" xsi:type="IntegerT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bitLength="8"></Datatype>
+        <Datatype id="DT_VAR_MaxTemperatureValueSinceLastStart" xsi:type="IntegerT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bitLength="8"></Datatype>
+        <Datatype id="DT_VAR_MinTemperatureValueSinceLastStart" xsi:type="IntegerT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bitLength="8"></Datatype>
+        <Datatype id="DT_VAR_MaxTemperatureValueSinceFirstStart" xsi:type="IntegerT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bitLength="8"></Datatype>
+        <Datatype id="DT_VAR_MinTemperatureValueSinceFirstStart" xsi:type="IntegerT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bitLength="8"></Datatype>
+      </DatatypeCollection>
+      
+      <VariableCollection>
+        <StdVariableRef id="V_DirectParameters_1" />
+        <StdVariableRef id="V_DirectParameters_2" />
+        <StdVariableRef id="V_SystemCommand">
+          <StdSingleValueRef value="130" />
+        </StdVariableRef>		
+        <StdVariableRef id="V_DeviceAccessLocks" >
+          <StdRecordItemRef subindex="2" defaultValue="false" />
+        </StdVariableRef>
+		
+        <StdVariableRef id="V_VendorName"  defaultValue="BALLUFF" />
+        <StdVariableRef id="V_VendorText"  defaultValue="www.balluff.com" />
+        <StdVariableRef id="V_ProductName" defaultValue="BNI IOL-803-103-R036" />
+        <StdVariableRef id="V_ProductID"   defaultValue="BNI00E0" />
+        <StdVariableRef id="V_ProductText" defaultValue="SmartLight Indicator with sensor" />
+        <StdVariableRef id="V_HardwareRevision" />
+        <StdVariableRef id="V_FirmwareRevision" />
+        <StdVariableRef id="V_ApplicationSpecificTag" />
+		
+		<Variable id="V_AlternateMode" index="64" accessRights="rw" defaultValue="0">
+          <DatatypeRef datatypeId="DT_AlternateMode" />
+          <Name textId="TI_VAR_AlternateMode" />
+          <Description textId="TI_VAR_AlternateMode" />
+        </Variable>
+		<Variable id="V_PowerOnModeDisplay0" index="68" accessRights="rw" > <!-- 0x0100000101000100 -->
+          <DatatypeRef datatypeId="DT_PowerOnModeDisplay" />
+          <Name textId="TI_VAR_PowerOnModeDisplay0" />
+          <Description textId="TI_VAR_PowerOnModeDisplay0" />
+        </Variable>
+		<Variable id="V_PowerOnModeDisplay1" index="69" accessRights="rw" > <!-- 0x0A00000101000100 -->
+          <DatatypeRef datatypeId="DT_PowerOnModeDisplay" />
+          <Name textId="TI_VAR_PowerOnModeDisplay1" />
+          <Description textId="TI_VAR_PowerOnModeDisplay1" />
+        </Variable>
+		<Variable id="V_SensorTeach" index="65" accessRights="rw" defaultValue="100">
+          <DatatypeRef datatypeId="DT_SensorTeach" />
+          <Name textId="TI_VAR_SensorTeach" />
+          <Description textId="TI_VAR_SensorTeach" />
+        </Variable>
+		<Variable id="V_ExcessGain" index="66" accessRights="ro">
+          <DatatypeRef datatypeId="DT_ExcessGain" />
+          <Name textId="TI_VAR_ExcessGain" />
+          <Description textId="TI_VAR_ExcessGain" />
+        </Variable>
+		<Variable id="V_SensorFilter" index="67" accessRights="rw" defaultValue="2">
+          <DatatypeRef datatypeId="DT_SensorFilter" />
+          <Name textId="TI_VAR_SensorFilter" />
+          <Description textId="TI_VAR_SensorFilter" />
+        </Variable>
+		<Variable id="V_SupplyMonitor" index="80" accessRights="ro">
+          <DatatypeRef datatypeId="DT_UsLow" />
+          <Name textId="TI_VAR_UsVoltage" />
+		  <Description textId="TI_VAR_SupplyMonitor" />
+        </Variable>
+        <Variable id="V_Brightness" index="81" accessRights="rw">
+          <Datatype xsi:type="RecordT" bitLength="24">
+            <RecordItem subindex="1" bitOffset="16">
+              <DatatypeRef datatypeId="DT_Brightness" />
+              <Name textId="TI_VAR_BrightnessRed" />
+            </RecordItem>
+            <RecordItem subindex="2" bitOffset="8">
+              <DatatypeRef datatypeId="DT_Brightness" />
+              <Name textId="TI_VAR_BrightnessGreen" />
+            </RecordItem>
+            <RecordItem subindex="3" bitOffset="0">
+              <DatatypeRef datatypeId="DT_Brightness" />
+              <Name textId="TI_VAR_BrightnessBlue" />
+            </RecordItem>
+          </Datatype>   
+		  <RecordItemInfo subindex="1" defaultValue="127" />
+          <RecordItemInfo subindex="2" defaultValue="127" />
+          <RecordItemInfo subindex="3" defaultValue="127" />  
+          <Name textId="TI_VAR_Brightness" />
+          <Description textId="TI_VAR_Brightness" />
+        </Variable>
+		<Variable id="V_DeviceTemperature"  index="82" accessRights="ro">
+          <Datatype xsi:type="RecordT" bitLength="40">
+            <RecordItem subindex="1" bitOffset="32" >
+              <DatatypeRef datatypeId="DT_ActualTemperatureValue" />
+              <Name textId="TI_VAR_ActualTemperatureValue" />
+            </RecordItem>
+            <RecordItem subindex="2" bitOffset="24">
+              <DatatypeRef datatypeId="DT_VAR_MaxTemperatureValueSinceLastStart" />
+              <Name textId="TI_VAR_MaxTemperatureValueSinceLastStart" />
+            </RecordItem>
+            <RecordItem subindex="3" bitOffset="16">
+              <DatatypeRef datatypeId="DT_VAR_MinTemperatureValueSinceLastStart" />
+              <Name textId="TI_VAR_MinTemperatureValueSinceLastStart" />
+            </RecordItem>
+            <RecordItem subindex="4" bitOffset="8">
+              <DatatypeRef datatypeId="DT_VAR_MaxTemperatureValueSinceFirstStart" />
+              <Name textId="TI_VAR_MaxTemperatureValueSinceFirstStart" />
+            </RecordItem>
+            <RecordItem subindex="5" bitOffset="0">
+              <DatatypeRef datatypeId="DT_VAR_MinTemperatureValueSinceFirstStart" />
+              <Name textId="TI_VAR_MinTemperatureValueSinceFirstStart" />
+            </RecordItem>
+          </Datatype>   
+          <Name textId="TI_VAR_DeviceTemperature" />
+          <Description textId="TI_VAR_DeviceTemperature" />
+        </Variable>
+		<Variable accessRights="rw" excludedFromDataStorage="true" id="V_SN_RW" index="84">
+			<Datatype encoding="UTF-8" fixedLength="16" xsi:type="StringT"/>
+			<Name textId="TI_SN_RW"/>
+			<Description textId="TI_SN_RW_Descr"/>
+		</Variable>
+		<Variable id="V_UsageHoursCounter"  index="87" accessRights="ro">
+          <DatatypeRef datatypeId="DT_UsageHoursCounter" />
+          <Name textId="TI_VAR_UsageHoursCounter" />
+          <Description textId="TI_VAR_UsageHoursCounter" />
+        </Variable> 
+		<Variable id="V_BootCycleCounter"  index="88" accessRights="ro">
+          <DatatypeRef datatypeId="DT_BootCycleCounter" />
+          <Name textId="TI_VAR_BootCycleCounter" />
+          <Description textId="TI_VAR_BootCycleCounter" />
+        </Variable> 
+		<Variable id="V_SafeState" index="251" accessRights="rw" defaultValue="1">
+          <DatatypeRef datatypeId="DT_SafeState" />
+          <Name textId="TI_VAR_SafeState" />
+        </Variable>
+		<Variable id="V_UserColor" index="252" accessRights="rw">
+          <Datatype xsi:type="RecordT" bitLength="24">
+            <RecordItem subindex="1" bitOffset="16">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_UserColorRed" />
+            </RecordItem>
+            <RecordItem subindex="2" bitOffset="8">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_UserColorGreen" />
+            </RecordItem>
+            <RecordItem subindex="3" bitOffset="0">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_UserColorBlue" />
+            </RecordItem>
+          </Datatype>
+		  <RecordItemInfo subindex="1" defaultValue="0" />
+          <RecordItemInfo subindex="2" defaultValue="128" />
+          <RecordItemInfo subindex="3" defaultValue="128" /> 
+          <Name textId="TI_VAR_UserColor" />
+          <Description textId="TI_VAR_UserColor" />
+        </Variable>
+		<!-- ISDU 0x54 - Serial Number (not suppeorted by the device) -->
+	    <!-- Variable id="V_SN_RW" index="84" accessRights="rw" excludedFromDataStorage="true">
+          <Datatype xsi:type="StringT" fixedLength="16" encoding="UTF-8"/>
+          <Name textId="TI_SN_RW" />
+          <Description textId="TI_SN_RW_Descr" />
+        </Variable-->
+      </VariableCollection>
+	  
+	  <!-- PROCESS DATA -->
+      <ProcessDataCollection>
+        <ProcessData id="V_PdT">
+          <ProcessDataIn id="V_Pd_InT" bitLength="16">
+            <Datatype xsi:type="RecordT" bitLength="16">
+              <RecordItem subindex="1" bitOffset="0">
+                <DatatypeRef datatypeId="DT_Error" />
+                <Name textId="TI_PD_Error" />
+              </RecordItem>
+			  <RecordItem subindex="2" bitOffset="8">
+                <DatatypeRef datatypeId="DT_TouchInput" />
+                <Name textId="TI_PD_TouchInput" />
+              </RecordItem>
+			  <!-- RecordItem subindex="3" bitOffset="12">
+                <DatatypeRef datatypeId="DT_ReservedNib" />
+                <Name textId="TI_PD_Reserved" />
+              </RecordItem -->
+            </Datatype>
+            <Name textId="TI_PD_In" />
+          </ProcessDataIn>
+		  
+          <ProcessDataOut id="V_Pd_OutT" bitLength="64">
+            <Datatype xsi:type="RecordT" bitLength="64">
+			  <RecordItem subindex="1" bitOffset="56">
+                <DatatypeRef datatypeId="DT_Color" />
+                <Name textId="TI_PD_Color1" />
+              </RecordItem>
+			  <RecordItem subindex="2" bitOffset="59">
+				<DatatypeRef datatypeId="DT_Blinking" />
+				<Name textId="TI_PD_Blink1" />
+			  </RecordItem>
+			  <RecordItem subindex="3" bitOffset="60">
+                <DatatypeRef datatypeId="DT_Color" />
+                <Name textId="TI_PD_Color2" />
+			  </RecordItem>
+			  <RecordItem subindex="4" bitOffset="63">
+				<DatatypeRef datatypeId="DT_Blinking" />
+				<Name textId="TI_PD_Blink2" />
+			  </RecordItem>
+			  <RecordItem subindex="5" bitOffset="48">
+                <DatatypeRef datatypeId="DT_Color" />
+                <Name textId="TI_PD_Color3" />
+			  </RecordItem>
+			  <RecordItem subindex="6" bitOffset="51">
+				<DatatypeRef datatypeId="DT_Blinking" />
+				<Name textId="TI_PD_Blink3" />
+			  </RecordItem>
+			  <RecordItem subindex="7" bitOffset="52">
+                <DatatypeRef datatypeId="DT_Color" />
+                <Name textId="TI_PD_Color4" />
+			  </RecordItem>
+			  <RecordItem subindex="8" bitOffset="55">
+				<DatatypeRef datatypeId="DT_Blinking" />
+				<Name textId="TI_PD_Blink4" />
+			  </RecordItem>
+			  <RecordItem subindex="9" bitOffset="40">
+                <DatatypeRef datatypeId="DT_Color" />
+                <Name textId="TI_PD_Color5" />
+			  </RecordItem>
+			  <RecordItem subindex="10" bitOffset="43">
+				<DatatypeRef datatypeId="DT_Blinking" />
+				<Name textId="TI_PD_Blink5" />
+			  </RecordItem>
+			  <RecordItem subindex="11" bitOffset="44">
+                <DatatypeRef datatypeId="DT_Color" />
+                <Name textId="TI_PD_Color6" />
+			  </RecordItem>
+			  <RecordItem subindex="12" bitOffset="47">
+				<DatatypeRef datatypeId="DT_Blinking" />
+				<Name textId="TI_PD_Blink6" />
+			  </RecordItem>			  
+			  <RecordItem subindex="13" bitOffset="32">
+                <DatatypeRef datatypeId="DT_Mode" />
+                <Name textId="TI_PD_Mode" />
+              </RecordItem>
+			  <RecordItem subindex="14" bitOffset="24">
+                <DatatypeRef datatypeId="DT_3bits" />
+                <Name textId="TI_PD_NumberOf" />
+              </RecordItem>
+			  <RecordItem subindex="15" bitOffset="27">
+                <DatatypeRef datatypeId="DT_RunDir" />
+                <Name textId="TI_PD_RunDir" />
+              </RecordItem>
+			  <RecordItem subindex="16" bitOffset="28">
+                <DatatypeRef datatypeId="DT_LevelFadeLoadingMode" />
+                <Name textId="TI_PD_LevelFadeLoadingMode" />
+              </RecordItem>
+			  <RecordItem subindex="17" bitOffset="16">
+                <DatatypeRef datatypeId="DT_Byte" />
+                <Name textId="TI_PD_LevelLow" />
+              </RecordItem>
+			  <RecordItem subindex="18" bitOffset="8">
+                <DatatypeRef datatypeId="DT_Byte" />
+                <Name textId="TI_PD_LevelHigh" />
+              </RecordItem>
+			  <RecordItem subindex="19" bitOffset="30">	 
+                <DatatypeRef datatypeId="DT_SyncImp" />
+                <Name textId="TI_PD_SyncImp" />
+              </RecordItem>
+			  <RecordItem subindex="20" bitOffset="31">			 
+                <DatatypeRef datatypeId="DT_SyncStart" />
+                <Name textId="TI_PD_SyncStart" />
+              </RecordItem>
+			  <RecordItem subindex="21" bitOffset="0">
+                <DatatypeRef datatypeId="DT_ReservedByte" />
+                <Name textId="TI_PD_Reserved" />
+              </RecordItem>
+            </Datatype>
+            <Name textId="TI_PD_Out" />
+          </ProcessDataOut>
+        </ProcessData>
+      </ProcessDataCollection>
+      
+	  <!-- EVENTS -->
+      <EventCollection>
+        <StdEventRef code="20753" /> <!--0x5111 Primary supply voltage under-run -->
+		<!-- StdEventRef code="16912" /--> <!--0x4210 Device temperature over-run -->
+        <!--StdEventRef code="16928" /--> <!--0x4220 Device temperature under-run -->
+      </EventCollection>
+      
+	  <!-- UserInterface -->
+      <UserInterface>
+        <MenuCollection>
+          
+          <!-- Main menus -->
+          <!-- Identification tab -->
+          <Menu id="M_OR_MR_SR_Ident">
+            <VariableRef variableId="V_VendorName" />
+            <VariableRef variableId="V_VendorText" />
+            <VariableRef variableId="V_ProductName" />
+            <VariableRef variableId="V_ProductID" />
+            <VariableRef variableId="V_ProductText" />
+            <VariableRef variableId="V_HardwareRevision" />
+            <VariableRef variableId="V_FirmwareRevision" />
+            <VariableRef variableId="V_ApplicationSpecificTag" />
+          </Menu>
+          
+          <!-- Parameterization tab -->
+          <Menu id="M_OR_Param">
+            <MenuRef menuId="M_AccessLocks_RO" /> 
+			<MenuRef menuId="M_GeneralParameters_RO" />
+			<MenuRef menuId="M_Sensor_RO" />
+			<MenuRef menuId="M_PowerOnMode0_RO" />
+			<MenuRef menuId="M_PowerOnMode1_RO" />
+          </Menu>
+          
+          <Menu id="M_MR_Param">
+            <MenuRef menuId="M_AccessLocks_RW" /> 
+            <MenuRef menuId="M_Commands_WO" /> 
+			<MenuRef menuId="M_GeneralParameters_RW" />
+			<MenuRef menuId="M_Sensor_RW" />
+			<MenuRef menuId="M_PowerOnMode0_RW" />
+			<MenuRef menuId="M_PowerOnMode1_RW" />
+          </Menu>
+          
+          <Menu id="M_SR_Param">
+            <MenuRef menuId="M_AccessLocks_RW" /> 
+            <MenuRef menuId="M_Commands_WO" /> 
+			<MenuRef menuId="M_GeneralParameters_RW" />
+			<MenuRef menuId="M_Sensor_RW" />
+			<MenuRef menuId="M_PowerOnMode0_RW" />
+			<MenuRef menuId="M_PowerOnMode1_RW" />
+          </Menu>
+
+		  <!-- Diagnosis tab -->
+          <Menu id="M_OR_MR_SR_Diag">
+			<MenuRef menuId="M_Counters" />
+			<MenuRef menuId="M_Temperature" />
+			<MenuRef menuId="M_PowerSupply" />
+          </Menu>
+
+		  <!-- Diagnosis tab -->
+		  <!-- No diagnosis info provided by the device -->
+          
+		  <!-- Sub-menus -->
+		  <!--Menu id="M_Setup">
+            <Name textId="TI_M_Setup_Name" />
+            <VariableRef variableId="V_DeviceAccessLocks" accessRightRestriction="rw" />
+            <VariableRef variableId="V_SystemCommand">
+              <Button buttonValue="130">
+                <Description textId="TD_FactoryReset" />
+                <ActionStartedMessage textId="T_FactoryResetStarted" />
+              </Button>
+            </VariableRef>
+		  </Menu!-->
+		  <Menu id="M_GeneralParameters_RO">
+            <Name textId="TI_M_AllModes_Name" />
+            <VariableRef variableId="V_Brightness" accessRightRestriction="ro" displayFormat="Dec" />
+			<VariableRef variableId="V_UserColor" accessRightRestriction="ro" displayFormat="Dec" />
+			<VariableRef variableId="V_AlternateMode" accessRightRestriction="ro" displayFormat="Dec" />
+			<VariableRef variableId="V_SafeState" accessRightRestriction="ro" displayFormat="Dec" />
+		  </Menu>
+		  
+		  <Menu id="M_GeneralParameters_RW">
+            <Name textId="TI_M_AllModes_Name" />
+            <VariableRef variableId="V_Brightness" accessRightRestriction="rw" displayFormat="Dec" />
+			<VariableRef variableId="V_UserColor" accessRightRestriction="rw" displayFormat="Dec" />
+			<VariableRef variableId="V_AlternateMode" accessRightRestriction="rw" displayFormat="Dec" />
+			<VariableRef variableId="V_SafeState" accessRightRestriction="rw" displayFormat="Dec" />
+		  </Menu>
+          
+		  <Menu id="M_PowerSupply">
+            <Name textId="TI_M_PowerSupply_Name" />
+            <VariableRef variableId="V_SupplyMonitor" accessRightRestriction="ro" displayFormat="Dec" />
+		  </Menu>
+          
+          <Menu id="M_Counters">
+            <Name textId="TI_M_Counters_Name" />
+			<VariableRef variableId="V_UsageHoursCounter" accessRightRestriction="ro" displayFormat="Dec" />
+            <VariableRef variableId="V_BootCycleCounter" accessRightRestriction="ro" displayFormat="Dec" />
+		  </Menu>
+          
+          <Menu id="M_Temperature">
+            <Name textId="TI_M_Temperature_Name" />
+            <!-- todo unit for the structure element -->
+            <!-- VariableRef variableId="V_DeviceTemperature" accessRightRestriction="ro" displayFormat="Dec" /-->
+            <RecordItemRef variableId="V_DeviceTemperature" subindex="1" displayFormat="Dec" unitCode="1001"/>
+            <RecordItemRef variableId="V_DeviceTemperature" subindex="3" displayFormat="Dec" unitCode="1001"/>
+            <RecordItemRef variableId="V_DeviceTemperature" subindex="2" displayFormat="Dec" unitCode="1001"/>
+            <RecordItemRef variableId="V_DeviceTemperature" subindex="5" displayFormat="Dec" unitCode="1001"/>
+            <RecordItemRef variableId="V_DeviceTemperature" subindex="4" displayFormat="Dec" unitCode="1001"/>
+          </Menu>
+          
+          <Menu id="M_AccessLocks_RO">
+            <Name textId="TI_M_AccessLocks_Name" /> 
+            <RecordItemRef variableId="V_DeviceAccessLocks"  accessRightRestriction="ro" subindex="2" />
+          </Menu>
+          <Menu id="M_AccessLocks_RW">
+            <Name textId="TI_M_AccessLocks_Name" /> 
+            <RecordItemRef variableId="V_DeviceAccessLocks"  subindex="2" />
+          </Menu>
+		  
+		  <Menu id="M_Sensor_RO">
+            <Name textId="TI_M_Sensor_Name" />
+			<VariableRef variableId="V_SensorTeach" accessRightRestriction="ro" displayFormat="Dec" />
+			<VariableRef variableId="V_SensorFilter" accessRightRestriction="ro" displayFormat="Dec" />
+            <VariableRef variableId="V_ExcessGain" accessRightRestriction="ro" displayFormat="Dec" />
+		  </Menu>
+		  
+		  <Menu id="M_Sensor_RW">
+            <Name textId="TI_M_Sensor_Name" />
+			<VariableRef variableId="V_SensorTeach" accessRightRestriction="rw" displayFormat="Dec" />
+			<VariableRef variableId="V_SensorFilter" accessRightRestriction="rw" displayFormat="Dec" />
+            <VariableRef variableId="V_ExcessGain" accessRightRestriction="ro" displayFormat="Dec" />
+		  </Menu>
+		  
+		  <Menu id="M_PowerOnMode0_RO">
+		    <Name textId="TI_M_PowerOnMode0_Name" />
+			<VariableRef variableId="V_PowerOnModeDisplay0" accessRightRestriction="ro" displayFormat="Hex" />
+		  </Menu>
+		  
+		  <Menu id="M_PowerOnMode1_RO">
+		    <Name textId="TI_M_PowerOnMode1_Name" />
+			<VariableRef variableId="V_PowerOnModeDisplay1" accessRightRestriction="ro" displayFormat="Hex" />
+		  </Menu>
+		  
+		  <Menu id="M_PowerOnMode0_RW">
+		    <Name textId="TI_M_PowerOnMode0_Name" />
+			<VariableRef variableId="V_PowerOnModeDisplay0" accessRightRestriction="rw" displayFormat="Hex" />
+		  </Menu>
+		  
+		  <Menu id="M_PowerOnMode1_RW">
+		    <Name textId="TI_M_PowerOnMode1_Name" />
+			<VariableRef variableId="V_PowerOnModeDisplay1" accessRightRestriction="rw" displayFormat="Hex" />
+		  </Menu>
+		  
+          <Menu id="M_Commands_WO">
+            <Name textId="TI_M_Commands_Name" /> 
+            <VariableRef variableId="V_SystemCommand">
+              <Button buttonValue="130">
+                <Description textId="TD_FactoryReset" /> 
+                <ActionStartedMessage textId="T_FactoryResetStarted" /> 
+              </Button>
+            </VariableRef>
+          </Menu>
+          
+        </MenuCollection>
+        
+        <!-- MEnu roles -->
+        <ObserverRoleMenuSet>
+          <IdentificationMenu menuId="M_OR_MR_SR_Ident" />
+          <ParameterMenu menuId="M_OR_Param" />
+		  <!--ObservationMenu menuId="M_OR_MR_SR_Observ" /-->
+		  <DiagnosisMenu menuId="M_OR_MR_SR_Diag" />
+        </ObserverRoleMenuSet>
+        <MaintenanceRoleMenuSet>
+          <IdentificationMenu menuId="M_OR_MR_SR_Ident" />
+          <ParameterMenu menuId="M_MR_Param" />
+		  <!--ObservationMenu menuId="M_OR_MR_SR_Observ" /-->
+		  <DiagnosisMenu menuId="M_OR_MR_SR_Diag" />
+        </MaintenanceRoleMenuSet>
+        <SpecialistRoleMenuSet>
+          <IdentificationMenu menuId="M_OR_MR_SR_Ident" />
+          <ParameterMenu menuId="M_SR_Param" />
+		  <!--ObservationMenu menuId="M_OR_MR_SR_Observ" /-->
+		  <DiagnosisMenu menuId="M_OR_MR_SR_Diag" />
+        </SpecialistRoleMenuSet>
+      </UserInterface>
+    </DeviceFunction>
+  </ProfileBody>
+  
+  <CommNetworkProfile xsi:type="IOLinkCommNetworkProfileT" iolinkRevision="V1.1">
+    <TransportLayers>
+      <PhysicalLayer minCycleTime="8400" sioSupported="false" bitrate="COM2" mSequenceCapability="27">
+        <Connection xsi:type="OtherConnectionT">
+          <ProductRef productId="BNI00E0" />
+          <Description textId="TI_IOL_Connector" />
+          <Wire1 function="L+" color="BN">
+            <Name textId="T_IOLWire1" />
+          </Wire1>
+          <Wire3 function="L-" color="BU">
+            <Name textId="T_IOLWire3" />
+          </Wire3>
+          <Wire4 function="C/Q" color="BK">
+            <Name textId="T_IOLWire4" />
+          </Wire4>
+        </Connection>
+      </PhysicalLayer>
+    </TransportLayers>
+    <Test>
+      <Config1 index="81" testValue="0x01,0x01,0x01" />
+      <Config2 index="1000" testValue="0x00" />
+      <Config3 index="24"   testValue="0x31,0x32,0x33,0x34,0x35,0x36,0x37,0x38,0x39,0x40,0x41,0x42,0x43,0x44,0x45,0x46,0x47,0x48,0x49,0x50,0x51,0x52,0x56,0x57,0x31,0x32,0x33,0x34,0x35,0x36,0x37,0x38" />
+    </Test>
+  </CommNetworkProfile>
+  
+  <ExternalTextCollection>
+    <PrimaryLanguage xml:lang="en">
+
+      <!-- IODD catalog info -->
+	  <Text id="TI_VendorText"     value="innovating automation" />
+      <Text id="TI_VendorUrl"      value="http://www.balluff.com" />
+      <Text id="TI_DeviceFamily"   value="BNI - SmartLight Indicator" />
+      <Text id="TI_Device"         value="BNI IOL-803-103-R036" />
+      <Text id="TI_Product1_Name"  value="BNI IOL-803-103-R036" />
+      <Text id="TI_Product1_Descr" value="SmartLight Indicator with sensor, extension mode disabled" />
+	  
+	  <!-- ISDU parameters text -->
+	  <Text id="TI_VAR_R" value="Counter-clockwise" />
+      <Text id="TI_VAR_L" value="Clockwise" />
+	  <Text id="TI_VAR_DemoMode_Active" value="Demo mode active" />
+	  <Text id="TI_VAR_NormalOperation" value="Normal operation" />
+	  <Text id="TI_VAR_PowerOnMode_Active" value="Power-On mode active" />
+	  <Text id="TI_VAR_LevelFadeLoadingMode_Off" value="-/Level fade OFF/Loading mode OFF/-" />
+	  <Text id="TI_VAR_LevelFadeLoadingMode_On" value="-/Level fade ON/Loading mode ON/-" />
+	  <Text id="TI_VAR_Color_Off" value="Off" />
+      <Text id="TI_VAR_Color_Green" value="Green" />
+      <Text id="TI_VAR_Color_Red" value="Red" />
+      <Text id="TI_VAR_Color_Yellow" value="Yellow" />
+      <Text id="TI_VAR_Color_Blue" value="Blue" />
+      <Text id="TI_VAR_Color_Orange" value="Orange" />
+      <Text id="TI_VAR_Color_UserDefined" value="User defined" />
+      <Text id="TI_VAR_Color_White" value="White" />
+	  <Text id="TI_VAR_notBlink" value="Segment does not blink" />
+      <Text id="TI_VAR_Blink" value="Segment blinks" />	 
+	  <Text id="TI_VAR_NoModeSelected" value="No mode selected"/>	  
+	  <Text id="TI_VAR_ModeSegment" value="Segment mode"/>
+      <Text id="TI_VAR_ModeLevel" value="Level mode"/>
+      <Text id="TI_VAR_ModeRunlight" value="Runlight mode"/>
+	  <Text id="TI_VAR_ModeColorWheel" value="Color wheel mode"/>
+      <Text id="TI_VAR_SupplyMonitor" value="Supply monitoring"/>
+      <Text id="TI_VAR_UsVoltageOk" value="Ok"/>
+      <Text id="TI_VAR_UsVoltageLow" value="Low Us"/>
+      <Text id="TI_VAR_UsVoltage" value="Supply Voltage"/>
+      <Text id="TI_VAR_Brightness" value="Brightness"/> 
+      <Text id="TI_VAR_BrightnessRed" value="Red channel brightness"/> 
+      <Text id="TI_VAR_BrightnessGreen" value="Green channel brightness"/> 
+      <Text id="TI_VAR_BrightnessBlue" value="Blue channel brightness"/> 
+      <Text id="TI_VAR_UserColor" value="User defined color"/> 
+      <Text id="TI_VAR_UserColorRed" value="Red channel"/> 
+      <Text id="TI_VAR_UserColorGreen" value="Green channel"/> 
+      <Text id="TI_VAR_UserColorBlue" value="Blue channel"/> 
+      <Text id="TI_VAR_AlternateMode" value="Mode"/>
+	  <Text id="TI_VAR_PowerOnModeDisplay0" value="Power-On mode Display 0"/>
+	  <Text id="TI_VAR_PowerOnModeDisplay1" value="Power-On mode Display 1"/>
+	  <Text id="TI_VAR_SensorTeach" value="Sensor Teach"/>
+	  <Text id="TI_VAR_ExcessGain" value="Excess Gain"/>
+	  <Text id="TI_VAR_SensorFilter" value="Sensor Filter"/>
+	  <Text id="TI_VAR_SafeState" value="Safe State"/>
+	  <Text id="TI_VAR_NotActive" value="Not Activated"/>
+	  <Text id="TI_VAR_Active" value="Activated"/>
+	  <Text id="TI_VAR_SyncImpOn" value="On" />
+      <Text id="TI_VAR_SyncImpOff" value="Off" />
+      <Text id="TI_VAR_SyncStartOn" value="On" />
+      <Text id="TI_VAR_SyncStartOff" value="Off" />
+	  <Text id="TI_PD_SyncImp" value="Sync Impulse" />
+	  <Text id="TI_PD_SyncStart" value="Sync Start" />
+	  <Text id="TI_VAR_Error0" value="No error" />
+      <Text id="TI_VAR_Error1" value="Wrong mode" />
+      <Text id="TI_VAR_Error2" value="Wrong number of segments" />
+      <Text id="TI_VAR_Error3" value="Wrong frequency" />
+      <Text id="TI_VAR_Error4" value="Wrong speed" />
+      <Text id="TI_VAR_Error5" value="Wrong number of trailing edges" />
+	  <Text id="TI_VAR_UsageHoursCounter" value="Usage Hours Counter Lifetime" />
+      <!--Text id="TI_VAR_UsageHoursCounterLifeTime" value="Lifetime" /-->
+	  <!--Text id="TI_VAR_UsageHoursCounterMaintenance" value="Maintenance" /-->
+	  <!--Text id="TI_VAR_UsageHoursCounterPowerOn" value="Power On" /-->
+      <Text id="TI_VAR_BootCycleCounter" value="Boot Cycle Counter" />
+      <Text id="TI_VAR_DeviceTemperature" value="Temperature" />
+      <Text id="TI_VAR_ActualTemperatureValue" value="Actual Value" />
+      <Text id="TI_VAR_MaxTemperatureValueSinceLastStart" value="Maximum Value Since Powerup" />
+      <Text id="TI_VAR_MinTemperatureValueSinceLastStart" value="Minimum Value Since Powerup" />
+      <Text id="TI_VAR_MaxTemperatureValueSinceFirstStart" value="Maximum Value During Lifetime" />
+      <Text id="TI_VAR_MinTemperatureValueSinceFirstStart" value="Minimum Value During Lifetime" />
+	  
+	  <!-- Standard IO Data -->
+      <Text id="T_IOLWire1" value="Pin 1" />
+      <Text id="T_IOLWire3" value="Pin 3" />
+      <Text id="T_IOLWire4" value="Pin 4" />
+      <Text id="TI_IOL_Connector"  value="IO-Link Connector" />
+ 
+	  <Text id="TI_DT_TouchInput_Off" value="Touch input OFF"/>
+	  <Text id="TI_DT_TouchInput_On" value="Touch input ON"/>
+      <Text id="TI_PD_In" value="Process Data In" />
+      <Text id="TI_PD_Error" value="Error code" />
+	  <Text id="TI_PD_Mode" value="Operating mode" />
+	  <Text id="TI_PD_TouchInput" value="Touch input" />
+	  <Text id="TI_PD_Out" value="Process Data Out - Segment/Level/Runlight/Color Wheel" />
+      <Text id="TI_PD_Color1" value="Color: Segment 1/Segment 1/Background/-"/>
+	  <Text id="TI_PD_Color1_1" value="Segment 1 color"/>
+      <Text id="TI_PD_Color2" value="Color: Segment 2/Segment 2/Running/-"/>
+	  <Text id="TI_PD_Color2_2" value="Segment 2 color"/>
+      <Text id="TI_PD_Color3" value="Color: Segment 3/Segment 3/-/-"/>
+	  <Text id="TI_PD_Color3_3" value="Segment 3 color"/>
+      <Text id="TI_PD_Color4" value="Color: Segment 4/-/-/-"/>
+	  <Text id="TI_PD_Color4_4" value="Segment 4 color"/>
+      <Text id="TI_PD_Color5" value="Color: Segment 5/-/-/-"/>
+	  <Text id="TI_PD_Color5_5" value="Segment 5 color"/>
+      <Text id="TI_PD_Color6" value="Color: Segment 6/-/-/-"/>
+	  <Text id="TI_PD_Color6_6" value="Segment 6 color"/>
+	  <Text id="TI_PD_Blink1" value="Segment 1 blinks"/> 
+      <Text id="TI_PD_Blink2" value="Segment 2 blinks"/> 
+      <Text id="TI_PD_Blink3" value="Segment 3 blinks"/> 
+      <Text id="TI_PD_Blink4" value="Segment 4 blinks"/> 
+      <Text id="TI_PD_Blink5" value="Segment 5 blinks"/>
+	  <Text id="TI_PD_Blink6" value="Segment 6 blinks"/>
+	  <Text id="TI_PD_NumberOf" value="Number of segments/Level type/Number of running segments/-"/>
+	  <Text id="TI_PD_NumberOf_Of" value="Number of segments"/>
+	  <Text id="TI_PD_RunDir" value="-/-/Run direction/Run direction"/>
+	  <Text id="TI_PD_LevelFadeLoadingMode" value="-/Level fade/Loading mode/-"/>
+      <Text id="TI_PD_LevelLow" value ="Blink mode/Level value low byte/Trailing edge/-" />
+	  <Text id="TI_PD_LevelLow_L" value ="Blink mode" />
+      <Text id="TI_PD_LevelHigh" value="Blink frequency/Level value high byte/Running speed/Running speed" />
+	  <Text id="TI_PD_LevelHigh_H" value="Blink frequency" />
+      <Text id="TI_PD_Reserved" value="Reserved" />
+	  <Text id="TI_WrongNumOfSeg" value="Not selected/Clockwise/Not selected/-" />
+	  <Text id="TI_WrongNumOfSeg_1" value="Not selected" />																		
+	  <Text id="TI_1Segment" value="1 Segment/Counter-clockwise/1 Segment/-" />
+	  <Text id="TI_1Segment_1" value="1 Segment" />														
+	  <Text id="TI_2Segment" value="2 Segment/-/2 Segment/-" />
+	  <Text id="TI_2Segment_1" value="2 Segment" />														
+	  <Text id="TI_3Segment" value="3 Segment/-/3 Segment/-" />
+	  <Text id="TI_3Segment_1" value="3 Segment" />
+	  <Text id="TI_6Segment" value="6 Segment/-/-/-" />
+	  <Text id="TI_6Segment_1" value="6 Segment" />		  
+	  <Text id="TI_VAR_0Hz5" value="0.5 Hz"/> 
+      <Text id="TI_VAR_1Hz" value="1 Hz"/> 
+      <Text id="TI_VAR_2Hz" value="2 Hz"/> 
+      <Text id="TI_VAR_5Hz" value="5 Hz"/> 
+      <Text id="TI_VAR_10Hz" value="10 Hz"/> 
+	  
+	  <Text id="TI_VAR_ModeBlink" value="Blinking with 50% duty cycle"/> 
+      <Text id="TI_VAR_ModeFlash" value="Flashing"/>
+	  
+	  <Text id="TI_SN_RW" value="Serial number set"/>
+	  <Text id="TI_SN_RW_Descr" value="Parameter to set SN."/>
+      <Text id="TD_FactoryReset"        value="Factory Reset" />
+      <Text id="T_FactoryResetStarted"  value="Factory Reset is now in progress!" />
+	  
+	  <Text id="TI_M_Commands_Name"     value="Commands" /> 
+      <Text id="TI_M_AccessLocks_Name"  value="Access Locks" />
+	  
+	  <Text id="TI_M_PowerSupply_Name"  value="Power Supply"/>
+      <Text id="TI_M_Counters_Name"     value="Counters"/>
+      <Text id="TI_M_Temperature_Name"  value="Device Temperature"/>
+
+	  <Text id="TI_M_AllModes_Name"     value="General parameters" />
+      <Text id="TI_M_Sensor_Name"     	value="Sensor parameters"/>
+	  
+	  <Text id="TI_M_PowerOnMode0_Name"     	value="Power-On mode 0 settings"/>
+	  <Text id="TI_M_PowerOnMode1_Name"     	value="Power-On mode 1 settings"/>
+	  
+    </PrimaryLanguage>
+  </ExternalTextCollection>
+  <Stamp crc="1295059929"><Checker name="IODD-Checker V1.1.4" version="V1.1.4.0"/></Stamp>
+</IODevice>

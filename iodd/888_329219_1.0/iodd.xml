@@ -1,0 +1,292 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<IODevice xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.io-link.com/IODD/2009/11" xsi:schemaLocation="http://www.io-link.com/IODD/2009/11 IODD1.0.1.xsd">
+  <DocumentInfo version="V1.1" releaseDate="2015-01-30" copyright="Copyright 2010, Balluff GmbH" />
+  <ProfileHeader>
+    <ProfileIdentification>IO-Link Device Profile</ProfileIdentification>
+    <ProfileRevision>1.00</ProfileRevision>
+    <ProfileName>Device Profile for IO-Link Devices</ProfileName>
+    <ProfileSource>IO-Link Consortium</ProfileSource>
+    <ProfileClassID>Device</ProfileClassID>
+    <ISO15745Reference>
+      <ISO15745Part>1</ISO15745Part>
+      <ISO15745Edition>1</ISO15745Edition>
+      <ProfileTechnology>IODD</ProfileTechnology>
+    </ISO15745Reference>
+  </ProfileHeader>
+  <ProfileBody>
+    <DeviceIdentity vendorId="888" vendorName="BALLUFF" deviceId="329219">
+      <VendorText textId="TI_VendorText" />
+      <VendorUrl textId="TI_VendorUrl" />
+      <VendorLogo name="Balluff-logo.png" />
+      <DeviceFamily textId="TI_DeviceFamily" />
+      <DeviceVariantCollection>
+        <DeviceVariant productId="BIC005A" hardwareRevision="2" firmwareRevision="1.0" deviceSymbol="Balluff-BIC005A-pic.png" deviceIcon="Balluff-BIC005A-icon.png">
+          <ProductName textId="TI_Product1_Name" />
+          <ProductText textId="TI_Product1_Descr" />
+        </DeviceVariant>
+      </DeviceVariantCollection>
+    </DeviceIdentity>
+    <DeviceFunction>
+      <DatatypeCollection>
+        <Datatype id="DT_DPP" xsi:type="UIntegerT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bitLength="8" />
+        <Datatype id="DT_DigitalIn" xsi:type="UIntegerT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bitLength="8" />
+        <Datatype id="DT_Error_NoRemote" xsi:type="BooleanT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <SingleValue xsi:type="BooleanValueT" value="false">
+            <Name textId="TI_PD_Error_NoRemote_off" />
+          </SingleValue>
+          <SingleValue xsi:type="BooleanValueT" value="true">
+            <Name textId="TI_PD_Error_NoRemote_on" />
+          </SingleValue>
+        </Datatype>
+        <Datatype id="DT_Error_NoConnection" xsi:type="BooleanT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <SingleValue xsi:type="BooleanValueT" value="false">
+            <Name textId="TI_PD_Error_NoConnection_off" />
+          </SingleValue>
+          <SingleValue xsi:type="BooleanValueT" value="true">
+            <Name textId="TI_PD_Error_NoConnection_on" />
+          </SingleValue>
+        </Datatype>
+        <Datatype id="DT_Error_ShortRemote" xsi:type="BooleanT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <SingleValue xsi:type="BooleanValueT" value="false">
+            <Name textId="TI_PD_Error_ShortRemote_off" />
+          </SingleValue>
+          <SingleValue xsi:type="BooleanValueT" value="true">
+            <Name textId="TI_PD_Error_ShortRemote_on" />
+          </SingleValue>
+        </Datatype>				
+        <Datatype id="DT_Error_SupplyRemote" xsi:type="BooleanT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <SingleValue xsi:type="BooleanValueT" value="false">
+            <Name textId="TI_PD_Error_SupplyRemote_off" />
+          </SingleValue>
+          <SingleValue xsi:type="BooleanValueT" value="true">
+            <Name textId="TI_PD_Error_SupplyRemote_on" />
+          </SingleValue>
+        </Datatype>			
+      </DatatypeCollection>
+      <VariableCollection>
+        <StdVariableRef id="V_DirectParameters_1" />
+        <StdVariableRef id="V_DirectParameters_2" />
+        <StdVariableRef id="V_VendorName" defaultValue="BALLUFF" />
+        <StdVariableRef id="V_VendorText" defaultValue="www.balluff.com" />
+        <StdVariableRef id="V_ProductName" defaultValue="BIC 1I0-I2A50-Q40KFU-SM4A4A" />
+        <StdVariableRef id="V_ProductID" defaultValue="BIC005A" />
+        <StdVariableRef id="V_ProductText" defaultValue="BIC IOL Base" />
+        <StdVariableRef id="V_HardwareRevision" defaultValue="2" />
+        <StdVariableRef id="V_FirmwareRevision" defaultValue="1.0" />
+        <Variable id="V_DPP" index="64" accessRights="ro">
+          <Datatype xsi:type="RecordT" bitLength="128">
+            <RecordItem subindex="1" bitOffset="120">
+              <DatatypeRef datatypeId="DT_DPP" />
+              <Name textId="TI_VAR_DPP_01" />
+            </RecordItem>
+            <RecordItem subindex="2" bitOffset="112">
+              <DatatypeRef datatypeId="DT_DPP" />
+              <Name textId="TI_VAR_DPP_02" />
+            </RecordItem>
+            <RecordItem subindex="3" bitOffset="104">
+              <DatatypeRef datatypeId="DT_DPP" />
+              <Name textId="TI_VAR_DPP_03" />
+            </RecordItem>
+            <RecordItem subindex="4" bitOffset="96">
+              <DatatypeRef datatypeId="DT_DPP" />
+              <Name textId="TI_VAR_DPP_04" />
+            </RecordItem>
+            <RecordItem subindex="5" bitOffset="88">
+              <DatatypeRef datatypeId="DT_DPP" />
+              <Name textId="TI_VAR_DPP_05" />
+            </RecordItem>
+            <RecordItem subindex="6" bitOffset="80">
+              <DatatypeRef datatypeId="DT_DPP" />
+              <Name textId="TI_VAR_DPP_06" />
+            </RecordItem>
+            <RecordItem subindex="7" bitOffset="72">
+              <DatatypeRef datatypeId="DT_DPP" />
+              <Name textId="TI_VAR_DPP_07" />
+            </RecordItem>
+            <RecordItem subindex="8" bitOffset="64">
+              <DatatypeRef datatypeId="DT_DPP" />
+              <Name textId="TI_VAR_DPP_08" />
+            </RecordItem>
+            <RecordItem subindex="9" bitOffset="56">
+              <DatatypeRef datatypeId="DT_DPP" />
+              <Name textId="TI_VAR_DPP_09" />
+            </RecordItem>
+            <RecordItem subindex="10" bitOffset="48">
+              <DatatypeRef datatypeId="DT_DPP" />
+              <Name textId="TI_VAR_DPP_10" />
+            </RecordItem>
+            <RecordItem subindex="11" bitOffset="40">
+              <DatatypeRef datatypeId="DT_DPP" />
+              <Name textId="TI_VAR_DPP_11" />
+            </RecordItem>
+            <RecordItem subindex="12" bitOffset="32">
+              <DatatypeRef datatypeId="DT_DPP" />
+              <Name textId="TI_VAR_DPP_12" />
+            </RecordItem>
+            <RecordItem subindex="13" bitOffset="24">
+              <DatatypeRef datatypeId="DT_DPP" />
+              <Name textId="TI_VAR_DPP_13" />
+            </RecordItem>
+            <RecordItem subindex="14" bitOffset="16">
+              <DatatypeRef datatypeId="DT_DPP" />
+              <Name textId="TI_VAR_DPP_14" />
+            </RecordItem>
+            <RecordItem subindex="15" bitOffset="8">
+              <DatatypeRef datatypeId="DT_DPP" />
+              <Name textId="TI_VAR_DPP_15" />
+            </RecordItem>
+            <RecordItem subindex="16" bitOffset="0">
+              <DatatypeRef datatypeId="DT_DPP" />
+              <Name textId="TI_VAR_DPP_16" />
+            </RecordItem>
+          </Datatype>
+          <Name textId="TI_VAR_Inversion" />
+          <Description textId="TI_VAR_Inversion_Descr" />
+        </Variable>
+      </VariableCollection>
+      <ProcessDataCollection>
+        <ProcessData id="V_PdT">
+          <ProcessDataIn id="V_Pd_InT" bitLength="32">
+            <Datatype xsi:type="RecordT" bitLength="32">
+              <Name textId="TI_DT_IOL_Pd" />
+              <RecordItem subindex="1" bitOffset="0">
+                <DatatypeRef datatypeId="DT_Error_NoConnection" />
+                <Name textId="TI_PD_Eror_01" />
+              </RecordItem>
+              <RecordItem subindex="2" bitOffset="1">
+                <DatatypeRef datatypeId="DT_Error_NoRemote" />
+                <Name textId="TI_PD_Eror_02" />
+              </RecordItem>
+              <RecordItem subindex="3" bitOffset="2">
+                <DatatypeRef datatypeId="DT_Error_ShortRemote" />
+                <Name textId="TI_PD_Eror_03" />
+              </RecordItem>
+              <RecordItem subindex="4" bitOffset="3">
+                <DatatypeRef datatypeId="DT_Error_SupplyRemote" />
+                <Name textId="TI_PD_Eror_04" />
+              </RecordItem>							
+              <RecordItem subindex="5" bitOffset="4">
+                <SimpleDatatype xsi:type="UIntegerT" bitLength="4" />
+                <Name textId="TI_Reserved" />
+              </RecordItem>
+              <RecordItem subindex="6" bitOffset="8">
+                <DatatypeRef datatypeId="DT_DigitalIn" />
+                <Name textId="TI_PD_Byte_02" />
+              </RecordItem>
+              <RecordItem subindex="7" bitOffset="16">
+                <DatatypeRef datatypeId="DT_DigitalIn" />
+                <Name textId="TI_PD_Byte_01" />
+              </RecordItem>
+              <RecordItem subindex="8" bitOffset="24">
+                <DatatypeRef datatypeId="DT_DigitalIn" />
+                <Name textId="TI_PD_Byte_00" />
+              </RecordItem>
+            </Datatype>
+            <Name textId="TI_PD" />
+          </ProcessDataIn>
+        </ProcessData>
+      </ProcessDataCollection>
+      <EventCollection>
+        <!--0x5112-->
+        <Event code="20754" type="Warning" mode="AppearDisappear">
+          <Name textId="TI_Ev_LowSupply24" />
+          <Description textId="TI_EvDescr_LowSupply24" />
+        </Event>
+        <!--0x5160-->
+        <Event code="20832" type="Error" mode="AppearDisappear">
+          <Name textId="TI_Ev_ShortCircuit" />
+          <Description textId="TI_EvDescr_ShortCircuit" />
+        </Event>
+      </EventCollection>
+      <UserInterface>
+        <MenuCollection>
+          <Menu id="M_OR_MR_SR_Ident">
+            <VariableRef variableId="V_VendorName" />
+            <VariableRef variableId="V_VendorText" />
+            <VariableRef variableId="V_ProductName" />
+            <VariableRef variableId="V_ProductID" />
+            <VariableRef variableId="V_ProductText" />
+            <VariableRef variableId="V_HardwareRevision" />
+            <VariableRef variableId="V_FirmwareRevision" />
+          </Menu>
+          <Menu id="M_OR_Param">
+            <VariableRef variableId="V_DPP" accessRightRestriction="ro" displayFormat="Hex" />
+          </Menu>
+          <Menu id="M_MR_Param">
+            <VariableRef variableId="V_DPP" accessRightRestriction="ro" displayFormat="Hex" />
+          </Menu>
+          <Menu id="M_SR_Param">
+            <VariableRef variableId="V_DPP" accessRightRestriction="ro" displayFormat="Hex" />
+          </Menu>
+        </MenuCollection>
+        <ObserverRoleMenuSet>
+          <IdentificationMenu menuId="M_OR_MR_SR_Ident" />
+          <ParameterMenu menuId="M_OR_Param" />
+        </ObserverRoleMenuSet>
+        <MaintenanceRoleMenuSet>
+          <IdentificationMenu menuId="M_OR_MR_SR_Ident" />
+          <ParameterMenu menuId="M_MR_Param" />
+        </MaintenanceRoleMenuSet>
+        <SpecialistRoleMenuSet>
+          <IdentificationMenu menuId="M_OR_MR_SR_Ident" />
+          <ParameterMenu menuId="M_SR_Param" />
+        </SpecialistRoleMenuSet>
+      </UserInterface>
+    </DeviceFunction>
+  </ProfileBody>
+  <CommNetworkProfile xsi:type="IOLinkCommNetworkProfileT" iolinkRevision="V1.0">
+    <TransportLayers>
+      <PhysicalLayer physics="2" minCycleTime="3000" sioSupported="false" baudrate="COM2" />
+    </TransportLayers>
+  </CommNetworkProfile>
+  <ExternalTextCollection>
+    <PrimaryLanguage xml:lang="en">
+      <Text id="TI_VendorText" value="BALLUFF" />
+      <Text id="TI_VendorUrl" value="www.balluff.com" />
+      <Text id="TI_DeviceFamily" value="BIC - Inductive coupler" />
+      <Text id="TI_Product1_Name" value="BIC 1I0-I2A50-Q40KFU-SM4A4A" />
+      <Text id="TI_Product1_Descr" value="BIC IOL Base" />
+      <Text id="TI_DT_IOL_Pd" value="Datatype ProcessDataIn" />
+      <Text id="TI_VAR_Inversion" value="Remote device direct parameter page" />
+      <Text id="TI_VAR_DPP_01" value="DDP 00" />
+      <Text id="TI_VAR_DPP_02" value="DPP 01" />
+      <Text id="TI_VAR_DPP_03" value="DPP 02 - min cycle time" />
+      <Text id="TI_VAR_DPP_04" value="DPP 03 - frame capability" />
+      <Text id="TI_VAR_DPP_05" value="DPP 04 - IO-Link revision" />
+      <Text id="TI_VAR_DPP_06" value="DPP 05 - process data in length" />
+      <Text id="TI_VAR_DPP_07" value="DPP 06 - process data out length" />
+      <Text id="TI_VAR_DPP_08" value="DPP 07 - vendor id 0" />
+      <Text id="TI_VAR_DPP_09" value="DPP 08 - vendor id 1" />
+      <Text id="TI_VAR_DPP_10" value="DPP 09 - device id 0" />
+      <Text id="TI_VAR_DPP_11" value="DPP 10 - device id 1" />
+      <Text id="TI_VAR_DPP_12" value="DPP 11 - device id 2" />
+      <Text id="TI_VAR_DPP_13" value="DPP 12" />
+      <Text id="TI_VAR_DPP_14" value="DPP 13" />
+      <Text id="TI_VAR_DPP_15" value="DPP 14" />
+      <Text id="TI_VAR_DPP_16" value="DPP 15" />
+      <Text id="TI_VAR_Inversion_Descr" value="Direct parameter page settings from remote device" />
+      <Text id="TI_PD" value="ProcessDataIn" />
+      <Text id="TI_PD_Eror_01" value="Status - Remote IO-Link connection" />
+      <Text id="TI_PD_Eror_02" value="Status - Remote connection" />
+      <Text id="TI_PD_Eror_03" value="Status - Remote IO-Link Short Circuit" />
+      <Text id="TI_PD_Eror_04" value="Status - Remote supply" />						
+      <Text id="TI_PD_Error_NoRemote_on" value="Remote lost" />
+      <Text id="TI_PD_Error_NoRemote_off" value="ok" />
+      <Text id="TI_PD_Error_NoConnection_on" value="No IO-Link connection" />
+      <Text id="TI_PD_Error_NoConnection_off" value="ok" />
+			<Text id="TI_PD_Error_ShortRemote_off" value="ok" />
+			<Text id="TI_PD_Error_ShortRemote_on" value="Short Circuit on Remote C/Q" />
+			<Text id="TI_PD_Error_SupplyRemote_off" value="ok" />
+			<Text id="TI_PD_Error_SupplyRemote_on" value="Low Supply Voltage on Remote C/Q" />			
+      <Text id="TI_Reserved" value="Reserved" />
+      <Text id="TI_PD_Byte_00" value="Device process data byte 0" />
+      <Text id="TI_PD_Byte_01" value="Device process data byte 1" />
+      <Text id="TI_PD_Byte_02" value="Device process data byte 2" />
+      <Text id="TI_Ev_ShortCircuit" value="Short circuit" />
+      <Text id="TI_EvDescr_ShortCircuit" value="Short circuit" />
+      <Text id="TI_Ev_LowSupply24" value="Low supply voltage 24V" />
+      <Text id="TI_EvDescr_LowSupply24" value="Low supply voltage 24V" />
+    </PrimaryLanguage>
+  </ExternalTextCollection>
+  <Stamp crc="3319053284"><Checker name="IODD-Checker V1.0.9" version="V1.0.9.0"/></Stamp>
+</IODevice>

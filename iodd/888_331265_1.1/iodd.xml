@@ -1,0 +1,765 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<IODevice xmlns="http://www.io-link.com/IODD/2010/10" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.io-link.com/IODD/2010/10 IODD1.1.xsd">
+  <DocumentInfo version="V1.2" releaseDate="2017-04-12" copyright="Copyright 2017, Balluff GmbH" />
+  <ProfileHeader>
+    <ProfileIdentification>IO Device Profile</ProfileIdentification>
+    <ProfileRevision>1.1</ProfileRevision>
+    <ProfileName>Device Profile for IO Devices</ProfileName>
+    <ProfileSource>IO-Link Consortium</ProfileSource>
+    <ProfileClassID>Device</ProfileClassID>
+    <ISO15745Reference>
+      <ISO15745Part>1</ISO15745Part>
+      <ISO15745Edition>1</ISO15745Edition>
+      <ProfileTechnology>IODD</ProfileTechnology>
+    </ISO15745Reference>
+  </ProfileHeader>
+  <ProfileBody>
+    <DeviceIdentity vendorId="888" vendorName="BALLUFF" deviceId="331265"><!-- 050E01 -->
+      <VendorText   textId="TI_VendorText" />
+      <VendorUrl    textId="TI_VendorUrl" />
+      <VendorLogo   name  ="Balluff-logo.png" />
+      <DeviceName   textId="TI_DeviceName" />
+      <DeviceFamily textId="TI_DeviceFamily" />
+      <DeviceVariantCollection>
+        <DeviceVariant productId="BNI00C1" deviceSymbol="Balluff-BNI_IOL-760-002-E066-pic.png" deviceIcon="Balluff-BNI_IOL-760-002-E066-icon.png">
+          <Name textId="TI_Product1_Name" />
+          <Description textId="TI_Product1_Descr" />
+        </DeviceVariant>
+      </DeviceVariantCollection>
+    </DeviceIdentity>
+    <DeviceFunction>
+      <Features blockParameter="true" dataStorage="true">
+        <SupportedAccessLocks parameter="true" dataStorage="true" localUserInterface="false" localParameterization="false" />
+      </Features>
+      
+      <DatatypeCollection>
+        <Datatype id="DT_DataIn"        xsi:type="UIntegerT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bitLength="8"></Datatype>
+        <Datatype id="DT_DataOut"       xsi:type="UIntegerT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bitLength="8"></Datatype>
+        <Datatype id="DT_SR232BaudRate" xsi:type="UIntegerT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bitLength="8">
+          <SingleValue value="0">
+            <Name textId="TI_DT_BaudRate_9600" />
+          </SingleValue>
+          <SingleValue value="1">
+            <Name textId="TI_DT_BaudRate_19200" />
+          </SingleValue>
+          <SingleValue value="2">
+            <Name textId="TI_DT_BaudRate_38400" />
+          </SingleValue>
+          <SingleValue value="3">
+            <Name textId="TI_DT_BaudRate_57600" />
+          </SingleValue>
+          <SingleValue value="4">
+            <Name textId="TI_DT_BaudRate_115200" />
+          </SingleValue>
+        </Datatype>
+        <Datatype id="DT_StopBit" xsi:type="UIntegerT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bitLength="8">
+          <SingleValue value="1">
+            <Name textId="TI_DT_StopBit_1" />
+          </SingleValue>
+          <SingleValue value="2">
+            <Name textId="TI_DT_StopBit_2" />
+          </SingleValue>
+        </Datatype>
+        <Datatype id="DT_RS232FrameFormat" xsi:type="UIntegerT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bitLength="8">
+          <SingleValue value="0">
+            <Name textId="TI_DT_RS232FrameFormat_7bit_Even" />
+          </SingleValue>
+          <SingleValue value="1">
+            <Name textId="TI_DT_RS232FrameFormat_7bit_Odd" />
+          </SingleValue>
+          <SingleValue value="2">
+            <Name textId="TI_DT_RS232FrameFormat_8bit_None" />
+          </SingleValue>
+          <SingleValue value="3">
+            <Name textId="TI_DT_RS232FrameFormat_8bit_Even" />
+          </SingleValue>
+          <SingleValue value="4">
+            <Name textId="TI_DT_RS232FrameFormat_8bit_Odd" />
+          </SingleValue>
+          <SingleValue value="5">
+            <Name textId="TI_DT_RS232FrameFormat_9bit_None" />
+          </SingleValue>
+        </Datatype>
+        <Datatype id="DT_HardwareFlowControl" xsi:type="UIntegerT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bitLength="8">
+          <SingleValue value="0">
+            <Name textId="TI_DT_HardwareFlowControl_RTS_CTS" />
+          </SingleValue>
+          <SingleValue value="1">
+            <Name textId="TI_DT_HardwareFlowControl_RTS" />
+          </SingleValue>
+          <SingleValue value="2">
+            <Name textId="TI_DT_HardwareFlowControl_CTS" />
+          </SingleValue>
+          <SingleValue value="3">
+            <Name textId="TI_DT_HardwareFlowControl_None" />
+          </SingleValue>
+        </Datatype>
+        <Datatype id="DT_EnableDevicePowerSupply" xsi:type="UIntegerT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bitLength="8">
+          <SingleValue value="0">
+            <Name textId="TI_DT_DevicePowerSupply_Disable" />
+          </SingleValue>
+          <SingleValue value="1">
+            <Name textId="TI_DT_DevicePowerSupply_Enable" />
+          </SingleValue>
+        </Datatype>
+        <Datatype id="DT_UsageHoursCounter" xsi:type="UIntegerT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bitLength="32"></Datatype>
+        <Datatype id="DT_BootCycleCounter" xsi:type="UIntegerT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bitLength="32"></Datatype>
+        <Datatype id="DT_ActualTemperatureValue" xsi:type="IntegerT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bitLength="8"></Datatype>
+        <Datatype id="DT_VAR_MaxTemperatureValueSinceLastStart" xsi:type="IntegerT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bitLength="8"></Datatype>
+        <Datatype id="DT_VAR_MinTemperatureValueSinceLastStart" xsi:type="IntegerT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bitLength="8"></Datatype>
+        <Datatype id="DT_VAR_MaxTemperatureValueSinceFirstStart" xsi:type="IntegerT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bitLength="8"></Datatype>
+        <Datatype id="DT_VAR_MinTemperatureValueSinceFirstStart" xsi:type="IntegerT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bitLength="8"></Datatype>
+      </DatatypeCollection>
+      
+      <VariableCollection>
+        <StdVariableRef id="V_DirectParameters_1" />
+        <StdVariableRef id="V_DirectParameters_2" />
+        <StdVariableRef id="V_SystemCommand">
+          <StdSingleValueRef value="130" />
+        </StdVariableRef>
+        <StdVariableRef id="V_DeviceAccessLocks" />
+        <StdVariableRef id="V_VendorName"  defaultValue="Balluff" />
+        <StdVariableRef id="V_VendorText"  defaultValue="http://www.balluff.com" />
+        <StdVariableRef id="V_ProductName" defaultValue="BNI IOL-760-002-E066" />
+        <StdVariableRef id="V_ProductID"   defaultValue="BNI00C1" />
+        <StdVariableRef id="V_ProductText" defaultValue="RS232 to IO-Link Converter" />
+        <StdVariableRef id="V_HardwareRevision" />
+        <StdVariableRef id="V_FirmwareRevision" />
+        <StdVariableRef id="V_ApplicationSpecificTag" />
+        
+        <Variable id="V_RS232Parameters" index="64" accessRights="rw">
+          <Datatype xsi:type="RecordT" bitLength="32">
+            <RecordItem subindex="1" bitOffset="24">
+              <DatatypeRef datatypeId="DT_SR232BaudRate" />
+              <Name textId="TI_VAR_BaudRate" />
+            </RecordItem>
+            <RecordItem subindex="2" bitOffset="16">
+              <DatatypeRef datatypeId="DT_StopBit" />
+              <Name textId="TI_VAR_StopBit" />
+            </RecordItem>
+            <RecordItem subindex="3" bitOffset="8">
+              <DatatypeRef datatypeId="DT_RS232FrameFormat" />
+              <Name textId="TI_VAR_RS232FrameFormat" />
+            </RecordItem>
+            <RecordItem subindex="4" bitOffset="0">
+              <DatatypeRef datatypeId="DT_HardwareFlowControl" />
+              <Name textId="TI_VAR_HardwareFlowControl" />
+            </RecordItem>
+          </Datatype>
+          <RecordItemInfo subindex="1" defaultValue="4" />
+          <RecordItemInfo subindex="2" defaultValue="1" />
+          <RecordItemInfo subindex="3" defaultValue="2" />
+          <RecordItemInfo subindex="4" defaultValue="0" />
+          <Name textId="TI_VAR_RS232Parameters" />
+          <Description textId="TI_VAR_RS232Parameters" />
+        </Variable>
+        
+        <!-- ISDU 0x45 -->
+        <Variable id="V_EnableDevicePowerSupply" index="69" accessRights="rw" defaultValue="0">
+          <DatatypeRef datatypeId="DT_EnableDevicePowerSupply" />
+          <Name textId="TI_VAR_EnableDevicePowerSupply" />
+          <Description textId="TI_VAR_EnableDevicePowerSupply" />
+        </Variable>
+        
+        <!-- ISDU 0x46 -->
+        <Variable id="V_UsageHoursCounter" index="70" accessRights="ro">
+          <DatatypeRef datatypeId="DT_UsageHoursCounter" />
+          <Name textId="TI_VAR_UsageHoursCounter" />
+          <Description textId="TI_VAR_UsageHoursCounter" />
+        </Variable>
+        
+        <!-- ISDU 0x47 -->
+        <Variable id="V_BootCycleCounter" index="71" accessRights="ro">
+          <DatatypeRef datatypeId="DT_BootCycleCounter" />
+          <Name textId="TI_VAR_BootCycleCounter" />
+          <Description textId="TI_VAR_BootCycleCounter" />
+        </Variable>
+        
+        <!-- ISDU 0x52 -->
+        <Variable id="V_DeviceTemperature" index="82" accessRights="ro">
+          <Datatype xsi:type="RecordT" bitLength="40">
+            <RecordItem subindex="1" bitOffset="32" >
+              <DatatypeRef datatypeId="DT_ActualTemperatureValue" />
+              <Name textId="TI_VAR_ActualTemperatureValue" />
+            </RecordItem>
+            <RecordItem subindex="2" bitOffset="24">
+              <DatatypeRef datatypeId="DT_VAR_MaxTemperatureValueSinceLastStart" />
+              <Name textId="TI_VAR_MaxTemperatureValueSinceLastStart" />
+            </RecordItem>
+            <RecordItem subindex="3" bitOffset="16">
+              <DatatypeRef datatypeId="DT_VAR_MinTemperatureValueSinceLastStart" />
+              <Name textId="TI_VAR_MinTemperatureValueSinceLastStart" />
+            </RecordItem>
+            <RecordItem subindex="4" bitOffset="8">
+              <DatatypeRef datatypeId="DT_VAR_MaxTemperatureValueSinceFirstStart" />
+              <Name textId="TI_VAR_MaxTemperatureValueSinceFirstStart" />
+            </RecordItem>
+            <RecordItem subindex="5" bitOffset="0">
+              <DatatypeRef datatypeId="DT_VAR_MinTemperatureValueSinceFirstStart" />
+              <Name textId="TI_VAR_MinTemperatureValueSinceFirstStart" />
+            </RecordItem>
+          </Datatype>   
+          <Name textId="TI_VAR_DeviceTemperature" />
+          <Description textId="TI_VAR_DeviceTemperature" />
+        </Variable>
+        
+		<!-- ISDU 0x54 - Serial Number (not suppeorted by the device) -->
+	    <!-- Variable id="V_SN_RW" index="84" accessRights="rw" excludedFromDataStorage="true">
+          <Datatype xsi:type="StringT" fixedLength="16" encoding="UTF-8"/>
+          <Name textId="TI_SN_RW" />
+          <Description textId="TI_SN_RW_Descr" />
+        </Variable-->
+      </VariableCollection>
+      
+      <ProcessDataCollection>
+        <ProcessData id="V_PdT">
+          <ProcessDataIn id="V_Pd_InT" bitLength="256">
+            <Datatype xsi:type="RecordT" bitLength="256">
+              <RecordItem subindex="1" bitOffset="248">
+                <DatatypeRef datatypeId="DT_DataIn" />
+                <Name textId="TI_PD_InputFirstHeaderByte"></Name>
+              </RecordItem>
+              <RecordItem subindex="2" bitOffset="240">
+                <DatatypeRef datatypeId="DT_DataIn" />
+                <Name textId="TI_PD_InputNumberOfBytes" />
+              </RecordItem>
+              <RecordItem subindex="3" bitOffset="232">
+                <DatatypeRef datatypeId="DT_DataIn" />
+                <Name textId="TI_PD_InputData1" />
+              </RecordItem>
+              <RecordItem subindex="4" bitOffset="224">
+                <DatatypeRef datatypeId="DT_DataIn" />
+                <Name textId="TI_PD_InputData2" />
+              </RecordItem>
+              <RecordItem subindex="5" bitOffset="216">
+                <DatatypeRef datatypeId="DT_DataIn" />
+                <Name textId="TI_PD_InputData3" />
+              </RecordItem>
+              <RecordItem subindex="6" bitOffset="208">
+                <DatatypeRef datatypeId="DT_DataIn" />
+                <Name textId="TI_PD_InputData4" />
+              </RecordItem>
+              <RecordItem subindex="7" bitOffset="200">
+                <DatatypeRef datatypeId="DT_DataIn" />
+                <Name textId="TI_PD_InputData5"></Name>
+              </RecordItem>
+              <RecordItem subindex="8" bitOffset="192">
+                <DatatypeRef datatypeId="DT_DataIn" />
+                <Name textId="TI_PD_InputData6"></Name>
+              </RecordItem>
+              <RecordItem subindex="9" bitOffset="184">
+                <DatatypeRef datatypeId="DT_DataIn" />
+                <Name textId="TI_PD_InputData7"></Name>
+              </RecordItem>
+              <RecordItem subindex="10" bitOffset="176">
+                <DatatypeRef datatypeId="DT_DataIn" />
+                <Name textId="TI_PD_InputData8"></Name>
+              </RecordItem>
+              <RecordItem subindex="11" bitOffset="168">
+                <DatatypeRef datatypeId="DT_DataIn" />
+                <Name textId="TI_PD_InputData9"></Name>
+              </RecordItem>
+              <RecordItem subindex="12" bitOffset="160">
+                <DatatypeRef datatypeId="DT_DataIn" />
+                <Name textId="TI_PD_InputData10"></Name>
+              </RecordItem>
+              <RecordItem subindex="13" bitOffset="152">
+                <DatatypeRef datatypeId="DT_DataIn" />
+                <Name textId="TI_PD_InputData11"></Name>
+              </RecordItem>
+              <RecordItem subindex="14" bitOffset="144">
+                <DatatypeRef datatypeId="DT_DataIn" />
+                <Name textId="TI_PD_InputData12"></Name>
+              </RecordItem>
+              <RecordItem subindex="15" bitOffset="136">
+                <DatatypeRef datatypeId="DT_DataIn" />
+                <Name textId="TI_PD_InputData13"></Name>
+              </RecordItem>
+              <RecordItem subindex="16" bitOffset="128">
+                <DatatypeRef datatypeId="DT_DataIn" />
+                <Name textId="TI_PD_InputData14"></Name>
+              </RecordItem>
+              <RecordItem subindex="17" bitOffset="120">
+                <DatatypeRef datatypeId="DT_DataIn" />
+                <Name textId="TI_PD_InputData15"></Name>
+              </RecordItem>
+              <RecordItem subindex="18" bitOffset="112">
+                <DatatypeRef datatypeId="DT_DataIn" />
+                <Name textId="TI_PD_InputData16"></Name>
+              </RecordItem>
+              <RecordItem subindex="19" bitOffset="104">
+                <DatatypeRef datatypeId="DT_DataIn" />
+                <Name textId="TI_PD_InputData17"></Name>
+              </RecordItem>
+              <RecordItem subindex="20" bitOffset="96">
+                <DatatypeRef datatypeId="DT_DataIn" />
+                <Name textId="TI_PD_InputData18"></Name>
+              </RecordItem>
+              <RecordItem subindex="21" bitOffset="88">
+                <DatatypeRef datatypeId="DT_DataIn" />
+                <Name textId="TI_PD_InputData19"></Name>
+              </RecordItem>
+              <RecordItem subindex="22" bitOffset="80">
+                <DatatypeRef datatypeId="DT_DataIn" />
+                <Name textId="TI_PD_InputData20"></Name>
+              </RecordItem>
+              <RecordItem subindex="23" bitOffset="72">
+                <DatatypeRef datatypeId="DT_DataIn" />
+                <Name textId="TI_PD_InputData21"></Name>
+              </RecordItem>
+              <RecordItem subindex="24" bitOffset="64">
+                <DatatypeRef datatypeId="DT_DataIn" />
+                <Name textId="TI_PD_InputData22"></Name>
+              </RecordItem>
+              <RecordItem subindex="25" bitOffset="56">
+                <DatatypeRef datatypeId="DT_DataIn" />
+                <Name textId="TI_PD_InputData23"></Name>
+              </RecordItem>
+              <RecordItem subindex="26" bitOffset="48">
+                <DatatypeRef datatypeId="DT_DataIn" />
+                <Name textId="TI_PD_InputData24"></Name>
+              </RecordItem>
+              <RecordItem subindex="27" bitOffset="40">
+                <DatatypeRef datatypeId="DT_DataIn" />
+                <Name textId="TI_PD_InputData25"></Name>
+              </RecordItem>
+              <RecordItem subindex="28" bitOffset="32">
+                <DatatypeRef datatypeId="DT_DataIn" />
+                <Name textId="TI_PD_InputData26"></Name>
+              </RecordItem>
+              <RecordItem subindex="29" bitOffset="24">
+                <DatatypeRef datatypeId="DT_DataIn" />
+                <Name textId="TI_PD_InputData27"></Name>
+              </RecordItem>
+              <RecordItem subindex="30" bitOffset="16">
+                <DatatypeRef datatypeId="DT_DataIn" />
+                <Name textId="TI_PD_InputData28"></Name>
+              </RecordItem>
+              <RecordItem subindex="31" bitOffset="8">
+                <DatatypeRef datatypeId="DT_DataIn" />
+                <Name textId="TI_PD_InputData29"></Name>
+              </RecordItem>
+              <RecordItem subindex="32" bitOffset="0">
+                <DatatypeRef datatypeId="DT_DataIn" />
+                <Name textId="TI_PD_InputSecondHeaderByte"></Name>
+              </RecordItem>
+            </Datatype>
+            <Name textId="TI_PD_In" />
+          </ProcessDataIn>
+          <ProcessDataOut id="V_Pd_OutT" bitLength="256">
+            <Datatype xsi:type="RecordT" bitLength="256">
+              <RecordItem subindex="1" bitOffset="248">
+                <DatatypeRef datatypeId="DT_DataOut" />
+                <Name textId="TI_PD_OutputFirstHeaderByte"></Name>
+              </RecordItem>
+              <RecordItem subindex="2" bitOffset="240">
+                <DatatypeRef datatypeId="DT_DataOut" />
+                <Name textId="TI_PD_OutputCommandDesignator" />
+              </RecordItem>
+              <RecordItem subindex="3" bitOffset="232">
+                <DatatypeRef datatypeId="DT_DataOut" />
+                <Name textId="TI_PD_OutputNumberOfBytes" />
+              </RecordItem>
+              <RecordItem subindex="4" bitOffset="224">
+                <DatatypeRef datatypeId="DT_DataOut" />
+                <Name textId="TI_PD_OutputData2" />
+              </RecordItem>
+              <RecordItem subindex="5" bitOffset="216">
+                <DatatypeRef datatypeId="DT_DataOut" />
+                <Name textId="TI_PD_OutputData3" />
+              </RecordItem>
+              <RecordItem subindex="6" bitOffset="208">
+                <DatatypeRef datatypeId="DT_DataOut" />
+                <Name textId="TI_PD_OutputData4" />
+              </RecordItem>
+              <RecordItem subindex="7" bitOffset="200">
+                <DatatypeRef datatypeId="DT_DataOut" />
+                <Name textId="TI_PD_OutputData5"></Name>
+              </RecordItem>
+              <RecordItem subindex="8" bitOffset="192">
+                <DatatypeRef datatypeId="DT_DataOut" />
+                <Name textId="TI_PD_OutputData6"></Name>
+              </RecordItem>
+              <RecordItem subindex="9" bitOffset="184">
+                <DatatypeRef datatypeId="DT_DataOut" />
+                <Name textId="TI_PD_OutputData7"></Name>
+              </RecordItem>
+              <RecordItem subindex="10" bitOffset="176">
+                <DatatypeRef datatypeId="DT_DataOut" />
+                <Name textId="TI_PD_OutputData8"></Name>
+              </RecordItem>
+              <RecordItem subindex="11" bitOffset="168">
+                <DatatypeRef datatypeId="DT_DataOut" />
+                <Name textId="TI_PD_OutputData9"></Name>
+              </RecordItem>
+              <RecordItem subindex="12" bitOffset="160">
+                <DatatypeRef datatypeId="DT_DataOut" />
+                <Name textId="TI_PD_OutputData10"></Name>
+              </RecordItem>
+              <RecordItem subindex="13" bitOffset="152">
+                <DatatypeRef datatypeId="DT_DataOut" />
+                <Name textId="TI_PD_OutputData11"></Name>
+              </RecordItem>
+              <RecordItem subindex="14" bitOffset="144">
+                <DatatypeRef datatypeId="DT_DataOut" />
+                <Name textId="TI_PD_OutputData12"></Name>
+              </RecordItem>
+              <RecordItem subindex="15" bitOffset="136">
+                <DatatypeRef datatypeId="DT_DataOut" />
+                <Name textId="TI_PD_OutputData13"></Name>
+              </RecordItem>
+              <RecordItem subindex="16" bitOffset="128">
+                <DatatypeRef datatypeId="DT_DataOut" />
+                <Name textId="TI_PD_OutputData14"></Name>
+              </RecordItem>
+              <RecordItem subindex="17" bitOffset="120">
+                <DatatypeRef datatypeId="DT_DataOut" />
+                <Name textId="TI_PD_OutputData15"></Name>
+              </RecordItem>
+              <RecordItem subindex="18" bitOffset="112">
+                <DatatypeRef datatypeId="DT_DataOut" />
+                <Name textId="TI_PD_OutputData16"></Name>
+              </RecordItem>
+              <RecordItem subindex="19" bitOffset="104">
+                <DatatypeRef datatypeId="DT_DataOut" />
+                <Name textId="TI_PD_OutputData17"></Name>
+              </RecordItem>
+              <RecordItem subindex="20" bitOffset="96">
+                <DatatypeRef datatypeId="DT_DataOut" />
+                <Name textId="TI_PD_OutputData18"></Name>
+              </RecordItem>
+              <RecordItem subindex="21" bitOffset="88">
+                <DatatypeRef datatypeId="DT_DataOut" />
+                <Name textId="TI_PD_OutputData19"></Name>
+              </RecordItem>
+              <RecordItem subindex="22" bitOffset="80">
+                <DatatypeRef datatypeId="DT_DataOut" />
+                <Name textId="TI_PD_OutputData20"></Name>
+              </RecordItem>
+              <RecordItem subindex="23" bitOffset="72">
+                <DatatypeRef datatypeId="DT_DataOut" />
+                <Name textId="TI_PD_OutputData21"></Name>
+              </RecordItem>
+              <RecordItem subindex="24" bitOffset="64">
+                <DatatypeRef datatypeId="DT_DataOut" />
+                <Name textId="TI_PD_OutputData22"></Name>
+              </RecordItem>
+              <RecordItem subindex="25" bitOffset="56">
+                <DatatypeRef datatypeId="DT_DataOut" />
+                <Name textId="TI_PD_OutputData23"></Name>
+              </RecordItem>
+              <RecordItem subindex="26" bitOffset="48">
+                <DatatypeRef datatypeId="DT_DataOut" />
+                <Name textId="TI_PD_OutputData24"></Name>
+              </RecordItem>
+              <RecordItem subindex="27" bitOffset="40">
+                <DatatypeRef datatypeId="DT_DataOut" />
+                <Name textId="TI_PD_OutputData25"></Name>
+              </RecordItem>
+              <RecordItem subindex="28" bitOffset="32">
+                <DatatypeRef datatypeId="DT_DataOut" />
+                <Name textId="TI_PD_OutputData26"></Name>
+              </RecordItem>
+              <RecordItem subindex="29" bitOffset="24">
+                <DatatypeRef datatypeId="DT_DataOut" />
+                <Name textId="TI_PD_OutputData27"></Name>
+              </RecordItem>
+              <RecordItem subindex="30" bitOffset="16">
+                <DatatypeRef datatypeId="DT_DataOut" />
+                <Name textId="TI_PD_OutputData28"></Name>
+              </RecordItem>
+              <RecordItem subindex="31" bitOffset="8">
+                <DatatypeRef datatypeId="DT_DataOut" />
+                <Name textId="TI_PD_OutputData29"></Name>
+              </RecordItem>
+              <RecordItem subindex="32" bitOffset="0">
+                <DatatypeRef datatypeId="DT_DataOut" />
+                <Name textId="TI_PD_OutputSecondHeaderByte"></Name>
+              </RecordItem>
+            </Datatype>
+            <Name textId="TI_PD_Out" />
+          </ProcessDataOut>
+        </ProcessData>
+      </ProcessDataCollection>
+      
+      <EventCollection>
+        <StdEventRef code="20753" /> <!--0x5111-->
+        <StdEventRef code="16912" /> <!--0x4210-->
+        <StdEventRef code="16928" /> <!--0x4220-->
+        <StdEventRef code="30480" /> <!--0x7710-->
+      </EventCollection>
+      
+      <UserInterface>
+        <MenuCollection>
+          
+          <!-- Main menus -->
+          <!-- Identification tab, same for all roles -->
+          <Menu id="M_OR_MR_SR_Ident">
+            <VariableRef variableId="V_VendorName" />
+            <VariableRef variableId="V_VendorText" />
+            <VariableRef variableId="V_ProductName" />
+            <VariableRef variableId="V_ProductID" />
+            <VariableRef variableId="V_ProductText" />
+            <VariableRef variableId="V_HardwareRevision" />
+            <VariableRef variableId="V_FirmwareRevision" />
+            <VariableRef variableId="V_ApplicationSpecificTag" />
+          </Menu>
+          
+          <!-- Parameterization tab -->
+          <Menu id="M_OR_Param">
+            <MenuRef menuId="M_AccessLocks_RO" /> 
+			<MenuRef menuId="M_RS232_RO" />
+			<MenuRef menuId="M_PowerSupply_RO" />
+          </Menu>
+          
+          <Menu id="M_MR_Param">
+            <MenuRef menuId="M_AccessLocks_RW" /> 
+            <MenuRef menuId="M_Commands_WO" /> 
+			<MenuRef menuId="M_RS232_RW" />
+			<MenuRef menuId="M_PowerSupply_RW" />
+          </Menu>
+          
+          <Menu id="M_SR_Param">
+            <MenuRef menuId="M_AccessLocks_RW" /> 
+            <MenuRef menuId="M_Commands_WO" /> 
+			<MenuRef menuId="M_RS232_RW" />
+			<MenuRef menuId="M_PowerSupply_RW" />
+          </Menu>
+
+		  <!-- Observation tab -->
+          <Menu id="M_OR_MR_SR_Observ">
+			<MenuRef menuId="M_Temperature" />
+          </Menu>
+
+		  <!-- Diagnosis tab -->
+          <Menu id="M_OR_MR_SR_Diag">
+			<MenuRef menuId="M_Counters" />
+          </Menu>
+          
+          <Menu id="M_RS232_RO">
+            <Name textId="TI_M_RS232_Name" />
+            <VariableRef variableId="V_RS232Parameters" accessRightRestriction="ro" displayFormat="Dec" />
+		  </Menu>
+		  <Menu id="M_RS232_RW">
+            <Name textId="TI_M_RS232_Name" />
+            <VariableRef variableId="V_RS232Parameters" accessRightRestriction="rw" displayFormat="Dec" />
+		  </Menu>
+          
+		  <Menu id="M_PowerSupply_RO">
+            <Name textId="TI_M_PowerSupply_Name" />
+            <VariableRef variableId="V_EnableDevicePowerSupply" accessRightRestriction="rw" displayFormat="Dec" />
+		  </Menu>
+		  <Menu id="M_PowerSupply_RW">
+            <Name textId="TI_M_PowerSupply_Name" />
+            <VariableRef variableId="V_EnableDevicePowerSupply" accessRightRestriction="rw" displayFormat="Dec" />
+		  </Menu>
+          
+          <Menu id="M_Counters">
+            <Name textId="TI_M_Counters_Name" />
+            <VariableRef variableId="V_UsageHoursCounter" accessRightRestriction="ro" displayFormat="Dec" unitCode="1059"/>
+            <VariableRef variableId="V_BootCycleCounter"  accessRightRestriction="ro" displayFormat="Dec" />
+		  </Menu>
+          
+          <Menu id="M_Temperature">
+            <Name textId="TI_M_Temperature_Name" />
+            <!-- todo unit for the structure element -->
+            <!-- VariableRef variableId="V_DeviceTemperature" accessRightRestriction="ro" displayFormat="Dec" /-->
+            <RecordItemRef variableId="V_DeviceTemperature" subindex="1" displayFormat="Dec" unitCode="1001"/>
+            <RecordItemRef variableId="V_DeviceTemperature" subindex="3" displayFormat="Dec" unitCode="1001"/>
+            <RecordItemRef variableId="V_DeviceTemperature" subindex="2" displayFormat="Dec" unitCode="1001"/>
+            <RecordItemRef variableId="V_DeviceTemperature" subindex="5" displayFormat="Dec" unitCode="1001"/>
+            <RecordItemRef variableId="V_DeviceTemperature" subindex="4" displayFormat="Dec" unitCode="1001"/>
+          </Menu>
+          
+          <Menu id="M_AccessLocks_RO">
+            <Name textId="TI_M_AccessLocks_Name" /> 
+            <RecordItemRef variableId="V_DeviceAccessLocks"  accessRightRestriction="ro" subindex="2" />
+          </Menu>
+          <Menu id="M_AccessLocks_RW">
+            <Name textId="TI_M_AccessLocks_Name" /> 
+            <RecordItemRef variableId="V_DeviceAccessLocks"  subindex="2" />
+          </Menu>
+          
+          <Menu id="M_Commands_WO">
+            <Name textId="TI_M_Commands_Name" /> 
+            <VariableRef variableId="V_SystemCommand">
+              <Button buttonValue="130">
+                <Description textId="TD_FactoryReset" /> 
+                <ActionStartedMessage textId="T_FactoryResetStarted" /> 
+              </Button>
+            </VariableRef>
+          </Menu>
+          
+        </MenuCollection>
+        
+        <!-- Menu roles -->
+        <ObserverRoleMenuSet>
+          <IdentificationMenu menuId="M_OR_MR_SR_Ident" />
+          <ParameterMenu menuId="M_OR_Param" />
+		  <ObservationMenu menuId="M_OR_MR_SR_Observ" />
+		  <DiagnosisMenu menuId="M_OR_MR_SR_Diag" />
+        </ObserverRoleMenuSet>
+        <MaintenanceRoleMenuSet>
+          <IdentificationMenu menuId="M_OR_MR_SR_Ident" />
+          <ParameterMenu menuId="M_MR_Param" />
+		  <ObservationMenu menuId="M_OR_MR_SR_Observ" />
+		  <DiagnosisMenu menuId="M_OR_MR_SR_Diag" />
+        </MaintenanceRoleMenuSet>
+        <SpecialistRoleMenuSet>
+          <IdentificationMenu menuId="M_OR_MR_SR_Ident" />
+          <ParameterMenu menuId="M_SR_Param" />
+		  <ObservationMenu menuId="M_OR_MR_SR_Observ" />
+		  <DiagnosisMenu menuId="M_OR_MR_SR_Diag" />
+        </SpecialistRoleMenuSet>
+      </UserInterface>
+    </DeviceFunction>
+  </ProfileBody>
+  
+  <CommNetworkProfile xsi:type="IOLinkCommNetworkProfileT" iolinkRevision="V1.1">
+    <TransportLayers>
+      <PhysicalLayer minCycleTime="35200" sioSupported="false" bitrate="COM2" mSequenceCapability="27">
+        <Connection xsi:type="OtherConnectionT">
+          <ProductRef productId="BNI00C1" />
+          <Description textId="TI_IOL_Connector" />
+          <Wire1 function="L+" color="BN">
+            <Name textId="T_IOLWire1" />
+          </Wire1>
+          <Wire3 function="L-" color="BU">
+            <Name textId="T_IOLWire3" />
+          </Wire3>
+          <Wire4 function="C/Q" color="BK">
+            <Name textId="T_IOLWire4" />
+          </Wire4>
+        </Connection>
+      </PhysicalLayer>
+    </TransportLayers>
+    <Test>
+      <Config1 index="64" testValue="0x04,0x01,0x02,0x00" />
+      <Config2 index="1000" testValue="0x00" />
+      <Config3 index="24" testValue="0x31,0x32,0x33,0x34,0x35,0x36,0x37,0x38,0x39,0x40,0x41,0x42,0x43,0x44,0x45,0x46,0x47,0x48,0x49,0x50,0x51,0x52,0x56,0x57,0x31,0x32,0x33,0x34,0x35,0x36" />
+    </Test>
+  </CommNetworkProfile>
+  
+  <ExternalTextCollection>
+    <PrimaryLanguage xml:lang="en">
+      <Text id="T_IOLWire1" value="Pin 1" />
+      <Text id="T_IOLWire3" value="Pin 3" />
+      <Text id="T_IOLWire4" value="Pin 4" />
+      <Text id="TI_IOL_Connector"  value="IO-Link Connector" />
+      <Text id="TI_VendorText"     value="innovating automation" />
+      <Text id="TI_VendorUrl"      value="www.balluff.com" />
+      <Text id="TI_DeviceFamily"   value="BNI - RS232 to IO-Link Converter" />
+      <Text id="TI_DeviceName"     value="BNI IOL-760-002-E066" />
+      <Text id="TI_Product1_Name"  value="BNI IOL-760-002-E066" />
+      <Text id="TI_Product1_Descr" value="RS232 to IO-Link Converter with 2 digital inputs and switchable power supply output for the RS232 device" />
+      <Text id="TI_PD_Out" value="ProcessDataOutput" />
+      <Text id="TI_PD_In"  value="ProcessDataIn" />
+      <Text id="TI_PD_InputFirstHeaderByte" value="1st Header Byte" />
+      <Text id="TI_PD_InputNumberOfBytes"   value="Number Of Bytes Or Error Or Data 0" />
+      <Text id="TI_PD_InputData1" value="Data 1" />
+      <Text id="TI_PD_InputData2" value="Data 2" />
+      <Text id="TI_PD_InputData3" value="Data 3" />
+      <Text id="TI_PD_InputData4" value="Data 4" />
+      <Text id="TI_PD_InputData5" value="Data 5" />
+      <Text id="TI_PD_InputData6" value="Data 6" />
+      <Text id="TI_PD_InputData7" value="Data 7" />
+      <Text id="TI_PD_InputData8" value="Data 8" />
+      <Text id="TI_PD_InputData9" value="Data 9" />
+      <Text id="TI_PD_InputData10" value="Data 10" />
+      <Text id="TI_PD_InputData11" value="Data 11" />
+      <Text id="TI_PD_InputData12" value="Data 12" />
+      <Text id="TI_PD_InputData13" value="Data 13" />
+      <Text id="TI_PD_InputData14" value="Data 14" />
+      <Text id="TI_PD_InputData15" value="Data 15" />
+      <Text id="TI_PD_InputData16" value="Data 16" />
+      <Text id="TI_PD_InputData17" value="Data 17" />
+      <Text id="TI_PD_InputData18" value="Data 18" />
+      <Text id="TI_PD_InputData19" value="Data 19" />
+      <Text id="TI_PD_InputData20" value="Data 20" />
+      <Text id="TI_PD_InputData21" value="Data 21" />
+      <Text id="TI_PD_InputData22" value="Data 22" />
+      <Text id="TI_PD_InputData23" value="Data 23" />
+      <Text id="TI_PD_InputData24" value="Data 24" />
+      <Text id="TI_PD_InputData25" value="Data 25" />
+      <Text id="TI_PD_InputData26" value="Data 26" />
+      <Text id="TI_PD_InputData27" value="Data 27" />
+      <Text id="TI_PD_InputData28" value="Data 28" />
+      <Text id="TI_PD_InputData29" value="Data 29" />
+      <Text id="TI_PD_InputSecondHeaderByte" value="2nd Header Byte" />
+      <Text id="TI_PD_OutputFirstHeaderByte" value="1st Header Byte" />
+      <Text id="TI_PD_OutputCommandDesignator" value="Command Designator Or Data 0" />
+      <Text id="TI_PD_OutputNumberOfBytes" value="Number Of Bytes Or Data 1" />
+      <Text id="TI_PD_OutputData2" value="Data 2" />
+      <Text id="TI_PD_OutputData3" value="Data 3" />
+      <Text id="TI_PD_OutputData4" value="Data 4" />
+      <Text id="TI_PD_OutputData5" value="Data 5" />
+      <Text id="TI_PD_OutputData6" value="Data 6" />
+      <Text id="TI_PD_OutputData7" value="Data 7" />
+      <Text id="TI_PD_OutputData8" value="Data 8" />
+      <Text id="TI_PD_OutputData9" value="Data 9" />
+      <Text id="TI_PD_OutputData10" value="Data 10" />
+      <Text id="TI_PD_OutputData11" value="Data 11" />
+      <Text id="TI_PD_OutputData12" value="Data 12" />
+      <Text id="TI_PD_OutputData13" value="Data 13" />
+      <Text id="TI_PD_OutputData14" value="Data 14" />
+      <Text id="TI_PD_OutputData15" value="Data 15" />
+      <Text id="TI_PD_OutputData16" value="Data 16" />
+      <Text id="TI_PD_OutputData17" value="Data 17" />
+      <Text id="TI_PD_OutputData18" value="Data 18" />
+      <Text id="TI_PD_OutputData19" value="Data 19" />
+      <Text id="TI_PD_OutputData20" value="Data 20" />
+      <Text id="TI_PD_OutputData21" value="Data 21" />
+      <Text id="TI_PD_OutputData22" value="Data 22" />
+      <Text id="TI_PD_OutputData23" value="Data 23" />
+      <Text id="TI_PD_OutputData24" value="Data 24" />
+      <Text id="TI_PD_OutputData25" value="Data 25" />
+      <Text id="TI_PD_OutputData26" value="Data 26" />
+      <Text id="TI_PD_OutputData27" value="Data 27" />
+      <Text id="TI_PD_OutputData28" value="Data 28" />
+      <Text id="TI_PD_OutputData29" value="Data 29" />
+      <Text id="TI_PD_OutputSecondHeaderByte" value="2nd Header Byte" />
+      <Text id="TI_VAR_RS232Parameters" value="RS232 Parameters" />
+      <Text id="TI_VAR_BaudRate" value="Baud Rate" />
+      <Text id="TI_DT_BaudRate_9600" value="9600" />
+      <Text id="TI_DT_BaudRate_19200" value="19200" />
+      <Text id="TI_DT_BaudRate_38400" value="38400" />
+      <Text id="TI_DT_BaudRate_57600" value="57600" />
+      <Text id="TI_DT_BaudRate_115200" value="115200" />
+      <Text id="TI_VAR_StopBit" value="Stop Bit" />
+      <Text id="TI_DT_StopBit_1" value="1" />
+      <Text id="TI_DT_StopBit_2" value="2" />
+      <Text id="TI_VAR_RS232FrameFormat" value="RS232 Frame Format" />
+      <Text id="TI_DT_RS232FrameFormat_7bit_Even" value="7 bit, Even" />
+      <Text id="TI_DT_RS232FrameFormat_7bit_Odd" value="7 bit, Odd" />
+      <Text id="TI_DT_RS232FrameFormat_8bit_None" value="8 bit, None" />
+      <Text id="TI_DT_RS232FrameFormat_8bit_Even" value="8 bit, Even" />
+      <Text id="TI_DT_RS232FrameFormat_8bit_Odd" value="8 bit, Odd" />
+      <Text id="TI_DT_RS232FrameFormat_9bit_None" value="9 bit, None" />
+      <Text id="TI_VAR_HardwareFlowControl" value="Hardware Flow Control" />
+      <Text id="TI_DT_HardwareFlowControl_RTS_CTS" value="Use RTS and CTS" />
+      <Text id="TI_DT_HardwareFlowControl_RTS" value="Use RTS" />
+      <Text id="TI_DT_HardwareFlowControl_CTS" value="Use CTS" />
+      <Text id="TI_DT_HardwareFlowControl_None" value="None" />
+      <Text id="TI_VAR_EnableDevicePowerSupply" value="Enable RS232 Device Power Supply" />
+      <Text id="TI_DT_DevicePowerSupply_Disable" value="Disable" />
+      <Text id="TI_DT_DevicePowerSupply_Enable" value="Enable" />
+      <Text id="TI_VAR_UsageHoursCounter" value="Usage Hours Counter" />
+      <Text id="TI_VAR_BootCycleCounter" value="Boot Cycle Counter" />
+      <Text id="TI_VAR_DeviceTemperature" value="Temperature" />
+      <Text id="TI_VAR_ActualTemperatureValue" value="Actual Value" />
+      <Text id="TI_VAR_MaxTemperatureValueSinceLastStart" value="Maximum Value Since Powerup" />
+      <Text id="TI_VAR_MinTemperatureValueSinceLastStart" value="Minimum Value Since Powerup" />
+      <Text id="TI_VAR_MaxTemperatureValueSinceFirstStart" value="Maximum Value During Lifetime" />
+      <Text id="TI_VAR_MinTemperatureValueSinceFirstStart" value="Minimum Value During Lifetime" />
+      <Text id="TD_FactoryReset"        value="Factory Reset" />
+      <Text id="T_FactoryResetStarted"  value="Factory Reset is now in progress!" />
+	  <Text id="TI_M_RS232_Name"        value="RS-232" />
+	  <Text id="TI_M_PowerSupply_Name"  value="Power Supply"/>
+      <Text id="TI_M_Counters_Name"     value="Counters"/>
+      <Text id="TI_M_Temperature_Name"  value="Device Temperature"/>
+      <Text id="TI_M_Commands_Name"     value="Commands" /> 
+      <Text id="TI_M_AccessLocks_Name"  value="Access Locks" /> 
+    </PrimaryLanguage>
+  </ExternalTextCollection>
+  <Stamp crc="2906470490"><Checker name="IODD-Checker V1.1.3" version="V1.1.3.0"/></Stamp>
+</IODevice>

@@ -1,0 +1,902 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<IODevice xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.io-link.com/IODD/2009/11" xsi:schemaLocation="http://www.io-link.com/IODD/2009/11 IODD1.0.1.xsd">
+  <DocumentInfo version="V1.1" releaseDate="2019-04-04" copyright="Balluff GmbH" />
+  <ProfileHeader>
+    <ProfileIdentification>IO-Link Device Profile</ProfileIdentification>
+    <ProfileRevision>1.00</ProfileRevision>
+    <ProfileName>Device Profile for IO-Link Devices</ProfileName>
+    <ProfileSource>IO-Link Consortium</ProfileSource>
+    <ProfileClassID>Device</ProfileClassID>
+    <ISO15745Reference>
+      <ISO15745Part>1</ISO15745Part>
+      <ISO15745Edition>1</ISO15745Edition>
+      <ProfileTechnology>IODD</ProfileTechnology>
+    </ISO15745Reference>
+  </ProfileHeader>
+  <ProfileBody>
+    <DeviceIdentity vendorId="888" vendorName="BALLUFF" deviceId="70243">
+      <VendorText textId="TI_VendorText" />
+      <VendorUrl textId="TI_VendorUrl" />
+      <VendorLogo name="BALLUFF-logo.png" />
+      <DeviceFamily textId="TI_DeviceFamily" />
+
+      <DeviceVariantCollection>
+        <DeviceVariant productId="BSP0101" deviceSymbol="BALLUFF-112_Cla_ffl69-pic.png" deviceIcon="BALLUFF-112_Cla_ffl69-icon.png">
+          <ProductName textId="TI_SPI_Name" />
+          <ProductText textId="TI_SPI_Text" />
+        </DeviceVariant>
+      </DeviceVariantCollection>
+    </DeviceIdentity>
+
+    <DeviceFunction>
+      <VariableCollection>
+        <StdVariableRef id="V_DirectParameters_1" />
+        <StdVariableRef id="V_DirectParameters_2" />
+        <StdVariableRef id="V_SystemCommand">
+          <StdSingleValueRef value="128" />
+          <!-- Device reset -->
+          <StdSingleValueRef value="129" />
+          <!-- Application reset -->
+          <StdSingleValueRef value="130" />
+          <!-- Restore factory settings -->
+          <SingleValue value="160">
+            <Name textId="TI_SetZero" />
+          </SingleValue>
+
+
+        </StdVariableRef>
+        <StdVariableRef id="V_VendorName" />
+        <StdVariableRef id="V_VendorText" />
+        <StdVariableRef id="V_ProductName" />
+        <StdVariableRef id="V_ProductID" />
+        <StdVariableRef id="V_ProductText" />
+        <StdVariableRef id="V_SerialNumber" />
+        <StdVariableRef id="V_HardwareRevision" />
+        <StdVariableRef id="V_FirmwareRevision" />
+        <StdVariableRef id="V_ApplicationSpecificName" fixedLengthRestriction="32" defaultValue="" />
+        <StdVariableRef id="V_ErrorCount" />
+        <StdVariableRef id="V_ProcessDataIn" />
+
+
+        <!-- Smart Sensor Profile definitions -->
+
+        <!-- Rotate display -->
+        <Variable accessRights="rw" id="V_RotateDisplay" index="80" defaultValue="1">
+          <Datatype xsi:type="UIntegerT" bitLength="8">
+            <SingleValue value="0">
+              <Name textId="TI_V_RotateDisplay_Flipped" />
+            </SingleValue>
+            <SingleValue value="1">
+              <Name textId="TI_V_RotateDisplay_Normal" />
+            </SingleValue>
+          </Datatype>
+          <Name textId="TI_V_RotateDisplay"></Name>
+        </Variable>
+        <!-- BDC1 -->
+        <Variable accessRights="rw" id="V_BDC1_Setpoint" index="60">
+          <Datatype xsi:type="RecordT" bitLength="32">
+            <RecordItem subindex="1" bitOffset="16">
+              <SimpleDatatype xsi:type="IntegerT" bitLength="16">
+                <ValueRange xsi:type="IntegerValueRangeT" lowerValue="-8192" upperValue="8191" />
+              </SimpleDatatype>
+              <Name textId="TI_V_BDC1_Setpoint_SP1" />
+            </RecordItem>
+            <RecordItem subindex="2" bitOffset="0">
+              <SimpleDatatype xsi:type="IntegerT" bitLength="16">
+                <ValueRange xsi:type="IntegerValueRangeT" lowerValue="-8192" upperValue="8191" />
+              </SimpleDatatype>
+              <Name textId="TI_V_BDC1_Setpoint_SP2" />
+            </RecordItem>
+          </Datatype>
+          <RecordItemInfo subindex="1" defaultValue="0" />
+          <RecordItemInfo subindex="2" defaultValue="2000" />
+          <Name textId="TI_V_BDC1_Setpoint" />
+          <Description textId="TID_V_BDC1_Setpoint" />
+        </Variable>
+
+        <Variable accessRights="rw" id="V_BDC1_Switchpoint" index="61">
+          <Datatype xsi:type="RecordT" bitLength="32">
+            <RecordItem subindex="1" bitOffset="24">
+              <SimpleDatatype xsi:type="UIntegerT" bitLength="8">
+                <SingleValue value="0">
+                  <Name textId="TI_V_BDC1_Switchpoint_Logic_Normal" />
+                </SingleValue>
+              </SimpleDatatype>
+              <Name textId="TI_V_BDC1_Switchpoint_Logic" />
+            </RecordItem>
+            <RecordItem subindex="2" bitOffset="16">
+              <SimpleDatatype xsi:type="UIntegerT" bitLength="8">
+                <SingleValue value="128">
+                  <Name textId="TI_V_BDC1_Switchpoint_Mode_HNO" />
+                </SingleValue>
+                <SingleValue value="129">
+                  <Name textId="TI_V_BDC1_Switchpoint_Mode_HNC" />
+                </SingleValue>
+                <SingleValue value="130">
+                  <Name textId="TI_V_BDC1_Switchpoint_Mode_WNO" />
+                </SingleValue>
+                <SingleValue value="131">
+                  <Name textId="TI_V_BDC1_Switchpoint_Mode_WNC" />
+                </SingleValue>
+              </SimpleDatatype>
+              <Name textId="TI_V_BDC1_Switchpoint_Mode" />
+            </RecordItem>
+            <RecordItem subindex="3" bitOffset="0">
+              <SimpleDatatype xsi:type="UIntegerT" bitLength="16">
+                <SingleValue value="0">
+                  <Name textId="TI_V_BDC1_Switchpoint_Hysteresis_Disabled" />
+                </SingleValue>
+              </SimpleDatatype>
+              <Name textId="TI_V_BDC1_Switchpoint_Hysteresis" />
+            </RecordItem>
+
+          </Datatype>
+          <RecordItemInfo subindex="1" defaultValue="0" />
+          <RecordItemInfo subindex="2" defaultValue="128" />
+          <RecordItemInfo subindex="3" defaultValue="0" />
+          <Name textId="TI_V_BDC1_Switchpoint" />
+          <Description textId="TID_V_BDC1_Switchpoint" />
+        </Variable>
+
+        <!-- BDC2 -->
+        <Variable accessRights="rw" id="V_BDC2_Setpoint" index="62">
+          <Datatype xsi:type="RecordT" subindexAccessSupported="true" bitLength="32">
+            <RecordItem subindex="1" bitOffset="16">
+              <SimpleDatatype xsi:type="IntegerT" bitLength="16">
+                <ValueRange xsi:type="IntegerValueRangeT" lowerValue="-8192" upperValue="8191" />
+              </SimpleDatatype>
+              <Name textId="TI_V_BDC2_Setpoint_SP1" />
+            </RecordItem>
+            <RecordItem subindex="2" bitOffset="0">
+              <SimpleDatatype xsi:type="IntegerT" bitLength="16">
+                <ValueRange xsi:type="IntegerValueRangeT" lowerValue="-8192" upperValue="8191" />
+              </SimpleDatatype>
+              <Name textId="TI_V_BDC2_Setpoint_SP2" />
+            </RecordItem>
+          </Datatype>
+          <RecordItemInfo subindex="1" defaultValue="0" />
+          <RecordItemInfo subindex="2" defaultValue="2000" />
+          <Name textId="TI_V_BDC2_Setpoint" />
+          <Description textId="TID_V_BDC2_Setpoint" />
+        </Variable>
+
+        <Variable accessRights="rw" id="V_BDC2_Switchpoint" index="63">
+          <Datatype xsi:type="RecordT" bitLength="32">
+            <RecordItem subindex="1" bitOffset="24">
+              <SimpleDatatype xsi:type="UIntegerT" bitLength="8">
+                <SingleValue value="0">
+                  <Name textId="TI_V_BDC2_Switchpoint_Logic_Normal" />
+                </SingleValue>
+
+              </SimpleDatatype>
+              <Name textId="TI_V_BDC2_Switchpoint_Logic" />
+            </RecordItem>
+            <RecordItem subindex="2" bitOffset="16">
+              <SimpleDatatype xsi:type="UIntegerT" bitLength="8">
+                <SingleValue value="128">
+                  <Name textId="TI_V_BDC2_Switchpoint_Mode_HNO" />
+                </SingleValue>
+                <SingleValue value="129">
+                  <Name textId="TI_V_BDC2_Switchpoint_Mode_HNC" />
+                </SingleValue>
+                <SingleValue value="130">
+                  <Name textId="TI_V_BDC2_Switchpoint_Mode_WNO" />
+                </SingleValue>
+                <SingleValue value="131">
+                  <Name textId="TI_V_BDC2_Switchpoint_Mode_WNC" />
+                </SingleValue>
+                <SingleValue value="132">
+                  <Name textId="TI_V_BDC2_Switchpoint_Analog" />
+                </SingleValue>
+              </SimpleDatatype>
+              <Name textId="TI_V_BDC2_Switchpoint_Mode" />
+            </RecordItem>
+            <RecordItem subindex="3" bitOffset="0">
+              <SimpleDatatype xsi:type="UIntegerT" bitLength="16">
+                <SingleValue value="0">
+                  <Name textId="TI_V_BDC2_Switchpoint_Hysteresis_Disabled" />
+                </SingleValue>
+              </SimpleDatatype>
+              <Name textId="TI_V_BDC2_Switchpoint_Hysteresis" />
+            </RecordItem>
+          </Datatype>
+          <RecordItemInfo subindex="1" defaultValue="0" />
+          <RecordItemInfo subindex="2" defaultValue="128" />
+          <RecordItemInfo subindex="3" defaultValue="0" />
+          <Name textId="TI_V_BDC2_Switchpoint" />
+          <Description textId="TID_V_BDC2_Switchpoint" />
+        </Variable>
+
+        <!-- Device specific definitions -->
+		
+        <!--Variable id="V_ADC2_Lower" index="153" accessRights="rw" defaultValue="0">
+          <Datatype xsi:type="UIntegerT" bitLength="16">
+            <ValueRange xsi:type="UIntegerValueRangeT" lowerValue="0" upperValue="8000" />
+          </Datatype>
+          <Name textId="TI_ADC2_Lower" />
+          <Description textId="TID_ADC2_Lower" />
+        </Variable>
+        <Variable id="V_ADC2_Upper" index="154" accessRights="rw" defaultValue="1000">
+          <Datatype xsi:type="UIntegerT" bitLength="16">
+            <ValueRange xsi:type="UIntegerValueRangeT" lowerValue="0" upperValue="8000" />
+          </Datatype>
+          <Name textId="TI_ADC2_Upper" />
+          <Description textId="TID_ADC2_Upper" />
+        </Variable-->
+		<Variable id="V_ADC2_Lower" index="153" accessRights="rw" defaultValue="0">
+          <Datatype xsi:type="Float32T">
+            <ValueRange xsi:type="Float32ValueRangeT" lowerValue="-1000" upperValue="7500" />
+          </Datatype>
+          <Name textId="TI_ADC2_Lower" />
+          <Description textId="TID_ADC2_Lower" />
+        </Variable>
+        <Variable id="V_ADC2_Upper" index="154" accessRights="rw" defaultValue="1000">
+          <Datatype xsi:type="Float32T">
+            <ValueRange xsi:type="Float32ValueRangeT" lowerValue="810" upperValue="7500" />
+          </Datatype>
+          <Name textId="TI_ADC2_Upper" />
+          <Description textId="TID_ADC2_Upper" />
+        </Variable>
+		
+        <!-- Pressure unit -->
+        <Variable accessRights="rw" id="V_Unit" index="212" defaultValue="0">
+          <Datatype xsi:type="UIntegerT" bitLength="8">
+            <SingleValue value="0">
+              <Name textId="TI_V_Unit_bar" />
+            </SingleValue>
+            <SingleValue value="1">
+              <Name textId="TI_V_Unit_mbar" />
+            </SingleValue>
+            <SingleValue value="2">
+              <Name textId="TI_V_Unit_PSI" />
+            </SingleValue>
+            <SingleValue value="3">
+              <Name textId="TI_V_Unit_MPa" />
+            </SingleValue>
+          </Datatype>
+          <Name textId="TI_V_Unit"></Name>
+        </Variable>
+
+        <!-- Max pressure value -->
+        <Variable accessRights="ro" id="V_MaxPress" index="214">
+          <Datatype xsi:type="IntegerT" bitLength="16"></Datatype>
+          <Name textId="TI_V_MaxPress"></Name>
+        </Variable>
+
+        <!-- Min pressure value -->
+        <Variable accessRights="ro" id="V_MinPress" index="213">
+          <Datatype xsi:type="IntegerT" bitLength="16"></Datatype>
+          <Name textId="TI_V_MinPress"></Name>
+        </Variable>
+
+        <!-- Password -->
+        <Variable accessRights="wo" id="V_Password" index="96">
+          <Datatype xsi:type="UIntegerT" bitLength="16">
+            <ValueRange xsi:type="UIntegerValueRangeT" lowerValue="0" upperValue="9999" />
+          </Datatype>
+          <Name textId="TI_V_Password"></Name>
+        </Variable>
+		
+		<Variable accessRights="rw" id="V_Output1_Cfg" index="147" defaultValue="0">
+          <Datatype xsi:type="UIntegerT" bitLength="8">
+            <SingleValue value="0">
+              <Name textId="TI_V_Output_Cfg_PnP" />
+            </SingleValue>
+            <SingleValue value="1">
+              <Name textId="TI_V_Output_Cfg_NpN" />
+            </SingleValue>
+          </Datatype>
+          <Name textId="TI_V_Output1_Cfg"></Name>
+		</Variable>
+
+		<!--Second output config-->
+		<Variable accessRights="rw" id="V_Output2_Cfg" index="151" defaultValue="0">
+          <Datatype xsi:type="UIntegerT" bitLength="8">
+            <SingleValue value="0">
+              <Name textId="TI_V_Output_Cfg_PnP" />
+            </SingleValue>
+            <SingleValue value="1">
+              <Name textId="TI_V_Output_Cfg_NpN" />
+            </SingleValue>
+            <SingleValue value="2">
+              <Name textId="TI_V_Output_Cfg_0_10" />
+            </SingleValue>
+            <SingleValue value="3">
+              <Name textId="TI_V_Output_Cfg_4_20" />
+            </SingleValue>
+          </Datatype>
+          <Name textId="TI_V_Output2_Cfg"></Name>
+		</Variable>
+
+        <!-- Delay Switching time 1 -->
+        <Variable accessRights="rw" id="V_BDC1_Switchpoint_DelayOn" index="208">
+          <Datatype xsi:type="UIntegerT" bitLength="16">
+            <ValueRange xsi:type="UIntegerValueRangeT" lowerValue="0" upperValue="500" />
+          </Datatype>
+          <Name textId="TI_V_BDC1_Switchpoint_DelayOn"></Name>
+        </Variable>
+
+        <!-- Delay Back Switching time 1 -->
+        <Variable accessRights="rw" id="V_BDC1_Switchpoint_DelayOff" index="209">
+          <Datatype xsi:type="UIntegerT" bitLength="16">
+            <ValueRange xsi:type="UIntegerValueRangeT" lowerValue="0" upperValue="500" />
+          </Datatype>
+          <Name textId="TI_V_BDC1_Switchpoint_DelayOff"></Name>
+        </Variable>
+
+        <!-- Delay Switching time 2 -->
+        <Variable accessRights="rw" id="V_BDC2_Switchpoint_DelayOn" index="210">
+          <Datatype xsi:type="UIntegerT" bitLength="16">
+            <ValueRange xsi:type="UIntegerValueRangeT" lowerValue="0" upperValue="500" />
+          </Datatype>
+          <Name textId="TI_V_BDC2_Switchpoint_DelayOn"></Name>
+        </Variable>
+
+        <!-- Delay Back Switching time 2 -->
+        <Variable accessRights="rw" id="V_BDC2_Switchpoint_DelayOff" index="211">
+          <Datatype xsi:type="UIntegerT" bitLength="16">
+            <ValueRange xsi:type="UIntegerValueRangeT" lowerValue="0" upperValue="500" />
+          </Datatype>
+          <Name textId="TI_V_BDC2_Switchpoint_DelayOff"></Name>
+        </Variable>
+
+        <!-- Device temperature -->
+        <Variable accessRights="ro" id="V_DeviceTemperature" index="82" defaultValue="0" dynamic="false">
+          <Datatype xsi:type="IntegerT" bitLength="16">
+			<ValueRange xsi:type="IntegerValueRangeT" lowerValue="-40" upperValue="125" />
+		  </Datatype>
+          <Name textId="TI_V_CurrentTemperature"></Name>
+        </Variable>
+        <!-- Device operating hours -->
+        <Variable accessRights="ro" id="V_OperatingHoursCnt" index="87" defaultValue="24" dynamic="false">
+          <Datatype xsi:type="UIntegerT" bitLength="32">
+            <ValueRange xsi:type="UIntegerValueRangeT" lowerValue="0" upperValue="4294967295" />
+          </Datatype>
+          <Name textId="TI_V_OperatingHours"></Name>
+        </Variable>
+        <!-- Pressure peaks counter -->
+        <Variable accessRights="ro" id="V_PressurePeaksCounter" index="152" defaultValue="1024" dynamic="false">
+          <Datatype xsi:type="UIntegerT" bitLength="32">
+            <ValueRange lowerValue="0" upperValue="4294967295" />
+          </Datatype>
+          <Name textId="TI_V_PressurePeaksCounter"></Name>
+        </Variable>
+        <!-- MeasureDamping -->
+        <Variable accessRights="rw" id="V_MeasureDamping" index="215">
+          <Datatype xsi:type="UIntegerT" bitLength="16">
+            <ValueRange lowerValue="0" upperValue="1000" />
+          </Datatype>
+          <Name textId="TI_V_MeasureDamping"></Name>
+        </Variable>
+
+      </VariableCollection>
+
+      <ProcessDataCollection>
+        <ProcessData id="PD_bar">
+          <Condition variableId="V_Unit" value="0" />
+          <ProcessDataIn id="PD_ProcessDataIn_bar" bitLength="16">
+            <Datatype xsi:type="RecordT" bitLength="16" subindexAccessSupported="false">
+              <RecordItem subindex="1" bitOffset="0">
+                <SimpleDatatype xsi:type="BooleanT" />
+                <Name textId="TI_PDI_SW1State" />
+              </RecordItem>
+              <RecordItem subindex="2" bitOffset="1">
+                <SimpleDatatype xsi:type="BooleanT" />
+                <Name textId="TI_PDI_SW2State" />
+              </RecordItem>
+              <RecordItem subindex="3" bitOffset="2">
+                <SimpleDatatype xsi:type="IntegerT" bitLength="14" />
+                <Name textId="TI_PDI_Pressure" />
+              </RecordItem>
+            </Datatype>
+            <Name textId="TI_PD_ProcessDataIn" />
+          </ProcessDataIn>
+        </ProcessData>
+        <ProcessData id="PD_mbar">
+          <Condition variableId="V_Unit" value="1" />
+          <ProcessDataIn id="PD_ProcessDataIn_mbar" bitLength="16">
+            <Datatype xsi:type="RecordT" bitLength="16" subindexAccessSupported="false">
+              <RecordItem subindex="1" bitOffset="0">
+                <SimpleDatatype xsi:type="BooleanT" />
+                <Name textId="TI_PDI_SW1State" />
+              </RecordItem>
+              <RecordItem subindex="2" bitOffset="1">
+                <SimpleDatatype xsi:type="BooleanT" />
+                <Name textId="TI_PDI_SW2State" />
+              </RecordItem>
+              <RecordItem subindex="3" bitOffset="2">
+                <SimpleDatatype xsi:type="IntegerT" bitLength="14" />
+                <Name textId="TI_PDI_Pressure" />
+              </RecordItem>
+            </Datatype>
+            <Name textId="TI_PD_ProcessDataIn" />
+          </ProcessDataIn>
+        </ProcessData>
+        <ProcessData id="PD_PSI">
+          <Condition variableId="V_Unit" value="2" />
+          <ProcessDataIn id="PD_ProcessDataIn_PSI" bitLength="16">
+            <Datatype xsi:type="RecordT" bitLength="16" subindexAccessSupported="false">
+              <RecordItem subindex="1" bitOffset="0">
+                <SimpleDatatype xsi:type="BooleanT" />
+                <Name textId="TI_PDI_SW1State" />
+              </RecordItem>
+              <RecordItem subindex="2" bitOffset="1">
+                <SimpleDatatype xsi:type="BooleanT" />
+                <Name textId="TI_PDI_SW2State" />
+              </RecordItem>
+              <RecordItem subindex="3" bitOffset="2">
+                <SimpleDatatype xsi:type="IntegerT" bitLength="14" />
+                <Name textId="TI_PDI_Pressure" />
+              </RecordItem>
+            </Datatype>
+            <Name textId="TI_PD_ProcessDataIn" />
+          </ProcessDataIn>
+        </ProcessData>
+        <ProcessData id="PD_MPa">
+          <Condition variableId="V_Unit" value="3" />
+          <ProcessDataIn id="PD_ProcessDataIn_MPa" bitLength="16">
+            <Datatype xsi:type="RecordT" bitLength="16" subindexAccessSupported="false">
+              <RecordItem subindex="1" bitOffset="0">
+                <SimpleDatatype xsi:type="BooleanT" />
+                <Name textId="TI_PDI_SW1State" />
+              </RecordItem>
+              <RecordItem subindex="2" bitOffset="1">
+                <SimpleDatatype xsi:type="BooleanT" />
+                <Name textId="TI_PDI_SW2State" />
+              </RecordItem>
+              <RecordItem subindex="3" bitOffset="2">
+                <SimpleDatatype xsi:type="IntegerT" bitLength="14" />
+                <Name textId="TI_PDI_Pressure" />
+              </RecordItem>
+            </Datatype>
+            <Name textId="TI_PD_ProcessDataIn" />
+          </ProcessDataIn>
+        </ProcessData>
+      </ProcessDataCollection>
+
+
+      <EventCollection>
+        <Event code="6200" type="Error">
+          <Name textId="TI_Event1"></Name>
+          <Description textId="TI_EvDescr_1" />
+        </Event>
+        <Event code="6201" type="Error">
+          <Name textId="TI_Event2"></Name>
+          <Description textId="TI_EvDescr_2" />
+        </Event>
+      </EventCollection>
+
+
+      <UserInterface>
+
+        <MenuCollection>
+          <Menu id="ME_OR_Ident">
+            <VariableRef variableId="V_VendorName" accessRightRestriction="ro" />
+            <VariableRef variableId="V_ProductName" accessRightRestriction="ro" />
+            <VariableRef variableId="V_ProductID" accessRightRestriction="ro" />
+            <VariableRef variableId="V_ProductText" accessRightRestriction="ro" />
+          </Menu>
+          <Menu id="ME_OR_Observe">
+            <VariableRef variableId="V_ProcessDataIn" accessRightRestriction="ro" />
+            <VariableRef variableId="V_PressurePeaksCounter" accessRightRestriction="ro" />
+            <VariableRef variableId="V_OperatingHoursCnt" accessRightRestriction="ro" displayFormat="Dec" gradient="1.00" offset="0" unitCode="1059" />
+            <VariableRef variableId="V_DeviceTemperature" accessRightRestriction="ro" displayFormat="Dec" gradient="1.00" offset="0" unitCode="1001" />
+          </Menu>
+          <Menu id="ME_MR_Ident">
+            <VariableRef variableId="V_VendorName" accessRightRestriction="ro" />
+            <VariableRef variableId="V_VendorText" accessRightRestriction="ro" />
+            <VariableRef variableId="V_ProductName" accessRightRestriction="ro" />
+            <VariableRef variableId="V_ProductID" accessRightRestriction="ro" />
+            <VariableRef variableId="V_ProductText" accessRightRestriction="ro" />
+            <VariableRef variableId="V_SerialNumber" accessRightRestriction="ro" />
+            <VariableRef variableId="V_HardwareRevision" accessRightRestriction="ro" />
+          </Menu>
+          <Menu id="ME_MR_Param">
+			<MenuRef menuId="ME_MR_SR_Base_Param" />
+			<MenuRef menuId="ME_MR_SR_Digital_Output1" />
+			<MenuRef menuId="ME_MR_SR_Output_Configuration" />
+            <MenuRef menuId="ME_MR_SR_Digital_Output2">
+				<Condition variableId="V_Output2_Cfg" value="0" />
+			</MenuRef>
+			<MenuRef menuId="ME_MR_SR_Digital_Output2">
+				<Condition variableId="V_Output2_Cfg" value="1" />
+			</MenuRef>
+			<MenuRef menuId="ME_MR_SR_Analog_Output2_0_10">
+				<Condition variableId="V_Output2_Cfg" value="2" />
+			</MenuRef>
+			<MenuRef menuId="ME_MR_SR_Analog_Output2_4_20">
+				<Condition variableId="V_Output2_Cfg" value="3" />
+			</MenuRef>
+          </Menu>
+          <Menu id="ME_MR_Observe">
+            <MenuRef menuId="ME_MR_SR_Observation" />
+			<MenuRef menuId="ME_MR_SR_Observation_Misc" />
+          </Menu>
+          <Menu id="ME_SR_Ident">
+            <VariableRef variableId="V_VendorName" accessRightRestriction="ro" />
+            <VariableRef variableId="V_VendorText" accessRightRestriction="ro" />
+            <VariableRef variableId="V_ProductName" accessRightRestriction="ro" />
+            <VariableRef variableId="V_ProductID" accessRightRestriction="ro" />
+            <VariableRef variableId="V_ProductText" accessRightRestriction="ro" />
+            <VariableRef variableId="V_SerialNumber" accessRightRestriction="ro" />
+            <VariableRef variableId="V_HardwareRevision" accessRightRestriction="ro" />
+            <VariableRef variableId="V_FirmwareRevision" accessRightRestriction="ro" />
+            <VariableRef variableId="V_ApplicationSpecificName" accessRightRestriction="ro" />
+          </Menu>
+          <Menu id="ME_SR_Observe">
+            <MenuRef menuId="ME_MR_SR_Observation" />
+			<MenuRef menuId="ME_MR_SR_Observation_Misc" />
+          </Menu>
+          <Menu id="ME_SR_Param">
+			<MenuRef menuId="ME_MR_SR_Base_Param" />
+			<MenuRef menuId="ME_MR_SR_Digital_Output1" />
+			<MenuRef menuId="ME_MR_SR_Output_Configuration" />
+            <MenuRef menuId="ME_MR_SR_Digital_Output2">
+				<Condition variableId="V_Output2_Cfg" value="0" />
+			</MenuRef>
+			<MenuRef menuId="ME_MR_SR_Digital_Output2">
+				<Condition variableId="V_Output2_Cfg" value="1" />
+			</MenuRef>
+			<MenuRef menuId="ME_MR_SR_Analog_Output2_0_10">
+				<Condition variableId="V_Output2_Cfg" value="2" />
+			</MenuRef>
+			<MenuRef menuId="ME_MR_SR_Analog_Output2_4_20">
+				<Condition variableId="V_Output2_Cfg" value="3" />
+			</MenuRef>
+          </Menu>
+          <Menu id="ME_SR_Diag">
+            <VariableRef variableId="V_OperatingHoursCnt" accessRightRestriction="ro" displayFormat="Dec" gradient="1.00" offset="0" unitCode="1059" />
+            <VariableRef variableId="V_SystemCommand" displayFormat="Button" buttonValue="160" />
+            <VariableRef variableId="V_SystemCommand" displayFormat="Button" buttonValue="130" />
+            <VariableRef variableId="V_SystemCommand" displayFormat="Button" buttonValue="129" />
+            <VariableRef variableId="V_SystemCommand" displayFormat="Button" buttonValue="128" />
+          </Menu>
+		  
+		  <!-- Submenues/Items definitions -->
+		  <!--for MPa-->
+		  <Menu id="ME_MR_SR_Digital_Output1_1132">
+            <Name textId="TI_ME_Digital_Output1" />
+            <RecordItemRef variableId="V_BDC1_Setpoint" subindex="1" accessRightRestriction="rw" displayFormat="Dec" gradient="0.0001" offset="0" unitCode="1132" />
+            <RecordItemRef variableId="V_BDC1_Setpoint" subindex="2" accessRightRestriction="rw" displayFormat="Dec" gradient="0.0001" offset="0" unitCode="1132" />
+            <VariableRef variableId="V_BDC1_Switchpoint" accessRightRestriction="rw" />
+            <VariableRef variableId="V_BDC1_Switchpoint_DelayOn" accessRightRestriction="rw" displayFormat="Dec" gradient="0.1" offset="0" unitCode="1054" />
+            <VariableRef variableId="V_BDC1_Switchpoint_DelayOff" accessRightRestriction="rw" displayFormat="Dec" gradient="0.1" offset="0" unitCode="1054" />
+		  </Menu>
+		  <!--for bar-->
+		  <Menu id="ME_MR_SR_Digital_Output1_1137">
+            <Name textId="TI_ME_Digital_Output1" />
+            <RecordItemRef variableId="V_BDC1_Setpoint" subindex="1" accessRightRestriction="rw" displayFormat="Dec" gradient="0.001" offset="0" unitCode="1137" />
+            <RecordItemRef variableId="V_BDC1_Setpoint" subindex="2" accessRightRestriction="rw" displayFormat="Dec" gradient="0.001" offset="0" unitCode="1137" />
+            <VariableRef variableId="V_BDC1_Switchpoint" accessRightRestriction="rw" />
+            <VariableRef variableId="V_BDC1_Switchpoint_DelayOn" accessRightRestriction="rw" displayFormat="Dec" gradient="0.1" offset="0" unitCode="1054" />
+            <VariableRef variableId="V_BDC1_Switchpoint_DelayOff" accessRightRestriction="rw" displayFormat="Dec" gradient="0.1" offset="0" unitCode="1054" />
+		  </Menu>
+		  <!--for mbar-->
+		  <Menu id="ME_MR_SR_Digital_Output1_1138">
+            <Name textId="TI_ME_Digital_Output1" />
+            <RecordItemRef variableId="V_BDC1_Setpoint" subindex="1" accessRightRestriction="rw" displayFormat="Dec" gradient="1.000" offset="0" unitCode="1138" />
+            <RecordItemRef variableId="V_BDC1_Setpoint" subindex="2" accessRightRestriction="rw" displayFormat="Dec" gradient="1.000" offset="0" unitCode="1138" />
+            <VariableRef variableId="V_BDC1_Switchpoint" accessRightRestriction="rw" />
+            <VariableRef variableId="V_BDC1_Switchpoint_DelayOn" accessRightRestriction="rw" displayFormat="Dec" gradient="0.1" offset="0" unitCode="1054" />
+            <VariableRef variableId="V_BDC1_Switchpoint_DelayOff" accessRightRestriction="rw" displayFormat="Dec" gradient="0.1" offset="0" unitCode="1054" />
+		  </Menu>
+		  <!--for PSI-->
+		  <Menu id="ME_MR_SR_Digital_Output1_1141">
+            <Name textId="TI_ME_Digital_Output1" />
+            <RecordItemRef variableId="V_BDC1_Setpoint" subindex="1" accessRightRestriction="rw" displayFormat="Dec" gradient="0.0145" offset="0" unitCode="1141" />
+            <RecordItemRef variableId="V_BDC1_Setpoint" subindex="2" accessRightRestriction="rw" displayFormat="Dec" gradient="0.0145" offset="0" unitCode="1141" />
+            <VariableRef variableId="V_BDC1_Switchpoint" accessRightRestriction="rw" />
+            <VariableRef variableId="V_BDC1_Switchpoint_DelayOn" accessRightRestriction="rw" displayFormat="Dec" gradient="0.1" offset="0" unitCode="1054" />
+            <VariableRef variableId="V_BDC1_Switchpoint_DelayOff" accessRightRestriction="rw" displayFormat="Dec" gradient="0.1" offset="0" unitCode="1054" />
+		  </Menu>
+          <Menu id="ME_MR_SR_Digital_Output1">
+            <Name textId="TI_ME_Digital_Output1" />
+            <MenuRef menuId="ME_MR_SR_Digital_Output1_1137">
+              <Condition variableId="V_Unit" value="0" />
+            </MenuRef>
+            <MenuRef menuId="ME_MR_SR_Digital_Output1_1138">
+              <Condition variableId="V_Unit" value="1" />
+            </MenuRef>
+            <MenuRef menuId="ME_MR_SR_Digital_Output1_1141">
+              <Condition variableId="V_Unit" value="2" />
+            </MenuRef>
+            <MenuRef menuId="ME_MR_SR_Digital_Output1_1132">
+              <Condition variableId="V_Unit" value="3" />
+            </MenuRef>
+          </Menu>
+		  <!--for MPa-->
+		  <Menu id="ME_MR_SR_Digital_Output2_1132">
+            <Name textId="TI_ME_Digital_Output2" />
+            <RecordItemRef variableId="V_BDC2_Setpoint" subindex="1" accessRightRestriction="rw" displayFormat="Dec" gradient="0.0001" offset="0" unitCode="1132" />
+            <RecordItemRef variableId="V_BDC2_Setpoint" subindex="2" accessRightRestriction="rw" displayFormat="Dec" gradient="0.0001" offset="0" unitCode="1132" />
+            <VariableRef variableId="V_BDC2_Switchpoint" accessRightRestriction="rw" />
+            <VariableRef variableId="V_BDC2_Switchpoint_DelayOn" accessRightRestriction="rw" displayFormat="Dec" gradient="0.1" offset="0" unitCode="1054" />
+            <VariableRef variableId="V_BDC2_Switchpoint_DelayOff" accessRightRestriction="rw" displayFormat="Dec" gradient="0.1" offset="0" unitCode="1054" />
+		  </Menu>
+		  <!--for bar-->
+		  <Menu id="ME_MR_SR_Digital_Output2_1137">
+            <Name textId="TI_ME_Digital_Output2" />
+            <RecordItemRef variableId="V_BDC2_Setpoint" subindex="1" accessRightRestriction="rw" displayFormat="Dec" gradient="0.001" offset="0" unitCode="1137" />
+            <RecordItemRef variableId="V_BDC2_Setpoint" subindex="2" accessRightRestriction="rw" displayFormat="Dec" gradient="0.001" offset="0" unitCode="1137" />
+            <VariableRef variableId="V_BDC2_Switchpoint" accessRightRestriction="rw" />
+            <VariableRef variableId="V_BDC2_Switchpoint_DelayOn" accessRightRestriction="rw" displayFormat="Dec" gradient="0.1" offset="0" unitCode="1054" />
+            <VariableRef variableId="V_BDC2_Switchpoint_DelayOff" accessRightRestriction="rw" displayFormat="Dec" gradient="0.1" offset="0" unitCode="1054" />
+		  </Menu>
+		  <!--for mbar-->
+		  <Menu id="ME_MR_SR_Digital_Output2_1138">
+            <Name textId="TI_ME_Digital_Output2" />
+            <RecordItemRef variableId="V_BDC2_Setpoint" subindex="1" accessRightRestriction="rw" displayFormat="Dec" gradient="1.000" offset="0" unitCode="1138" />
+            <RecordItemRef variableId="V_BDC2_Setpoint" subindex="2" accessRightRestriction="rw" displayFormat="Dec" gradient="1.000" offset="0" unitCode="1138" />
+            <VariableRef variableId="V_BDC2_Switchpoint" accessRightRestriction="rw" />
+            <VariableRef variableId="V_BDC2_Switchpoint_DelayOn" accessRightRestriction="rw" displayFormat="Dec" gradient="0.1" offset="0" unitCode="1054" />
+            <VariableRef variableId="V_BDC2_Switchpoint_DelayOff" accessRightRestriction="rw" displayFormat="Dec" gradient="0.1" offset="0" unitCode="1054" />
+		  </Menu>
+		  <!--for PSI-->
+		  <Menu id="ME_MR_SR_Digital_Output2_1141">
+            <Name textId="TI_ME_Digital_Output2" />
+            <RecordItemRef variableId="V_BDC2_Setpoint" subindex="1" accessRightRestriction="rw" displayFormat="Dec" gradient="0.0145" offset="0" unitCode="1141" />
+            <RecordItemRef variableId="V_BDC2_Setpoint" subindex="2" accessRightRestriction="rw" displayFormat="Dec" gradient="0.0145" offset="0" unitCode="1141" />
+            <VariableRef variableId="V_BDC2_Switchpoint" accessRightRestriction="rw" />
+            <VariableRef variableId="V_BDC2_Switchpoint_DelayOn" accessRightRestriction="rw" displayFormat="Dec" gradient="0.1" offset="0" unitCode="1054" />
+            <VariableRef variableId="V_BDC2_Switchpoint_DelayOff" accessRightRestriction="rw" displayFormat="Dec" gradient="0.1" offset="0" unitCode="1054" />
+		  </Menu>
+          <Menu id="ME_MR_SR_Analog_Output2_1137">
+            <Name textId="TI_ME_Analog_Output2" />
+            <VariableRef variableId="V_ADC2_Lower" displayFormat="Dec" gradient="0.001" offset="0" unitCode="1137" />
+            <VariableRef variableId="V_ADC2_Upper" displayFormat="Dec" gradient="0.001" offset="0" unitCode="1137" />
+          </Menu>
+          <Menu id="ME_MR_SR_Analog_Output2_1138">
+            <Name textId="TI_ME_Analog_Output2" />
+            <VariableRef variableId="V_ADC2_Lower" displayFormat="Dec" gradient="1.000" offset="0" unitCode="1138" />
+            <VariableRef variableId="V_ADC2_Upper" displayFormat="Dec" gradient="1.000" offset="0" unitCode="1138" />
+          </Menu>
+          <Menu id="ME_MR_SR_Analog_Output2_1141">
+            <Name textId="TI_ME_Analog_Output2" />
+            <VariableRef variableId="V_ADC2_Lower" displayFormat="Dec" gradient="0.0145" offset="0" unitCode="1141" />
+            <VariableRef variableId="V_ADC2_Upper" displayFormat="Dec" gradient="0.0145" offset="0" unitCode="1141" />
+          </Menu>
+          <Menu id="ME_MR_SR_Analog_Output2_1132">
+            <Name textId="TI_ME_Analog_Output2" />
+            <VariableRef variableId="V_ADC2_Lower" displayFormat="Dec" gradient="0.0001" offset="0" unitCode="1132" />
+            <VariableRef variableId="V_ADC2_Upper" displayFormat="Dec" gradient="0.0001" offset="0" unitCode="1132" />
+          </Menu>
+		  <Menu id="ME_MR_SR_Digital_Output2">
+            <Name textId="TI_ME_Digital_Output2" />
+            <MenuRef menuId="ME_MR_SR_Digital_Output2_1137">
+              <Condition variableId="V_Unit" value="0" />
+            </MenuRef>
+            <MenuRef menuId="ME_MR_SR_Digital_Output2_1138">
+              <Condition variableId="V_Unit" value="1" />
+            </MenuRef>
+            <MenuRef menuId="ME_MR_SR_Digital_Output2_1141">
+              <Condition variableId="V_Unit" value="2" />
+            </MenuRef>
+            <MenuRef menuId="ME_MR_SR_Digital_Output2_1132">
+              <Condition variableId="V_Unit" value="3" />
+            </MenuRef>
+		  </Menu>
+		  <Menu id="ME_MR_SR_Analog_Output2_0_10">
+            <Name textId="TI_ME_Analog_Output2_0_10_V" />
+            <MenuRef menuId="ME_MR_SR_Analog_Output2_1137">
+              <Condition variableId="V_Unit" value="0" />
+            </MenuRef>
+            <MenuRef menuId="ME_MR_SR_Analog_Output2_1138">
+              <Condition variableId="V_Unit" value="1" />
+            </MenuRef>
+            <MenuRef menuId="ME_MR_SR_Analog_Output2_1141">
+              <Condition variableId="V_Unit" value="2" />
+            </MenuRef>
+            <MenuRef menuId="ME_MR_SR_Analog_Output2_1132">
+              <Condition variableId="V_Unit" value="3" />
+            </MenuRef>
+		  </Menu>
+		  <Menu id="ME_MR_SR_Analog_Output2_4_20">
+            <Name textId="TI_ME_Analog_Output2_4_20_mA" />
+            <MenuRef menuId="ME_MR_SR_Analog_Output2_1137">
+              <Condition variableId="V_Unit" value="0" />
+            </MenuRef>
+            <MenuRef menuId="ME_MR_SR_Analog_Output2_1138">
+              <Condition variableId="V_Unit" value="1" />
+            </MenuRef>
+            <MenuRef menuId="ME_MR_SR_Analog_Output2_1141">
+              <Condition variableId="V_Unit" value="2" />
+            </MenuRef>
+            <MenuRef menuId="ME_MR_SR_Analog_Output2_1132">
+              <Condition variableId="V_Unit" value="3" />
+            </MenuRef>
+		  </Menu>
+          <Menu id="ME_MR_SR_Output_Configuration">
+            <Name textId="TI_ME_Output_Configuration" />
+			<VariableRef variableId="V_Output1_Cfg" accessRightRestriction="rw" />
+			<VariableRef variableId="V_Output2_Cfg" accessRightRestriction="rw" />
+          </Menu>
+		  <Menu id="ME_MR_SR_Base_Param">
+		  <Name textId="TI_ME_Base_Param" />
+            <VariableRef variableId="V_ProcessDataIn" accessRightRestriction="ro" />
+            <VariableRef variableId="V_ApplicationSpecificName" accessRightRestriction="rw" />
+            <VariableRef variableId="V_Unit" accessRightRestriction="rw" />
+            <VariableRef variableId="V_MinPress" accessRightRestriction="ro" />
+            <VariableRef variableId="V_MaxPress" accessRightRestriction="ro" />
+            <VariableRef variableId="V_Password" accessRightRestriction="wo" />
+            <VariableRef variableId="V_RotateDisplay" accessRightRestriction="rw" />
+            <VariableRef variableId="V_MeasureDamping" accessRightRestriction="rw" unitCode="1056" />
+		  </Menu>
+		  <Menu id="ME_MR_SR_Observation_Misc">
+			<Name textId="TI_ME_Observe_Misc" />
+            <VariableRef variableId="V_PressurePeaksCounter" accessRightRestriction="ro" />
+            <VariableRef variableId="V_OperatingHoursCnt" accessRightRestriction="ro" displayFormat="Dec" gradient="1.00" offset="0" unitCode="1059" />
+            <VariableRef variableId="V_DeviceTemperature" accessRightRestriction="ro" displayFormat="Dec" gradient="1.00" offset="0" unitCode="1001" />
+		  </Menu>
+          <Menu id="ME_MR_SR_Observation_1137">
+            <Name textId="TI_PDI_Pressure" />
+			<RecordItemRef variableId="V_ProcessDataIn" subindex="1" />
+			<RecordItemRef variableId="V_ProcessDataIn" subindex="2" />
+            <RecordItemRef variableId="V_ProcessDataIn" subindex="3" gradient="0.001" offset="0" displayFormat="Dec" unitCode="1137" />
+          </Menu>
+          <Menu id="ME_MR_SR_Observation_1138">
+            <Name textId="TI_PDI_Pressure" />
+			<RecordItemRef variableId="V_ProcessDataIn" subindex="1" />
+			<RecordItemRef variableId="V_ProcessDataIn" subindex="2" />
+            <RecordItemRef variableId="V_ProcessDataIn" subindex="3" gradient="1.000" offset="0" displayFormat="Dec" unitCode="1138" />
+          </Menu>
+          <Menu id="ME_MR_SR_Observation_1141">
+            <Name textId="TI_PDI_Pressure" />
+			<RecordItemRef variableId="V_ProcessDataIn" subindex="1" />
+			<RecordItemRef variableId="V_ProcessDataIn" subindex="2" />
+            <RecordItemRef variableId="V_ProcessDataIn" subindex="3" gradient="0.0145" offset="0" displayFormat="Dec" unitCode="1141" />
+          </Menu>
+          <Menu id="ME_MR_SR_Observation_1132">
+            <Name textId="TI_PDI_Pressure" />
+			<RecordItemRef variableId="V_ProcessDataIn" subindex="1" />
+			<RecordItemRef variableId="V_ProcessDataIn" subindex="2" />
+            <RecordItemRef variableId="V_ProcessDataIn" subindex="3" gradient="0.0001" offset="0" displayFormat="Dec" unitCode="1132" />
+          </Menu>
+          <Menu id="ME_MR_SR_Observation">
+            <Name textId="TI_PD_ProcessDataIn" />
+            <MenuRef menuId="ME_MR_SR_Observation_1137">
+              <Condition variableId="V_Unit" value="0" />
+            </MenuRef>
+            <MenuRef menuId="ME_MR_SR_Observation_1138">
+              <Condition variableId="V_Unit" value="1" />
+            </MenuRef>
+            <MenuRef menuId="ME_MR_SR_Observation_1141">
+              <Condition variableId="V_Unit" value="2" />
+            </MenuRef>
+            <MenuRef menuId="ME_MR_SR_Observation_1132">
+              <Condition variableId="V_Unit" value="3" />
+            </MenuRef>
+          </Menu>
+        </MenuCollection>
+        <ObserverRoleMenuSet>
+          <IdentificationMenu menuId="ME_OR_Ident" />
+          <ObservationMenu menuId="ME_OR_Observe" />
+        </ObserverRoleMenuSet>
+        <MaintenanceRoleMenuSet>
+          <IdentificationMenu menuId="ME_MR_Ident" />
+          <ParameterMenu menuId="ME_MR_Param" />
+          <ObservationMenu menuId="ME_MR_Observe" />
+        </MaintenanceRoleMenuSet>
+        <SpecialistRoleMenuSet>
+          <IdentificationMenu menuId="ME_SR_Ident" />
+          <ParameterMenu menuId="ME_SR_Param" />
+          <ObservationMenu menuId="ME_SR_Observe" />
+          <DiagnosisMenu menuId="ME_SR_Diag" />
+        </SpecialistRoleMenuSet>
+      </UserInterface>
+    </DeviceFunction>
+  </ProfileBody>
+  <CommNetworkProfile xsi:type="IOLinkCommNetworkProfileT" iolinkRevision="V1.0">
+    <TransportLayers>
+      <PhysicalLayer physics="2" minCycleTime="5000" sioSupported="true" baudrate="COM2" />
+    </TransportLayers>
+  </CommNetworkProfile>
+  <ExternalTextCollection>
+    <PrimaryLanguage xml:lang="en">
+      <Text id="TI_VendorText" value="Balluff GmbH" />
+      <Text id="TI_VendorUrl" value="www.balluff.com" />
+      <Text id="TI_DeviceFamily" value="Pressure Sensor IP69k" />
+      <Text id="TI_SPI_Name" value="BSP0101" />
+      <Text id="TI_SPI_Text" value="Pressure Sensor IP69k, with display, 0..2 bar" />
+
+      <!--  Parameter - SmartSensor  -->
+      <!-- Process Data In -->
+      <Text id="TI_PD_ProcessDataIn" value="Process Data" />
+      <Text id="TI_PDI_SW1State" value="Switch1 State" />
+      <Text id="TI_PDI_SW2State" value="Switch2 State" />
+      <Text id="TI_PDI_Pressure" value="Pressure" />
+	  <Text id="TI_ME_Base_Param" value="Base parameters" />
+	  
+      <Text id="TI_ME_Output_Configuration" value="Output configuration " />
+      <Text id="TI_V_Output1_Cfg" value="First output configuration " />
+      <Text id="TI_V_Output2_Cfg" value="Second output configuration " />
+      <Text id="TI_V_Output_Cfg_PnP" value="PnP" />
+	  <Text id="TI_V_Output_Cfg_NpN" value="NpN" />
+      <Text id="TI_V_Output_Cfg_0_10" value="0..10V" />
+	  <Text id="TI_V_Output_Cfg_4_20" value="4..20mA" />
+
+	  <Text id="TI_ME_Digital_Output1" value="Digital output 1" />
+      <!-- Smart Sensor Profile definitions -->
+      <Text id="TI_V_BDC1_Setpoint" value="BDC1 Setpoints" />
+      <Text id="TID_V_BDC1_Setpoint" value="Thresholds for Switchpoint 1 (BDC1)" />
+      <Text id="TI_V_BDC1_Setpoint_SP1" value="BDC1 Setpoint1" />
+      <Text id="TI_V_BDC1_Setpoint_SP2" value="BDC1 Setpoint2" />
+      <Text id="TI_V_BDC1_Switchpoint" value="BDC1 Configuration" />
+      <Text id="TID_V_BDC1_Switchpoint" value="Detailed behavioural settings ot Switchpoint 1 (BDC1)" />
+      <Text id="TI_V_BDC1_Switchpoint_Logic" value="BDC1 Switch Point Logic" />
+      <Text id="TI_V_BDC1_Switchpoint_Logic_Normal" value="Normal" />
+      <!--Text id="TI_V_BDC1_Switchpoint_Logic_Inverted" value="Inverted"/-->
+      <Text id="TI_V_BDC1_Switchpoint_Mode" value="BDC1 Switch Point Mode" />
+      <Text id="TI_V_BDC1_Switchpoint_Mode_HNO" value="Hysteresis NO" />
+      <Text id="TI_V_BDC1_Switchpoint_Mode_HNC" value="Hysteresis NC" />
+      <Text id="TI_V_BDC1_Switchpoint_Mode_WNO" value="Window NO" />
+      <Text id="TI_V_BDC1_Switchpoint_Mode_WNC" value="Window NC" />
+      <Text id="TI_V_BDC1_Switchpoint_Hysteresis" value="BDC1 Switch Point Hysteresis" />
+      <Text id="TI_V_BDC1_Switchpoint_Hysteresis_Disabled" value="Disabled" />
+      <Text id="TI_V_BDC1_Switchpoint_DelayOn" value="BDC1 Switch Point Delay On time" />
+      <Text id="TI_V_BDC1_Switchpoint_DelayOff" value="BDC1 Switch Point Delay Off time" />
+
+	  <Text id="TI_ME_Digital_Output2" value="Digital output 2" />
+      <Text id="TI_V_BDC2_Setpoint" value="BDC2 Setpoints" />
+      <Text id="TID_V_BDC2_Setpoint" value="Thresholds for Switchpoint 2 (BDC2)" />
+      <Text id="TI_V_BDC2_Setpoint_SP1" value="BDC2 Setpoint1" />
+      <Text id="TI_V_BDC2_Setpoint_SP2" value="BDC2 Setpoint2" />
+      <Text id="TI_V_BDC2_Switchpoint" value="BDC2 Configuration" />
+      <Text id="TID_V_BDC2_Switchpoint" value="Detailed behavioural settings ot Switchpoint 2 (BDC2)" />
+      <Text id="TI_V_BDC2_Switchpoint_Logic" value="BDC2 Switch Point Logic" />
+      <Text id="TI_V_BDC2_Switchpoint_Logic_Normal" value="Normal" />
+      <!--Text id="TI_V_BDC2_Switchpoint_Logic_Inverted" value="Inverted"/-->
+
+      <Text id="TI_V_BDC2_Switchpoint_Mode" value="BDC2 Switch Point Mode" />
+      <Text id="TI_V_BDC2_Switchpoint_Analog" value="Analog Output" />
+      <Text id="TI_V_BDC2_Switchpoint_Mode_HNO" value="Hysteresis NO" />
+      <Text id="TI_V_BDC2_Switchpoint_Mode_HNC" value="Hysteresis NC" />
+      <Text id="TI_V_BDC2_Switchpoint_Mode_WNO" value="Window NO" />
+      <Text id="TI_V_BDC2_Switchpoint_Mode_WNC" value="Window NC" />
+      <Text id="TI_V_BDC2_Switchpoint_Hysteresis" value="BDC2 Switch Point Hysteresis" />
+      <Text id="TI_V_BDC2_Switchpoint_Hysteresis_Disabled" value="Disabled" />
+      <Text id="TI_V_BDC2_Switchpoint_DelayOn" value="BDC2 Switch Point Delay On time" />
+      <Text id="TI_V_BDC2_Switchpoint_DelayOff" value="BDC2 Switch Point Delay Off time" />
+	  
+      <Text id="TI_ME_Analog_Output2" value="Analog Output 2" />
+      <Text id="TI_ADC2_Lower" value="ASP2" />
+      <Text id="TID_ADC2_Lower" value="Analogue lower limit 2. [ASP2] must be smaller than [AEP2]. Please take into account the current [AEP2]. For information on the minimum hysteresis [ASP2] - [AEP2] please refer to the operating instructions." />
+      <Text id="TI_ADC2_Upper" value="AEP2" />
+      <Text id="TID_ADC2_Upper" value="Analogue upper limit 2. [AEP2] must be greater than [ASP2]. Please take into account the current [ASP2]. For information on the minimum hysteresis [ASP2] - [AEP2] please refer to the operating instructions." />
+      <!--Text id="TI_V_ADC2_Delay" value="Analog signal delay" />
+      <Text id="TID_V_ADC2_Delay" value="Delay between process value change and change of the analog output" /-->
+      <Text id="TI_ME_Analog_Output2_4_20_mA" value="Analog Output 2 (4..20mA)" />
+      <Text id="TI_ME_Analog_Output2_0_10_V" value="Analog Output 2 (0..10V)" />
+      <Text id="TI_ME_Observe_Misc" value="Misc" />
+
+
+      <!-- Event Description -->
+      <Text id="TI_EvDescr_1" value="Event 1" />
+      <Text id="TI_EvDescr_2" value="Event 2" />
+      <Text id="TI_Event1" value="Event 1" />
+      <Text id="TI_Event2" value="Event 2" />
+
+      <!-- Device specific definitions -->
+      <Text id="TI_V_Unit" value="Pressure Unit" />
+      <Text id="TI_V_Unit_bar" value="bar" />
+      <Text id="TI_V_Unit_mbar" value="mbar" />
+      <Text id="TI_V_Unit_PSI" value="PSI" />
+      <Text id="TI_V_Unit_MPa" value="MPa" />
+
+      <Text id="TI_V_MinPress" value="Minimal Pressure" />
+      <Text id="TI_V_MaxPress" value="Maximal Pressure" />
+      <Text id="TI_V_Password" value="User Password" />
+      <Text id="TI_V_RotateDisplay" value="Rotate Display" />
+      <Text id="TI_V_RotateDisplay_Normal" value="Normal" />
+      <Text id="TI_V_RotateDisplay_Flipped" value="Flipped" />
+
+      <Text id="TI_V_MeasureDamping" value="Damping" />
+      <Text id="TI_V_OperatingHours" value="Operating hours" />
+      <Text id="TI_V_CurrentTemperature" value="Temperature" />
+      <Text id="TI_V_PressurePeaksCounter" value="Pressure peaks" />
+
+      <Text id="TI_SetZero" value="Set Zero" />
+
+    </PrimaryLanguage>
+  </ExternalTextCollection>
+  <Stamp crc="3115031304"><Checker name="IODD-Checker V1.0.9" version="V1.0.9.0"/></Stamp>
+</IODevice>

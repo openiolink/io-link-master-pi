@@ -1,0 +1,770 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<IODevice xmlns="http://www.io-link.com/IODD/2010/10" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.io-link.com/IODD/2010/10 IODD1.1.xsd">
+  <DocumentInfo copyright="Copyright 2019, Balluff GmbH" releaseDate="2019-11-20" version="V1.0" />
+  <ProfileHeader>
+    <ProfileIdentification>IO Device Profile</ProfileIdentification>
+    <ProfileRevision>1.1</ProfileRevision>
+    <ProfileName>Device Profile for IO Devices</ProfileName>
+    <ProfileSource>IO-Link Consortium</ProfileSource>
+    <ProfileClassID>Device</ProfileClassID>
+    <ISO15745Reference>
+      <ISO15745Part>1</ISO15745Part>
+      <ISO15745Edition>1</ISO15745Edition>
+      <ProfileTechnology>IODD</ProfileTechnology>
+    </ISO15745Reference>
+  </ProfileHeader>
+  <ProfileBody>
+    <DeviceIdentity vendorId="888" vendorName="Balluff" deviceId="524801">
+      <VendorText textId="T_VendorText" />
+      <VendorUrl textId="T_VendorUrl" />
+      <VendorLogo name="Balluff-logo.png" />
+      <DeviceName textId="T_DeviceName" />
+      <DeviceFamily textId="T_DeviceFamily" />
+      <DeviceVariantCollection>
+        <DeviceVariant productId="BMF00N2" deviceSymbol="Balluff-BMF_415KW-HAKKI-W-5-_0-pic.png" deviceIcon="Balluff-BMF_415KW-HAKKI-W-5-_0-icon.png">
+          <Name textId="TN_Device1_Name" />
+          <Description textId="TD_Device_Desc" />
+        </DeviceVariant>
+        <DeviceVariant productId="BMF00N5" deviceSymbol="Balluff-BMF_415KW-HAKKI-W-5-_0-pic.png" deviceIcon="Balluff-BMF_415KW-HAKKI-W-5-_0-icon.png">
+          <Name textId="TN_Device2_Name" />
+          <Description textId="TD_Device_Desc" />
+        </DeviceVariant>
+        <DeviceVariant productId="BMF00N8" deviceSymbol="Balluff-BMF_415KW-HAKKI-W-5-_0-pic.png" deviceIcon="Balluff-BMF_415KW-HAKKI-W-5-_0-icon.png">
+          <Name textId="TN_Device3_Name" />
+          <Description textId="TD_Device_Desc" />
+        </DeviceVariant>
+        <DeviceVariant productId="BMF00MP" deviceSymbol="Balluff-BMF_415KW-HAKKI-W-5-_3-pic.png" deviceIcon="Balluff-BMF_415KW-HAKKI-W-5-_3-icon.png">
+          <Name textId="TN_Device4_Name" />
+          <Description textId="TD_Device_Desc" />
+        </DeviceVariant>
+        <DeviceVariant productId="BMF00MU" deviceSymbol="Balluff-BMF_415KW-HAKKI-W-5-_3-pic.png" deviceIcon="Balluff-BMF_415KW-HAKKI-W-5-_3-icon.png">
+          <Name textId="TN_Device5_Name" />
+          <Description textId="TD_Device_Desc" />
+        </DeviceVariant>
+        <DeviceVariant productId="BMF00MZ" deviceSymbol="Balluff-BMF_415KW-HAKKI-W-5-_3-pic.png" deviceIcon="Balluff-BMF_415KW-HAKKI-W-5-_3-icon.png">
+          <Name textId="TN_Device6_Name" />
+          <Description textId="TD_Device_Desc" />
+        </DeviceVariant>
+        <DeviceVariant productId="BMF00NC" deviceSymbol="Balluff-BMF_415KW-HAKKI-W-5-_0-pic.png" deviceIcon="Balluff-BMF_415KW-HAKKI-W-5-_0-icon.png">
+          <Name textId="TN_Device7_Name" />
+          <Description textId="TD_Device_Desc" />
+        </DeviceVariant>
+        <DeviceVariant productId="BMF00NH" deviceSymbol="Balluff-BMF_415KW-HAKKI-W-5-_0-pic.png" deviceIcon="Balluff-BMF_415KW-HAKKI-W-5-_0-icon.png">
+          <Name textId="TN_Device8_Name" />
+          <Description textId="TD_Device_Desc" />
+        </DeviceVariant>
+        <DeviceVariant productId="BMF00NL" deviceSymbol="Balluff-BMF_415KW-HAKKI-W-5-_0-pic.png" deviceIcon="Balluff-BMF_415KW-HAKKI-W-5-_0-icon.png">
+          <Name textId="TN_Device9_Name" />
+          <Description textId="TD_Device_Desc" />
+        </DeviceVariant>
+      </DeviceVariantCollection>
+    </DeviceIdentity>
+    <DeviceFunction>
+      <Features blockParameter="true" dataStorage="true" profileCharacteristic="2 16384">
+        <SupportedAccessLocks parameter="false" dataStorage="true" localParameterization="false" localUserInterface="false" />
+      </Features>
+      <DatatypeCollection>
+        <!--Datatypes for Tags-->
+        <Datatype id="DT_Tag" xsi:type="StringT" fixedLength="32" encoding="UTF-8" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+        <!--Datatypes for Diagnosis Suppression-->
+        <Datatype id="DT_DiagnosisSupression" xsi:type="RecordT" bitLength="16">
+          <RecordItem subindex="1" bitOffset="8">
+            <SimpleDatatype xsi:type="UIntegerT" bitLength="8">
+              <SingleValue value="0">
+                <Name textId="T_allEventsEnabled" />
+              </SingleValue>
+              <SingleValue value="1">
+                <Name textId="T_suppressNotifications" />
+              </SingleValue>
+              <SingleValue value="2">
+                <Name textId="T_suppressNotificationsAndWarnings" />
+              </SingleValue>
+              <SingleValue value="3">
+                <Name textId="T_suppressAllEvents" />
+              </SingleValue>
+            </SimpleDatatype>
+            <Name textId="TN_SuppressionLevel" />
+          </RecordItem>
+          <RecordItem subindex="2" bitOffset="0">
+            <SimpleDatatype xsi:type="UIntegerT" bitLength="8">
+              <SingleValue value="0">
+                <Name textId="TI_DT_PDInvalidSuppression_Off" />
+              </SingleValue>
+              <SingleValue value="255">
+                <Name textId="TI_DT_PDInvalidSuppression_On" />
+              </SingleValue>
+            </SimpleDatatype>
+            <Name textId="TN_pdInvalidSuppression" />
+          </RecordItem>
+        </Datatype>
+        <!--Datatypes for Device Temperatures-->
+        <Datatype id="DT_DeviceTemperatures" xsi:type="RecordT" bitLength="80">
+          <RecordItem subindex="1" bitOffset="64">
+            <SimpleDatatype xsi:type="IntegerT" bitLength="16" />
+            <Name textId="TI_REC_DeviceTemperatures_Current" />
+          </RecordItem>
+          <RecordItem subindex="2" bitOffset="48">
+            <SimpleDatatype xsi:type="UIntegerT" bitLength="16" />
+            <Name textId="TI_REC_DeviceTemperatures_StartupMin" />
+          </RecordItem>
+          <RecordItem subindex="3" bitOffset="32">
+            <SimpleDatatype xsi:type="IntegerT" bitLength="16" />
+            <Name textId="TI_REC_DeviceTemperatures_StartupMax" />
+          </RecordItem>
+          <RecordItem subindex="4" bitOffset="16">
+            <SimpleDatatype xsi:type="IntegerT" bitLength="16" />
+            <Name textId="TI_REC_DeviceTemperatures_LifetimeMin" />
+          </RecordItem>
+          <RecordItem subindex="5" bitOffset="0">
+            <SimpleDatatype xsi:type="IntegerT" bitLength="16" />
+            <Name textId="TI_REC_DeviceTemperatures_LifetimeMax" />
+          </RecordItem>
+        </Datatype>
+        <Datatype id="DT_DeviceTemperaturesThresholds" xsi:type="RecordT" bitLength="32">
+          <RecordItem subindex="1" bitOffset="16">
+            <SimpleDatatype xsi:type="IntegerT" bitLength="16">
+              <ValueRange lowerValue="0" upperValue="80" />
+            </SimpleDatatype>
+            <Name textId="TI_REC_DeviceTemperatureThreshold_Min" />
+          </RecordItem>
+          <RecordItem subindex="2" bitOffset="0">
+            <SimpleDatatype xsi:type="IntegerT" bitLength="16">
+              <ValueRange lowerValue="0" upperValue="80" />
+            </SimpleDatatype>
+            <Name textId="TI_REC_DeviceTemperatureThreshold_Max" />
+          </RecordItem>
+        </Datatype>
+        <!--Datatypes for Disturbance Suppression Duration-->
+        <Datatype id="DT_DisturbanceSuppressionDuration" xsi:type="UIntegerT" bitLength="16">
+          <ValueRange lowerValue="50" upperValue="1000" />
+        </Datatype>
+        <!--Datatypes for Operating Hours-->
+        <Datatype id="DT_OperatingHours" xsi:type="RecordT" bitLength="96">
+          <RecordItem subindex="1" bitOffset="64">
+            <SimpleDatatype xsi:type="UIntegerT" bitLength="32" />
+            <Name textId="TI_REC_LIFETIME_OPERATING_HOURS" />
+          </RecordItem>
+          <RecordItem subindex="2" bitOffset="32">
+            <SimpleDatatype xsi:type="UIntegerT" bitLength="32" />
+            <Name textId="TI_REC_MAINTENANCE_OPERATING_HOURS" />
+          </RecordItem>
+          <RecordItem subindex="3" bitOffset="0">
+            <SimpleDatatype xsi:type="UIntegerT" bitLength="32" />
+            <Name textId="TI_REC_POWERUP_OPERATING_HOURS" />
+          </RecordItem>
+        </Datatype>
+      </DatatypeCollection>
+      <VariableCollection>
+        <StdVariableRef id="V_DirectParameters_1" />
+        <StdVariableRef id="V_DirectParameters_2" />
+        <StdVariableRef id="V_SystemCommand">
+          <StdSingleValueRef value="128" />
+          <StdSingleValueRef value="130" />
+          <SingleValue value="165">
+            <Name textId="TI_RESET_MAINTENANCE" />
+          </SingleValue>
+        </StdVariableRef>
+        <!--Feature: Mandatory Identification-->
+        <StdVariableRef id="V_VendorName" />
+        <StdVariableRef id="V_VendorText" />
+        <StdVariableRef id="V_ProductName" />
+        <StdVariableRef id="V_ProductID" />
+        <StdVariableRef id="V_ProductText" />
+        <StdVariableRef id="V_HardwareRevision" />
+        <StdVariableRef id="V_FirmwareRevision" />
+        <StdVariableRef id="V_SerialNumber" />
+        <StdVariableRef id="V_ApplicationSpecificTag" fixedLengthRestriction="32"></StdVariableRef>
+        <!--Feature: Diagnosis-->
+        <StdVariableRef id="V_DeviceStatus"></StdVariableRef>
+        <StdVariableRef id="V_DetailedDeviceStatus" fixedLengthRestriction="3"></StdVariableRef>
+        <StdVariableRef id="V_ProcessDataInput" />
+        <!--Feature: Device Access Lock-->
+        <StdVariableRef id="V_DeviceAccessLocks" />
+        <!--Feature: Extended Identification-->
+        <Variable id="V_FunctionTag" index="25" accessRights="rw">
+          <DatatypeRef datatypeId="DT_Tag" />
+          <Name textId="TN_FunctionTag" />
+        </Variable>
+        <Variable id="V_LocationTag" index="26" accessRights="rw">
+          <DatatypeRef datatypeId="DT_Tag" />
+          <Name textId="TN_LocationTag" />
+        </Variable>
+        <!--Feature: Diagnosis Suppression-->
+        <Variable id="V_DIAGNOSIS_SUPPRESSION" accessRights="rw" index="248">
+          <DatatypeRef datatypeId="DT_DiagnosisSupression" />
+          <RecordItemInfo subindex="1" defaultValue="0" />
+          <RecordItemInfo subindex="2" defaultValue="0" />
+          <Name textId="TN_DIAGNOSIS_SUPPRESSION"></Name>
+          <Description textId="TD_DIAGNOSIS_SUPPRESSION" />
+        </Variable>
+        <!--Feature :FSS-->
+        <Variable accessRights="rw" id="V_FssLogic" index="57" defaultValue="0">
+          <Datatype xsi:type="UIntegerT" bitLength="8">
+            <SingleValue value="0">
+              <Name textId="T_FSS_HighActive" />
+            </SingleValue>
+            <SingleValue value="1">
+              <Name textId="T_FSS_LowActive" />
+            </SingleValue>
+          </Datatype>
+          <Name textId="TN_FssLogic" />
+          <Description textId="TD_FssLogic" />
+        </Variable>
+        <!--Feature :Physical Output Configuration -> without function selection -->
+        <Variable accessRights="rw" id="V_OUTPUT_TYPE" index="180" defaultValue="1">
+          <Datatype xsi:type="UIntegerT" bitLength="8">
+            <SingleValue value="0">
+              <Name textId="T_OT_DISABLED"></Name>
+            </SingleValue>
+            <SingleValue value="1">
+              <Name textId="T_OT_PNP" />
+            </SingleValue>
+            <SingleValue value="2">
+              <Name textId="T_OT_NPN" />
+            </SingleValue>
+            <SingleValue value="3">
+              <Name textId="T_OT_PP" />
+            </SingleValue>
+          </Datatype>
+          <Name textId="TN_OUTPUT_TYPE" />
+        </Variable>
+        <!--Feature: Disturbance Suppression Duration-->
+        <Variable id="V_DisturbanceSuppressionDuration" index="1056" accessRights="rw" defaultValue="600">
+          <DatatypeRef datatypeId="DT_DisturbanceSuppressionDuration" />
+          <Name textId="TI_V_DisturbanceSuppressionDuration" />
+          <Description textId="TD_DISTURBANCE_SUPPRESSION_DURATION" />
+        </Variable>
+        <!--Feature: Device Temperature Observation and Thresholds-->
+        <Variable id="V_DeviceTemperatures" index="82" accessRights="ro" dynamic="true">
+          <DatatypeRef datatypeId="DT_DeviceTemperatures" />
+          <Name textId="TI_V_DeviceTemperatures" />
+        </Variable>
+        <Variable id="V_DeviceTemperatureThresholds" index="83" accessRights="rw">
+          <DatatypeRef datatypeId="DT_DeviceTemperaturesThresholds"></DatatypeRef>
+          <RecordItemInfo subindex="1" defaultValue="0" />
+          <RecordItemInfo subindex="2" defaultValue="80" />
+          <Name textId="TI_V_DeviceTemperatureThresholds" />
+        </Variable>
+        <!--Feature: Boot cycle counter-->
+        <Variable id="V_BootCycleCounter" index="88" accessRights="ro" dynamic="true">
+          <Datatype xsi:type="UIntegerT" bitLength="32"></Datatype>
+          <Name textId="TI_V_BootCycleCounter" />
+        </Variable>
+        <!--Feature: operationg hours counter-->
+        <Variable id="V_OperatingHoursCounter" index="87" accessRights="ro" dynamic="true">
+          <DatatypeRef datatypeId="DT_OperatingHours" />
+          <Name textId="TI_V_OperatingHoursCounter" />
+        </Variable>
+      </VariableCollection>
+      <ProcessDataCollection>
+        <ProcessData id="V_PD">
+          <ProcessDataIn id="V_PDI" bitLength="2">
+            <Datatype xsi:type="RecordT" subindexAccessSupported="false" bitLength="2">
+              <RecordItem subindex="1" bitOffset="0">
+                <SimpleDatatype xsi:type="BooleanT" />
+                <Name textId="TN_PDI_FSS" />
+              </RecordItem>
+              <RecordItem subindex="2" bitOffset="1">
+                <SimpleDatatype xsi:type="BooleanT" />
+                <Name textId="TN_PDI_STABILITY" />
+              </RecordItem>
+            </Datatype>
+            <Name textId="TN_PDI" />
+          </ProcessDataIn>
+        </ProcessData>
+      </ProcessDataCollection>
+      <ErrorTypeCollection>
+        <!-- From device supported standard errors. -->
+        <StdErrorTypeRef additionalCode="17" />
+        <!-- 0x11 Index not available -->
+        <StdErrorTypeRef additionalCode="18" />
+        <!-- 0x12 Subindex not available -->
+        <StdErrorTypeRef additionalCode="32" />
+        <!-- 0x20 Service temporarily not available -->
+        <StdErrorTypeRef additionalCode="33" />
+        <!-- 0x21 Service temporarily not available (Local) -->
+        <StdErrorTypeRef additionalCode="34" />
+        <!-- 0x22 Service temporarily not available (Device) -->
+        <StdErrorTypeRef additionalCode="35" />
+        <!-- 0x23 Access denied -->
+        <StdErrorTypeRef additionalCode="48" />
+        <!-- 0x30 Parameter value out of range -->
+        <StdErrorTypeRef additionalCode="49" />
+        <!-- 0x31 Parameter value out of range (Above limit) -->
+        <StdErrorTypeRef additionalCode="50" />
+        <!-- 0x32 Parameter value out of range (Below limit) -->
+        <StdErrorTypeRef additionalCode="51" />
+        <!-- 0x33 Parameter length overrun. -->
+        <StdErrorTypeRef additionalCode="52" />
+        <!-- 0x34 Parameter length underrun. -->
+        <StdErrorTypeRef additionalCode="53" />
+        <!-- 0x35 Function not avaiable. -->
+        <StdErrorTypeRef additionalCode="54" />
+        <!-- 0x36 Function temporarily not avaiable. -->
+        <StdErrorTypeRef additionalCode="64" />
+        <!-- 0x40 Invalid parameter set. -->
+        <StdErrorTypeRef additionalCode="65" />
+        <!-- 0x41 Inconsistent parameter set. -->
+        <StdErrorTypeRef additionalCode="130" />
+        <!-- 0x82 Application not ready. -->
+      </ErrorTypeCollection>
+      <EventCollection>
+        <!-- 0x4210 Device temperature overrun warning-->
+        <StdEventRef code="16912" />
+        <!-- 0x4220 Device temperature underrun warning-->
+        <StdEventRef code="16928" />
+        <!-- 0x4000 Device temperature overrun Error -->
+        <StdEventRef code="16384" />
+        <!-- 0x5000 HARDWARE FAULT-->
+        <StdEventRef code="20480" />
+      </EventCollection>
+      <UserInterface>
+        <ProcessDataRefCollection>
+          <ProcessDataRef processDataId="V_PDI">
+            <ProcessDataRecordItemInfo subindex="2" />
+            <ProcessDataRecordItemInfo subindex="1" />
+          </ProcessDataRef>
+        </ProcessDataRefCollection>
+        <MenuCollection>
+          <!--*************** parameter sub menus ***************-->
+          <!--FSS (for SP)-->
+          <Menu id="ME_SP_FSS">
+            <Name textId="TN_ME_FSS" />
+            <VariableRef variableId="V_FssLogic" accessRightRestriction="rw"></VariableRef>
+          </Menu>
+          <!--FSS (for MA,OB)-->
+          <Menu id="ME_OB_FSS">
+            <Name textId="TN_ME_FSS" />
+            <VariableRef variableId="V_FssLogic" accessRightRestriction="ro"></VariableRef>
+          </Menu>
+          <!--System (for SP)-->
+          <Menu id="ME_SP_SYSTEM">
+            <Name textId="TN_ME_System" />
+            <!--Device Reset-->
+            <VariableRef variableId="V_SystemCommand">
+              <Button buttonValue="128" />
+            </VariableRef>
+            <!--Reset Factory Default-->
+            <VariableRef variableId="V_SystemCommand">
+              <Button buttonValue="130" />
+            </VariableRef>
+            <!--Reset Maintenance-->
+            <VariableRef variableId="V_SystemCommand">
+              <Button buttonValue="165" />
+            </VariableRef>
+            <!--Device Access Locks-->
+            <RecordItemRef variableId="V_DeviceAccessLocks" subindex="2" accessRightRestriction="rw" displayFormat="Bin" />
+          </Menu>
+          <!--System (for MA)-->
+          <Menu id="ME_MA_SYSTEM">
+            <Name textId="TN_ME_System" />
+            <!--Device Reset-->
+            <VariableRef variableId="V_SystemCommand">
+              <Button buttonValue="128" />
+            </VariableRef>
+            <!--Reset Maintenance-->
+            <VariableRef variableId="V_SystemCommand">
+              <Button buttonValue="165" />
+            </VariableRef>
+            <!--Device Access Locks-->
+            <RecordItemRef variableId="V_DeviceAccessLocks" subindex="2" accessRightRestriction="ro" displayFormat="Bin" />
+          </Menu>
+          <!--System (for OB)-->
+          <Menu id="ME_OB_SYSTEM">
+            <Name textId="TN_ME_System" />
+            <!--Device Access Locks-->
+            <RecordItemRef variableId="V_DeviceAccessLocks" subindex="2" accessRightRestriction="ro" displayFormat="Bin" />
+          </Menu>
+          <!--Identification (for SP)-->
+          <Menu id="ME_SP_IDENTIFICATION">
+            <Name textId="TN_ME_IDENTIFICATION" />
+            <!--Application specific / function / Location tag-->
+            <VariableRef variableId="V_ApplicationSpecificTag" accessRightRestriction="rw"></VariableRef>
+            <VariableRef variableId="V_FunctionTag" accessRightRestriction="rw"></VariableRef>
+            <VariableRef variableId="V_LocationTag" accessRightRestriction="rw"></VariableRef>
+          </Menu>
+          <!--Diagnosis Suppression (for SP)-->
+          <Menu id="ME_SP_DIAGNOSIS_SUPPRESSION">
+            <Name textId="TN_ME_DIAGNOSIS_SUPPRESSION"></Name>
+            <RecordItemRef variableId="V_DIAGNOSIS_SUPPRESSION" subindex="1" accessRightRestriction="rw" />
+            <RecordItemRef variableId="V_DIAGNOSIS_SUPPRESSION" subindex="2" accessRightRestriction="rw" />
+          </Menu>
+          <!--Diagnosis Suppression (for MA, OB)-->
+          <Menu id="ME_OB_DIAGNOSIS_SUPPRESSION">
+            <Name textId="TN_ME_DIAGNOSIS_SUPPRESSION"></Name>
+            <RecordItemRef variableId="V_DIAGNOSIS_SUPPRESSION" subindex="1" accessRightRestriction="ro" />
+            <RecordItemRef variableId="V_DIAGNOSIS_SUPPRESSION" subindex="2" accessRightRestriction="ro" />
+          </Menu>
+          <!--Feature :Physical Output Configuration (for SP)-->
+          <Menu id="ME_SP_OUTPUT_CONF">
+            <Name textId="TN_ME_OUTPUT_CONF"></Name>
+            <VariableRef variableId="V_OUTPUT_TYPE" accessRightRestriction="rw"></VariableRef>
+          </Menu>
+          <!--Feature :Physical Output Configuration (for MA, OB)-->
+          <Menu id="ME_OB_OUTPUT_CONF">
+            <Name textId="TN_ME_OUTPUT_CONF"></Name>
+            <VariableRef variableId="V_OUTPUT_TYPE" accessRightRestriction="ro"></VariableRef>
+          </Menu>
+          <!--Feature : Device Temperature Thresholds (for SP)-->
+          <Menu id="MENU_SP_DeviceTemperatures_Thresholds">
+            <Name textId="TN_ME_DeviceTemperatures_Thresholds" />
+            <RecordItemRef variableId="V_DeviceTemperatureThresholds" subindex="1" unitCode="1001" displayFormat="Dec" />
+            <RecordItemRef variableId="V_DeviceTemperatureThresholds" subindex="2" unitCode="1001" displayFormat="Dec" />
+          </Menu>
+          <!--Feature : Device Temperature Thresholds (for MA, OB)-->
+          <Menu id="MENU_OB_DeviceTemperatures_Thresholds">
+            <Name textId="TN_ME_DeviceTemperatures_Thresholds" />
+            <RecordItemRef variableId="V_DeviceTemperatureThresholds" subindex="1" unitCode="1001" displayFormat="Dec" accessRightRestriction="ro" />
+            <RecordItemRef variableId="V_DeviceTemperatureThresholds" subindex="2" unitCode="1001" displayFormat="Dec" accessRightRestriction="ro" />
+          </Menu>
+          <!--Feature : Disturbance Suppression Duration (for SP)-->
+          <Menu id="MENU_SP_DisturbanceSuppressionDuration">
+            <Name textId="TN_ME_DisturbanceSuppressionDuration" />
+            <VariableRef variableId="V_DisturbanceSuppressionDuration" unitCode="1056" displayFormat="Dec" accessRightRestriction="rw" />
+          </Menu>
+          <!--Feature : Disturbance Suppression Duration (for MA, OB)-->
+          <Menu id="MENU_OB_DisturbanceSuppressionDuration">
+            <Name textId="TN_ME_DisturbanceSuppressionDuration" />
+            <VariableRef variableId="V_DisturbanceSuppressionDuration" unitCode="1056" displayFormat="Dec" accessRightRestriction="ro" />
+          </Menu>
+          <!--*************** observation sub menus ***************-->
+          <!--Feature : Device Temperature Observation-->
+          <Menu id="MENU_DeviceTemperatures_Observation">
+            <Name textId="TN_ME_DeviceTemperatures_Observation" />
+            <RecordItemRef variableId="V_DeviceTemperatures" subindex="1" unitCode="1001" displayFormat="Dec" />
+            <RecordItemRef variableId="V_DeviceTemperatures" subindex="2" unitCode="1001" displayFormat="Dec" />
+            <RecordItemRef variableId="V_DeviceTemperatures" subindex="3" unitCode="1001" displayFormat="Dec" />
+            <RecordItemRef variableId="V_DeviceTemperatures" subindex="4" unitCode="1001" displayFormat="Dec" />
+            <RecordItemRef variableId="V_DeviceTemperatures" subindex="5" unitCode="1001" displayFormat="Dec" />
+          </Menu>
+          <!--Feature : Boot Cycle Counter (for all)-->
+          <Menu id="MENU_BootCycleCounter_Observation">
+            <Name textId="TN_ME_BootCycleCounter_Observation" />
+            <VariableRef variableId="V_BootCycleCounter" displayFormat="Dec"></VariableRef>
+          </Menu>
+          <!--Feature : Operating Hours Counter (for all)-->
+          <Menu id="MENU_OperatingHoursCounter_Observation">
+            <Name textId="TN_ME_OperatingHoursCounter_Observation"></Name>
+            <RecordItemRef variableId="V_OperatingHoursCounter" subindex="1" unitCode="1059" displayFormat="Dec" />
+            <RecordItemRef variableId="V_OperatingHoursCounter" subindex="2" unitCode="1059" displayFormat="Dec" />
+            <RecordItemRef variableId="V_OperatingHoursCounter" subindex="3" unitCode="1059" displayFormat="Dec" />
+          </Menu>
+          <!--Process Data Observation (for all)-->
+          <Menu id="MENU_ProcessData_Observation">
+            <Name textId="TN_ME_ProcessData_Observation" />
+            <RecordItemRef variableId="V_ProcessDataInput" subindex="1" />
+            <RecordItemRef variableId="V_ProcessDataInput" subindex="2" />
+          </Menu>
+          <!--*************** Menu Collections ***************-->
+          <!--parameter (for OB)-->
+          <Menu id="ME_OB_Parameter">
+            <MenuRef menuId="ME_OB_SYSTEM"></MenuRef>
+            <MenuRef menuId="ME_OB_FSS"></MenuRef>
+            <MenuRef menuId="ME_OB_OUTPUT_CONF"></MenuRef>
+            <MenuRef menuId="ME_OB_DIAGNOSIS_SUPPRESSION"></MenuRef>
+            <MenuRef menuId="MENU_OB_DeviceTemperatures_Thresholds"></MenuRef>
+            <MenuRef menuId="MENU_OB_DisturbanceSuppressionDuration"></MenuRef>
+          </Menu>
+          <!--parameter (for MA)-->
+          <Menu id="ME_MA_Parameter">
+            <MenuRef menuId="ME_MA_SYSTEM"></MenuRef>
+            <MenuRef menuId="ME_OB_FSS"></MenuRef>
+            <MenuRef menuId="ME_OB_OUTPUT_CONF"></MenuRef>
+            <MenuRef menuId="ME_OB_DIAGNOSIS_SUPPRESSION"></MenuRef>
+            <MenuRef menuId="MENU_OB_DeviceTemperatures_Thresholds"></MenuRef>
+            <MenuRef menuId="MENU_OB_DisturbanceSuppressionDuration"></MenuRef>
+          </Menu>
+          <!--parameter (for SP)-->
+          <Menu id="ME_SP_Parameter">
+            <MenuRef menuId="ME_SP_SYSTEM"></MenuRef>
+            <MenuRef menuId="ME_SP_IDENTIFICATION"></MenuRef>
+            <MenuRef menuId="ME_SP_FSS"></MenuRef>
+            <MenuRef menuId="ME_SP_OUTPUT_CONF"></MenuRef>
+            <MenuRef menuId="ME_SP_DIAGNOSIS_SUPPRESSION"></MenuRef>
+            <MenuRef menuId="MENU_SP_DeviceTemperatures_Thresholds"></MenuRef>
+            <MenuRef menuId="MENU_SP_DisturbanceSuppressionDuration"></MenuRef>
+          </Menu>
+          <!--identification (for all)-->
+          <Menu id="ME_Identification">
+            <VariableRef variableId="V_VendorName" />
+            <VariableRef variableId="V_VendorText" />
+            <VariableRef variableId="V_ProductName" />
+            <VariableRef variableId="V_ProductID" />
+            <VariableRef variableId="V_ProductText" />
+            <VariableRef variableId="V_HardwareRevision" />
+            <VariableRef variableId="V_FirmwareRevision" />
+            <VariableRef variableId="V_SerialNumber" />
+            <VariableRef variableId="V_ApplicationSpecificTag" accessRightRestriction="ro" />
+            <VariableRef variableId="V_FunctionTag" accessRightRestriction="ro" />
+            <VariableRef variableId="V_LocationTag" accessRightRestriction="ro" />
+          </Menu>
+          <!--Observation (for all)-->
+          <Menu id="ME_Observation">
+            <MenuRef menuId="MENU_ProcessData_Observation"></MenuRef>
+            <MenuRef menuId="MENU_DeviceTemperatures_Observation"></MenuRef>
+            <MenuRef menuId="MENU_BootCycleCounter_Observation"></MenuRef>
+            <MenuRef menuId="MENU_OperatingHoursCounter_Observation"></MenuRef>
+          </Menu>
+          <!--Diagnosis (for all)-->
+          <Menu id="ME_Diagnosis">
+            <VariableRef variableId="V_DeviceStatus" />
+            <VariableRef variableId="V_DetailedDeviceStatus" />
+            <RecordItemRef variableId="V_DIAGNOSIS_SUPPRESSION" subindex="1" accessRightRestriction="ro"></RecordItemRef>
+            <RecordItemRef variableId="V_DIAGNOSIS_SUPPRESSION" subindex="2" accessRightRestriction="ro" />
+          </Menu>
+        </MenuCollection>
+        <ObserverRoleMenuSet>
+          <IdentificationMenu menuId="ME_Identification" />
+          <ParameterMenu menuId="ME_OB_Parameter" />
+          <ObservationMenu menuId="ME_Observation" />
+          <DiagnosisMenu menuId="ME_Diagnosis" />
+        </ObserverRoleMenuSet>
+        <MaintenanceRoleMenuSet>
+          <IdentificationMenu menuId="ME_Identification" />
+          <ParameterMenu menuId="ME_MA_Parameter" />
+          <ObservationMenu menuId="ME_Observation" />
+          <DiagnosisMenu menuId="ME_Diagnosis" />
+        </MaintenanceRoleMenuSet>
+        <SpecialistRoleMenuSet>
+          <IdentificationMenu menuId="ME_Identification" />
+          <ParameterMenu menuId="ME_SP_Parameter" />
+          <ObservationMenu menuId="ME_Observation" />
+          <DiagnosisMenu menuId="ME_Diagnosis"></DiagnosisMenu>
+        </SpecialistRoleMenuSet>
+      </UserInterface>
+    </DeviceFunction>
+  </ProfileBody>
+  <CommNetworkProfile xsi:type="IOLinkCommNetworkProfileT" iolinkRevision="V1.1">
+    <TransportLayers>
+      <PhysicalLayer bitrate="COM2" minCycleTime="2300" sioSupported="true" mSequenceCapability="17">
+        <!--Cable Connection Silicone Black-->
+        <Connection xsi:type="CableConnectionT">
+          <ProductRef productId="BMF00N2"></ProductRef>
+          <Description textId="TD_CONNECTION_CABLE_SILICONE_BLACK" />
+          <Wire1 color="BN" function="L+">
+            <Name textId="TI_Wire1" />
+          </Wire1>
+          <Wire2 color="WH" function="NC">
+            <Name textId="TI_Wire2" />
+          </Wire2>
+          <Wire3 color="BU" function="L-">
+            <Name textId="TI_Wire3" />
+          </Wire3>
+          <Wire4 color="BK" function="C/Q">
+            <Name textId="TI_Wire4" />
+          </Wire4>
+        </Connection>
+        <!--Cable Connection Pur Orange-->
+        <Connection xsi:type="CableConnectionT">
+          <ProductRef productId="BMF00MP"></ProductRef>
+          <Description textId="TD_CONNECTION_CABLE_PUR_ORANGE" />
+          <Wire1 color="BN" function="L+">
+            <Name textId="TI_Wire1" />
+          </Wire1>
+          <Wire2 color="WH" function="NC">
+            <Name textId="TI_Wire2" />
+          </Wire2>
+          <Wire3 color="BU" function="L-">
+            <Name textId="TI_Wire3" />
+          </Wire3>
+          <Wire4 color="BK" function="C/Q">
+            <Name textId="TI_Wire4" />
+          </Wire4>
+        </Connection>
+        <!--Cable Connection Pur Black-->
+        <Connection xsi:type="CableConnectionT">
+          <ProductRef productId="BMF00NC"></ProductRef>
+          <Description textId="TD_CONNECTION_CABLE_PUR_BLACK" />
+          <Wire1 color="BN" function="L+">
+            <Name textId="TI_Wire1" />
+          </Wire1>
+          <Wire2 color="WH" function="NC">
+            <Name textId="TI_Wire2" />
+          </Wire2>
+          <Wire3 color="BU" function="L-">
+            <Name textId="TI_Wire3" />
+          </Wire3>
+          <Wire4 color="BK" function="C/Q">
+            <Name textId="TI_Wire4" />
+          </Wire4>
+        </Connection>
+        <!--M8 Connection Silicone Black-->
+        <Connection xsi:type="M8ConnectionT">
+          <ProductRef productId="BMF00N5"></ProductRef>
+          <Description textId="TD_CONNECTION_M8_SILICONE_BLACK" />
+          <Wire1></Wire1>
+          <Wire2 function="NC">
+            <Name textId="TI_Wire2" />
+          </Wire2>
+          <Wire3></Wire3>
+          <Wire4></Wire4>
+        </Connection>
+        <!--M8 Connection Pur Orange-->
+        <Connection xsi:type="M8ConnectionT">
+          <ProductRef productId="BMF00MU"></ProductRef>
+          <Description textId="TD_CONNECTION_M8_PUR_ORANGE" />
+          <Wire1></Wire1>
+          <Wire2 function="NC">
+            <Name textId="TI_Wire2" />
+          </Wire2>
+          <Wire3></Wire3>
+          <Wire4></Wire4>
+        </Connection>
+        <!--M8 Connection Pur Black-->
+        <Connection xsi:type="M8ConnectionT">
+          <ProductRef productId="BMF00NH"></ProductRef>
+          <Description textId="TD_CONNECTION_M8_PUR_BLACK" />
+          <Wire1></Wire1>
+          <Wire2 function="NC">
+            <Name textId="TI_Wire2" />
+          </Wire2>
+          <Wire3></Wire3>
+          <Wire4></Wire4>
+        </Connection>
+        <!--M12 Connection Silicone Black-->
+        <Connection xsi:type="M12-4ConnectionT">
+          <ProductRef productId="BMF00N8"></ProductRef>
+          <Description textId="TD_CONNECTION_M12_SILICONE_BLACK" />
+          <Wire1></Wire1>
+          <Wire2 function="NC">
+            <Name textId="TI_Wire2" />
+          </Wire2>
+          <Wire3></Wire3>
+          <Wire4></Wire4>
+        </Connection>
+        <!--M12 Connection Pur Orange-->
+        <Connection xsi:type="M12-4ConnectionT">
+          <ProductRef productId="BMF00MZ"></ProductRef>
+          <Description textId="TD_CONNECTION_M12_PUR_ORANGE" />
+          <Wire1></Wire1>
+          <Wire2 function="NC">
+            <Name textId="TI_Wire2" />
+          </Wire2>
+          <Wire3></Wire3>
+          <Wire4></Wire4>
+        </Connection>
+        <!--M12 Connection Pur Black-->
+        <Connection xsi:type="M12-4ConnectionT">
+          <ProductRef productId="BMF00NL"></ProductRef>
+          <Description textId="TD_CONNECTION_M12_PUR_BLACK" />
+          <Wire1></Wire1>
+          <Wire2 function="NC">
+            <Name textId="TI_Wire2" />
+          </Wire2>
+          <Wire3></Wire3>
+          <Wire4></Wire4>
+        </Connection>
+      </PhysicalLayer>
+    </TransportLayers>
+    <Test>
+      <Config1 index="254" testValue="0x01" />
+      <Config2 index="16382" testValue="0x01" />
+      <Config3 index="253" testValue="0x11,0x22,0x33,0x44,0x55,0x66,0x77,0x88,0x99,0xAA,0xBB,0xCC,0x5A" />
+      <Config7 index="16383">
+        <EventTrigger disappearValue="1" appearValue="0"></EventTrigger>
+        <EventTrigger disappearValue="3" appearValue="2"></EventTrigger>
+      </Config7>
+    </Test>
+  </CommNetworkProfile>
+  <ExternalTextCollection>
+    <PrimaryLanguage xml:lang="en">
+      <!--System Commands-->
+      <Text id="TI_RESET_MAINTENANCE" value="Reset Maintenance " />
+      <!-- Feature 1: Mandatory Identification  -->
+      <Text id="T_VendorText" value="innovating automation"></Text>
+      <Text id="T_VendorUrl" value="www.balluff.com" />
+      <Text id="T_DeviceFamily" value="BMF - Magnetic Field Sensor" />
+      <!--Device Name and Types -->
+      <Text id="T_DeviceName" value="BMF 415KW-HAKKI-W-5" />
+      <Text id="TN_Device1_Name" value="BMF 415KW-HAKKI-W-5-S0-02" />
+      <Text id="TN_Device2_Name" value="BMF 415KW-HAKKI-W-5-S0-S75-00,3" />
+      <Text id="TN_Device3_Name" value="BMF 415KW-HAKKI-W-5-S0-S4-00,3" />
+      <Text id="TN_Device4_Name" value="BMF 415KW-HAKKI-W-5-P3-02" />
+      <Text id="TN_Device5_Name" value="BMF 415KW-HAKKI-W-5-P3-S75-00,3" />
+      <Text id="TN_Device6_Name" value="BMF 415KW-HAKKI-W-5-P3-S4-00,3" />
+      <Text id="TN_Device7_Name" value="BMF 415KW-HAKKI-W-5-P0-02" />
+      <Text id="TN_Device8_Name" value="BMF 415KW-HAKKI-W-5-P0-S75-00,3" />
+      <Text id="TN_Device9_Name" value="BMF 415KW-HAKKI-W-5-P0-S4-00,3" />
+      <Text id="TD_Device_Desc" value="Magnetic Field Sensor, Fixed Switching Point, Weld Immune" />
+      <!--Extended Identification  -->
+      <Text id="TN_FunctionTag" value="Function Tag" />
+      <Text id="TN_LocationTag" value="Location Tag" />
+      <!--Process data-->
+      <Text id="TN_PDI" value="Process Data Input" />
+      <Text id="TN_PDI_FSS" value="Fixed Switching Signal" />
+      <Text id="TN_PDI_STABILITY" value="Assured Switching Field Strength" />
+      <!-- Feature 2: Physical Output Configuration  -->
+      <Text id="TN_OUTPUT_TYPE" value="Output Type" />
+      <Text id="T_OT_PNP" value="PNP" />
+      <Text id="T_OT_NPN" value="NPN" />
+      <Text id="T_OT_PP" value="Push Pull" />
+      <Text id="T_OT_DISABLED" value="Disabled" />
+      <!-- Feature 20: Device temperature -->
+      <Text id="TI_V_DeviceTemperatures" value="Device Temperature" />
+      <Text id="TI_REC_DeviceTemperatures_Current" value="Current" />
+      <Text id="TI_REC_DeviceTemperatures_StartupMin" value="Minimum Since Startup" />
+      <Text id="TI_REC_DeviceTemperatures_StartupMax" value="Maximum Since Startup" />
+      <Text id="TI_REC_DeviceTemperatures_LifetimeMin" value="Minimum Over Lifetime" />
+      <Text id="TI_REC_DeviceTemperatures_LifetimeMax" value="Maximum Over Lifetime" />
+      <Text id="TI_V_DeviceTemperatureThresholds" value="Temperature Warning Thresholds" />
+      <Text id="TI_REC_DeviceTemperatureThreshold_Min" value="Underrun Warning Level" />
+      <Text id="TI_REC_DeviceTemperatureThreshold_Max" value="Overrun Warning Level" />
+      <!-- Feature: Boot Cycle Counter-->
+      <Text id="TI_V_BootCycleCounter" value="Boot Cycle Counter" />
+      <!-- Feature: Disturbance Suppression Duration-->
+      <Text id="TI_V_DisturbanceSuppressionDuration" value="Disturbance Suppression Duration"></Text>
+      <Text id="TD_DISTURBANCE_SUPPRESSION_DURATION" value="Configure how long a disturbed signal will be suppressed"></Text>
+      <!--Feature: Operating Hours Counter -->
+      <Text id="TI_V_OperatingHoursCounter" value="Operating Hours" />
+      <Text id="TI_REC_LIFETIME_OPERATING_HOURS" value="Over Lifetime" />
+      <Text id="TI_REC_MAINTENANCE_OPERATING_HOURS" value="Since Maintenance" />
+      <Text id="TI_REC_POWERUP_OPERATING_HOURS" value="Since Startup" />
+      <!--FSS-->
+      <Text id="TN_FssLogic" value="FSS Logic"></Text>
+      <Text id="TD_FssLogic" value="Fixed Switching Signal Logic"></Text>
+      <Text id="T_FSS_HighActive" value="High Active"></Text>
+      <Text id="T_FSS_LowActive" value="Low Active"></Text>
+      <!--<Text id="T_NormallyOpen" value="Normally Open" xmlns="http://www.io-link.com/IODD/2010/10"></Text>-->
+      <!--<Text id="T_NormallyClosed" value="Normally Closed" xmlns="http://www.io-link.com/IODD/2010/10"></Text>-->
+      <!--Diagnosis Suppression-->
+      <Text id="TN_DIAGNOSIS_SUPPRESSION" value="Diagnosis Suppression Configuration"></Text>
+      <Text id="TD_DIAGNOSIS_SUPPRESSION" value="Configure the suppression of the diagnosis functionality"></Text>
+      <Text id="TN_SuppressionLevel" value="Suppression Level"></Text>
+      <Text id="TN_pdInvalidSuppression" value="PD Invalid Suppression"></Text>
+      <Text id="T_allEventsEnabled" value="All Events Enabled"></Text>
+      <Text id="T_suppressNotifications" value="Suppress Notifications"></Text>
+      <Text id="T_suppressNotificationsAndWarnings" value="Suppress Notifications and Warnings"></Text>
+      <Text id="T_suppressAllEvents" value="Suppress all Events"></Text>
+      <Text id="TI_DT_PDInvalidSuppression_Off" value="PD Invalid Enabled"></Text>
+      <Text id="TI_DT_PDInvalidSuppression_On" value="Suppress PD Invalid"></Text>
+      <!--Events-->
+      <!--connection-->
+      <Text id="TD_CONNECTION_M8_SILICONE_BLACK" value="M8 Pig-Tail, Silicone Cable, 0.3 Meter, Black" />
+      <Text id="TD_CONNECTION_M8_PUR_ORANGE" value="M8 Pig-Tail, TPE-U Cable, 0.3 Meter, Orange" />
+      <Text id="TD_CONNECTION_M8_PUR_BLACK" value="M8 Pig-Tail, TPE-U Cable, 0.3 Meter, Black" />
+      <Text id="TD_CONNECTION_M12_SILICONE_BLACK" value="M12 Pig-Tail, Silicone Cable, 0.3 Meter, Black" />
+      <Text id="TD_CONNECTION_M12_PUR_ORANGE" value="M12 Pig-Tail, TPE-U Cable, 0.3 Meter, Orange" />
+      <Text id="TD_CONNECTION_M12_PUR_BLACK" value="M12 Pig-Tail, TPE-U Cable, 0.3 Meter, Black" />
+      <Text id="TD_CONNECTION_CABLE_SILICONE_BLACK" value="Silicone Cable, 2 Meter, Black, (3 x 0.15 mm2)" />
+      <Text id="TD_CONNECTION_CABLE_PUR_ORANGE" value="TPE-U Cable, 2 Meter, Orange, (3 x 0.10 mm2)" />
+      <Text id="TD_CONNECTION_CABLE_PUR_BLACK" value="TPE-U Cable, 2 Meter, Black, (3 x 0.10 mm2)" />
+      <Text id="TI_Wire1" value="24 V" />
+      <Text id="TI_Wire2" value="-"></Text>
+      <Text id="TI_Wire3" value="GND" />
+      <Text id="TI_Wire4" value="IO-Link / Switch Point" />
+      <!--Menu Texte-->
+      <Text id="TN_ME_DeviceTemperatures_Observation" value="Device Temperature" />
+      <Text id="TN_ME_BootCycleCounter_Observation" value="Boot Cycle Counter" />
+      <Text id="TN_ME_OperatingHoursCounter_Observation" value="Operating Hours" />
+      <Text id="TN_ME_DeviceTemperatures_Thresholds" value="Temperature Thresholds" />
+      <Text id="TN_ME_DisturbanceSuppressionDuration" value="Disturbance Suppression Configuration" />
+      <Text id="TN_ME_ProcessData_Observation" value="Process Data" />
+      <Text id="TN_ME_FSS" value="Fixed Switching Signal Configuration" />
+      <Text id="TN_ME_System" value="System" />
+      <Text id="TN_ME_IDENTIFICATION" value="Identification" />
+      <Text id="TN_ME_DIAGNOSIS_SUPPRESSION" value="Diagnosis Suppression Configuration" />
+      <Text id="TN_ME_OUTPUT_CONF" value="Output Configuration" />
+    </PrimaryLanguage>
+  </ExternalTextCollection>
+  <Stamp crc="3928676334"><Checker name="IODD-Checker V1.1.4" version="V1.1.4.0"/></Stamp>
+</IODevice>

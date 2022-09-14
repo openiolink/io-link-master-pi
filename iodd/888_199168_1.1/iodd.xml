@@ -1,0 +1,265 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<IODevice xmlns="http://www.io-link.com/IODD/2010/10" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.io-link.com/IODD/2010/10 IODD1.1.xsd">
+  <DocumentInfo version="V1.5" releaseDate="2016-07-21" copyright="BALLUFF" />
+  <ProfileHeader>
+    <ProfileIdentification>IO Device Profile</ProfileIdentification>
+    <ProfileRevision>1.1</ProfileRevision>
+    <ProfileName>Device Profile for IO Devices</ProfileName>
+    <ProfileSource>IO-Link Consortium</ProfileSource>
+    <ProfileClassID>Device</ProfileClassID>
+    <ISO15745Reference>
+      <ISO15745Part>1</ISO15745Part>
+      <ISO15745Edition>1</ISO15745Edition>
+      <ProfileTechnology>IODD</ProfileTechnology>
+    </ISO15745Reference>
+  </ProfileHeader>
+  <ProfileBody>
+    <DeviceIdentity vendorId="888" vendorName="BALLUFF" deviceId="199168">
+      <VendorText textId="TI_VendorText" />
+      <VendorUrl textId="TI_VendorUrl" />
+      <VendorLogo name="Balluff-logo.png" />
+      <DeviceName textId="TI_Device_Name" />
+      <DeviceFamily textId="TI_DeviceFamily" />
+      <DeviceVariantCollection>
+        <DeviceVariant productId="BMLL1IOL0011" deviceSymbol="Balluff-BMLSL1-KAx-pic.png" deviceIcon="Balluff-BMLSL1-KAx-icon.png">
+          <Name textId="TI_Product_Name1" />
+          <Description textId="TI_Product_Descr" />
+        </DeviceVariant>
+        <DeviceVariant productId="BMLL1IOL0111" deviceSymbol="Balluff-BMLSL1-KAx-pic.png" deviceIcon="Balluff-BMLSL1-KAx-icon.png">
+          <Name textId="TI_Product_Name2" />
+          <Description textId="TI_Product_Descr" />
+        </DeviceVariant>
+        <DeviceVariant productId="BMLL1IOL1011" deviceSymbol="Balluff-BMLSL1-Sx-pic.png" deviceIcon="Balluff-BMLSL1-Sx-icon.png">
+          <Name textId="TI_Product_Name3" />
+          <Description textId="TI_Product_Descr" />
+        </DeviceVariant>
+        <DeviceVariant productId="BMLL1IOL2111" deviceSymbol="Balluff-BMLSL1-Sx-pic.png" deviceIcon="Balluff-BMLSL1-Sx-icon.png">
+          <Name textId="TI_Product_Name4" />
+          <Description textId="TI_Product_Descr" />
+        </DeviceVariant>
+      </DeviceVariantCollection>
+    </DeviceIdentity>
+    <DeviceFunction>
+      <Features blockParameter="true" dataStorage="true" profileCharacteristic="0">
+        <SupportedAccessLocks dataStorage="true" localUserInterface="false" localParameterization="false" parameter="true" />
+      </Features>
+      <DatatypeCollection>
+        <Datatype id="DT_Position" xsi:type="IntegerT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bitLength="32" />
+      </DatatypeCollection>
+      <VariableCollection>
+        <StdVariableRef id="V_DirectParameters_1" />
+        <StdVariableRef id="V_DirectParameters_2" />
+        <StdVariableRef id="V_SystemCommand">
+          <StdSingleValueRef value="130" />
+          <SingleValue value="224">
+            <Name textId="TN_TeachNewZeroPoint" />
+          </SingleValue>
+        </StdVariableRef>
+        <StdVariableRef id="V_DeviceAccessLocks" excludedFromDataStorage="false" />
+        <StdVariableRef id="V_VendorName" defaultValue="BALLUFF" />
+        <StdVariableRef id="V_VendorText" defaultValue="www.balluff.com" />
+        <StdVariableRef id="V_ProductName" defaultValue="BML SL1-ALZ0-U1ZZ-xU1L-xxxx" />
+        <StdVariableRef id="V_ProductID" defaultValue="BMLL1IOLxx11"></StdVariableRef>
+        <StdVariableRef id="V_ProductText" defaultValue="Linear absolute magnetic encoder" />
+        <StdVariableRef id="V_SerialNumber" defaultValue="0123456789ABCDEF" />
+        <StdVariableRef id="V_HardwareRevision" defaultValue="01" />
+        <StdVariableRef id="V_FirmwareRevision" defaultValue="1.04.000" />
+        <StdVariableRef id="V_ApplicationSpecificTag"></StdVariableRef>
+      </VariableCollection>
+      <ProcessDataCollection>
+        <ProcessData id="V_PdT">
+          <ProcessDataIn id="V_Pd_InT" bitLength="32">
+            <DatatypeRef datatypeId="DT_Position" />
+            <Name textId="TI_PDin" />
+          </ProcessDataIn>
+        </ProcessData>
+      </ProcessDataCollection>
+      <UserInterface>
+        <ProcessDataRefCollection>
+          <ProcessDataRef processDataId="V_Pd_InT">
+            <ProcessDataInfo displayFormat="Dec" unitCode="1014" gradient="1" offset="0"></ProcessDataInfo>
+          </ProcessDataRef>
+        </ProcessDataRefCollection>
+        <MenuCollection>
+          <Menu id="M_OR_MR_Ident">
+            <VariableRef variableId="V_VendorName" />
+            <VariableRef variableId="V_VendorText" />
+            <VariableRef variableId="V_ProductName" />
+            <VariableRef variableId="V_ProductID" />
+            <VariableRef variableId="V_ProductText" />
+            <VariableRef variableId="V_HardwareRevision" />
+            <VariableRef variableId="V_FirmwareRevision" />
+            <VariableRef variableId="V_ApplicationSpecificTag" />
+          </Menu>
+          <Menu id="M_OR_Param">
+            <RecordItemRef subindex="1" variableId="V_DeviceAccessLocks" accessRightRestriction="ro" />
+            <RecordItemRef subindex="2" variableId="V_DeviceAccessLocks" accessRightRestriction="ro" />
+          </Menu>
+          <Menu id="M_MR_Param">
+            <RecordItemRef subindex="1" variableId="V_DeviceAccessLocks" accessRightRestriction="rw" />
+            <RecordItemRef subindex="2" variableId="V_DeviceAccessLocks" accessRightRestriction="rw" />
+            <VariableRef variableId="V_SystemCommand">
+              <Button buttonValue="130"></Button>
+            </VariableRef>
+            <VariableRef variableId="V_SystemCommand">
+              <Button buttonValue="224"></Button>
+            </VariableRef>
+          </Menu>
+          <Menu id="M_OR_MR_Param">
+            <RecordItemRef subindex="1" variableId="V_DeviceAccessLocks" accessRightRestriction="rw" />
+            <RecordItemRef subindex="2" variableId="V_DeviceAccessLocks" accessRightRestriction="rw" />
+            <VariableRef variableId="V_SystemCommand">
+              <Button buttonValue="130"></Button>
+            </VariableRef>
+            <VariableRef variableId="V_SystemCommand">
+              <Button buttonValue="224"></Button>
+            </VariableRef>
+          </Menu>
+        </MenuCollection>
+        <ObserverRoleMenuSet>
+          <IdentificationMenu menuId="M_OR_MR_Ident" />
+          <ParameterMenu menuId="M_OR_Param" />
+        </ObserverRoleMenuSet>
+        <MaintenanceRoleMenuSet>
+          <IdentificationMenu menuId="M_OR_MR_Ident" />
+          <ParameterMenu menuId="M_MR_Param" />
+        </MaintenanceRoleMenuSet>
+        <SpecialistRoleMenuSet>
+          <IdentificationMenu menuId="M_OR_MR_Ident" />
+          <ParameterMenu menuId="M_OR_MR_Param" />
+        </SpecialistRoleMenuSet>
+      </UserInterface>
+    </DeviceFunction>
+  </ProfileBody>
+  <CommNetworkProfile xsi:type="IOLinkCommNetworkProfileT" iolinkRevision="V1.1">
+    <TransportLayers>
+      <PhysicalLayer minCycleTime="1000" sioSupported="false" bitrate="COM3" mSequenceCapability="27">
+        <Connection xsi:type="CableConnectionT">
+          <ProductRef productId="BMLL1IOL0011" />
+          <Description textId="TI_IOL_Connector1" />
+          <Wire1 function="L+" color="BN">
+            <Name textId="TN_ProdIDVar1_W01" />
+          </Wire1>
+          <Wire2 function="Other" color="WH">
+            <Name textId="TN_ProdIDVar1_W02" />
+          </Wire2>
+          <Wire3 function="L-" color="BU">
+            <Name textId="TN_ProdIDVar1_W03" />
+          </Wire3>
+          <Wire4 function="C/Q" color="BK">
+            <Name textId="TN_ProdIDVar1_W04" />
+          </Wire4>
+        </Connection>
+        <Connection xsi:type="CableConnectionT">
+          <ProductRef productId="BMLL1IOL0111" />
+          <Description textId="TI_IOL_Connector2" />
+          <Wire1 function="C/Q" color="GY">
+            <Name textId="TN_ProdIDVar2_W01" />
+          </Wire1>
+          <Wire2 function="Other" color="PK">
+            <Name textId="TN_ProdIDVar2_W02" />
+          </Wire2>
+          <Wire3 function="L-" color="BU">
+            <Name textId="TN_ProdIDVar2_W03" />
+          </Wire3>
+          <Wire4 function="L+" color="RD">
+            <Name textId="TN_ProdIDVar2_W04" />
+          </Wire4>
+          <Wire5 function="Other" color="WH">
+            <Name textId="TN_ProdIDVar2_W05" />
+          </Wire5>
+          <Wire6 function="Other" color="BN">
+            <Name textId="TN_ProdIDVar2_W06" />
+          </Wire6>
+          <Wire7 function="Other" color="VT">
+            <Name textId="TN_ProdIDVar2_W07" />
+          </Wire7>
+          <Wire8 function="Other" color="BK">
+            <Name textId="TN_ProdIDVar2_W08" />
+          </Wire8>
+        </Connection>
+        <Connection xsi:type="M12-4ConnectionT">
+          <ProductRef productId="BMLL1IOL1011" />
+          <Description textId="TI_IOL_Connector3" />
+          <Wire1 function="L+" color="BN"></Wire1>
+          <Wire2 function="Other" color="WH"></Wire2>
+          <Wire3 function="L-" color="BU"></Wire3>
+          <Wire4 function="C/Q" color="BK"></Wire4>
+        </Connection>
+        <Connection xsi:type="OtherConnectionT">
+          <ProductRef productId="BMLL1IOL2111" />
+          <Description textId="TI_IOL_Connector4" />
+          <Wire1 function="C/Q" color="GY">
+            <Name textId="TN_ProdIDVar4_W01" />
+          </Wire1>
+          <Wire2 function="Other" color="PK">
+            <Name textId="TN_ProdIDVar4_W02" />
+          </Wire2>
+          <Wire3 function="L-" color="BU">
+            <Name textId="TN_ProdIDVar4_W03" />
+          </Wire3>
+          <Wire4 function="L+" color="RD">
+            <Name textId="TN_ProdIDVar4_W04" />
+          </Wire4>
+          <Wire5 function="Other" color="WH">
+            <Name textId="TN_ProdIDVar4_W05" />
+          </Wire5>
+          <Wire6 function="Other" color="BN">
+            <Name textId="TN_ProdIDVar4_W06" />
+          </Wire6>
+          <Wire7 function="Other" color="VT">
+            <Name textId="TN_ProdIDVar4_W07" />
+          </Wire7>
+          <Wire8 function="Other" color="BK">
+            <Name textId="TN_ProdIDVar4_W08" />
+          </Wire8>
+        </Connection>
+      </PhysicalLayer>
+    </TransportLayers>
+    <Test>
+      <Config1 index="64" testValue="0x00,0x00,0x00,0x55" />
+      <Config2 index="256" testValue="0x00,0x00,0x01,0x55" />
+      <Config3 testValue="0x31,0x32,0x33,0x34,0x35,0x36,0x37,0x38,0x39,0x40,0x41,0x42,0x43,0x44,0x45,0x46,0x47" index="24" />
+    </Test>
+  </CommNetworkProfile>
+  <ExternalTextCollection>
+    <PrimaryLanguage xml:lang="en">
+      <Text id="TI_Product_Name1" value="BML SL1-ALZ0-U1ZZ-ZU1L-KAxx" />
+      <Text id="TI_Product_Name2" value="BML SL1-ALZ0-U1ZZ-AU1L-KAxx" />
+      <Text id="TI_Product_Name3" value="BML SL1-ALZ0-U1ZZ-ZU1L-S4" />
+      <Text id="TI_Product_Name4" value="BML SL1-ALZ0-U1ZZ-AU1L-S284" />
+      <Text id="TI_Device_Name" value="BML SL1-ALZ0-UxZZ-xUxL-xxxx" />
+      <Text id="TI_PDin" value="Input Data" />
+      <Text id="TI_Product_Descr" value="Linear absolute magnetic encoder" />
+      <Text id="TI_IOL_Connector1" value="4-wire cable" />
+      <Text id="TI_IOL_Connector2" value="12-wire cable" />
+      <Text id="TI_IOL_Connector3" value="4-pin IO-Link connector" />
+      <Text id="TI_IOL_Connector4" value="12-pin connector" />
+      <Text id="TI_VendorText" value="BALLUFF" />
+      <Text id="TI_VendorUrl" value="www.balluff.com" />
+      <Text id="TI_DeviceFamily" value="BML - Linear absolute magnetic encoder" />
+      <Text id="TN_TeachNewZeroPoint" value="Teach In A New Zero Point" />
+      <Text id="TN_ProdIDVar1_W01" value="IO-Link" />
+      <Text id="TN_ProdIDVar1_W02" value="IO-Link" />
+      <Text id="TN_ProdIDVar1_W03" value="IO-Link" />
+      <Text id="TN_ProdIDVar1_W04" value="IO-Link" />
+      <Text id="TN_ProdIDVar2_W01" value="IO-Link" />
+      <Text id="TN_ProdIDVar2_W02" value="IO-Link" />
+      <Text id="TN_ProdIDVar2_W03" value="IO-Link" />
+      <Text id="TN_ProdIDVar2_W04" value="IO-Link" />
+      <Text id="TN_ProdIDVar2_W05" value="Cosine+" />
+      <Text id="TN_ProdIDVar2_W06" value="Cosine-" />
+      <Text id="TN_ProdIDVar2_W07" value="Sine+" />
+      <Text id="TN_ProdIDVar2_W08" value="Sine-" />
+      <Text id="TN_ProdIDVar4_W01" value="Pin 5. IO-Link" />
+      <Text id="TN_ProdIDVar4_W02" value="Pin 6. IO-Link" />
+      <Text id="TN_ProdIDVar4_W03" value="Pin 7. IO-Link" />
+      <Text id="TN_ProdIDVar4_W04" value="Pin 8. IO-Link" />
+      <Text id="TN_ProdIDVar4_W05" value="Pin 1. Cosine+" />
+      <Text id="TN_ProdIDVar4_W06" value="Pin 2. Cosine-" />
+      <Text id="TN_ProdIDVar4_W07" value="Pin 10. Sine+" />
+      <Text id="TN_ProdIDVar4_W08" value="Pin 9. Sine-" />
+    </PrimaryLanguage>
+  </ExternalTextCollection>
+  <Stamp crc="91319706"><Checker name="IODD-Checker V1.1.1" version="V1.1.1.0"/></Stamp>
+</IODevice>

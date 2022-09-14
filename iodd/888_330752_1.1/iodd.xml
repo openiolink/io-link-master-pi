@@ -1,0 +1,239 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<IODevice xmlns="http://www.io-link.com/IODD/2010/10" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.io-link.com/IODD/2010/10 IODD1.1.xsd">
+  <DocumentInfo version="V1.0" releaseDate="2015-03-06" copyright="Copyright 2015, Balluff GmbH" />
+  <ProfileHeader>
+    <ProfileIdentification>IO Device Profile</ProfileIdentification>
+    <ProfileRevision>1.1</ProfileRevision>
+    <ProfileName>Device Profile for IO Devices</ProfileName>
+    <ProfileSource>IO-Link Consortium</ProfileSource>
+    <ProfileClassID>Device</ProfileClassID>
+    <ISO15745Reference>
+      <ISO15745Part>1</ISO15745Part>
+      <ISO15745Edition>1</ISO15745Edition>
+      <ProfileTechnology>IODD</ProfileTechnology>
+    </ISO15745Reference>
+  </ProfileHeader>
+  <ProfileBody>
+  <DeviceIdentity vendorId="888" vendorName="BALLUFF" deviceId="330752">
+      <VendorText textId="TI_VendorText" />
+      <VendorUrl textId="TI_VendorUrl" />
+      <VendorLogo name="Balluff-logo.png" />
+      <DeviceName textId="TI_Product1_Name" />
+      <DeviceFamily textId="TI_DeviceFamily" />
+      <DeviceVariantCollection>
+        <DeviceVariant productId="BNI00AM" deviceSymbol="Balluff-Microbox-pic.png" deviceIcon="Balluff-Microbox-icon.png">
+          <Name textId="TI_Product1_Name" />
+          <Description textId="TI_Product1_Descr" />          
+        </DeviceVariant>
+      </DeviceVariantCollection>
+    </DeviceIdentity>
+    <DeviceFunction>
+
+      <Features blockParameter="false" dataStorage="false">
+      </Features>
+    
+      <VariableCollection>
+        <StdVariableRef id="V_DirectParameters_1" />
+        <StdVariableRef id="V_DirectParameters_2" />
+        <StdVariableRef id="V_SystemCommand">
+			<StdSingleValueRef value="128"/>
+        </StdVariableRef>
+        <StdVariableRef id="V_VendorName" defaultValue="BALLUFF" />
+        <StdVariableRef id="V_VendorText" defaultValue="www.balluff.com" />
+        <StdVariableRef id="V_ProductName" defaultValue="BNI IOL-910-002-K060" />
+        <StdVariableRef id="V_ProductID" defaultValue="BNI00AM" />
+        <StdVariableRef id="V_ProductText" defaultValue="Memory Device" />
+        <StdVariableRef id="V_HardwareRevision" />
+        <StdVariableRef id="V_FirmwareRevision" />        
+        <StdVariableRef id="V_ApplicationSpecificTag" defaultValue="" excludedFromDataStorage = "true" />
+		
+        <Variable id="V_Speicherplatz_1_256" index="256" accessRights="rw" excludedFromDataStorage = "true" >
+          <Datatype xsi:type="OctetStringT" fixedLength="64"/>           
+          <Name textId="TI_VAR_Speicherplatz_1_256" />
+        </Variable>
+		<Variable id="V_Speicherplatz_2_257" index="257" accessRights="rw" excludedFromDataStorage = "true" >
+          <Datatype xsi:type="OctetStringT" fixedLength="64"/>           
+          <Name textId="TI_VAR_Speicherplatz_2_257" />
+        </Variable>
+		<Variable id="V_Speicherplatz_3_258" index="258" accessRights="rw" excludedFromDataStorage = "true" >
+          <Datatype xsi:type="OctetStringT" fixedLength="64"/>       
+          <Name textId="TI_VAR_Speicherplatz_3_258" />
+        </Variable>
+		<Variable id="V_Speicherplatz_4_259" index="259" accessRights="rw" excludedFromDataStorage = "true" >
+          <Datatype xsi:type="OctetStringT" fixedLength="64"/>         
+          <Name textId="TI_VAR_Speicherplatz_4_259" />
+        </Variable>
+		<Variable id="V_Speicherplatz_5_260" index="260" accessRights="rw" excludedFromDataStorage = "true" >
+          <Datatype xsi:type="OctetStringT" fixedLength="64"/>          
+          <Name textId="TI_VAR_Speicherplatz_5_260" />
+        </Variable>
+		<Variable id="V_Speicherplatz_6_261" index="261" accessRights="rw" excludedFromDataStorage = "true" >
+          <Datatype xsi:type="OctetStringT" fixedLength="64"/>      
+          <Name textId="TI_VAR_Speicherplatz_6_261" />
+        </Variable>
+		<Variable id="V_Speicherplatz_7_262" index="262" accessRights="rw" excludedFromDataStorage = "true" >
+          <Datatype xsi:type="OctetStringT" fixedLength="64"/>           
+          <Name textId="TI_VAR_Speicherplatz_7_262" />
+        </Variable>
+		<Variable id="V_Speicherplatz_8_263" index="263" accessRights="rw" excludedFromDataStorage = "true" >
+          <Datatype xsi:type="OctetStringT" fixedLength="64"/>         
+          <Name textId="TI_VAR_Speicherplatz_8_263" />
+        </Variable>
+		<Variable id="V_Speicherplatz_9_264" index="264" accessRights="rw" excludedFromDataStorage = "true" >
+          <Datatype xsi:type="OctetStringT" fixedLength="64"/>     
+          <Name textId="TI_VAR_Speicherplatz_9_264" />
+        </Variable>
+		<Variable id="V_Speicherplatz_10_265" index="265" accessRights="rw" excludedFromDataStorage = "true" >
+          <Datatype xsi:type="OctetStringT" fixedLength="64"/>     
+          <Name textId="TI_VAR_Speicherplatz_10_265" />
+        </Variable>
+		<Variable id="V_Speicherplatz_11_266" index="266" accessRights="rw" excludedFromDataStorage = "true" >
+          <Datatype xsi:type="OctetStringT" fixedLength="64"/>      
+          <Name textId="TI_VAR_Speicherplatz_11_266" />
+        </Variable>
+		<Variable id="V_Speicherplatz_12_267" index="267" accessRights="rw" excludedFromDataStorage = "true" >
+          <Datatype xsi:type="OctetStringT" fixedLength="64"/>       
+          <Name textId="TI_VAR_Speicherplatz_12_267" />
+        </Variable>
+		<Variable id="V_Speicherplatz_13_268" index="268" accessRights="rw" excludedFromDataStorage = "true" >
+          <Datatype xsi:type="OctetStringT" fixedLength="64"/>         
+          <Name textId="TI_VAR_Speicherplatz_13_268" />
+        </Variable>
+		<Variable id="V_Speicherplatz_14_269" index="269" accessRights="rw" excludedFromDataStorage = "true" >
+          <Datatype xsi:type="OctetStringT" fixedLength="64"/> 
+          <Name textId="TI_VAR_Speicherplatz_14_269" />
+        </Variable>
+	
+      
+      </VariableCollection>
+      <ProcessDataCollection>
+        <ProcessData id="V_PdT">
+       
+        </ProcessData>
+      </ProcessDataCollection>
+      <EventCollection>
+        <StdEventRef code="20753" /> <!--0x5111  Primary supply voltage under-run – Check tolerance-->       
+    </EventCollection>
+    <UserInterface>
+        <MenuCollection>
+          <Menu id="M_OR_MR_SR_Ident">
+            <VariableRef variableId="V_VendorName" />
+            <VariableRef variableId="V_VendorText" />
+            <VariableRef variableId="V_ProductName" />
+            <VariableRef variableId="V_ProductID" />
+            <VariableRef variableId="V_ProductText" />
+            <VariableRef variableId="V_HardwareRevision" />
+            <VariableRef variableId="V_FirmwareRevision" />
+            <VariableRef variableId="V_ApplicationSpecificTag" />
+          </Menu>
+          <Menu id="M_OR_Param">
+		   	<VariableRef variableId="V_Speicherplatz_1_256" accessRightRestriction="ro"  />
+			<VariableRef variableId="V_Speicherplatz_2_257" accessRightRestriction="ro"  />
+			<VariableRef variableId="V_Speicherplatz_3_258" accessRightRestriction="ro"  />
+			<VariableRef variableId="V_Speicherplatz_4_259" accessRightRestriction="ro"  />
+			<VariableRef variableId="V_Speicherplatz_5_260" accessRightRestriction="ro"  />
+			<VariableRef variableId="V_Speicherplatz_6_261" accessRightRestriction="ro"  />
+			<VariableRef variableId="V_Speicherplatz_7_262" accessRightRestriction="ro"  />
+			<VariableRef variableId="V_Speicherplatz_8_263" accessRightRestriction="ro"  />
+			<VariableRef variableId="V_Speicherplatz_9_264" accessRightRestriction="ro"  />
+			<VariableRef variableId="V_Speicherplatz_10_265" accessRightRestriction="ro"  />
+			<VariableRef variableId="V_Speicherplatz_11_266" accessRightRestriction="ro"  />
+			<VariableRef variableId="V_Speicherplatz_12_267" accessRightRestriction="ro"  />
+			<VariableRef variableId="V_Speicherplatz_13_268" accessRightRestriction="ro"  />
+			<VariableRef variableId="V_Speicherplatz_14_269" accessRightRestriction="ro"  />
+
+						
+
+          </Menu>
+          <Menu id="M_MR_SR_Param">
+  			<VariableRef variableId="V_Speicherplatz_1_256" accessRightRestriction="rw"  />
+			<VariableRef variableId="V_Speicherplatz_2_257" accessRightRestriction="rw"  />
+			<VariableRef variableId="V_Speicherplatz_3_258" accessRightRestriction="rw"  />
+			<VariableRef variableId="V_Speicherplatz_4_259" accessRightRestriction="rw"  />
+			<VariableRef variableId="V_Speicherplatz_5_260" accessRightRestriction="rw"  />
+			<VariableRef variableId="V_Speicherplatz_6_261" accessRightRestriction="rw"  />
+			<VariableRef variableId="V_Speicherplatz_7_262" accessRightRestriction="rw"  />
+			<VariableRef variableId="V_Speicherplatz_8_263" accessRightRestriction="rw"  />
+			<VariableRef variableId="V_Speicherplatz_9_264" accessRightRestriction="rw"  />
+			<VariableRef variableId="V_Speicherplatz_10_265" accessRightRestriction="rw"  />
+			<VariableRef variableId="V_Speicherplatz_11_266" accessRightRestriction="rw"  />
+			<VariableRef variableId="V_Speicherplatz_12_267" accessRightRestriction="rw"  />
+			<VariableRef variableId="V_Speicherplatz_13_268" accessRightRestriction="rw"  />
+			<VariableRef variableId="V_Speicherplatz_14_269" accessRightRestriction="rw"  />
+          </Menu>
+        
+        </MenuCollection>
+        <ObserverRoleMenuSet>
+          <IdentificationMenu menuId="M_OR_MR_SR_Ident" />
+          <ParameterMenu menuId="M_OR_Param" />
+        </ObserverRoleMenuSet>
+        <MaintenanceRoleMenuSet>
+          <IdentificationMenu menuId="M_OR_MR_SR_Ident" />
+          <ParameterMenu menuId="M_MR_SR_Param" />
+        </MaintenanceRoleMenuSet>
+        <SpecialistRoleMenuSet>
+          <IdentificationMenu menuId="M_OR_MR_SR_Ident" />
+          <ParameterMenu menuId="M_MR_SR_Param" />
+        </SpecialistRoleMenuSet>
+      </UserInterface>
+
+    </DeviceFunction>
+
+  </ProfileBody>
+
+  <CommNetworkProfile xsi:type="IOLinkCommNetworkProfileT" iolinkRevision="V1.1">
+    <TransportLayers>
+      <PhysicalLayer minCycleTime="2000" sioSupported="false" bitrate="COM2" mSequenceCapability="19">
+        <Connection xsi:type="M12-5ConnectionT">
+          <ProductRef productId="BNI00AM" />
+          <Description textId="TI_IOL_Connector" />
+          <Wire1/>          
+          <Wire2 function="NC"  color="WH"/>        
+          <Wire3/>
+          <Wire4/>
+		  <Wire5 function="NC" color="GY" />
+		  <!-- <Wire5 function="C/Q" color="BK">
+            <Name textId="T_IOLWire4" />
+          </Wire5>-->
+        </Connection>
+      </PhysicalLayer>
+    </TransportLayers>
+    <Test>
+      <Config1 index="256" testValue="0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00" />
+      <Config2 index="1000" testValue="0x00" />
+      <Config3 index="24" testValue="0x31,0x32,0x33,0x34,0x35,0x36,0x37,0x38,0x39,0x40,0x41,0x42,0x43,0x44,0x45,0x46,0x47,0x48,0x49,0x50,0x51,0x52,0x56,0x57,0x31,0x32,0x33,0x34,0x35,0x36" />
+    </Test>
+  </CommNetworkProfile>
+
+
+  <ExternalTextCollection>
+    <PrimaryLanguage xml:lang="en">
+      <Text id="TI_IOL_Connector" value="IO-Link Connector" />
+      <Text id="TI_VendorText" value="BALLUFF" />
+      <Text id="TI_VendorUrl" value="http://www.balluff.com" />
+     
+      <Text id="TI_DeviceFamily" value="BNI - Memory" />
+      <Text id="TI_Product1_Name" value="BNI IOL-910-002-K060" />
+	  <Text id="TI_Product1_Descr" value="Memory Device" />	  
+	  
+	  <Text id="TI_VAR_Speicherplatz_1_256" value="Storage space 1" />
+	  <Text id="TI_VAR_Speicherplatz_2_257" value="Storage space 2" />
+	  <Text id="TI_VAR_Speicherplatz_3_258" value="Storage space 3" />
+	  <Text id="TI_VAR_Speicherplatz_4_259" value="Storage space 4" />
+	  <Text id="TI_VAR_Speicherplatz_5_260" value="Storage space 5" />
+	  <Text id="TI_VAR_Speicherplatz_6_261" value="Storage space 6" />
+	  <Text id="TI_VAR_Speicherplatz_7_262" value="Storage space 7" />
+	  <Text id="TI_VAR_Speicherplatz_8_263" value="Storage space 8" />
+	  <Text id="TI_VAR_Speicherplatz_9_264" value="Storage space 9" />
+	  <Text id="TI_VAR_Speicherplatz_10_265" value="Storage space 10" />
+	  <Text id="TI_VAR_Speicherplatz_11_266" value="Storage space 11" />
+	  <Text id="TI_VAR_Speicherplatz_12_267" value="Storage space 12" />
+	  <Text id="TI_VAR_Speicherplatz_13_268" value="Storage space 13" />
+	  <Text id="TI_VAR_Speicherplatz_14_269" value="Storage space 14" />
+ 
+  
+    </PrimaryLanguage>
+  </ExternalTextCollection>
+
+  <Stamp crc="2073995930"><Checker name="IODD-Checker V1.1.1" version="V1.1.1.0"/></Stamp>
+</IODevice>

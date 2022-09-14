@@ -1,0 +1,1240 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<IODevice xmlns="http://www.io-link.com/IODD/2010/10" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.io-link.com/IODD/2010/10 IODD1.1.xsd">
+	<DocumentInfo copyright="Copyright 2019, Balluff" releaseDate="2019-05-17" version="V1.8"/>
+	<ProfileHeader>
+		<ProfileIdentification>IO Device Profile</ProfileIdentification>
+		<ProfileRevision>1.1</ProfileRevision>
+		<ProfileName>Device Profile for IO Devices</ProfileName>
+		<ProfileSource>IO-Link Consortium</ProfileSource>
+		<ProfileClassID>Device</ProfileClassID>
+		<ISO15745Reference>
+			<ISO15745Part>1</ISO15745Part>
+			<ISO15745Edition>1</ISO15745Edition>
+			<ProfileTechnology>IODD</ProfileTechnology>
+		</ISO15745Reference>
+	</ProfileHeader>
+	<ProfileBody>
+		<DeviceIdentity deviceId="328204" vendorId="888" vendorName="BALLUFF">
+			<VendorText textId="TI_VendorText"/>
+			<VendorUrl textId="TI_VendorUrl"/>
+			<VendorLogo name="Balluff-logo.png"/>
+			<DeviceName textId="TI_DeviceName"/>
+			<DeviceFamily textId="TI_DeviceFamily"/>
+			<DeviceVariantCollection>
+				<DeviceVariant deviceIcon="Balluff-BNI_IOL-719-002-Z012-icon.png" deviceSymbol="Balluff-BNI_IOL-719-002-Z012-pic.png" productId="BNI00E9">
+					<Name textId="TI_Product1_Name"/>
+					<Description textId="TI_Product1_Descr"/>
+				</DeviceVariant>
+			</DeviceVariantCollection>
+		</DeviceIdentity>
+		<DeviceFunction>
+			<Features blockParameter="true" dataStorage="true">
+				<SupportedAccessLocks dataStorage="true" localParameterization="false" localUserInterface="false" parameter="true"/>
+			</Features>
+			<DatatypeCollection>
+				<Datatype id="DT_Pdalignment" xsi:type="UIntegerT"  bitLength="2">
+					<SingleValue value="0">
+						<Name textId="TI_DT_Pdalignment_Left" />
+					</SingleValue>
+					<SingleValue value="1">
+						<Name textId="TI_DT_Pdalignment_Right" />
+					</SingleValue>
+				</Datatype>
+				<Datatype id="DT_Mode" xsi:type="UIntegerT"  bitLength="8">
+					<SingleValue value="0">
+						<Name textId="TI_DT_Mode_0_10V" />
+					</SingleValue>
+					<SingleValue value="1">
+						<Name textId="TI_DT_Mode_4_20mA" />
+					</SingleValue>
+					<SingleValue value="2">
+						<Name textId="TI_DT_Mode_5_10V" />
+					</SingleValue>
+					<SingleValue value="3">
+						<Name textId="TI_DT_Mode_10_10V" />
+					</SingleValue>
+					<SingleValue value="4">
+						<Name textId="TI_DT_Mode_0_5V" />
+					</SingleValue>
+					<SingleValue value="5">
+						<Name textId="TI_DT_Mode_0_20mA" />
+					</SingleValue>
+					<SingleValue value="6">
+						<Name textId="TI_DT_Mode_5_5V" />
+					</SingleValue>
+					<SingleValue value="7">
+						<Name textId="TI_DT_Mode_Pt100" />
+					</SingleValue>
+					<SingleValue value="8">
+						<Name textId="TI_DT_Mode_Pt1000" />
+					</SingleValue>
+					<SingleValue value="9">
+						<Name textId="TI_DT_Mode_TypJ" />
+					</SingleValue>
+					<SingleValue value="10">
+						<Name textId="TI_DT_Mode_TypK" />
+					</SingleValue>
+					<SingleValue value="11">
+						<Name textId="TI_DT_Mode_TypC" />
+					</SingleValue>
+					<SingleValue value="255">
+						<Name textId="TI_DT_Mode_Off" />
+					</SingleValue>
+				</Datatype>
+				<Datatype id="DT_Resolution" xsi:type="UIntegerT" bitLength="2">
+					<SingleValue value="0">
+						<Name textId="TI_DT_Resolution16" />
+					</SingleValue>
+					<SingleValue value="1">
+						<Name textId="TI_DT_Resolution14" />
+					</SingleValue>
+					<SingleValue value="2">
+						<Name textId="TI_DT_Resolution12" />
+					</SingleValue>
+					<SingleValue value="3">
+						<Name textId="TI_DT_Resolution10" />
+					</SingleValue>
+				</Datatype>
+				<Datatype id="DT_PinAssignment" xsi:type="UIntegerT"  bitLength="2">
+					<SingleValue value="0">
+						<Name textId="TI_DT_PinAssignment_Pin2" />
+					</SingleValue>
+					<SingleValue value="1">
+						<Name textId="TI_DT_PinAssignment_Pin4" />
+					</SingleValue>
+				</Datatype>
+				<Datatype id="DT_PtMode" xsi:type="UIntegerT"  bitLength="2">
+					<SingleValue value="0">
+						<Name textId="TI_DT_PtMode_2W" />
+					</SingleValue>
+					<SingleValue value="1">
+						<Name textId="TI_DT_PtMode_3W" />
+					</SingleValue>
+					<SingleValue value="2">
+						<Name textId="TI_DT_PtMode_4W" />
+					</SingleValue>
+				</Datatype>
+				<Datatype id="DT_WirebreakDetectionDisable" xsi:type="BooleanT">
+					<SingleValue value="false" xsi:type="BooleanValueT">
+						<Name textId="TI_DT_WirebreakDetectionEnabled"/>
+					</SingleValue>
+					<SingleValue value="true" xsi:type="BooleanValueT">
+						<Name textId="TI_DT_WirebreakDetectionDisabled"/>
+					</SingleValue>
+				</Datatype>
+				<Datatype id="DT_ProcessDataFormat" xsi:type="UIntegerT"  bitLength="2">
+					<SingleValue value="0">
+						<Name textId="TI_DT_PdFormat_Signed" />
+					</SingleValue>
+					<SingleValue value="1">
+						<Name textId="TI_DT_PdFormat_Unsigned" />
+					</SingleValue>
+					<SingleValue value="2">
+						<Name textId="TI_DT_PdFormat_Dimensioned" />
+					</SingleValue>
+				</Datatype>
+				<Datatype id="DT_ThermocoupleGrounding" xsi:type="UIntegerT"  bitLength="2">
+					<SingleValue value="0">
+						<Name textId="TI_DT_ThermocoupleGrounding_Ungrounded" />
+					</SingleValue>
+					<SingleValue value="1">
+						<Name textId="TI_DT_ThermocoupleGrounding_Grounded" />
+					</SingleValue>
+				</Datatype>				
+                <Datatype id="DT_AnalogData" xsi:type="UIntegerT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bitLength="16">
+				</Datatype>
+				<Datatype id="DT_SwitchPointEnable" xsi:type="BooleanT">
+					<SingleValue value="false" xsi:type="BooleanValueT">
+						<Name textId="TI_DT_SwitchPointDisabled"/>
+					</SingleValue>
+					<SingleValue value="true" xsi:type="BooleanValueT">
+						<Name textId="TI_DT_SwitchPointEnabled"/>
+					</SingleValue>
+				</Datatype>
+				<Datatype id="DT_SwitchPoint" xsi:type="BooleanT">
+					<SingleValue value="false" xsi:type="BooleanValueT">
+						<Name textId="TI_DT_SwitchPointInactive"/>
+					</SingleValue>
+					<SingleValue value="true" xsi:type="BooleanValueT">
+						<Name textId="TI_DT_SwitchPointActive"/>
+					</SingleValue>
+				</Datatype>
+				<Datatype id="DT_VoltageMonitoringEnable" xsi:type="BooleanT">
+					<SingleValue value="false" xsi:type="BooleanValueT">
+						<Name textId="TI_DT_VoltageMonitoringDisabled"/>
+					</SingleValue>
+					<SingleValue value="true" xsi:type="BooleanValueT">
+						<Name textId="TI_DT_VoltageMonitoringEnabled"/>
+					</SingleValue>
+				</Datatype>
+				<Datatype id="DT_Pin1SC_Wirebreak" xsi:type="BooleanT">
+					<SingleValue value="false" xsi:type="BooleanValueT">
+						<Name textId="TI_DT_Pin1SC_Wirebreak_Inactive"/>
+					</SingleValue>
+					<SingleValue value="true" xsi:type="BooleanValueT">
+						<Name textId="TI_DT_Pin1SC_Wirebreak_Active"/>
+					</SingleValue>
+				</Datatype>
+				<Datatype id="DT_Underflow" xsi:type="BooleanT">
+					<SingleValue value="false" xsi:type="BooleanValueT">
+						<Name textId="TI_DT_Underflow_Inactive"/>
+					</SingleValue>
+					<SingleValue value="true" xsi:type="BooleanValueT">
+						<Name textId="TI_DT_Underflow_Active"/>
+					</SingleValue>
+				</Datatype>
+				<Datatype id="DT_Overflow" xsi:type="BooleanT">
+					<SingleValue value="false" xsi:type="BooleanValueT">
+						<Name textId="TI_DT_Overflow_Inactive"/>
+					</SingleValue>
+					<SingleValue value="true" xsi:type="BooleanValueT">
+						<Name textId="TI_DT_Overflow_Active"/>
+					</SingleValue>
+				</Datatype>
+				<Datatype id="DT_LowUS" xsi:type="BooleanT">
+					<SingleValue value="false" xsi:type="BooleanValueT">
+						<Name textId="TI_DT_LowUS_low"/>
+					</SingleValue>
+					<SingleValue value="true" xsi:type="BooleanValueT">
+						<Name textId="TI_DT_LowUS_high"/>
+					</SingleValue>
+				</Datatype>
+				<Datatype id="DT_Pin1SC_Reset" xsi:type="BooleanT">
+					<SingleValue value="false" xsi:type="BooleanValueT">
+						<Name textId="TI_DT_Pin1SC_Reset_low"/>
+					</SingleValue>
+					<SingleValue value="true" xsi:type="BooleanValueT">
+						<Name textId="TI_DT_Pin1SC_Reset_high"/>
+					</SingleValue>
+				</Datatype>
+			</DatatypeCollection>
+			<VariableCollection>
+				<StdVariableRef id="V_DirectParameters_1"/>
+				<StdVariableRef id="V_DirectParameters_2"/>
+				<StdVariableRef id="V_SystemCommand">
+					<StdSingleValueRef value="130"/>
+				</StdVariableRef>
+				<StdVariableRef id="V_DeviceAccessLocks"/>
+				<StdVariableRef defaultValue="BALLUFF" id="V_VendorName"/>
+				<StdVariableRef defaultValue="www.balluff.com" id="V_VendorText"/>
+				<StdVariableRef defaultValue="BNI IOL-719-002-Z012-C10" id="V_ProductName"/>
+				<StdVariableRef defaultValue="BNI00E9" id="V_ProductID"/>
+				<StdVariableRef defaultValue="Sensor Hub M12, 8 Analog Input" id="V_ProductText"/>
+				<StdVariableRef id="V_HardwareRevision"/>
+				<StdVariableRef id="V_FirmwareRevision"/>
+				<StdVariableRef id="V_SerialNumber"/>
+				<StdVariableRef defaultValue="" id="V_ApplicationSpecificTag"/>
+				<Variable accessRights="rw" excludedFromDataStorage="true" id="V_SN_RW" index="84">
+					<Datatype encoding="UTF-8" fixedLength="16" xsi:type="StringT"/>
+					<Name textId="TI_SN_RW"/>
+					<Description textId="TI_SN_RW_Descr"/>
+				</Variable>
+				<Variable accessRights="rw" id="V_Pdalignment" index="89" >
+					<DatatypeRef datatypeId="DT_Pdalignment"/>
+					<Name textId="TI_VAR_Pdalignment"/>
+					<Description textId="TI_VAR_Pdalignment_Descr"/>
+				</Variable>
+				<Variable accessRights="rw" id="V_Mode" index="240">
+					<Datatype bitLength="64" subindexAccessSupported="true" xsi:type="RecordT">
+						<RecordItem bitOffset="56" subindex="1">
+							<DatatypeRef datatypeId="DT_Mode"/>
+							<Name textId="TI_VAR_Mode_P0"/>
+						</RecordItem>
+						<RecordItem bitOffset="48" subindex="2">
+							<DatatypeRef datatypeId="DT_Mode"/>
+							<Name textId="TI_VAR_Mode_P1"/>
+						</RecordItem>
+						<RecordItem bitOffset="40" subindex="3">
+							<DatatypeRef datatypeId="DT_Mode"/>
+							<Name textId="TI_VAR_Mode_P2"/>
+						</RecordItem>
+						<RecordItem bitOffset="32" subindex="4">
+							<DatatypeRef datatypeId="DT_Mode"/>
+							<Name textId="TI_VAR_Mode_P3"/>
+						</RecordItem>
+						<RecordItem bitOffset="24" subindex="5">
+							<DatatypeRef datatypeId="DT_Mode"/>
+							<Name textId="TI_VAR_Mode_P4"/>
+						</RecordItem>
+						<RecordItem bitOffset="16" subindex="6">
+							<DatatypeRef datatypeId="DT_Mode"/>
+							<Name textId="TI_VAR_Mode_P5"/>
+						</RecordItem>
+						<RecordItem bitOffset="8" subindex="7">
+							<DatatypeRef datatypeId="DT_Mode"/>
+							<Name textId="TI_VAR_Mode_P6"/>
+						</RecordItem>
+						<RecordItem bitOffset="0" subindex="8">
+							<DatatypeRef datatypeId="DT_Mode"/>
+							<Name textId="TI_VAR_Mode_P7"/>
+						</RecordItem>
+					</Datatype>
+					<Name textId="TI_VAR_Mode"/>
+					<Description textId="TI_VAR_Mode_Descr"/>
+				</Variable>
+				<Variable accessRights="rw" id="V_Resolution" index="241">
+					<Datatype bitLength="64" subindexAccessSupported="true" xsi:type="RecordT">
+						<RecordItem bitOffset="56" subindex="1">
+							<DatatypeRef datatypeId="DT_Resolution"/>
+							<Name textId="TI_VAR_Resolution_P0"/>
+						</RecordItem>
+						<RecordItem bitOffset="48" subindex="2">
+							<DatatypeRef datatypeId="DT_Resolution"/>
+							<Name textId="TI_VAR_Resolution_P1"/>
+						</RecordItem>
+						<RecordItem bitOffset="40" subindex="3">
+							<DatatypeRef datatypeId="DT_Resolution"/>
+							<Name textId="TI_VAR_Resolution_P2"/>
+						</RecordItem>
+						<RecordItem bitOffset="32" subindex="4">
+							<DatatypeRef datatypeId="DT_Resolution"/>
+							<Name textId="TI_VAR_Resolution_P3"/>
+						</RecordItem>
+						<RecordItem bitOffset="24" subindex="5">
+							<DatatypeRef datatypeId="DT_Resolution"/>
+							<Name textId="TI_VAR_Resolution_P4"/>
+						</RecordItem>
+						<RecordItem bitOffset="16" subindex="6">
+							<DatatypeRef datatypeId="DT_Resolution"/>
+							<Name textId="TI_VAR_Resolution_P5"/>
+						</RecordItem>
+						<RecordItem bitOffset="8" subindex="7">
+							<DatatypeRef datatypeId="DT_Resolution"/>
+							<Name textId="TI_VAR_Resolution_P6"/>
+						</RecordItem>
+						<RecordItem bitOffset="0" subindex="8">
+							<DatatypeRef datatypeId="DT_Resolution"/>
+							<Name textId="TI_VAR_Resolution_P7"/>
+						</RecordItem>
+					</Datatype>
+					<Name textId="TI_VAR_Resolution"/>
+					<Description textId="TI_VAR_Resolution_Descr"/>
+				</Variable>
+				<Variable accessRights="rw" id="V_PinAssignment" index="242">
+					<Datatype bitLength="64" subindexAccessSupported="true" xsi:type="RecordT">
+						<RecordItem bitOffset="56" subindex="1">
+							<DatatypeRef datatypeId="DT_PinAssignment"/>
+							<Name textId="TI_VAR_PinAssignment_P0"/>
+						</RecordItem>
+						<RecordItem bitOffset="48" subindex="2">
+							<DatatypeRef datatypeId="DT_PinAssignment"/>
+							<Name textId="TI_VAR_PinAssignment_P1"/>
+						</RecordItem>
+						<RecordItem bitOffset="40" subindex="3">
+							<DatatypeRef datatypeId="DT_PinAssignment"/>
+							<Name textId="TI_VAR_PinAssignment_P2"/>
+						</RecordItem>
+						<RecordItem bitOffset="32" subindex="4">
+							<DatatypeRef datatypeId="DT_PinAssignment"/>
+							<Name textId="TI_VAR_PinAssignment_P3"/>
+						</RecordItem>
+						<RecordItem bitOffset="24" subindex="5">
+							<DatatypeRef datatypeId="DT_PinAssignment"/>
+							<Name textId="TI_VAR_PinAssignment_P4"/>
+						</RecordItem>
+						<RecordItem bitOffset="16" subindex="6">
+							<DatatypeRef datatypeId="DT_PinAssignment"/>
+							<Name textId="TI_VAR_PinAssignment_P5"/>
+						</RecordItem>
+						<RecordItem bitOffset="8" subindex="7">
+							<DatatypeRef datatypeId="DT_PinAssignment"/>
+							<Name textId="TI_VAR_PinAssignment_P6"/>
+						</RecordItem>
+						<RecordItem bitOffset="0" subindex="8">
+							<DatatypeRef datatypeId="DT_PinAssignment"/>
+							<Name textId="TI_VAR_PinAssignment_P7"/>
+						</RecordItem>
+					</Datatype>
+					<Name textId="TI_VAR_PinAssignment"/>
+					<Description textId="TI_VAR_PinAssignment_Descr"/>
+				</Variable>
+				<Variable accessRights="rw" id="V_PtMode" index="243">
+					<Datatype bitLength="64" subindexAccessSupported="true" xsi:type="RecordT">
+						<RecordItem bitOffset="56" subindex="1">
+							<DatatypeRef datatypeId="DT_PtMode"/>
+							<Name textId="TI_VAR_PtMode_P0"/>
+						</RecordItem>
+						<RecordItem bitOffset="48" subindex="2">
+							<DatatypeRef datatypeId="DT_PtMode"/>
+							<Name textId="TI_VAR_PtMode_P1"/>
+						</RecordItem>
+						<RecordItem bitOffset="40" subindex="3">
+							<DatatypeRef datatypeId="DT_PtMode"/>
+							<Name textId="TI_VAR_PtMode_P2"/>
+						</RecordItem>
+						<RecordItem bitOffset="32" subindex="4">
+							<DatatypeRef datatypeId="DT_PtMode"/>
+							<Name textId="TI_VAR_PtMode_P3"/>
+						</RecordItem>
+						<RecordItem bitOffset="24" subindex="5">
+							<DatatypeRef datatypeId="DT_PtMode"/>
+							<Name textId="TI_VAR_PtMode_P4"/>
+						</RecordItem>
+						<RecordItem bitOffset="16" subindex="6">
+							<DatatypeRef datatypeId="DT_PtMode"/>
+							<Name textId="TI_VAR_PtMode_P5"/>
+						</RecordItem>
+						<RecordItem bitOffset="8" subindex="7">
+							<DatatypeRef datatypeId="DT_PtMode"/>
+							<Name textId="TI_VAR_PtMode_P6"/>
+						</RecordItem>
+						<RecordItem bitOffset="0" subindex="8">
+							<DatatypeRef datatypeId="DT_PtMode"/>
+							<Name textId="TI_VAR_PtMode_P7"/>
+						</RecordItem>
+					</Datatype>
+					<Name textId="TI_VAR_PtMode"/>
+					<Description textId="TI_VAR_PtMode_Descr"/>
+				</Variable>
+				<Variable accessRights="rw" id="V_WirebreakDetectionDisable" index="244">
+					<DatatypeRef datatypeId="DT_WirebreakDetectionDisable"/>
+					<Name textId="TI_VAR_WirebreakDetectionDisable"/>
+					<Description textId="TI_VAR_WirebreakDetectionDisable_Descr"/>
+				</Variable>
+				<Variable accessRights="rw" id="V_ProcessDataFormat" index="245">
+					<Datatype bitLength="64" subindexAccessSupported="true" xsi:type="RecordT">
+						<RecordItem bitOffset="56" subindex="1">
+							<DatatypeRef datatypeId="DT_ProcessDataFormat"/>
+							<Name textId="TI_VAR_PDFormat_P0"/>
+						</RecordItem>
+						<RecordItem bitOffset="48" subindex="2">
+							<DatatypeRef datatypeId="DT_ProcessDataFormat"/>
+							<Name textId="TI_VAR_PDFormat_P1"/>
+						</RecordItem>
+						<RecordItem bitOffset="40" subindex="3">
+							<DatatypeRef datatypeId="DT_ProcessDataFormat"/>
+							<Name textId="TI_VAR_PDFormat_P2"/>
+						</RecordItem>
+						<RecordItem bitOffset="32" subindex="4">
+							<DatatypeRef datatypeId="DT_ProcessDataFormat"/>
+							<Name textId="TI_VAR_PDFormat_P3"/>
+						</RecordItem>
+						<RecordItem bitOffset="24" subindex="5">
+							<DatatypeRef datatypeId="DT_ProcessDataFormat"/>
+							<Name textId="TI_VAR_PDFormat_P4"/>
+						</RecordItem>
+						<RecordItem bitOffset="16" subindex="6">
+							<DatatypeRef datatypeId="DT_ProcessDataFormat"/>
+							<Name textId="TI_VAR_PDFormat_P5"/>
+						</RecordItem>
+						<RecordItem bitOffset="8" subindex="7">
+							<DatatypeRef datatypeId="DT_ProcessDataFormat"/>
+							<Name textId="TI_VAR_PDFormat_P6"/>
+						</RecordItem>
+						<RecordItem bitOffset="0" subindex="8">
+							<DatatypeRef datatypeId="DT_ProcessDataFormat"/>
+							<Name textId="TI_VAR_PDFormat_P7"/>
+						</RecordItem>
+					</Datatype>
+					<Name textId="TI_VAR_ProcessDataFormat"/>
+					<Description textId="TI_VAR_ProcessDataFormat_Descr"/>
+				</Variable>			
+				<Variable accessRights="rw" id="V_ThermocoupleGrounding" index="249">
+					<Datatype bitLength="64" subindexAccessSupported="true" xsi:type="RecordT">
+						<RecordItem bitOffset="56" subindex="1">
+							<DatatypeRef datatypeId="DT_ThermocoupleGrounding"/>
+							<Name textId="TI_VAR_ThermoGrounding_P0"/>
+						</RecordItem>
+						<RecordItem bitOffset="48" subindex="2">
+							<DatatypeRef datatypeId="DT_ThermocoupleGrounding"/>
+							<Name textId="TI_VAR_ThermoGrounding_P1"/>
+						</RecordItem>
+						<RecordItem bitOffset="40" subindex="3">
+							<DatatypeRef datatypeId="DT_ThermocoupleGrounding"/>
+							<Name textId="TI_VAR_ThermoGrounding_P2"/>
+						</RecordItem>
+						<RecordItem bitOffset="32" subindex="4">
+							<DatatypeRef datatypeId="DT_ThermocoupleGrounding"/>
+							<Name textId="TI_VAR_ThermoGrounding_P3"/>
+						</RecordItem>
+						<RecordItem bitOffset="24" subindex="5">
+							<DatatypeRef datatypeId="DT_ThermocoupleGrounding"/>
+							<Name textId="TI_VAR_ThermoGrounding_P4"/>
+						</RecordItem>
+						<RecordItem bitOffset="16" subindex="6">
+							<DatatypeRef datatypeId="DT_ThermocoupleGrounding"/>
+							<Name textId="TI_VAR_ThermoGrounding_P5"/>
+						</RecordItem>
+						<RecordItem bitOffset="8" subindex="7">
+							<DatatypeRef datatypeId="DT_ThermocoupleGrounding"/>
+							<Name textId="TI_VAR_ThermoGrounding_P6"/>
+						</RecordItem>
+						<RecordItem bitOffset="0" subindex="8">
+							<DatatypeRef datatypeId="DT_ThermocoupleGrounding"/>
+							<Name textId="TI_VAR_ThermoGrounding_P7"/>
+						</RecordItem>
+					</Datatype>
+					<Name textId="TI_VAR_ThermocoupleType"/>
+					<Description textId="TI_VAR_ThermocoupleType_Descr"/>
+				</Variable>	
+				<Variable accessRights="rw" id="V_SwitchPoint1" index="246">
+					<Datatype bitLength="128" subindexAccessSupported="true" xsi:type="RecordT">
+						<RecordItem bitOffset="112" subindex="1">
+							<DatatypeRef datatypeId="DT_AnalogData"/>
+							<Name textId="TI_VAR_Switchpoint1_P0"/>
+						</RecordItem>
+						<RecordItem bitOffset="96" subindex="2">
+							<DatatypeRef datatypeId="DT_AnalogData"/>
+							<Name textId="TI_VAR_Switchpoint1_P1"/>
+						</RecordItem>
+						<RecordItem bitOffset="80" subindex="3">
+							<DatatypeRef datatypeId="DT_AnalogData"/>
+							<Name textId="TI_VAR_Switchpoint1_P2"/>
+						</RecordItem>
+						<RecordItem bitOffset="64" subindex="4">
+							<DatatypeRef datatypeId="DT_AnalogData"/>
+							<Name textId="TI_VAR_Switchpoint1_P3"/>
+						</RecordItem>
+						<RecordItem bitOffset="48" subindex="5">
+							<DatatypeRef datatypeId="DT_AnalogData"/>
+							<Name textId="TI_VAR_Switchpoint1_P4"/>
+						</RecordItem>
+						<RecordItem bitOffset="32" subindex="6">
+							<DatatypeRef datatypeId="DT_AnalogData"/>
+							<Name textId="TI_VAR_Switchpoint1_P5"/>
+						</RecordItem>
+						<RecordItem bitOffset="16" subindex="7">
+							<DatatypeRef datatypeId="DT_AnalogData"/>
+							<Name textId="TI_VAR_Switchpoint1_P6"/>
+						</RecordItem>
+						<RecordItem bitOffset="0" subindex="8">
+							<DatatypeRef datatypeId="DT_AnalogData"/>
+							<Name textId="TI_VAR_Switchpoint1_P7"/>
+						</RecordItem>
+					</Datatype>
+					<Name textId="TI_VAR_Switchpoint1"/>
+					<Description textId="TI_VAR_Switchpoint1_Descr"/>
+				</Variable>
+				<Variable accessRights="rw" id="V_SwitchPoint2" index="247">
+					<Datatype bitLength="128" subindexAccessSupported="true" xsi:type="RecordT">
+						<RecordItem bitOffset="112" subindex="1">
+							<DatatypeRef datatypeId="DT_AnalogData"/>
+							<Name textId="TI_VAR_Switchpoint2_P0"/>
+						</RecordItem>
+						<RecordItem bitOffset="96" subindex="2">
+							<DatatypeRef datatypeId="DT_AnalogData"/>
+							<Name textId="TI_VAR_Switchpoint2_P1"/>
+						</RecordItem>
+						<RecordItem bitOffset="80" subindex="3">
+							<DatatypeRef datatypeId="DT_AnalogData"/>
+							<Name textId="TI_VAR_Switchpoint2_P2"/>
+						</RecordItem>
+						<RecordItem bitOffset="64" subindex="4">
+							<DatatypeRef datatypeId="DT_AnalogData"/>
+							<Name textId="TI_VAR_Switchpoint2_P3"/>
+						</RecordItem>
+						<RecordItem bitOffset="48" subindex="5">
+							<DatatypeRef datatypeId="DT_AnalogData"/>
+							<Name textId="TI_VAR_Switchpoint2_P4"/>
+						</RecordItem>
+						<RecordItem bitOffset="32" subindex="6">
+							<DatatypeRef datatypeId="DT_AnalogData"/>
+							<Name textId="TI_VAR_Switchpoint2_P5"/>
+						</RecordItem>
+						<RecordItem bitOffset="16" subindex="7">
+							<DatatypeRef datatypeId="DT_AnalogData"/>
+							<Name textId="TI_VAR_Switchpoint2_P6"/>
+						</RecordItem>
+						<RecordItem bitOffset="0" subindex="8">
+							<DatatypeRef datatypeId="DT_AnalogData"/>
+							<Name textId="TI_VAR_Switchpoint2_P7"/>
+						</RecordItem>
+					</Datatype>
+					<Name textId="TI_VAR_Switchpoint2"/>
+					<Description textId="TI_VAR_Switchpoint2_Descr"/>
+				</Variable>
+				<Variable accessRights="rw" id="V_SwitchPointEnable" index="248">
+					<Datatype bitLength="16" subindexAccessSupported="true" xsi:type="RecordT">
+						<RecordItem bitOffset="0" subindex="1">
+							<DatatypeRef datatypeId="DT_SwitchPointEnable"/>
+							<Name textId="TI_VAR_SwitchPoint_1_Enable_P0"/>
+						</RecordItem>
+						<RecordItem bitOffset="1" subindex="2">
+							<DatatypeRef datatypeId="DT_SwitchPointEnable"/>
+							<Name textId="TI_VAR_SwitchPoint_1_Enable_P1"/>
+						</RecordItem>
+						<RecordItem bitOffset="2" subindex="3">
+							<DatatypeRef datatypeId="DT_SwitchPointEnable"/>
+							<Name textId="TI_VAR_SwitchPoint_1_Enable_P2"/>
+						</RecordItem>
+						<RecordItem bitOffset="3" subindex="4">
+							<DatatypeRef datatypeId="DT_SwitchPointEnable"/>
+							<Name textId="TI_VAR_SwitchPoint_1_Enable_P3"/>
+						</RecordItem>
+						<RecordItem bitOffset="4" subindex="5">
+							<DatatypeRef datatypeId="DT_SwitchPointEnable"/>
+							<Name textId="TI_VAR_SwitchPoint_1_Enable_P4"/>
+						</RecordItem>
+						<RecordItem bitOffset="5" subindex="6">
+							<DatatypeRef datatypeId="DT_SwitchPointEnable"/>
+							<Name textId="TI_VAR_SwitchPoint_1_Enable_P5"/>
+						</RecordItem>
+						<RecordItem bitOffset="6" subindex="7">
+							<DatatypeRef datatypeId="DT_SwitchPointEnable"/>
+							<Name textId="TI_VAR_SwitchPoint_1_Enable_P6"/>
+						</RecordItem>
+						<RecordItem bitOffset="7" subindex="8">
+							<DatatypeRef datatypeId="DT_SwitchPointEnable"/>
+							<Name textId="TI_VAR_SwitchPoint_1_Enable_P7"/>
+						</RecordItem>
+						<RecordItem bitOffset="8" subindex="9">
+							<DatatypeRef datatypeId="DT_SwitchPointEnable"/>
+							<Name textId="TI_VAR_SwitchPoint_2_Enable_P0"/>
+						</RecordItem>
+						<RecordItem bitOffset="9" subindex="10">
+							<DatatypeRef datatypeId="DT_SwitchPointEnable"/>
+							<Name textId="TI_VAR_SwitchPoint_2_Enable_P1"/>
+						</RecordItem>
+						<RecordItem bitOffset="10" subindex="11">
+							<DatatypeRef datatypeId="DT_SwitchPointEnable"/>
+							<Name textId="TI_VAR_SwitchPoint_2_Enable_P2"/>
+						</RecordItem>
+						<RecordItem bitOffset="11" subindex="12">
+							<DatatypeRef datatypeId="DT_SwitchPointEnable"/>
+							<Name textId="TI_VAR_SwitchPoint_2_Enable_P3"/>
+						</RecordItem>
+						<RecordItem bitOffset="12" subindex="13">
+							<DatatypeRef datatypeId="DT_SwitchPointEnable"/>
+							<Name textId="TI_VAR_SwitchPoint_2_Enable_P4"/>
+						</RecordItem>
+						<RecordItem bitOffset="13" subindex="14">
+							<DatatypeRef datatypeId="DT_SwitchPointEnable"/>
+							<Name textId="TI_VAR_SwitchPoint_2_Enable_P5"/>
+						</RecordItem>
+						<RecordItem bitOffset="14" subindex="15">
+							<DatatypeRef datatypeId="DT_SwitchPointEnable"/>
+							<Name textId="TI_VAR_SwitchPoint_2_Enable_P6"/>
+						</RecordItem>
+						<RecordItem bitOffset="15" subindex="16">
+							<DatatypeRef datatypeId="DT_SwitchPointEnable"/>
+							<Name textId="TI_VAR_SwitchPoint_2_Enable_P7"/>
+						</RecordItem>
+					</Datatype>
+					<Name textId="TI_VAR_SwitchPointEnable"/>
+					<Description textId="TI_VAR_SwitchPointEnable_Descr"/>
+				</Variable>		
+				<Variable accessRights="rw" id="V_VoltageMonitoringEnable" index="251">
+					<Datatype bitLength="8" subindexAccessSupported="true" xsi:type="RecordT">
+						<RecordItem bitOffset="0" subindex="1">
+							<DatatypeRef datatypeId="DT_VoltageMonitoringEnable"/>
+							<Name textId="TI_VAR_VoltageMonitoring_Enable_P0"/>
+						</RecordItem>
+						<RecordItem bitOffset="1" subindex="2">
+							<DatatypeRef datatypeId="DT_VoltageMonitoringEnable"/>
+							<Name textId="TI_VAR_VoltageMonitoring_Enable_P1"/>
+						</RecordItem>
+						<RecordItem bitOffset="2" subindex="3">
+							<DatatypeRef datatypeId="DT_VoltageMonitoringEnable"/>
+							<Name textId="TI_VAR_VoltageMonitoring_Enable_P2"/>
+						</RecordItem>
+						<RecordItem bitOffset="3" subindex="4">
+							<DatatypeRef datatypeId="DT_VoltageMonitoringEnable"/>
+							<Name textId="TI_VAR_VoltageMonitoring_Enable_P3"/>
+						</RecordItem>
+						<RecordItem bitOffset="4" subindex="5">
+							<DatatypeRef datatypeId="DT_VoltageMonitoringEnable"/>
+							<Name textId="TI_VAR_VoltageMonitoring_Enable_P4"/>
+						</RecordItem>
+						<RecordItem bitOffset="5" subindex="6">
+							<DatatypeRef datatypeId="DT_VoltageMonitoringEnable"/>
+							<Name textId="TI_VAR_VoltageMonitoring_Enable_P5"/>
+						</RecordItem>
+						<RecordItem bitOffset="6" subindex="7">
+							<DatatypeRef datatypeId="DT_VoltageMonitoringEnable"/>
+							<Name textId="TI_VAR_VoltageMonitoring_Enable_P6"/>
+						</RecordItem>
+						<RecordItem bitOffset="7" subindex="8">
+							<DatatypeRef datatypeId="DT_VoltageMonitoringEnable"/>
+							<Name textId="TI_VAR_VoltageMonitoring_Enable_P7"/>
+						</RecordItem>
+					</Datatype>
+					<Name textId="TI_VAR_VoltageMonitoring"/>
+					<Description textId="TI_VAR_VoltageMonitoring_Descr"/>
+				</Variable>		
+			</VariableCollection>
+			<ProcessDataCollection>
+				<ProcessData id="V_PdT">
+					<ProcessDataIn bitLength="176" id="V_Pd_InT">
+						<Datatype bitLength="176" xsi:type="RecordT">
+							<RecordItem bitOffset="144" subindex="1">
+								<DatatypeRef datatypeId="DT_AnalogData"/>
+								<Name textId="TI_PD_Port0"/>
+							</RecordItem>
+							<RecordItem bitOffset="128" subindex="2">
+								<DatatypeRef datatypeId="DT_AnalogData"/>
+								<Name textId="TI_PD_Port1"/>
+							</RecordItem>
+							<RecordItem bitOffset="112" subindex="3">
+								<DatatypeRef datatypeId="DT_AnalogData"/>
+								<Name textId="TI_PD_Port2"/>
+							</RecordItem>
+							<RecordItem bitOffset="96" subindex="4">
+								<DatatypeRef datatypeId="DT_AnalogData"/>
+								<Name textId="TI_PD_Port3"/>
+							</RecordItem>
+							<RecordItem bitOffset="80" subindex="5">
+								<DatatypeRef datatypeId="DT_AnalogData"/>
+								<Name textId="TI_PD_Port4"/>
+							</RecordItem>
+							<RecordItem bitOffset="64" subindex="6">
+								<DatatypeRef datatypeId="DT_AnalogData"/>
+								<Name textId="TI_PD_Port5"/>
+							</RecordItem>
+							<RecordItem bitOffset="48" subindex="7">
+								<DatatypeRef datatypeId="DT_AnalogData"/>
+								<Name textId="TI_PD_Port6"/>
+							</RecordItem>
+							<RecordItem bitOffset="32" subindex="8">
+								<DatatypeRef datatypeId="DT_AnalogData"/>
+								<Name textId="TI_PD_Port7"/>
+							</RecordItem>
+							<RecordItem bitOffset="168" subindex="9">
+								<DatatypeRef datatypeId="DT_SwitchPoint"/>
+								<Name textId="TI_PD_SwitchPoint1_P0"/>
+							</RecordItem>
+							<RecordItem bitOffset="169" subindex="10">
+								<DatatypeRef datatypeId="DT_SwitchPoint"/>
+								<Name textId="TI_PD_SwitchPoint1_P1"/>
+							</RecordItem>
+							<RecordItem bitOffset="170" subindex="11">
+								<DatatypeRef datatypeId="DT_SwitchPoint"/>
+								<Name textId="TI_PD_SwitchPoint1_P2"/>
+							</RecordItem>
+							<RecordItem bitOffset="171" subindex="12">
+								<DatatypeRef datatypeId="DT_SwitchPoint"/>
+								<Name textId="TI_PD_SwitchPoint1_P3"/>
+							</RecordItem>
+							<RecordItem bitOffset="172" subindex="13">
+								<DatatypeRef datatypeId="DT_SwitchPoint"/>
+								<Name textId="TI_PD_SwitchPoint1_P4"/>
+							</RecordItem>
+							<RecordItem bitOffset="173" subindex="14">
+								<DatatypeRef datatypeId="DT_SwitchPoint"/>
+								<Name textId="TI_PD_SwitchPoint1_P5"/>
+							</RecordItem>
+							<RecordItem bitOffset="174" subindex="15">
+								<DatatypeRef datatypeId="DT_SwitchPoint"/>
+								<Name textId="TI_PD_SwitchPoint1_P6"/>
+							</RecordItem>
+							<RecordItem bitOffset="175" subindex="16">
+								<DatatypeRef datatypeId="DT_SwitchPoint"/>
+								<Name textId="TI_PD_SwitchPoint1_P7"/>
+							</RecordItem>
+							<RecordItem bitOffset="160" subindex="17">
+								<DatatypeRef datatypeId="DT_SwitchPoint"/>
+								<Name textId="TI_PD_SwitchPoint2_P0"/>
+							</RecordItem>
+							<RecordItem bitOffset="161" subindex="18">
+								<DatatypeRef datatypeId="DT_SwitchPoint"/>
+								<Name textId="TI_PD_SwitchPoint2_P1"/>
+							</RecordItem>
+							<RecordItem bitOffset="162" subindex="19">
+								<DatatypeRef datatypeId="DT_SwitchPoint"/>
+								<Name textId="TI_PD_SwitchPoint2_P2"/>
+							</RecordItem>
+							<RecordItem bitOffset="163" subindex="20">
+								<DatatypeRef datatypeId="DT_SwitchPoint"/>
+								<Name textId="TI_PD_SwitchPoint2_P3"/>
+							</RecordItem>
+							<RecordItem bitOffset="164" subindex="21">
+								<DatatypeRef datatypeId="DT_SwitchPoint"/>
+								<Name textId="TI_PD_SwitchPoint2_P4"/>
+							</RecordItem>
+							<RecordItem bitOffset="165" subindex="22">
+								<DatatypeRef datatypeId="DT_SwitchPoint"/>
+								<Name textId="TI_PD_SwitchPoint2_P5"/>
+							</RecordItem>
+							<RecordItem bitOffset="166" subindex="23">
+								<DatatypeRef datatypeId="DT_SwitchPoint"/>
+								<Name textId="TI_PD_SwitchPoint2_P6"/>
+							</RecordItem>
+							<RecordItem bitOffset="167" subindex="24">
+								<DatatypeRef datatypeId="DT_SwitchPoint"/>
+								<Name textId="TI_PD_SwitchPoint2_P7"/>
+							</RecordItem>
+							<RecordItem bitOffset="24" subindex="25">
+								<DatatypeRef datatypeId="DT_Pin1SC_Wirebreak"/>
+								<Name textId="TI_PD_Pin1SC_Wirebreak_P0"/>
+							</RecordItem>
+							<RecordItem bitOffset="25" subindex="26">
+								<DatatypeRef datatypeId="DT_Pin1SC_Wirebreak"/>
+								<Name textId="TI_PD_Pin1SC_Wirebreak_P1"/>
+							</RecordItem>
+							<RecordItem bitOffset="26" subindex="27">
+								<DatatypeRef datatypeId="DT_Pin1SC_Wirebreak"/>
+								<Name textId="TI_PD_Pin1SC_Wirebreak_P2"/>
+							</RecordItem>
+							<RecordItem bitOffset="27" subindex="28">
+								<DatatypeRef datatypeId="DT_Pin1SC_Wirebreak"/>
+								<Name textId="TI_PD_Pin1SC_Wirebreak_P3"/>
+							</RecordItem>
+							<RecordItem bitOffset="28" subindex="29">
+								<DatatypeRef datatypeId="DT_Pin1SC_Wirebreak"/>
+								<Name textId="TI_PD_Pin1SC_Wirebreak_P4"/>
+							</RecordItem>
+							<RecordItem bitOffset="29" subindex="30">
+								<DatatypeRef datatypeId="DT_Pin1SC_Wirebreak"/>
+								<Name textId="TI_PD_Pin1SC_Wirebreak_P5"/>
+							</RecordItem>
+							<RecordItem bitOffset="30" subindex="31">
+								<DatatypeRef datatypeId="DT_Pin1SC_Wirebreak"/>
+								<Name textId="TI_PD_Pin1SC_Wirebreak_P6"/>
+							</RecordItem>
+							<RecordItem bitOffset="31" subindex="32">
+								<DatatypeRef datatypeId="DT_Pin1SC_Wirebreak"/>
+								<Name textId="TI_PD_Pin1SC_Wirebreak_P7"/>
+							</RecordItem>
+							<RecordItem bitOffset="16" subindex="33">
+								<DatatypeRef datatypeId="DT_Underflow"/>
+								<Name textId="TI_PD_Underflow_P0"/>
+							</RecordItem>
+							<RecordItem bitOffset="17" subindex="34">
+								<DatatypeRef datatypeId="DT_Underflow"/>
+								<Name textId="TI_PD_Underflow_P1"/>
+							</RecordItem>
+							<RecordItem bitOffset="18" subindex="35">
+								<DatatypeRef datatypeId="DT_Underflow"/>
+								<Name textId="TI_PD_Underflow_P2"/>
+							</RecordItem>
+							<RecordItem bitOffset="19" subindex="36">
+								<DatatypeRef datatypeId="DT_Underflow"/>
+								<Name textId="TI_PD_Underflow_P3"/>
+							</RecordItem>
+							<RecordItem bitOffset="20" subindex="37">
+								<DatatypeRef datatypeId="DT_Underflow"/>
+								<Name textId="TI_PD_Underflow_P4"/>
+							</RecordItem>
+							<RecordItem bitOffset="21" subindex="38">
+								<DatatypeRef datatypeId="DT_Underflow"/>
+								<Name textId="TI_PD_Underflow_P5"/>
+							</RecordItem>
+							<RecordItem bitOffset="22" subindex="39">
+								<DatatypeRef datatypeId="DT_Underflow"/>
+								<Name textId="TI_PD_Underflow_P6"/>
+							</RecordItem>
+							<RecordItem bitOffset="23" subindex="40">
+								<DatatypeRef datatypeId="DT_Underflow"/>
+								<Name textId="TI_PD_Underflow_P7"/>
+							</RecordItem>
+							<RecordItem bitOffset="8" subindex="41">
+								<DatatypeRef datatypeId="DT_Overflow"/>
+								<Name textId="TI_PD_Overflow_P0"/>
+							</RecordItem>
+							<RecordItem bitOffset="9" subindex="42">
+								<DatatypeRef datatypeId="DT_Overflow"/>
+								<Name textId="TI_PD_Overflow_P1"/>
+							</RecordItem>
+							<RecordItem bitOffset="10" subindex="43">
+								<DatatypeRef datatypeId="DT_Overflow"/>
+								<Name textId="TI_PD_Overflow_P2"/>
+							</RecordItem>
+							<RecordItem bitOffset="11" subindex="44">
+								<DatatypeRef datatypeId="DT_Overflow"/>
+								<Name textId="TI_PD_Overflow_P3"/>
+							</RecordItem>
+							<RecordItem bitOffset="12" subindex="45">
+								<DatatypeRef datatypeId="DT_Overflow"/>
+								<Name textId="TI_PD_Overflow_P4"/>
+							</RecordItem>
+							<RecordItem bitOffset="13" subindex="46">
+								<DatatypeRef datatypeId="DT_Overflow"/>
+								<Name textId="TI_PD_Overflow_P5"/>
+							</RecordItem>
+							<RecordItem bitOffset="14" subindex="47">
+								<DatatypeRef datatypeId="DT_Overflow"/>
+								<Name textId="TI_PD_Overflow_P6"/>
+							</RecordItem>
+							<RecordItem bitOffset="15" subindex="48">
+								<DatatypeRef datatypeId="DT_Overflow"/>
+								<Name textId="TI_PD_Overflow_P7"/>
+							</RecordItem>
+							<RecordItem bitOffset="0" subindex="49">
+								<DatatypeRef datatypeId="DT_LowUS"/>
+								<Name textId="TI_PD_LowUs"/>
+							</RecordItem>
+						</Datatype>
+						<Name textId="TI_PD_In"/>
+					</ProcessDataIn>
+					<ProcessDataOut bitLength="8" id="V_Pd_OutT">
+						<Datatype bitLength="8" xsi:type="RecordT">
+							<RecordItem bitOffset="0" subindex="1">
+								<DatatypeRef datatypeId="DT_Pin1SC_Reset"/>
+								<Name textId="TI_PD_Pin1SC_Reset_P0"/>
+							</RecordItem>
+							<RecordItem bitOffset="1" subindex="2">
+								<DatatypeRef datatypeId="DT_Pin1SC_Reset"/>
+								<Name textId="TI_PD_Pin1SC_Reset_P1"/>
+							</RecordItem>
+							<RecordItem bitOffset="2" subindex="3">
+								<DatatypeRef datatypeId="DT_Pin1SC_Reset"/>
+								<Name textId="TI_PD_Pin1SC_Reset_P2"/>
+							</RecordItem>
+							<RecordItem bitOffset="3" subindex="4">
+								<DatatypeRef datatypeId="DT_Pin1SC_Reset"/>
+								<Name textId="TI_PD_Pin1SC_Reset_P3"/>
+							</RecordItem>
+							<RecordItem bitOffset="4" subindex="5">
+								<DatatypeRef datatypeId="DT_Pin1SC_Reset"/>
+								<Name textId="TI_PD_Pin1SC_Reset_P4"/>
+							</RecordItem>
+							<RecordItem bitOffset="5" subindex="6">
+								<DatatypeRef datatypeId="DT_Pin1SC_Reset"/>
+								<Name textId="TI_PD_Pin1SC_Reset_P5"/>
+							</RecordItem>
+							<RecordItem bitOffset="6" subindex="7">
+								<DatatypeRef datatypeId="DT_Pin1SC_Reset"/>
+								<Name textId="TI_PD_Pin1SC_Reset_P6"/>
+							</RecordItem>
+							<RecordItem bitOffset="7" subindex="8">
+								<DatatypeRef datatypeId="DT_Pin1SC_Reset"/>
+								<Name textId="TI_PD_Pin1SC_Reset_P7"/>
+							</RecordItem>
+						</Datatype>
+						<Name textId="TI_PD_Out"/>
+					</ProcessDataOut>
+				</ProcessData>
+			</ProcessDataCollection>
+			<EventCollection>
+				<StdEventRef code="20753"/>
+				<StdEventRef code="20754"/>
+				<StdEventRef code="30480"/>
+			</EventCollection>
+			<UserInterface>
+				<MenuCollection>
+					<Menu id="M_OR_MR_SR_Ident">
+						<VariableRef variableId="V_VendorName"/>
+						<VariableRef variableId="V_VendorText"/>
+						<VariableRef variableId="V_ProductName"/>
+						<VariableRef variableId="V_ProductID"/>
+						<VariableRef variableId="V_ProductText"/>
+						<VariableRef variableId="V_HardwareRevision"/>
+						<VariableRef variableId="V_FirmwareRevision"/>
+						<VariableRef variableId="V_SerialNumber"/>
+						<VariableRef variableId="V_ApplicationSpecificTag"/>
+					</Menu>
+					<Menu id="M_OR_Param">
+						<VariableRef accessRightRestriction="ro" variableId="V_DeviceAccessLocks"/>
+						<VariableRef accessRightRestriction="ro" displayFormat="Dec" variableId="V_Pdalignment"/>
+						<VariableRef accessRightRestriction="ro" displayFormat="Dec" variableId="V_Mode"/>
+						<VariableRef accessRightRestriction="ro" displayFormat="Dec" variableId="V_Resolution"/>
+						<VariableRef accessRightRestriction="ro" displayFormat="Dec" variableId="V_PinAssignment"/>
+						<VariableRef accessRightRestriction="ro" displayFormat="Dec" variableId="V_PtMode"/>
+                        <VariableRef accessRightRestriction="ro" displayFormat="Dec" variableId="V_ThermocoupleGrounding"/>
+                        <VariableRef accessRightRestriction="ro" displayFormat="Dec" variableId="V_WirebreakDetectionDisable"/>
+						<VariableRef accessRightRestriction="ro" displayFormat="Dec" variableId="V_ProcessDataFormat"/>
+						<VariableRef accessRightRestriction="ro" displayFormat="Dec" variableId="V_SwitchPoint1"/>
+						<VariableRef accessRightRestriction="ro" displayFormat="Dec" variableId="V_SwitchPoint2"/>
+						<VariableRef accessRightRestriction="ro" displayFormat="Dec" variableId="V_SwitchPointEnable"/>
+						<VariableRef accessRightRestriction="ro" displayFormat="Dec" variableId="V_VoltageMonitoringEnable"/>
+					</Menu>
+					<Menu id="M_MR_Param">
+						<VariableRef accessRightRestriction="rw" variableId="V_DeviceAccessLocks"/>
+						<VariableRef accessRightRestriction="rw" displayFormat="Dec" variableId="V_Pdalignment"/>
+						<VariableRef accessRightRestriction="rw" displayFormat="Dec" variableId="V_Mode"/>
+						<VariableRef accessRightRestriction="rw" displayFormat="Dec" variableId="V_Resolution"/>
+						<VariableRef accessRightRestriction="rw" displayFormat="Dec" variableId="V_PinAssignment"/>
+						<VariableRef accessRightRestriction="rw" displayFormat="Dec" variableId="V_PtMode"/>
+                        <VariableRef accessRightRestriction="rw" displayFormat="Dec" variableId="V_ThermocoupleGrounding"/>
+						<VariableRef accessRightRestriction="rw" displayFormat="Dec" variableId="V_WirebreakDetectionDisable"/>
+						<VariableRef accessRightRestriction="rw" displayFormat="Dec" variableId="V_ProcessDataFormat"/>
+						<VariableRef accessRightRestriction="rw" displayFormat="Dec" variableId="V_SwitchPoint1"/>
+						<VariableRef accessRightRestriction="rw" displayFormat="Dec" variableId="V_SwitchPoint2"/>
+						<VariableRef accessRightRestriction="rw" displayFormat="Dec" variableId="V_SwitchPointEnable"/>
+						<VariableRef accessRightRestriction="rw" displayFormat="Dec" variableId="V_VoltageMonitoringEnable"/>
+					</Menu>
+					<Menu id="M_SR_Param">
+						<VariableRef accessRightRestriction="rw" variableId="V_DeviceAccessLocks"/>
+						<VariableRef accessRightRestriction="rw" displayFormat="Dec" variableId="V_Pdalignment"/>
+						<VariableRef accessRightRestriction="rw" displayFormat="Dec" variableId="V_Mode"/>
+						<VariableRef accessRightRestriction="rw" displayFormat="Dec" variableId="V_Resolution"/>
+						<VariableRef accessRightRestriction="rw" displayFormat="Dec" variableId="V_PinAssignment"/>
+						<VariableRef accessRightRestriction="rw" displayFormat="Dec" variableId="V_PtMode"/>
+                        <VariableRef accessRightRestriction="rw" displayFormat="Dec" variableId="V_ThermocoupleGrounding"/>
+						<VariableRef accessRightRestriction="rw" displayFormat="Dec" variableId="V_WirebreakDetectionDisable"/>
+						<VariableRef accessRightRestriction="rw" displayFormat="Dec" variableId="V_ProcessDataFormat"/>
+						<VariableRef accessRightRestriction="rw" displayFormat="Dec" variableId="V_SwitchPoint1"/>
+						<VariableRef accessRightRestriction="rw" displayFormat="Dec" variableId="V_SwitchPoint2"/>
+						<VariableRef accessRightRestriction="rw" displayFormat="Dec" variableId="V_SwitchPointEnable"/>
+						<VariableRef accessRightRestriction="rw" displayFormat="Dec" variableId="V_VoltageMonitoringEnable"/>
+						<VariableRef accessRightRestriction="rw" variableId="V_SN_RW"/>
+						<VariableRef variableId="V_SystemCommand">
+							<Button buttonValue="130">
+								<Description textId="TD_FactoryReset"/>
+								<ActionStartedMessage textId="T_FactoryResetStarted"/>
+							</Button>
+						</VariableRef>
+					</Menu>
+				</MenuCollection>
+				<ObserverRoleMenuSet>
+					<IdentificationMenu menuId="M_OR_MR_SR_Ident"/>
+					<ParameterMenu menuId="M_OR_Param"/>
+				</ObserverRoleMenuSet>
+				<MaintenanceRoleMenuSet>
+					<IdentificationMenu menuId="M_OR_MR_SR_Ident"/>
+					<ParameterMenu menuId="M_MR_Param"/>
+				</MaintenanceRoleMenuSet>
+				<SpecialistRoleMenuSet>
+					<IdentificationMenu menuId="M_OR_MR_SR_Ident"/>
+					<ParameterMenu menuId="M_SR_Param"/>
+				</SpecialistRoleMenuSet>
+			</UserInterface>
+		</DeviceFunction>
+	</ProfileBody>
+	<CommNetworkProfile iolinkRevision="V1.1" xsi:type="IOLinkCommNetworkProfileT">
+		<TransportLayers>
+			<PhysicalLayer bitrate="COM2" mSequenceCapability="27" minCycleTime="54400" sioSupported="false">
+				<Connection xsi:type="M12-5ConnectionT">
+					<ProductRef productId="BNI00E9"/>
+					<Description textId="TI_IOL_Connector"/>
+					<Wire1/>
+					<Wire2 color="WH" function="NC"/>
+					<Wire3/>
+					<Wire4/>
+					<Wire5 color="GY" function="NC"/>
+				</Connection>
+			</PhysicalLayer>
+		</TransportLayers>
+		<Test>
+			<Config1 index="240" testValue="0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x07"/>
+			<Config2 index="1000" testValue="0x00"/>
+			<Config3 index="24" testValue="0x31,0x32,0x33,0x34,0x35,0x36,0x37,0x38,0x39,0x40,0x41,0x42,0x43,0x44,0x45,0x46,0x47,0x48,0x49,0x50,0x51,0x52,0x56,0x57,0x31,0x32,0x33,0x34,0x35,0x36,0x37,0x38"/>
+		</Test>
+	</CommNetworkProfile>
+	<ExternalTextCollection>
+		<PrimaryLanguage xml:lang="en">
+			<Text id="TI_VendorText" value="BALLUFF"/>
+			<Text id="TI_VendorUrl" value="www.balluff.com"/>
+			<Text id="TI_DeviceName" value="BNI IOL-719-002-Z012-C10"/>
+			<Text id="TI_DeviceFamily" value="BNI - Sensor hub M12 analog/digital"/>
+			<Text id="TI_Product1_Name" value="BNI IOL-719-002-Z012-C10"/>
+			<Text id="TI_Product1_Descr" value="Sensor Hub M12, 8 Analog Input"/>
+			<Text id="TI_DT_Pdalignment_Left" value="Left"/>
+			<Text id="TI_DT_Pdalignment_Right" value="Right"/>
+			<Text id="TI_DT_Mode_0_10V" value="0V - 10V"/>
+			<Text id="TI_DT_Mode_4_20mA" value="4mA - 20mA"/>
+			<Text id="TI_DT_Mode_5_10V" value="5V - 10V"/>
+			<Text id="TI_DT_Mode_10_10V" value="-10V - +10V"/>
+			<Text id="TI_DT_Mode_0_5V" value="0V - 5V"/>
+			<Text id="TI_DT_Mode_0_20mA" value="0mA - 20mA"/>
+			<Text id="TI_DT_Mode_5_5V" value="-5V - +5V"/>
+			<Text id="TI_DT_Mode_Pt100" value="Pt100"/>
+			<Text id="TI_DT_Mode_Pt1000" value="Pt1000"/>
+			<Text id="TI_DT_Mode_TypJ" value="Thermocouple Typ J"/>
+			<Text id="TI_DT_Mode_TypK" value="Thermocouple Typ K"/>
+			<Text id="TI_DT_Mode_TypC" value="Thermocouple Typ C"/>
+			<Text id="TI_DT_Mode_Off" value="Off"/>			
+			<Text id="TI_DT_Resolution16" value="16 bit"/>			
+			<Text id="TI_DT_Resolution14" value="14 bit"/>			
+			<Text id="TI_DT_Resolution12" value="12 bit"/>			
+			<Text id="TI_DT_Resolution10" value="10 bit"/>			
+			<Text id="TI_DT_PinAssignment_Pin2" value="Pin 2"/>			
+			<Text id="TI_DT_PinAssignment_Pin4" value="Pin 4"/>			
+			<Text id="TI_DT_PtMode_2W" value="2 Wire"/>			
+			<Text id="TI_DT_PtMode_3W" value="3 Wire"/>			
+			<Text id="TI_DT_PtMode_4W" value="4 Wire"/>			
+			<Text id="TI_DT_WirebreakDetectionEnabled" value="Enabled"/>			
+			<Text id="TI_DT_WirebreakDetectionDisabled" value="Disabled"/>			
+			<Text id="TI_DT_PdFormat_Signed" value="Signed"/>
+			<Text id="TI_DT_PdFormat_Unsigned" value="Unsigned"/>
+			<Text id="TI_DT_PdFormat_Dimensioned" value="Dimensioned (mV, uA, 0.1°C)"/>
+            <Text id="TI_DT_ThermocoupleGrounding_Ungrounded" value="Ungrounded"/>
+            <Text id="TI_DT_ThermocoupleGrounding_Grounded" value="Grounded"/>
+			<Text id="TI_DT_SwitchPointDisabled" value="Disabled"/>			
+			<Text id="TI_DT_SwitchPointEnabled" value="Enabled"/>	
+			<Text id="TI_DT_SwitchPointInactive" value="Off"/>			
+			<Text id="TI_DT_SwitchPointActive" value="On"/>	
+			<Text id="TI_DT_VoltageMonitoringDisabled" value="Disabled"/>			
+			<Text id="TI_DT_VoltageMonitoringEnabled" value="Enabled"/>	
+			<Text id="TI_DT_Pin1SC_Wirebreak_Inactive" value="No short circuit/wirebreak"/>			
+			<Text id="TI_DT_Pin1SC_Wirebreak_Active" value="Short circuit/wirebreak"/>			
+			<Text id="TI_DT_Underflow_Inactive" value="Value is in range"/>			
+			<Text id="TI_DT_Underflow_Active" value="Value is lower than range"/>			
+			<Text id="TI_DT_Overflow_Inactive" value="Value is in range"/>			
+			<Text id="TI_DT_Overflow_Active" value="Value is higher than range"/>			
+			<Text id="TI_DT_Pin1SC_Reset_low" value="No operation"/>			
+			<Text id="TI_DT_Pin1SC_Reset_high" value="Reset pin1 short circuit state"/>			
+			<Text id="TI_DT_LowUS_low" value="OK"/>
+			<Text id="TI_DT_LowUS_high" value="low sensor voltage (US)"/>
+			<Text id="TI_VAR_Pdalignment" value="Process data alignment"/>
+			<Text id="TI_VAR_Pdalignment_Descr" value="Process data alignment"/>
+			<Text id="TI_VAR_Mode" value="Analog mode"/>			
+			<Text id="TI_VAR_Mode_Descr" value="Analog mode"/>			
+			<Text id="TI_VAR_Mode_P0" value="Analog mode port 0"/>			
+			<Text id="TI_VAR_Mode_P1" value="Analog mode port 1"/>			
+			<Text id="TI_VAR_Mode_P2" value="Analog mode port 2"/>			
+			<Text id="TI_VAR_Mode_P3" value="Analog mode port 3"/>			
+			<Text id="TI_VAR_Mode_P4" value="Analog mode port 4"/>			
+			<Text id="TI_VAR_Mode_P5" value="Analog mode port 5"/>			
+			<Text id="TI_VAR_Mode_P6" value="Analog mode port 6"/>			
+			<Text id="TI_VAR_Mode_P7" value="Analog mode port 7"/>			
+			<Text id="TI_VAR_Resolution" value="Resolution"/>			
+			<Text id="TI_VAR_Resolution_Descr" value="Resolution"/>			
+			<Text id="TI_VAR_Resolution_P0" value="Resolution port 0"/>			
+			<Text id="TI_VAR_Resolution_P1" value="Resolution port 1"/>			
+			<Text id="TI_VAR_Resolution_P2" value="Resolution port 2"/>			
+			<Text id="TI_VAR_Resolution_P3" value="Resolution port 3"/>			
+			<Text id="TI_VAR_Resolution_P4" value="Resolution port 4"/>			
+			<Text id="TI_VAR_Resolution_P5" value="Resolution port 5"/>			
+			<Text id="TI_VAR_Resolution_P6" value="Resolution port 6"/>			
+			<Text id="TI_VAR_Resolution_P7" value="Resolution port 7"/>			
+			<Text id="TI_VAR_PinAssignment" value="Pin assignment"/>			
+			<Text id="TI_VAR_PinAssignment_Descr" value="Pin assignment"/>			
+			<Text id="TI_VAR_PinAssignment_P0" value="Pin assignment port 0"/>			
+			<Text id="TI_VAR_PinAssignment_P1" value="Pin assignment port 1"/>			
+			<Text id="TI_VAR_PinAssignment_P2" value="Pin assignment port 2"/>			
+			<Text id="TI_VAR_PinAssignment_P3" value="Pin assignment port 3"/>			
+			<Text id="TI_VAR_PinAssignment_P4" value="Pin assignment port 4"/>			
+			<Text id="TI_VAR_PinAssignment_P5" value="Pin assignment port 5"/>			
+			<Text id="TI_VAR_PinAssignment_P6" value="Pin assignment port 6"/>			
+			<Text id="TI_VAR_PinAssignment_P7" value="Pin assignment port 7"/>			
+			<Text id="TI_VAR_PtMode" value="Pt sensor mode"/>			
+			<Text id="TI_VAR_PtMode_Descr" value="Pt sensor wiring mode"/>			
+			<Text id="TI_VAR_PtMode_P0" value="Pt mode port 0"/>			
+			<Text id="TI_VAR_PtMode_P1" value="Pt mode port 1"/>			
+			<Text id="TI_VAR_PtMode_P2" value="Pt mode port 2"/>			
+			<Text id="TI_VAR_PtMode_P3" value="Pt mode port 3"/>			
+			<Text id="TI_VAR_PtMode_P4" value="Pt mode port 4"/>			
+			<Text id="TI_VAR_PtMode_P5" value="Pt mode port 5"/>			
+			<Text id="TI_VAR_PtMode_P6" value="Pt mode port 6"/>			
+			<Text id="TI_VAR_PtMode_P7" value="Pt mode port 7"/>			
+			<Text id="TI_VAR_WirebreakDetectionDisable" value="Wirebreak detection"/>
+			<Text id="TI_VAR_WirebreakDetectionDisable_Descr" value="Wirebreak detection disable"/>
+			<Text id="TI_VAR_PDFormat_P0" value="Process data format port 0"/>
+			<Text id="TI_VAR_PDFormat_P1" value="Process data format port 1"/>
+			<Text id="TI_VAR_PDFormat_P2" value="Process data format port 2"/>
+			<Text id="TI_VAR_PDFormat_P3" value="Process data format port 3"/>
+			<Text id="TI_VAR_PDFormat_P4" value="Process data format port 4"/>
+			<Text id="TI_VAR_PDFormat_P5" value="Process data format port 5"/>
+			<Text id="TI_VAR_PDFormat_P6" value="Process data format port 6"/>
+			<Text id="TI_VAR_PDFormat_P7" value="Process data format port 7"/>
+			<Text id="TI_VAR_ProcessDataFormat" value="Process data format"/>
+			<Text id="TI_VAR_ProcessDataFormat_Descr" value="Process data format"/>
+            <Text id="TI_VAR_ThermocoupleType" value="Thermocouple type"/>
+            <Text id="TI_VAR_ThermocoupleType_Descr" value="Thermocouple type"/>
+            <Text id="TI_VAR_ThermoGrounding_P0" value="Thermocouple grounding port 0"/>
+            <Text id="TI_VAR_ThermoGrounding_P1" value="Thermocouple grounding port 1"/>
+            <Text id="TI_VAR_ThermoGrounding_P2" value="Thermocouple grounding port 2"/>
+            <Text id="TI_VAR_ThermoGrounding_P3" value="Thermocouple grounding port 3"/>
+            <Text id="TI_VAR_ThermoGrounding_P4" value="Thermocouple grounding port 4"/>
+            <Text id="TI_VAR_ThermoGrounding_P5" value="Thermocouple grounding port 5"/>
+            <Text id="TI_VAR_ThermoGrounding_P6" value="Thermocouple grounding port 6"/>
+            <Text id="TI_VAR_ThermoGrounding_P7" value="Thermocouple grounding port 7"/>
+			<Text id="TI_VAR_Switchpoint1" value="Switch point 1"/>			
+			<Text id="TI_VAR_Switchpoint1_Descr" value="Switch point 1"/>			
+			<Text id="TI_VAR_Switchpoint1_P0" value="Switch point 1 port 0"/>			
+			<Text id="TI_VAR_Switchpoint1_P1" value="Switch point 1 port 1"/>			
+			<Text id="TI_VAR_Switchpoint1_P2" value="Switch point 1 port 2"/>			
+			<Text id="TI_VAR_Switchpoint1_P3" value="Switch point 1 port 3"/>			
+			<Text id="TI_VAR_Switchpoint1_P4" value="Switch point 1 port 4"/>			
+			<Text id="TI_VAR_Switchpoint1_P5" value="Switch point 1 port 5"/>			
+			<Text id="TI_VAR_Switchpoint1_P6" value="Switch point 1 port 6"/>			
+			<Text id="TI_VAR_Switchpoint1_P7" value="Switch point 1 port 7"/>			
+			<Text id="TI_VAR_Switchpoint2" value="Switch point 2"/>			
+			<Text id="TI_VAR_Switchpoint2_Descr" value="Switch point 2"/>			
+			<Text id="TI_VAR_Switchpoint2_P0" value="Switch point 2 port 0"/>			
+			<Text id="TI_VAR_Switchpoint2_P1" value="Switch point 2 port 1"/>			
+			<Text id="TI_VAR_Switchpoint2_P2" value="Switch point 2 port 2"/>			
+			<Text id="TI_VAR_Switchpoint2_P3" value="Switch point 2 port 3"/>			
+			<Text id="TI_VAR_Switchpoint2_P4" value="Switch point 2 port 4"/>			
+			<Text id="TI_VAR_Switchpoint2_P5" value="Switch point 2 port 5"/>			
+			<Text id="TI_VAR_Switchpoint2_P6" value="Switch point 2 port 6"/>			
+			<Text id="TI_VAR_Switchpoint2_P7" value="Switch point 2 port 7"/>			
+			<Text id="TI_VAR_SwitchPointEnable" value="Switch point enable"/>
+			<Text id="TI_VAR_SwitchPointEnable_Descr" value="Switch point enable"/>
+			<Text id="TI_VAR_SwitchPoint_1_Enable_P0" value="Port0 switch point 1"/>
+			<Text id="TI_VAR_SwitchPoint_1_Enable_P1" value="Port1 switch point 1"/>
+			<Text id="TI_VAR_SwitchPoint_1_Enable_P2" value="Port2 switch point 1"/>
+			<Text id="TI_VAR_SwitchPoint_1_Enable_P3" value="Port3 switch point 1"/>
+			<Text id="TI_VAR_SwitchPoint_1_Enable_P4" value="Port4 switch point 1"/>
+			<Text id="TI_VAR_SwitchPoint_1_Enable_P5" value="Port5 switch point 1"/>
+			<Text id="TI_VAR_SwitchPoint_1_Enable_P6" value="Port6 switch point 1"/>
+			<Text id="TI_VAR_SwitchPoint_1_Enable_P7" value="Port7 switch point 1"/>
+			<Text id="TI_VAR_SwitchPoint_2_Enable_P0" value="Port0 switch point 2"/>
+			<Text id="TI_VAR_SwitchPoint_2_Enable_P1" value="Port1 switch point 2"/>
+			<Text id="TI_VAR_SwitchPoint_2_Enable_P2" value="Port2 switch point 2"/>
+			<Text id="TI_VAR_SwitchPoint_2_Enable_P3" value="Port3 switch point 2"/>
+			<Text id="TI_VAR_SwitchPoint_2_Enable_P4" value="Port4 switch point 2"/>
+			<Text id="TI_VAR_SwitchPoint_2_Enable_P5" value="Port5 switch point 2"/>
+			<Text id="TI_VAR_SwitchPoint_2_Enable_P6" value="Port6 switch point 2"/>
+			<Text id="TI_VAR_SwitchPoint_2_Enable_P7" value="Port7 switch point 2"/>
+            
+			<Text id="TI_VAR_VoltageMonitoring" value="Voltage sensor wirebreak detection"/>
+			<Text id="TI_VAR_VoltageMonitoring_Descr" value="Voltage sensor wirebreak detection"/>
+			<Text id="TI_VAR_VoltageMonitoring_Enable_P0" value="Port0"/>
+			<Text id="TI_VAR_VoltageMonitoring_Enable_P1" value="Port1"/>
+			<Text id="TI_VAR_VoltageMonitoring_Enable_P2" value="Port2"/>
+			<Text id="TI_VAR_VoltageMonitoring_Enable_P3" value="Port3"/>
+			<Text id="TI_VAR_VoltageMonitoring_Enable_P4" value="Port4"/>
+			<Text id="TI_VAR_VoltageMonitoring_Enable_P5" value="Port5"/>
+			<Text id="TI_VAR_VoltageMonitoring_Enable_P6" value="Port6"/>
+			<Text id="TI_VAR_VoltageMonitoring_Enable_P7" value="Port7"/>
+            
+            
+			<Text id="TI_SN_RW" value="Serial number set"/>
+			<Text id="TI_SN_RW_Descr" value="Parameter to set SN."/>
+			<Text id="TI_PD_In" value="ProcessDataIn"/>
+			<Text id="TI_PD_Out" value="ProcessDataOut"/>
+			<Text id="TI_PD_SwitchPoint1_P0" value="Port 0 switch point 1"/>
+			<Text id="TI_PD_SwitchPoint1_P1" value="Port 1 switch point 1"/>
+			<Text id="TI_PD_SwitchPoint1_P2" value="Port 2 switch point 1"/>
+			<Text id="TI_PD_SwitchPoint1_P3" value="Port 3 switch point 1"/>
+			<Text id="TI_PD_SwitchPoint1_P4" value="Port 4 switch point 1"/>
+			<Text id="TI_PD_SwitchPoint1_P5" value="Port 5 switch point 1"/>
+			<Text id="TI_PD_SwitchPoint1_P6" value="Port 6 switch point 1"/>
+			<Text id="TI_PD_SwitchPoint1_P7" value="Port 7 switch point 1"/>
+			<Text id="TI_PD_SwitchPoint2_P0" value="Port 0 switch point 2"/>
+			<Text id="TI_PD_SwitchPoint2_P1" value="Port 1 switch point 2"/>
+			<Text id="TI_PD_SwitchPoint2_P2" value="Port 2 switch point 2"/>
+			<Text id="TI_PD_SwitchPoint2_P3" value="Port 3 switch point 2"/>
+			<Text id="TI_PD_SwitchPoint2_P4" value="Port 4 switch point 2"/>
+			<Text id="TI_PD_SwitchPoint2_P5" value="Port 5 switch point 2"/>
+			<Text id="TI_PD_SwitchPoint2_P6" value="Port 6 switch point 2"/>
+			<Text id="TI_PD_SwitchPoint2_P7" value="Port 7 switch point 2"/>
+			<Text id="TI_PD_Port0" value="Analog value port 0"/>
+			<Text id="TI_PD_Port1" value="Analog value port 1"/>
+			<Text id="TI_PD_Port2" value="Analog value port 2"/>
+			<Text id="TI_PD_Port3" value="Analog value port 3"/>
+			<Text id="TI_PD_Port4" value="Analog value port 4"/>
+			<Text id="TI_PD_Port5" value="Analog value port 5"/>
+			<Text id="TI_PD_Port6" value="Analog value port 6"/>
+			<Text id="TI_PD_Port7" value="Analog value port 7"/>
+			<Text id="TI_PD_Pin1SC_Wirebreak_P0" value="Port 0 pin1 short/wirebreak"/>
+			<Text id="TI_PD_Pin1SC_Wirebreak_P1" value="Port 1 pin1 short/wirebreak"/>
+			<Text id="TI_PD_Pin1SC_Wirebreak_P2" value="Port 2 pin1 short/wirebreak"/>
+			<Text id="TI_PD_Pin1SC_Wirebreak_P3" value="Port 3 pin1 short/wirebreak"/>
+			<Text id="TI_PD_Pin1SC_Wirebreak_P4" value="Port 4 pin1 short/wirebreak"/>
+			<Text id="TI_PD_Pin1SC_Wirebreak_P5" value="Port 5 pin1 short/wirebreak"/>
+			<Text id="TI_PD_Pin1SC_Wirebreak_P6" value="Port 6 pin1 short/wirebreak"/>
+			<Text id="TI_PD_Pin1SC_Wirebreak_P7" value="Port 7 pin1 short/wirebreak"/>
+			<Text id="TI_PD_Underflow_P0" value="Port 0 analog value underflow"/>
+			<Text id="TI_PD_Underflow_P1" value="Port 1 analog value underflow"/>
+			<Text id="TI_PD_Underflow_P2" value="Port 2 analog value underflow"/>
+			<Text id="TI_PD_Underflow_P3" value="Port 3 analog value underflow"/>
+			<Text id="TI_PD_Underflow_P4" value="Port 4 analog value underflow"/>
+			<Text id="TI_PD_Underflow_P5" value="Port 5 analog value underflow"/>
+			<Text id="TI_PD_Underflow_P6" value="Port 6 analog value underflow"/>
+			<Text id="TI_PD_Underflow_P7" value="Port 7 analog value underflow"/>
+			<Text id="TI_PD_Overflow_P0" value="Port 0 analog value overflow"/>
+			<Text id="TI_PD_Overflow_P1" value="Port 1 analog value overflow"/>
+			<Text id="TI_PD_Overflow_P2" value="Port 2 analog value overflow"/>
+			<Text id="TI_PD_Overflow_P3" value="Port 3 analog value overflow"/>
+			<Text id="TI_PD_Overflow_P4" value="Port 4 analog value overflow"/>
+			<Text id="TI_PD_Overflow_P5" value="Port 5 analog value overflow"/>
+			<Text id="TI_PD_Overflow_P6" value="Port 6 analog value overflow"/>
+			<Text id="TI_PD_Overflow_P7" value="Port 7 analog value overflow"/>
+			<Text id="TI_PD_LowUs" value="Low supply voltage"/>
+			<Text id="TI_PD_Pin1SC_Reset_P0" value="Port0 pin1 short circuit reset"/>
+			<Text id="TI_PD_Pin1SC_Reset_P1" value="Port1 pin1 short circuit reset"/>
+			<Text id="TI_PD_Pin1SC_Reset_P2" value="Port2 pin1 short circuit reset"/>
+			<Text id="TI_PD_Pin1SC_Reset_P3" value="Port3 pin1 short circuit reset"/>
+			<Text id="TI_PD_Pin1SC_Reset_P4" value="Port4 pin1 short circuit reset"/>
+			<Text id="TI_PD_Pin1SC_Reset_P5" value="Port5 pin1 short circuit reset"/>
+			<Text id="TI_PD_Pin1SC_Reset_P6" value="Port6 pin1 short circuit reset"/>
+			<Text id="TI_PD_Pin1SC_Reset_P7" value="Port7 pin1 short circuit reset"/>
+			<Text id="TD_FactoryReset" value="Factory Reset"/>
+			<Text id="T_FactoryResetStarted" value="Factory Reset is now in progress!"/>
+			<Text id="TI_IOL_Connector" value="IO-Link Connector"/>
+		</PrimaryLanguage>
+	</ExternalTextCollection>
+	<Stamp crc="2366738322"><Checker name="IODD-Checker V1.1.1" version="V1.1.1.0"/></Stamp>
+</IODevice>

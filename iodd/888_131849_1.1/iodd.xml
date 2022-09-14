@@ -1,0 +1,1272 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<IODevice xmlns="http://www.io-link.com/IODD/2010/10" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.io-link.com/IODD/2010/10 IODD1.1.xsd">
+    <DocumentInfo version="V1.03" releaseDate="2020-11-17" copyright="Copyright 2019, Balluff GmbH" />
+    <ProfileHeader>
+        <ProfileIdentification>IO Device Profile</ProfileIdentification>
+        <ProfileRevision>1.1</ProfileRevision>
+        <ProfileName>Device Profile for IO Devices</ProfileName>
+        <ProfileSource>IO-Link Consortium</ProfileSource>
+        <ProfileClassID>Device</ProfileClassID>
+        <ISO15745Reference>
+            <ISO15745Part>1</ISO15745Part>
+            <ISO15745Edition>1</ISO15745Edition>
+            <ProfileTechnology>IODD</ProfileTechnology>
+        </ISO15745Reference>
+    </ProfileHeader>
+    <ProfileBody>
+        <!-- legend for identifiers:
+            INF - information, identification
+            REC - record item (e.g. sub-indices within an index)
+            V - variable label or identifiers
+            VAL - specific value for a certain variable
+            CMD - system command label
+            PD - process data elements
+            DT - name of a data type defined in DatatypeCollection
+            M - name of a menu
+            MM - name of a main menu
+            SM - name of a submenu
+            TI - The textID (label) for any of these items (added as extra)
+            TD - The textID identifiers for descriptions 
+            SSC - Switching Signal Channel (universal meaning without designation number)
+        -->
+        <DeviceIdentity vendorId="888" vendorName="Balluff" deviceId="131849">  <!-- device ID: 0x02 0x03 0x09 -->
+            <VendorText textId="TI_INF_VendorText" />
+            <VendorUrl textId="TI_INF_VendorUrl" />
+            <VendorLogo name="Balluff-logo.png" />
+            <DeviceName textId="TI_INF_DeviceName" />
+            <DeviceFamily textId="TI_INF_DeviceFamily" />
+            <DeviceVariantCollection>
+                <DeviceVariant productId="BIP001Y" deviceSymbol="Balluff-BIP001Y-pic.png" deviceIcon="Balluff-BIP001Y-icon.png">
+                    <Name textId="TI_Variant_BIP001Y" />
+                    <Description textId="TI_Description_BIP001Y" />
+                </DeviceVariant>
+            </DeviceVariantCollection>
+        </DeviceIdentity>
+        <DeviceFunction>
+            <Features blockParameter="true" dataStorage="true" profileCharacteristic = "10 16384 32769 32772" > <!-- "00 0A 40 00 80 01 80 04 "> -->
+                <SupportedAccessLocks dataStorage="true" parameter="true" localUserInterface="false" localParameterization="false" />
+            </Features>
+            <DatatypeCollection>
+            
+                <!-- Data type definition for the system error bit in the Process Data -->
+                <Datatype id="DT_PD_SystemError_Bit" xsi:type="BooleanT">
+                    <SingleValue xsi:type="BooleanValueT" value="false">
+                        <Name textId="TI_VAL_PD_NoSystemError" />
+                    </SingleValue>
+                    <SingleValue xsi:type="BooleanValueT" value="true">
+                        <Name textId="TI_VAL_PD_SystemError" />
+                    </SingleValue>
+                </Datatype>
+                
+                <!-- Data type definition for the out-of-range bit in the Process Data -->
+                <Datatype id="DT_PD_OutOfRange_Bit" xsi:type="BooleanT">
+                    <SingleValue xsi:type="BooleanValueT" value="false">
+                        <Name textId="TI_VAL_PD_TargetInRange" />
+                    </SingleValue>
+                    <SingleValue xsi:type="BooleanValueT" value="true">
+                        <Name textId="TI_VAL_PD_TargetOutOfRange" />
+                    </SingleValue>
+                </Datatype>
+                
+                <Datatype id="DT_PD_NoTarget_Bit" xsi:type="BooleanT">
+                    <SingleValue xsi:type="BooleanValueT" value="false">
+                        <Name textId="TI_VAL_PD_TargetVisible" />
+                    </SingleValue>
+                    <SingleValue xsi:type="BooleanValueT" value="true">
+                        <Name textId="TI_VAL_PD_NoTargetVisible" />
+                    </SingleValue>
+                </Datatype>
+                
+                <!-- Data type definition for the switching signal channel bits in the Process Data -->
+                <Datatype id="DT_PD_SSC_Bit" xsi:type="BooleanT">
+                    <SingleValue xsi:type="BooleanValueT" value="false">
+                        <Name textId="TI_VAL_PD_SSC_Inactive" />
+                    </SingleValue>
+                    <SingleValue xsi:type="BooleanValueT" value="true">
+                        <Name textId="TI_VAL_PD_SSC_Active" />
+                    </SingleValue>
+                </Datatype>
+                
+                <!-- Data type definition for the Switching Signal Channel teach status as defined by the Smart Sensor Profile (sub-index 0 access only) -->
+                <Datatype id="DT_SSC_TeachinStatus" xsi:type="RecordT" bitLength="8" subindexAccessSupported="false">
+
+                    <RecordItem subindex="1" bitOffset="7">
+                        <SimpleDatatype xsi:type="BooleanT">
+                            <SingleValue xsi:type="BooleanValueT" value="false">
+                                <Name textId="TI_VAL_SSC_TeachinStatus_NotSet" />
+                            </SingleValue>
+                            <SingleValue xsi:type="BooleanValueT" value="true">
+                                <Name textId="TI_VAL_SSC_TeachinStatus_Set" />
+                            </SingleValue>
+                        </SimpleDatatype>
+                        <Name textId="TI_REC_SSC_TeachinStatus_SP2_TP2" />
+                    </RecordItem>
+                    
+                    <RecordItem subindex="2" bitOffset="6">
+                        <SimpleDatatype xsi:type="BooleanT">
+                            <SingleValue xsi:type="BooleanValueT" value="false">
+                                <Name textId="TI_VAL_SSC_TeachinStatus_NotSet" />
+                            </SingleValue>
+                            <SingleValue xsi:type="BooleanValueT" value="true">
+                                <Name textId="TI_VAL_SSC_TeachinStatus_Set" />
+                            </SingleValue>
+                        </SimpleDatatype>
+                        <Name textId="TI_REC_SSC_TeachinStatus_SP2_TP1" />
+                    </RecordItem>
+                    
+                    <RecordItem subindex="3" bitOffset="5">
+                        <SimpleDatatype xsi:type="BooleanT">
+                            <SingleValue xsi:type="BooleanValueT" value="false">
+                                <Name textId="TI_VAL_SSC_TeachinStatus_NotSet" />
+                            </SingleValue>
+                            <SingleValue xsi:type="BooleanValueT" value="true">
+                                <Name textId="TI_VAL_SSC_TeachinStatus_Set" />
+                            </SingleValue>
+                        </SimpleDatatype>
+                        <Name textId="TI_REC_SSC_TeachinStatus_SP1_TP2" />
+                    </RecordItem>
+
+                    <RecordItem subindex="4" bitOffset="4">
+                        <SimpleDatatype xsi:type="BooleanT">
+                            <SingleValue xsi:type="BooleanValueT" value="false">
+                                <Name textId="TI_VAL_SSC_TeachinStatus_NotSet" />
+                            </SingleValue>
+                            <SingleValue xsi:type="BooleanValueT" value="true">
+                                <Name textId="TI_VAL_SSC_TeachinStatus_Set" />
+                            </SingleValue>
+                        </SimpleDatatype>
+                        <Name textId="TI_REC_SSC_TeachinStatus_SP1_TP1" />
+                    </RecordItem>
+                    
+                    <RecordItem subindex="5" bitOffset="0">
+                        <SimpleDatatype xsi:type="UIntegerT" bitLength="4">
+                            <SingleValue value="0">
+                                <Name textId="TI_VAL_SSC_TeachinState_Idle" />
+                                <!-- No teach-in in progress -->
+                            </SingleValue>
+                            <SingleValue value="7">
+                                <Name textId="TI_VAL_SSC_TeachinState_Error" />
+                                <!-- Error during SP1 set or apply(?) -->
+                            </SingleValue>
+                            <SingleValue value="1">
+                                <Name textId="TI_VAL_SSC_TeachinState_Success" />
+                                <!-- Switching Signal Channel taught-in successfully -->
+                            </SingleValue>
+                        </SimpleDatatype>
+                        <Name textId="TI_REC_SSC_TeachinStatus_State" />
+                    </RecordItem>
+                </Datatype>
+                
+                <!-- Data type definition for the Switching Signal Channel values (setpoints) -->
+                <Datatype id="DT_SSC_Values" xsi:type="RecordT" bitLength="32">
+                
+                    <RecordItem subindex="1" bitOffset="16">
+                        <SimpleDatatype xsi:type="IntegerT" bitLength="16" >
+                            <ValueRange lowerValue="-30000" upperValue="30000" />
+                        </SimpleDatatype>
+                        <Name textId="TI_REC_SSC_SetPoint1" />
+                    </RecordItem>
+                    
+                    <RecordItem subindex="2" bitOffset="0">
+                        <SimpleDatatype xsi:type="IntegerT" bitLength="16" >
+                            <ValueRange lowerValue="-30000" upperValue="30000" />
+                        </SimpleDatatype>
+                        <Name textId="TI_REC_SSC_SetPoint2" />
+                    </RecordItem>
+                    
+                </Datatype>
+                
+                <!-- Data type definition for the Switching Signal Channel parameters -->
+                <Datatype id="DT_SSC_Parameters" xsi:type="RecordT" bitLength="32">
+                
+                    <RecordItem subindex="1" bitOffset="24">
+                        <SimpleDatatype xsi:type="UIntegerT" bitLength="8" >
+                            <SingleValue value="0" >
+                                <Name textId="TI_REC_VAL_SSC_Logic_Normal" />
+                            </SingleValue>
+                            <SingleValue value="1" >
+                                <Name textId="TI_REC_VAL_SSC_Logic_Inverted" />
+                            </SingleValue>
+                        </SimpleDatatype>
+                        <Name textId="TI_REC_SSC_Logic" />
+                    </RecordItem>
+                    
+                    <RecordItem subindex="2" bitOffset="16">
+                        <SimpleDatatype xsi:type="UIntegerT" bitLength="8" >
+                            <SingleValue value="0" >
+                                <Name textId="TI_REC_VAL_SSC_Mode_Inactive" />
+                            </SingleValue>
+                            <SingleValue value="1" >
+                                <Name textId="TI_REC_VAL_SSC_Mode_Single_Point" />
+                            </SingleValue>
+                            <SingleValue value="2" >
+                                <Name textId="TI_REC_VAL_SSC_Mode_Windowed" />
+                            </SingleValue>
+                            <SingleValue value="3" >
+                                <Name textId="TI_REC_VAL_SSC_Mode_Two_Points" />
+                            </SingleValue>
+                        </SimpleDatatype>
+                        <Name textId="TI_REC_SSC_Mode" />
+                    </RecordItem>
+                    
+                    <RecordItem subindex="3" bitOffset="0">
+                        <SimpleDatatype xsi:type="IntegerT" bitLength="16" >
+                            <ValueRange lowerValue="50" upperValue="30000" />
+                        </SimpleDatatype>
+                        <Name textId="TI_REC_SSC_Hysteresis" />
+                    </RecordItem>
+                </Datatype>
+                
+                <!-- Data type definition for the sensor usage data -->
+                <Datatype id="DT_OperatingHoursCounters" xsi:type="RecordT" bitLength="96">
+                    
+                    <RecordItem subindex="1" bitOffset="64">
+                        <SimpleDatatype xsi:type="UIntegerT" bitLength="32" />
+                        <Name textId="TI_REC_OperatingHoursCounters_Total" />
+                    </RecordItem>
+                    
+                    <RecordItem subindex="2" bitOffset="32">
+                        <SimpleDatatype xsi:type="UIntegerT" bitLength="32" />
+                        <Name textId="TI_REC_OperatingHoursCounters_Maintenance" />
+                    </RecordItem>
+                    
+                    <RecordItem subindex="3" bitOffset="0">
+                        <SimpleDatatype xsi:type="UIntegerT" bitLength="32" />
+                        <Name textId="TI_REC_OperatingHoursCounters_Startup" />
+                    </RecordItem>
+                </Datatype>
+                
+                <!-- Data type definition for the boot cycle counters -->
+                <Datatype id="DT_BootCycleCounters" xsi:type="RecordT" bitLength="64">
+                    <RecordItem subindex="1" bitOffset="32">
+                        <SimpleDatatype xsi:type="UIntegerT" bitLength="32" />
+                        <Name textId="TI_REC_BootCycleCounters_Total" />
+                    </RecordItem>
+                    <RecordItem subindex="2" bitOffset="0">
+                        <SimpleDatatype xsi:type="UIntegerT" bitLength="32" />
+                        <Name textId="TI_REC_BootCycleCounters_Maintenance" />
+                    </RecordItem>
+                </Datatype>
+                
+                <!-- Data type definition for the internal temperature values -->
+                <Datatype id="DT_DeviceTemperatures" xsi:type="RecordT" bitLength="40">
+                    <RecordItem subindex="1" bitOffset="32">
+                        <SimpleDatatype xsi:type="IntegerT" bitLength="8" />
+                        <Name textId="TI_REC_DeviceTemperatures_Current" />
+                    </RecordItem>
+                    <RecordItem subindex="2" bitOffset="24">
+                        <SimpleDatatype xsi:type="IntegerT" bitLength="8" />
+                        <Name textId="TI_REC_DeviceTemperatures_StartupMin" />
+                    </RecordItem>
+                    <RecordItem subindex="3" bitOffset="16">
+                        <SimpleDatatype xsi:type="IntegerT" bitLength="8" />
+                        <Name textId="TI_REC_DeviceTemperatures_StartupMax" />
+                    </RecordItem>
+                    <RecordItem subindex="4" bitOffset="8">
+                        <SimpleDatatype xsi:type="IntegerT" bitLength="8" />
+                        <Name textId="TI_REC_DeviceTemperatures_LifetimeMin" />
+                    </RecordItem>
+                    <RecordItem subindex="5" bitOffset="0">
+                        <SimpleDatatype xsi:type="IntegerT" bitLength="8" />
+                        <Name textId="TI_REC_DeviceTemperatures_LifetimeMax" />
+                    </RecordItem>
+                </Datatype>
+                
+                <!-- Data type definition for the user temperature threshold values -->
+                <Datatype id="DT_TemperatureThresholds" xsi:type="RecordT" bitLength="16">
+                    <RecordItem subindex="1" bitOffset="8">
+                        <SimpleDatatype xsi:type="IntegerT" bitLength="8" />
+                        <Name textId="TI_REC_TemperatureThreshold_Lower" />
+                    </RecordItem>
+                    <RecordItem subindex="2" bitOffset="0">
+                        <SimpleDatatype xsi:type="IntegerT" bitLength="8" />
+                        <Name textId="TI_REC_TemperatureThreshold_Upper" />
+                    </RecordItem>
+                </Datatype>
+                
+                <!-- Data type definition for the Measurement Data Collection (MDC) descriptor -->
+                <Datatype id="DT_MdcDescriptor" xsi:type="RecordT" bitLength="56">
+                    <RecordItem subindex="1" bitOffset="40" accessRightRestriction="ro">
+                        <SimpleDatatype xsi:type="IntegerT" bitLength="16" />
+                        <Name textId="TI_REC_MdcDescriptor_LowerLimit" />
+                    </RecordItem>
+                    <RecordItem subindex="2" bitOffset="24" accessRightRestriction="ro">
+                        <SimpleDatatype xsi:type="IntegerT" bitLength="16" />
+                        <Name textId="TI_REC_MdcDescriptor_UpperLimit" />
+                    </RecordItem>
+                    <RecordItem subindex="3" bitOffset="8" accessRightRestriction="ro">
+                        <SimpleDatatype xsi:type="UIntegerT" bitLength="16" />
+                        <Name textId="TI_REC_MdcDescriptor_UnitCode" />
+                    </RecordItem>
+                    <RecordItem subindex="4" bitOffset="0" accessRightRestriction="ro">
+                        <SimpleDatatype xsi:type="IntegerT" bitLength="8" />
+                        <Name textId="TI_REC_MdcDescriptor_Scale" />
+                    </RecordItem>
+                </Datatype>
+                
+                <Datatype id="DT_PDV_Output_Characteristics" xsi:type="UIntegerT" bitLength="8">
+                    <SingleValue value="0">
+                        <Name textId="TI_VAL_PDV_Output_Characteristics_Rising" />
+                    </SingleValue>
+                    <SingleValue value="255">
+                        <Name textId="TI_VAL_PDV_Output_Characteristics_Falling" />
+                    </SingleValue>
+                </Datatype>
+                
+                <Datatype id="DT_PDV_Detection_Range" xsi:type="UIntegerT" bitLength="8">
+                    <SingleValue value="0">
+                        <Name textId="TI_VAL_PDV_Detection_Range_Enable" />
+                    </SingleValue>
+                    <SingleValue value="255">
+                        <Name textId="TI_VAL_PDV_Detection_Range_Disable" />
+                    </SingleValue>
+                </Datatype>
+                
+                <Datatype id="DT_SwingCounter_Channel" xsi:type="UIntegerT" bitLength="8">
+					<SingleValue value="0">
+						<Name textId="TI_VAL_SwingCounter_Default" />
+					</SingleValue>
+					<SingleValue value="1">
+                        <Name textId="TI_VAL_SwingCounter_Channel1" />
+                    </SingleValue>
+                    <SingleValue value="2">
+                        <Name textId="TI_VAL_SwingCounter_Channel2" />
+                    </SingleValue>
+                    <SingleValue value="3">
+                        <Name textId="TI_VAL_SwingCounter_Channel3" />
+                    </SingleValue>
+                </Datatype>
+          
+				
+				 <Datatype id="DT_SwingCounter_Config" xsi:type="RecordT" bitLength="40" >
+                    <RecordItem subindex="1" bitOffset="24" >
+                        <SimpleDatatype xsi:type="IntegerT" bitLength="16" >
+                            <ValueRange lowerValue="150" upperValue="16850" />
+                        </SimpleDatatype>
+                        <Name textId="TI_REC_SwingCounter_Config_Position" />
+                    </RecordItem>
+                    <RecordItem subindex="2" bitOffset="8" >
+                        <SimpleDatatype xsi:type="IntegerT" bitLength="16" >
+                            <ValueRange lowerValue="150" upperValue="2500" />
+                        </SimpleDatatype>
+                        <Name textId="TI_REC_SwingCounter_Config_Span" />
+                    </RecordItem>
+                    <RecordItem subindex="3" bitOffset="0" >
+                        <SimpleDatatype xsi:type="IntegerT" bitLength="8" >
+                            <SingleValue value="0">
+                                <Name textId="TI_VAL_SwingCounter_Mode_OFF" />
+                            </SingleValue>
+                            <SingleValue value="1">
+                                <Name textId="TI_VAL_SwingCounter_Mode_ON" />
+                            </SingleValue>
+                        </SimpleDatatype>
+                        <Name textId="TI_REC_SwingCounter_Config_Mode" />
+                    </RecordItem>
+                </Datatype>
+ 
+				
+                <Datatype id="DT_SwingCounter_Counter" xsi:type="RecordT" bitLength="64" >
+                    <RecordItem subindex="1" bitOffset="32" accessRightRestriction="ro" >
+                        <SimpleDatatype xsi:type="UIntegerT" bitLength="32" />
+                        <Name textId="TI_REC_SwingCounter_Counter_Lifetime" />
+                    </RecordItem>
+                    <RecordItem subindex="2" bitOffset="0" accessRightRestriction="ro" >
+                        <SimpleDatatype xsi:type="UIntegerT" bitLength="32" />
+                        <Name textId="TI_REC_SwingCounter_Counter_Maintenance" />
+                    </RecordItem>
+                </Datatype>
+                
+            </DatatypeCollection>
+            
+            <VariableCollection>
+                
+                <!-- List of the variables defined by the IO-link standard -->
+                <StdVariableRef id="V_DirectParameters_1" />
+                <StdVariableRef id="V_DirectParameters_2" excludedFromDataStorage="true" />
+                <StdVariableRef id="V_SystemCommand">
+                    <SingleValue value="65" > <Name textId="TI_CMD_SSC_Teachin_SP1" />      </SingleValue>
+                    <SingleValue value="66" > <Name textId="TI_CMD_SSC_Teachin_SP2" />      </SingleValue>
+                    <SingleValue value="67" > <Name textId="TI_CMD_SSC_Teachin_SP1TP1" />   </SingleValue>
+                    <SingleValue value="68" > <Name textId="TI_CMD_SSC_Teachin_SP1TP2" />   </SingleValue>
+                    <SingleValue value="69" > <Name textId="TI_CMD_SSC_Teachin_SP2TP1" />   </SingleValue>
+                    <SingleValue value="70" > <Name textId="TI_CMD_SSC_Teachin_SP2TP2" />   </SingleValue>
+                    <SingleValue value="78" > <Name textId="TI_CMD_SSC_Teachin_Reset" />    </SingleValue>
+                    <SingleValue value="79" > <Name textId="TI_CMD_SSC_Teachin_Cancel" />   </SingleValue>
+                    <StdSingleValueRef value="128" />           <!-- Sensor reset -->
+                    <StdSingleValueRef value="130" />           <!-- Factory reset -->
+                    <SingleValue value="165"> <Name textId="TI_CMD_Reset_Maintenance" />    </SingleValue>
+                    <SingleValue value="182"> <Name textId="TI_CMD_SwingCounter_Teach" />   </SingleValue>
+                    <SingleValue value="183"> <Name textId="TI_CMD_SwingCounter_Reset" />   </SingleValue>
+                    <SingleValue value="224"> <Name textId="TI_CMD_Linear_Teach_Preset" />  </SingleValue>
+                    <SingleValue value="225"> <Name textId="TI_CMD_Linear_Teach_LowerLimit" />  </SingleValue>
+                    <SingleValue value="226"> <Name textId="TI_CMD_Linear_Teach_UpperLimit" />  </SingleValue>
+                </StdVariableRef>
+                <StdVariableRef id="V_DeviceAccessLocks" >
+                    <StdRecordItemRef subindex="1" defaultValue="false" />
+                    <StdRecordItemRef subindex="2" defaultValue="false" />
+                </StdVariableRef>
+                <StdVariableRef id="V_VendorName" defaultValue="BALLUFF" />
+                <StdVariableRef id="V_VendorText" defaultValue="innovating automation" />
+                <StdVariableRef id="V_ProductName" defaultValue="BIP LD2-T017-01-EP00,5-S4" />
+                <StdVariableRef id="V_ProductID" />     <!-- The productID should not have a default value! -->
+                <StdVariableRef id="V_ProductText" defaultValue="Inductive Positioning System" />
+                <StdVariableRef id="V_HardwareRevision" defaultValue="03" />
+                <StdVariableRef id="V_FirmwareRevision" defaultValue="1.05.00" />
+                <StdVariableRef id="V_ApplicationSpecificTag" defaultValue="***" fixedLengthRestriction="32" />
+                <StdVariableRef id="V_DeviceStatus" />
+                <StdVariableRef id="V_DetailedDeviceStatus" fixedLengthRestriction="6" />
+                <StdVariableRef id="V_ProcessDataInput" />
+                
+                <!-- Function Tag at index 0x0019 (Smart Sensor Profile Ed.2) -->
+                <Variable id="V_FunctionTag" index="25" accessRights="rw" defaultValue="***">
+                    <Datatype xsi:type="StringT" fixedLength="32" encoding="UTF-8"/>
+                    <Name textId="TI_V_FunctionTag" />
+                </Variable>
+                
+                <!-- Location Tag at index 0x001A (Smart Sensor Profile Ed.2) -->
+                <Variable id="V_LocationTag" index="26" accessRights="rw" defaultValue="***">
+                    <Datatype xsi:type="StringT" fixedLength="32" encoding="UTF-8"/>
+                    <Name textId="TI_V_LocationTag" />
+                </Variable>
+				
+				 <!-- Process Data Value offset at index 0x00C1 -->
+                <Variable id="V_PDV_Offset" index="193" accessRights="rw" defaultValue="0">
+                    <Datatype xsi:type="IntegerT" bitLength="16">
+                    </Datatype>
+                    <Name textId="TI_V_PDV_Offset" />
+                </Variable>
+
+                <!-- Process Data Value preset at index 0x00C2 -->
+                <Variable id="V_PDV_Preset" index="194" accessRights="rw" defaultValue="0">
+                    <Datatype xsi:type="IntegerT" bitLength="16">
+                        <ValueRange lowerValue="-32000" upperValue="32000" />
+                    </Datatype>
+                    <Name textId="TI_V_PDV_Preset" />
+                </Variable>
+                
+                <!-- Process Data Value output characteristics at index 0x00C3 -->
+                <Variable id="V_PDV_Output_Characteristics" index="195" accessRights="rw" defaultValue="0">
+                    <DatatypeRef datatypeId="DT_PDV_Output_Characteristics" />
+                    <Name textId="TI_V_PDV_Output_Characteristics" />
+                </Variable>
+                
+                <!-- Process Data Value detection range at index 0x00C4 -->
+                <Variable id="V_PDV_Detection_Range" index="196" accessRights="ro" defaultValue="0">
+                    <DatatypeRef datatypeId="DT_PDV_Detection_Range" />
+                    <Name textId="TI_V_PDV_Detection_Range" />
+                </Variable>
+                
+                <!-- Measurement Data Collection detection range at index 0x4080 -->
+                <Variable id="V_MdcDescriptor" index="16512" accessRights="ro">
+                    <DatatypeRef datatypeId="DT_MdcDescriptor" />
+                    <Name textId="TI_V_MdcDescriptor" />
+                </Variable>           
+                
+                <!-- Switching Signal Channel teach channel selector at index 0x003A (Smart Sensor Profile) -->
+                <Variable id="V_SSC_TeachChannel" index="58" accessRights="rw" defaultValue="0">
+                    <Datatype xsi:type="UIntegerT" bitLength="8">
+                        <SingleValue value="0">
+                            <Name textId="TI_VAL_TeachChannel_Default" />
+                        </SingleValue>
+                        <SingleValue value="1">
+                            <Name textId="TI_VAL_TeachChannel_SSC1" />
+                        </SingleValue>
+                        <SingleValue value="2">
+                            <Name textId="TI_VAL_TeachChannel_SSC2" />
+                        </SingleValue>
+                        <SingleValue value="3">
+                            <Name textId="TI_VAL_TeachChannel_SSC3" />
+                        </SingleValue>
+                        <SingleValue value="4">
+                            <Name textId="TI_VAL_TeachChannel_SSC4" />
+                        </SingleValue>
+                    </Datatype>
+                    <Name textId="TI_V_SSC_TeachChannel" />
+                </Variable>
+                
+                <!-- Switching Signal Channel teach channel status at index 0x003B (Smart Sensor Profile) -->
+                <Variable id="V_SSC_TeachStatus" index="59" accessRights="ro" >
+                    <DatatypeRef datatypeId="DT_SSC_TeachinStatus" />
+                    <RecordItemInfo subindex="1" defaultValue="false" />
+                    <RecordItemInfo subindex="2" defaultValue="false" />
+                    <RecordItemInfo subindex="3" defaultValue="false" />
+                    <RecordItemInfo subindex="4" defaultValue="false" />
+                    <RecordItemInfo subindex="5" defaultValue="0" />
+                    <Name textId="TI_V_SSC_TeachStatus" />
+                </Variable>  
+                
+                <!-- Switching Signal values for SSC1 at index 0x003C (Smart Sensor Profile) -->
+                <Variable id="V_SSC1_Values" index="60" accessRights="rw">
+                    <DatatypeRef datatypeId="DT_SSC_Values" />
+                    <Name textId="TI_V_SSC1_Values" />
+                </Variable>
+                
+                <!-- Switching Signal parameters for SSC1 at index 0x003D (Smart Sensor Profile) -->
+                <Variable id="V_SSC1_Parameters" index="61" accessRights="rw">
+                    <DatatypeRef datatypeId="DT_SSC_Parameters" />
+                    <Name textId="TI_V_SSC1_Parameters" />
+                </Variable>
+                
+                <!-- Switching Signal Channel values for SSC2 at index 0x003E (Smart Sensor Profile) -->
+                <Variable id="V_SSC2_Values" index="62" accessRights="rw">
+                    <DatatypeRef datatypeId="DT_SSC_Values" />
+                    <Name textId="TI_V_SSC2_Values" />
+                </Variable>
+                
+                <!-- Switching Signal Channel parameters for SSC2 at index 0x003F (Smart Sensor Profile) -->
+                <Variable id="V_SSC2_Parameters" index="63" accessRights="rw">
+                    <DatatypeRef datatypeId="DT_SSC_Parameters" />
+                    <Name textId="TI_V_SSC2_Parameters" />
+                </Variable>
+                
+                <!-- Device Temperature values at index 0x0052 (Balluff) -->
+                <Variable id="V_DeviceTemperatures" index="82" accessRights="ro" dynamic="true">
+                    <DatatypeRef datatypeId="DT_DeviceTemperatures" />
+                    <Name textId="TI_V_DeviceTemperatures" />
+                </Variable>
+                
+                <!-- Temperature threshold values at index 0x0053 (Balluff) -->
+                <Variable id="V_TemperatureThresholds" index="83" accessRights="rw">
+                    <DatatypeRef datatypeId="DT_TemperatureThresholds" />
+                    <Name textId="TI_V_TemperatureThresholds" />
+                </Variable>
+                
+                <!-- Sensor Usage Hour Counters at index 0x0057 (Balluff) -->
+                <Variable id="V_OperatingHoursCounters" index="87" accessRights="ro" dynamic="true">
+                    <DatatypeRef datatypeId="DT_OperatingHoursCounters" />
+                    <Name textId="TI_V_OperatingHoursCounters" />
+                </Variable>
+                
+                <!-- Sensor Boot Cycle Counters at index 0x0058 (Balluff) -->
+                <Variable id="V_BootCycleCounters" index="88" accessRights="ro" dynamic="true">
+                    <DatatypeRef datatypeId="DT_BootCycleCounters" />
+                    <Name textId="TI_V_BootCycleCounters" />
+                </Variable>
+                
+                <!-- Swing Counter channel selector at index 0x020D -->
+                <Variable id="V_SwingCounter_Channel" index="525" accessRights="rw" defaultValue="0">
+                    <DatatypeRef datatypeId="DT_SwingCounter_Channel" />
+                    <Name textId="TI_V_SwingCounter_Channel" />
+                </Variable>
+
+				 <!-- Swing Counter Channel 1 configuration at index 0x020E -->
+               <Variable id="V_SwingCounter_Channel1_Config" index="526" accessRights="rw">
+                    <DatatypeRef datatypeId="DT_SwingCounter_Config" />
+                    <Name textId="TI_V_SwingCounter_Channel1_Config" />
+                </Variable>
+
+                <!-- Swing Counter Channel 1 values at index 0x020F -->
+                <Variable id="V_SwingCounter_Channel1_Counter" index="527" accessRights="ro" >
+                    <DatatypeRef datatypeId="DT_SwingCounter_Counter" />
+                    <Name textId="TI_V_SwingCounter_Channel1_Counter" />
+                </Variable>
+
+                <!-- Swing Counter Channel 2 configuration at index 0x0210 -->
+				 <Variable id="V_SwingCounter_Channel2_Config" index="528" accessRights="rw">
+                    <DatatypeRef datatypeId="DT_SwingCounter_Config" />
+                    <Name textId="TI_V_SwingCounter_Channel2_Config" />
+                </Variable>
+
+                <!-- Swing Counter Channel 2 values at index 0x0211 -->
+                <Variable id="V_SwingCounter_Channel2_Counter" index="529" accessRights="ro" >
+                    <DatatypeRef datatypeId="DT_SwingCounter_Counter" />
+                    <Name textId="TI_V_SwingCounter_Channel2_Counter" />
+                </Variable>
+
+                <!-- Swing Counter Channel 3 configuration at index 0x0212 -->
+				<Variable id="V_SwingCounter_Channel3_Config" index="530" accessRights="rw">
+                    <DatatypeRef datatypeId="DT_SwingCounter_Config" />
+                    <Name textId="TI_V_SwingCounter_Channel3_Config" />
+                </Variable>
+
+                <!-- Swing Counter Channel 3 values at index 0x0213 -->
+                <Variable id="V_SwingCounter_Channel3_Counter" index="531" accessRights="ro" >
+                    <DatatypeRef datatypeId="DT_SwingCounter_Counter" />
+                    <Name textId="TI_V_SwingCounter_Channel3_Counter" />
+                </Variable>
+                
+                <!-- Switching Signal Channel values for SSC3 at index 0x4000 (Smart Sensor Profile) -->
+                <Variable id="V_SSC3_Values" index="16384" accessRights="rw">
+                    <DatatypeRef datatypeId="DT_SSC_Values" />
+                    <Name textId="TI_V_SSC3_Values" />
+                </Variable>
+                
+                <!-- Switching Signal Channel parameters for SSC3 at index 0x4001 (Smart Sensor Profile) -->
+                <Variable id="V_SSC3_Parameters" index="16385" accessRights="rw">
+                    <DatatypeRef datatypeId="DT_SSC_Parameters" />
+                    <Name textId="TI_V_SSC3_Parameters" />
+                </Variable>
+                
+                <!-- Switching Signal Channel values for SSC4 at index 0x4002 (Smart Sensor Profile) -->
+                <Variable id="V_SSC4_Values" index="16386" accessRights="rw">
+                    <DatatypeRef datatypeId="DT_SSC_Values" />
+                    <Name textId="TI_V_SSC4_Values" />
+                </Variable>
+                
+                <!-- Switching Signal Channel parameters for SSC4 at index 0x4003 (Smart Sensor Profile) -->
+                <Variable id="V_SSC4_Parameters" index="16387" accessRights="rw">
+                    <DatatypeRef datatypeId="DT_SSC_Parameters" />
+                    <Name textId="TI_V_SSC4_Parameters" />
+                </Variable>
+                
+            </VariableCollection>
+            
+            <ProcessDataCollection>
+                <ProcessData id="V_ProcessData">
+                    <!-- Definition of the Process Data In structure including a 16-bit "analog" data (MSBs),
+                    measurement unit, 4 Balluff defined bits and 4 Switching Signal Channels -->
+                    <ProcessDataIn id="V_ProcessDataIn" bitLength="32">
+                        <Datatype xsi:type="RecordT" bitLength="32">
+                            
+                            <RecordItem subindex="1" bitOffset="16">
+                                <SimpleDatatype xsi:type="IntegerT" bitLength="16" />
+                                <Name textId="TI_REC_PD_TargetPosition" />
+                            </RecordItem>
+                            
+                            <RecordItem subindex="2" bitOffset="8">
+                                <SimpleDatatype xsi:type="IntegerT" bitLength="8" />
+                                <Name textId="TI_REC_PD_PositionScale" />
+                            </RecordItem>
+                            
+                            <RecordItem subindex="3" bitOffset="7">
+                                <DatatypeRef datatypeId="DT_PD_SystemError_Bit" />
+                                <Name textId="TI_REC_PD_SystemError" />
+                            </RecordItem>
+                            
+                            <RecordItem subindex="4" bitOffset="6">
+                                <DatatypeRef datatypeId="DT_PD_NoTarget_Bit" />
+                                <Name textId="TI_REC_PD_NoTarget_Bit" />
+                            </RecordItem>
+                            
+                            <RecordItem subindex="5" bitOffset="5">
+                                <DatatypeRef datatypeId="DT_PD_OutOfRange_Bit" />
+                                <Name textId="TI_REC_PD_OutOfRangeBit" />
+                            </RecordItem>
+                            
+                            <!-- Bit4 (Unsafe value) is not supported -->
+                            
+                            <RecordItem subindex="6" bitOffset="3">
+                                <DatatypeRef datatypeId="DT_PD_SSC_Bit" />
+                                <Name textId="TI_REC_PD_SSC4_Bit" />
+                            </RecordItem>
+                            
+                            <RecordItem subindex="7" bitOffset="2">
+                                <DatatypeRef datatypeId="DT_PD_SSC_Bit" />
+                                <Name textId="TI_REC_PD_SSC3_Bit" />
+                            </RecordItem>
+                            
+                            <RecordItem subindex="8" bitOffset="1">
+                                <DatatypeRef datatypeId="DT_PD_SSC_Bit" />
+                                <Name textId="TI_REC_PD_SSC2_Bit" />
+                            </RecordItem>
+                            
+                            <RecordItem subindex="9" bitOffset="0">
+                                <DatatypeRef datatypeId="DT_PD_SSC_Bit" />
+                                <Name textId="TI_REC_PD_SSC1_Bit" />
+                            </RecordItem>
+                            
+                        </Datatype>
+                        <Name textId="TI_V_PD_ProcessDataInput" />
+                    </ProcessDataIn>
+                </ProcessData>
+            </ProcessDataCollection>
+            
+            <ErrorTypeCollection>
+                <StdErrorTypeRef additionalCode="17" />     <!-- 0x11 Index not available -->
+                <StdErrorTypeRef additionalCode="18" />     <!-- 0x12 Sub-index not available -->
+                <StdErrorTypeRef additionalCode="34" />     <!-- 0x22 Service temporarily not available - Device control -->
+                <StdErrorTypeRef additionalCode="35" />     <!-- 0x23 Access denied -->
+                <StdErrorTypeRef additionalCode="48" />     <!-- 0x30 Parameter out-of-range -->
+                <StdErrorTypeRef additionalCode="51" />     <!-- 0x33 Parameter length overrun -->
+                <StdErrorTypeRef additionalCode="52" />     <!-- 0x34 Parameter length underrun -->
+                <StdErrorTypeRef additionalCode="53" />     <!-- 0x35 Function not available -->
+                <StdErrorTypeRef additionalCode="54" />     <!-- 0x36 Function not available temp -->
+                <StdErrorTypeRef additionalCode="64" />     <!-- 0x40 Invalid parameter set -->
+                <StdErrorTypeRef additionalCode="65" />     <!-- 0x41 Inconsistent parameter set -->
+            </ErrorTypeCollection>
+            
+            <EventCollection>
+                <StdEventRef code="16384" />                <!-- 0x4000 Temperature overload -->
+                <StdEventRef code="16912" />                <!-- 0x4210 Temperature overrun -->
+                <StdEventRef code="16928" />                <!-- 0x4220 Temperature underrun -->
+                <Event code="36098" type="Error" >
+                    <Name textId="TI_Event_OutOfRange_Minus" />
+                    <Description textId="TD_Event_OutOfRange_Minus_Descr" />
+                </Event>
+                <Event code="36099" type="Error" >
+                    <Name textId="TI_Event_OutOfRange_Plus" />
+                    <Description textId="TD_Event_OutOfRange_Plus_Descr" />
+                </Event>
+                <Event code="36100" type="Error" >
+                    <Name textId="TI_Event_NoTarget" />
+                    <Description textId="TD_Event_NoTarget_Descr" />
+                </Event>
+            </EventCollection>
+            
+            <UserInterface>
+                <MenuCollection>
+                    <!-- The menu system consists of menus and sub-menus for different user access roles
+                        The following pre- and suffixes are used in this part:
+                        M - menu identifier
+                        SM - sub-menu
+                        MGR - menu group (the main menu structure)
+                        O/M/S - suffix for different user roles: (O)bserver, (M)aintenance, (S)pecialist
+                        The textID (label) for those items are named the same with a "TI_" prefix
+                    -->
+                    
+                    <!-- Menu for the direct parameter 1 structure elements can be found on Generic tab, no need to add it explicitly -->
+                    
+                    
+                    <Menu id="M_UserTags_RO">
+                        <Name textId="TI_M_UserTags" />
+                        <VariableRef variableId="V_ApplicationSpecificTag" accessRightRestriction="ro" />
+                        <VariableRef variableId="V_FunctionTag" accessRightRestriction="ro" />
+                        <VariableRef variableId="V_LocationTag" accessRightRestriction="ro" />
+                    </Menu>
+                    
+                    <Menu id="M_UserTags_W">
+                        <Name textId="TI_M_UserTags" />
+                        <VariableRef variableId="V_ApplicationSpecificTag" />
+                        <VariableRef variableId="V_FunctionTag" />
+                        <VariableRef variableId="V_LocationTag" />
+                    </Menu>
+                    
+                    
+                    <!-- Menu for the internal temperature structure elements -->
+                    <Menu id="M_DeviceTemperatures_OMS">
+                        <Name textId="TI_M_DeviceTemperatures" />
+                        <RecordItemRef variableId="V_DeviceTemperatures" subindex="1" unitCode="1001" displayFormat="Dec" />
+                        <RecordItemRef variableId="V_DeviceTemperatures" subindex="2" unitCode="1001" displayFormat="Dec" />
+                        <RecordItemRef variableId="V_DeviceTemperatures" subindex="3" unitCode="1001" displayFormat="Dec" />
+                        <RecordItemRef variableId="V_DeviceTemperatures" subindex="4" unitCode="1001" displayFormat="Dec" />
+                        <RecordItemRef variableId="V_DeviceTemperatures" subindex="5" unitCode="1001" displayFormat="Dec" />
+                    </Menu>
+                    
+                    <Menu id="M_TemperatureThresholds_O">
+                        <Name textId="TI_M_TemperatureThresholds" />
+                        <RecordItemRef variableId="V_TemperatureThresholds" subindex="1" unitCode="1001" displayFormat="Dec" accessRightRestriction="ro" />
+                        <RecordItemRef variableId="V_TemperatureThresholds" subindex="2" unitCode="1001" displayFormat="Dec" accessRightRestriction="ro" />
+                    </Menu>
+                    
+                    <Menu id="M_TemperatureThresholds_MS">
+                        <Name textId="TI_M_TemperatureThresholds" />
+                        <RecordItemRef variableId="V_TemperatureThresholds" subindex="1" unitCode="1001" displayFormat="Dec" />
+                        <RecordItemRef variableId="V_TemperatureThresholds" subindex="2" unitCode="1001" displayFormat="Dec" />
+                    </Menu>
+
+                    
+                    <!-- Menu for lifetime operation counters/timers (O/M/S roles) -->
+                    <Menu id="M_Diagnosis_OMS">
+                        <Name textId="TI_M_Diagnosis" />
+                        <RecordItemRef variableId="V_OperatingHoursCounters" subindex="1" unitCode="1059" displayFormat="Dec" />
+                        <RecordItemRef variableId="V_OperatingHoursCounters" subindex="2" unitCode="1059" displayFormat="Dec" />
+                        <RecordItemRef variableId="V_OperatingHoursCounters" subindex="3" unitCode="1059" displayFormat="Dec" />
+                        <RecordItemRef variableId="V_BootCycleCounters" subindex="1" displayFormat="Dec" />
+                        <RecordItemRef variableId="V_BootCycleCounters" subindex="2" displayFormat="Dec" />
+                    </Menu>
+                    
+                    
+                    <Menu id="M_MdcDescriptor_OMS">
+                        <Name textId="TI_M_MdcDescriptor" />
+                        
+                        <RecordItemRef variableId="V_MdcDescriptor" subindex="1" unitCode="1014" displayFormat="Dec" />       <!-- Lower limit -->
+                        <RecordItemRef variableId="V_MdcDescriptor" subindex="2" unitCode="1014" displayFormat="Dec" />       <!-- upper limit -->
+                        <RecordItemRef variableId="V_MdcDescriptor" subindex="3" displayFormat="Dec" />                       <!-- unit code -->
+                        <RecordItemRef variableId="V_MdcDescriptor" subindex="4" displayFormat="Dec" />                       <!-- scale -->
+                    </Menu>
+                    
+                    
+                    <Menu id="M_PdvParameters_O">
+                        <Name textId="TI_M_PdvParameters" />
+                        
+                        <VariableRef variableId="V_PDV_Offset" unitCode="1014" displayFormat="Dec" accessRightRestriction="ro" />
+                        <VariableRef variableId="V_PDV_Preset" unitCode="1014" displayFormat="Dec" accessRightRestriction="ro" />
+                        <VariableRef variableId="V_PDV_Output_Characteristics" accessRightRestriction="ro" />
+                        <VariableRef variableId="V_PDV_Detection_Range" />
+                    </Menu>
+                    
+                    <Menu id="M_PdvParameters_MS">
+                        <Name textId="TI_M_PdvParameters" />
+
+                        <VariableRef variableId="V_PDV_Offset" unitCode="1014" displayFormat="Dec" />
+                        <VariableRef variableId="V_PDV_Preset" unitCode="1014" displayFormat="Dec" />
+                        <VariableRef variableId="V_PDV_Output_Characteristics" />
+                        <VariableRef variableId="V_PDV_Detection_Range" />
+                    </Menu>
+                    
+                    <!-- Menu for Switching Signal Channel values and parameters -->
+                    <Menu id="SM_SSC1">
+                        <Name textId="TI_SM_SSC1" />
+                        <RecordItemRef variableId="V_SSC1_Values" subindex="1" displayFormat="Dec" />
+                        <RecordItemRef variableId="V_SSC1_Values" subindex="2" displayFormat="Dec" />
+                        <RecordItemRef variableId="V_SSC1_Parameters" subindex="1" />
+                        <RecordItemRef variableId="V_SSC1_Parameters" subindex="2" />
+                        <RecordItemRef variableId="V_SSC1_Parameters" subindex="3" displayFormat="Dec" />
+                    </Menu>
+                    
+                    <Menu id="SM_SSC2">
+                        <Name textId="TI_SM_SSC2" />
+                        <RecordItemRef variableId="V_SSC2_Values" subindex="1" displayFormat="Dec" />
+                        <RecordItemRef variableId="V_SSC2_Values" subindex="2" displayFormat="Dec" />
+                        <RecordItemRef variableId="V_SSC2_Parameters" subindex="1" />
+                        <RecordItemRef variableId="V_SSC2_Parameters" subindex="2" />
+                        <RecordItemRef variableId="V_SSC2_Parameters" subindex="3" displayFormat="Dec" />
+                    </Menu>
+                    
+                    <Menu id="SM_SSC3">
+                        <Name textId="TI_SM_SSC3" />
+                        <RecordItemRef variableId="V_SSC3_Values" subindex="1" displayFormat="Dec" />
+                        <RecordItemRef variableId="V_SSC3_Values" subindex="2" displayFormat="Dec" />
+                        <RecordItemRef variableId="V_SSC3_Parameters" subindex="1" />
+                        <RecordItemRef variableId="V_SSC3_Parameters" subindex="2" />
+                        <RecordItemRef variableId="V_SSC3_Parameters" subindex="3" displayFormat="Dec" />
+                    </Menu>
+                    
+                    <Menu id="SM_SSC4">
+                        <Name textId="TI_SM_SSC4" />
+                        <RecordItemRef variableId="V_SSC4_Values" subindex="1" displayFormat="Dec" />
+                        <RecordItemRef variableId="V_SSC4_Values" subindex="2" displayFormat="Dec" />
+                        <RecordItemRef variableId="V_SSC4_Parameters" subindex="1" />
+                        <RecordItemRef variableId="V_SSC4_Parameters" subindex="2" />
+                        <RecordItemRef variableId="V_SSC4_Parameters" subindex="3" displayFormat="Dec" />
+                    </Menu>
+                    
+                    <Menu id="M_SSC_Teachin_OM">
+                        <Name textId="TI_M_SSC_Teachin" />
+                        
+                        <VariableRef variableId="V_SSC_TeachChannel" />
+                        <VariableRef variableId="V_SSC_TeachStatus" />
+                        
+                        <MenuRef menuId="SM_SSC1" />
+                        <MenuRef menuId="SM_SSC2" />
+                        <MenuRef menuId="SM_SSC3" />
+                        <MenuRef menuId="SM_SSC4" />
+                    </Menu>
+                    
+                    <Menu id="M_SSC_Teachin_S">
+                        <Name textId="TI_M_SSC_Teachin" />
+                        
+                        <VariableRef variableId="V_SystemCommand"> <Button buttonValue="65" /> </VariableRef> <!-- SSC Teach SP1 -->
+                        <VariableRef variableId="V_SystemCommand"> <Button buttonValue="66" /> </VariableRef> <!-- SSC Teach SP2 -->
+                        <VariableRef variableId="V_SystemCommand"> <Button buttonValue="79" /> </VariableRef> <!-- SSC teach cancel -->
+                        <VariableRef variableId="V_SystemCommand"> <Button buttonValue="78" /> </VariableRef> <!-- SSC teach reset -->
+                        
+                        <VariableRef variableId="V_SSC_TeachChannel" />
+                        <VariableRef variableId="V_SSC_TeachStatus" />
+                        
+                        <MenuRef menuId="SM_SSC1" />
+                        <MenuRef menuId="SM_SSC2" />
+                        <MenuRef menuId="SM_SSC3" />
+                        <MenuRef menuId="SM_SSC4" />
+                    </Menu>
+                    
+                    <!-- Menu for Swing Counter feature (Specialist) -->
+                    <Menu id="M_SwingCounter_S">
+                        <Name textId="TI_M_SwingCounter" />
+                        
+                        <VariableRef variableId="V_SwingCounter_Channel" />
+                        
+                        <VariableRef variableId="V_SystemCommand"> <Button buttonValue="182" /> </VariableRef> <!-- Swing Counter SP1 teach -->
+                        <VariableRef variableId="V_SystemCommand"> <Button buttonValue="183" /> </VariableRef> <!-- Swing Counter reset -->
+                        
+                        <RecordItemRef variableId="V_SwingCounter_Channel1_Config" subindex="1" displayFormat="Dec" />
+                        <RecordItemRef variableId="V_SwingCounter_Channel1_Config" subindex="2" displayFormat="Dec" />
+                        <RecordItemRef variableId="V_SwingCounter_Channel1_Config" subindex="3" />
+                        <RecordItemRef variableId="V_SwingCounter_Channel1_Counter" subindex="1" displayFormat="Dec" />
+                        <RecordItemRef variableId="V_SwingCounter_Channel1_Counter" subindex="2" displayFormat="Dec" />
+                        
+                        <RecordItemRef variableId="V_SwingCounter_Channel2_Config" subindex="1" displayFormat="Dec" />
+                        <RecordItemRef variableId="V_SwingCounter_Channel2_Config" subindex="2" displayFormat="Dec" />
+                        <RecordItemRef variableId="V_SwingCounter_Channel2_Config" subindex="3" />
+                        <RecordItemRef variableId="V_SwingCounter_Channel2_Counter" subindex="1" displayFormat="Dec" />
+                        <RecordItemRef variableId="V_SwingCounter_Channel2_Counter" subindex="2" displayFormat="Dec" />
+                        
+                        <RecordItemRef variableId="V_SwingCounter_Channel3_Config" subindex="1" displayFormat="Dec" />
+                        <RecordItemRef variableId="V_SwingCounter_Channel3_Config" subindex="2" displayFormat="Dec" />
+                        <RecordItemRef variableId="V_SwingCounter_Channel3_Config" subindex="3" />
+                        <RecordItemRef variableId="V_SwingCounter_Channel3_Counter" subindex="1" displayFormat="Dec" />
+                        <RecordItemRef variableId="V_SwingCounter_Channel3_Counter" subindex="2" displayFormat="Dec" />
+                    </Menu>
+                   
+                    <!-- Menu for Swing Counter feature (Observer and Maintenance) -->
+                    <Menu id="M_SwingCounter_OM">
+                        <Name textId="TI_M_SwingCounter" />
+                        
+                        <VariableRef variableId="V_SwingCounter_Channel" />
+                        
+                        <RecordItemRef variableId="V_SwingCounter_Channel1_Config" subindex="1" displayFormat="Dec" accessRightRestriction="ro" />
+                        <RecordItemRef variableId="V_SwingCounter_Channel1_Config" subindex="2" displayFormat="Dec" accessRightRestriction="ro" />
+                        <RecordItemRef variableId="V_SwingCounter_Channel1_Config" subindex="3" accessRightRestriction="ro" />
+                        <RecordItemRef variableId="V_SwingCounter_Channel1_Counter" subindex="1" displayFormat="Dec" />
+                        <RecordItemRef variableId="V_SwingCounter_Channel1_Counter" subindex="2" displayFormat="Dec" />
+                        
+                        <RecordItemRef variableId="V_SwingCounter_Channel2_Config" subindex="1" displayFormat="Dec" accessRightRestriction="ro" />
+                        <RecordItemRef variableId="V_SwingCounter_Channel2_Config" subindex="2" displayFormat="Dec" accessRightRestriction="ro" />
+                        <RecordItemRef variableId="V_SwingCounter_Channel2_Config" subindex="3" accessRightRestriction="ro" />
+                        <RecordItemRef variableId="V_SwingCounter_Channel2_Counter" subindex="1" displayFormat="Dec" />
+                        <RecordItemRef variableId="V_SwingCounter_Channel2_Counter" subindex="2" displayFormat="Dec" />
+                        
+                        <RecordItemRef variableId="V_SwingCounter_Channel3_Config" subindex="1" displayFormat="Dec" accessRightRestriction="ro" />
+                        <RecordItemRef variableId="V_SwingCounter_Channel3_Config" subindex="2" displayFormat="Dec" accessRightRestriction="ro" />
+                        <RecordItemRef variableId="V_SwingCounter_Channel3_Config" subindex="3" accessRightRestriction="ro" />
+                        <RecordItemRef variableId="V_SwingCounter_Channel3_Counter" subindex="1" displayFormat="Dec" />
+                        <RecordItemRef variableId="V_SwingCounter_Channel3_Counter" subindex="2" displayFormat="Dec" />
+                    </Menu>
+                   
+                    
+                    <!-- Menu groups (the main menus)   -->
+                    
+                    <Menu id="MGR_Identification_O">
+                        <Name textId="TI_MGR_Identification" />
+                        
+                        <VariableRef variableId="V_VendorName" />
+                        <VariableRef variableId="V_VendorText" />
+                        <VariableRef variableId="V_ProductName" />
+                        <VariableRef variableId="V_ProductText" />
+                        <VariableRef variableId="V_ProductID" />
+                        <VariableRef variableId="V_HardwareRevision" />
+                        <VariableRef variableId="V_FirmwareRevision" />
+                        <MenuRef menuId="M_UserTags_RO" />
+                    </Menu>
+                    
+                    <Menu id="MGR_Identification_MS">
+                        <Name textId="TI_MGR_Identification" />
+                        
+                        <VariableRef variableId="V_VendorName" />
+                        <VariableRef variableId="V_VendorText" />
+                        <VariableRef variableId="V_ProductName" />
+                        <VariableRef variableId="V_ProductText" />
+                        <VariableRef variableId="V_ProductID" />
+                        <VariableRef variableId="V_HardwareRevision" />
+                        <VariableRef variableId="V_FirmwareRevision" />
+                        <MenuRef menuId="M_UserTags_W" />
+                    </Menu>
+                    
+                    <Menu id="MGR_Observation_OMS">
+                        <Name textId="TI_MGR_Observation" />
+                        
+                        <VariableRef variableId="V_ProcessDataInput" />
+                        <MenuRef menuId="M_DeviceTemperatures_OMS" />
+                        <MenuRef menuId="M_MdcDescriptor_OMS" />
+                    </Menu>
+                    
+                    
+                    <Menu id="MGR_Diagnosis_O">
+                        <Name textId="TI_MGR_Diagnosis" />
+                        
+                        <VariableRef variableId="V_DeviceStatus" />
+                        <VariableRef variableId="V_DetailedDeviceStatus" />
+                        <MenuRef menuId="M_Diagnosis_OMS" />
+                    </Menu>
+                    
+                    <Menu id="MGR_Diagnosis_MS">
+                        <Name textId="TI_MGR_Diagnosis" />
+                        
+                        <VariableRef variableId="V_DeviceStatus" />
+                        <VariableRef variableId="V_DetailedDeviceStatus" />
+                        <VariableRef variableId="V_SystemCommand"> <Button buttonValue="165" /> </VariableRef> <!-- Reset maintenance -->
+                        <MenuRef menuId="M_Diagnosis_OMS" />
+                    </Menu>
+                    
+                    
+                    <Menu id="MGR_Parameter_O">
+                        <Name textId="TI_MGR_Parameter" />
+                        
+                        <VariableRef variableId="V_DeviceAccessLocks" accessRightRestriction="ro" />
+                    
+                        <MenuRef menuId="M_PdvParameters_O" />
+                        <MenuRef menuId="M_SSC_Teachin_OM" />
+                        <MenuRef menuId="M_TemperatureThresholds_O" />
+                        <MenuRef menuId="M_UserTags_RO" />
+                        <MenuRef menuId="M_SwingCounter_OM" />
+                    </Menu>
+                    
+                    
+                    <Menu id="MGR_Parameter_M">
+                        <Name textId="TI_MGR_Parameter" />
+                        
+                        <VariableRef variableId="V_DeviceAccessLocks" />
+                        
+                        <MenuRef menuId="M_PdvParameters_MS" />
+                        <MenuRef menuId="M_SSC_Teachin_OM" />
+                        <MenuRef menuId="M_TemperatureThresholds_MS" />
+                        <MenuRef menuId="M_UserTags_RO" />
+                        <MenuRef menuId="M_SwingCounter_OM" />
+                    </Menu>
+                    
+                    
+                    <Menu id="MGR_Parameter_S">
+                        <Name textId="TI_MGR_Parameter" />
+                        
+                        <VariableRef variableId="V_SystemCommand"> <Button buttonValue="128" /> </VariableRef> <!-- Sensor reset -->
+                        <VariableRef variableId="V_SystemCommand"> <Button buttonValue="130" /> </VariableRef> <!-- Factory reset -->
+                        
+                        <VariableRef variableId="V_DeviceAccessLocks" />
+                        
+                        <VariableRef variableId="V_SystemCommand"> <Button buttonValue="224" /> </VariableRef> <!-- Teach preset -->
+                        <VariableRef variableId="V_SystemCommand"> <Button buttonValue="225" /> </VariableRef> <!-- Teach low limit -->
+                        <VariableRef variableId="V_SystemCommand"> <Button buttonValue="226" /> </VariableRef> <!-- Teach high limit -->
+                        
+                        <MenuRef menuId="M_SSC_Teachin_S" />
+                        <MenuRef menuId="M_PdvParameters_MS" />
+                        <MenuRef menuId="M_TemperatureThresholds_MS" />
+                        <MenuRef menuId="M_UserTags_W" />
+                        <MenuRef menuId="M_SwingCounter_S" />
+                    </Menu>
+                    
+                    
+                </MenuCollection>
+                
+                
+                <ObserverRoleMenuSet>
+                    <IdentificationMenu menuId="MGR_Identification_O" />
+                    <ParameterMenu menuId="MGR_Parameter_O" />
+                    <ObservationMenu menuId="MGR_Observation_OMS" />
+                    <DiagnosisMenu menuId="MGR_Diagnosis_O" />
+                </ObserverRoleMenuSet>
+                
+                <MaintenanceRoleMenuSet>
+                    <IdentificationMenu menuId="MGR_Identification_MS" />
+                    <ParameterMenu menuId="MGR_Parameter_M" /> 
+                    <ObservationMenu menuId="MGR_Observation_OMS" />
+                    <DiagnosisMenu menuId="MGR_Diagnosis_MS" />
+                </MaintenanceRoleMenuSet>
+                
+                <SpecialistRoleMenuSet>
+                    <IdentificationMenu menuId="MGR_Identification_MS" />
+                    <ParameterMenu menuId="MGR_Parameter_S" />
+                    <ObservationMenu menuId="MGR_Observation_OMS" />
+                    <DiagnosisMenu menuId="MGR_Diagnosis_MS" />
+                </SpecialistRoleMenuSet>
+                
+            </UserInterface>
+        </DeviceFunction>
+    </ProfileBody>
+    <CommNetworkProfile xsi:type="IOLinkCommNetworkProfileT" iolinkRevision="V1.1">
+        <TransportLayers>
+            <PhysicalLayer bitrate="COM2" minCycleTime="3000" sioSupported="false" mSequenceCapability="25">
+                <Connection xsi:type="M12-4ConnectionT" connectionSymbol="Balluff-S04-con-pic.png">
+                    <ProductRef productId="BIP001Y" />
+                    <!-- @todo Check the wire names -->
+                    <Wire1 function="L+" />
+                    <Wire2 function="NC" />
+                    <Wire3 function="L-" />
+                    <Wire4 function="C/Q" />
+                </Connection>
+            </PhysicalLayer>
+        </TransportLayers>
+        <Test>
+            <Config1 index="83" testValue="0x88,0x7D" />     <!-- temperature thresholds (-125, 125) -->
+            <Config2 index="16368" testValue="0xB7" />
+            <!-- Read/write test value for the Application Specific Tag (index 0x0018) using text 'ISDU 16-bit write test value!' -->
+            <Config3 index="24" testValue="0x53,0x6f,0x6d,0x65,0x74,0x68,0x69,0x6e,0x67,0x20,0x69,0x6e,0x63,0x72,0x65,0x64,0x69,0x62,0x6c,0x79,0x20,0x6c,0x6f,0x6e,0x67" />
+            <Config7 index="64" >
+                <EventTrigger appearValue="1" disappearValue="2" />
+                <EventTrigger appearValue="11" disappearValue="12" />
+            </Config7>
+            
+        </Test>
+    </CommNetworkProfile>
+    <ExternalTextCollection>
+        <PrimaryLanguage xml:lang="en">
+        
+            <!-- Text IDs for GENERAL menus --> 
+            <Text id="TI_MGR_Diagnosis" value="Diagnosis Menu" />
+            <Text id="TI_MGR_Identification" value="Identification Menu" />
+            <Text id="TI_MGR_Observation" value="Observation Menu" />
+            <Text id="TI_MGR_Parameter" value="Parameters Menu" />
+            
+            <Text id="TI_M_Diagnosis" value="Usage Values" />
+            
+        
+            <!-- Text IDs for common internal parameters -->
+            <Text id="TI_INF_VendorText" value="innovating automation" />
+            <Text id="TI_INF_VendorUrl" value="http://www.balluff.com" />
+            <Text id="TI_INF_DeviceFamily" value="BIP - Balluff Inductive Positioning System" />
+            <Text id="TI_INF_DeviceName" value="BIP LD2-T017-01" />
+            <Text id="TI_Variant_BIP001Y" value="BIP LD2-T017-01-EP00,5-S4" />
+            <Text id="TI_Description_BIP001Y" value="Inductive Positioning System" />
+            
+            <!-- Text IDs for user tags -->
+            <Text id="TI_M_UserTags" value="Identification tags" />
+            
+            <Text id="TI_V_LocationTag" value="Location tag" />
+            <Text id="TI_V_FunctionTag" value="Function tag" />
+            
+            <!-- Text IDs for Process Data elements -->
+            <Text id="TI_V_PD_ProcessDataInput" value="Process Data Inputs" />
+            <Text id="TI_REC_PD_SystemError" value="System error" />
+              <Text id="TI_VAL_PD_NoSystemError" value="No system error" />
+              <Text id="TI_VAL_PD_SystemError" value="System error occured!" />
+            <Text id="TI_REC_PD_NoTarget_Bit" value="Target visibility" />
+              <Text id="TI_VAL_PD_NoTargetVisible" value="No target in sight" />
+              <Text id="TI_VAL_PD_TargetVisible" value="Target is visible" />
+            <Text id="TI_REC_PD_OutOfRangeBit" value="Target out-of-range" />
+              <Text id="TI_VAL_PD_TargetOutOfRange" value="Target is out of measurement range" />
+              <Text id="TI_VAL_PD_TargetInRange" value="Target is in measurement range" />
+            <Text id="TI_REC_PD_TargetPosition" value="Target position" />
+            <Text id="TI_V_PDV_Detection_Range" value="Detection range" />
+              <Text id="TI_VAL_PDV_Detection_Range_Enable" value="Detection range enabled" />
+              <Text id="TI_VAL_PDV_Detection_Range_Disable" value="Detection range disabled" />
+            <Text id="TI_REC_PD_PositionScale" value="Position scale" />
+
+            <Text id="TI_REC_PD_SSC1_Bit" value="SSC1" />
+            <Text id="TI_REC_PD_SSC2_Bit" value="SSC2" />
+            <Text id="TI_REC_PD_SSC3_Bit" value="SSC3" />
+            <Text id="TI_REC_PD_SSC4_Bit" value="SSC4" />
+              <Text id="TI_VAL_PD_SSC_Inactive" value="Inactive" />
+              <Text id="TI_VAL_PD_SSC_Active" value="Active" />
+            
+            <!-- Text IDs for Switching Signal Channels -->
+            <Text id="TI_M_SSC_Teachin" value="Switching Signal Channels" />
+            <Text id="TI_SM_SSC1" value="Switching Signal Channel 1" />
+            <Text id="TI_SM_SSC2" value="Switching Signal Channel 2" />
+            <Text id="TI_SM_SSC3" value="Switching Signal Channel 3" />
+            <Text id="TI_SM_SSC4" value="Switching Signal Channel 4" />
+            
+            <Text id="TI_CMD_SSC_Teachin_SP1" value="Teach SP1" />
+            <Text id="TI_CMD_SSC_Teachin_SP2" value="Teach SP2" />
+            <Text id="TI_CMD_SSC_Teachin_SP1TP1" value="Teach SP1 TP1" />
+            <Text id="TI_CMD_SSC_Teachin_SP1TP2" value="Teach SP1 TP2" />
+            <Text id="TI_CMD_SSC_Teachin_SP2TP1" value="Teach SP2 TP1" />
+            <Text id="TI_CMD_SSC_Teachin_SP2TP2" value="Teach SP2 TP2" />
+            <Text id="TI_CMD_SSC_Teachin_Reset" value="Teach reset" />
+            <Text id="TI_CMD_SSC_Teachin_Cancel" value="Teach cancel" />
+            
+            <Text id="TI_REC_SSC_SetPoint1" value="Setpoint 1" />
+            <Text id="TI_REC_SSC_SetPoint2" value="Setpoint 2" />
+            
+            <Text id="TI_REC_SSC_Mode" value="Switching mode" />
+              <Text id="TI_REC_VAL_SSC_Mode_Inactive" value="Channel inactive" />
+              <Text id="TI_REC_VAL_SSC_Mode_Single_Point" value="Single point mode" />
+              <Text id="TI_REC_VAL_SSC_Mode_Windowed" value="Windowed mode" />
+              <Text id="TI_REC_VAL_SSC_Mode_Two_Points" value="Two-point mode" />
+            <Text id="TI_REC_SSC_Logic" value="Logic" />
+              <Text id="TI_REC_VAL_SSC_Logic_Normal" value="High active" />
+              <Text id="TI_REC_VAL_SSC_Logic_Inverted" value="Low active" />
+            <Text id="TI_REC_SSC_Hysteresis" value="Hysteresis" />
+            
+            <Text id="TI_REC_SSC_TeachinStatus_SP1_TP1" value="Teach Flag SP1 TP1" />
+            <Text id="TI_REC_SSC_TeachinStatus_SP1_TP2" value="Teach Flag SP1 TP2" />
+            <Text id="TI_REC_SSC_TeachinStatus_SP2_TP1" value="Teach Flag SP2 TP1" />
+            <Text id="TI_REC_SSC_TeachinStatus_SP2_TP2" value="Teach Flag SP2 TP2" />
+              <Text id="TI_VAL_SSC_TeachinStatus_Set" value="Value set" />
+              <Text id="TI_VAL_SSC_TeachinStatus_NotSet" value="Value not set" />
+            
+            <Text id="TI_V_SSC_TeachStatus" value="SSC teach-in status" />
+            <Text id="TI_REC_SSC_TeachinStatus_State" value="State" />
+              <Text id="TI_VAL_SSC_TeachinState_Idle" value="Idle" />
+              <Text id="TI_VAL_SSC_TeachinState_Success" value="Success" />
+              <Text id="TI_VAL_SSC_TeachinState_Error" value="Error" />
+            
+            <Text id="TI_V_SSC1_Values" value="SSC1 setpoints" />
+            <Text id="TI_V_SSC2_Values" value="SSC2 setpoints" />
+            <Text id="TI_V_SSC3_Values" value="SSC3 setpoints" />
+            <Text id="TI_V_SSC4_Values" value="SSC4 setpoints" />
+            
+            <Text id="TI_V_SSC1_Parameters" value="SSC1 parameters" />
+            <Text id="TI_V_SSC2_Parameters" value="SSC2 parameters" />
+            <Text id="TI_V_SSC3_Parameters" value="SSC3 parameters" />
+            <Text id="TI_V_SSC4_Parameters" value="SSC4 parameters" />
+            
+            <Text id="TI_V_SSC_TeachChannel" value="Selected Switching Signal Channel" />
+            
+              <Text id="TI_VAL_TeachChannel_Default" value="Default Channel (SSC1)" />
+              <Text id="TI_VAL_TeachChannel_SSC1" value="SSC1" />
+              <Text id="TI_VAL_TeachChannel_SSC2" value="SSC2" />
+              <Text id="TI_VAL_TeachChannel_SSC3" value="SSC3" />
+              <Text id="TI_VAL_TeachChannel_SSC4" value="SSC4" />
+            
+            <!-- Text IDs for Swing Counter feature -->
+            <Text id="TI_CMD_SwingCounter_Teach" value="Teach Swing Counter Channel Position Value" />
+            <Text id="TI_CMD_SwingCounter_Reset" value="Reset Swing Counter Channel" />
+            
+            <Text id="TI_M_SwingCounter" value="Swing Counter" />
+            
+            <Text id="TI_V_SwingCounter_Channel" value="Selected Swing Counter Channel" />
+			  <Text id="TI_VAL_SwingCounter_Default" value="Default Channel (SCC1)" />	
+              <Text id="TI_VAL_SwingCounter_Channel1" value="Swing Counter Channel 1" />
+              <Text id="TI_VAL_SwingCounter_Channel2" value="Swing Counter Channel 2" />
+              <Text id="TI_VAL_SwingCounter_Channel3" value="Swing Counter Channel 3" />
+            
+            <Text id="TI_V_SwingCounter_Channel1_Config" value="Swing Counter Channel 1 Configuration" />
+            <Text id="TI_V_SwingCounter_Channel2_Config" value="Swing Counter Channel 2 Configuration" />
+            <Text id="TI_V_SwingCounter_Channel3_Config" value="Swing Counter Channel 3 Configuration" />
+              <Text id="TI_REC_SwingCounter_Config_Position" value="Position Value" />
+              <Text id="TI_REC_SwingCounter_Config_Span" value="Span" />
+              <Text id="TI_REC_SwingCounter_Config_Mode" value="Mode" />
+                <Text id="TI_VAL_SwingCounter_Mode_OFF" value="Disabled" />
+                <Text id="TI_VAL_SwingCounter_Mode_ON" value="Enabled" />
+            
+            <Text id="TI_V_SwingCounter_Channel1_Counter" value="Swing Counter Channel 1 Counter Values" />
+            <Text id="TI_V_SwingCounter_Channel2_Counter" value="Swing Counter Channel 2 Counter Values" />
+            <Text id="TI_V_SwingCounter_Channel3_Counter" value="Swing Counter Channel 3 Counter Values" />
+              <Text id="TI_REC_SwingCounter_Counter_Lifetime" value="Lifetime" />
+              <Text id="TI_REC_SwingCounter_Counter_Maintenance" value="Maintenance" />
+            
+            <!-- Command texts for Linearity Range Teach-in feature -->
+            <Text id="TI_CMD_Reset_Maintenance" value="Reset maintenance" />
+            <Text id="TI_CMD_Linear_Teach_Preset" value="Teach preset" />
+            <Text id="TI_CMD_Linear_Teach_LowerLimit" value="Teach lower limit" />
+            <Text id="TI_CMD_Linear_Teach_UpperLimit" value="Teach upper limit" />
+            
+            
+            <!-- Text IDs for Temperature feature -->
+            <Text id="TI_M_DeviceTemperatures" value="Device Temperatures" />
+            <Text id="TI_M_TemperatureThresholds" value="Temperature Thresholds" />
+            
+            <Text id="TI_V_DeviceTemperatures" value="Device temperature values" />
+              <Text id="TI_REC_DeviceTemperatures_Current" value="Actual" />
+              <Text id="TI_REC_DeviceTemperatures_StartupMin" value="Minimum since startup" />
+              <Text id="TI_REC_DeviceTemperatures_StartupMax" value="Maximum since startup" />
+              <Text id="TI_REC_DeviceTemperatures_LifetimeMin" value="Minimum during lifetime" />
+              <Text id="TI_REC_DeviceTemperatures_LifetimeMax" value="Maximum during lifetime" />
+
+            <Text id="TI_V_TemperatureThresholds" value="Temperature threshold values" />
+              <Text id="TI_REC_TemperatureThreshold_Lower" value="Lower threshold" />
+              <Text id="TI_REC_TemperatureThreshold_Upper" value="Upper threshold" />
+            
+            <!-- Text IDs for the Measurement Data Collection Descriptor -->
+            <Text id="TI_M_MdcDescriptor" value="Measurement Data Collection Descriptor" />
+            
+            <Text id="TI_V_MdcDescriptor" value="MDC Descriptor" />
+              <Text id="TI_REC_MdcDescriptor_LowerLimit" value="Lower limit" />
+              <Text id="TI_REC_MdcDescriptor_UpperLimit" value="Upper limit" />
+              <Text id="TI_REC_MdcDescriptor_UnitCode" value="Unit code" />
+              <Text id="TI_REC_MdcDescriptor_Scale" value="Scale" />
+            
+
+            <!-- Text IDs for the Operating Hours Counter feature -->
+            <Text id="TI_V_OperatingHoursCounters" value="Sensor usage time" />
+              <Text id="TI_REC_OperatingHoursCounters_Total" value="Total number of operating hours" />
+              <Text id="TI_REC_OperatingHoursCounters_Maintenance" value="Operating hours since maintenance" />
+              <Text id="TI_REC_OperatingHoursCounters_Startup" value="Operating hours since startup" />
+            
+            
+            <!-- Text IDs for the Boot Cycle Counter feature -->
+            <Text id="TI_V_BootCycleCounters" value="Sensor boot cycle counter" />
+              <Text id="TI_REC_BootCycleCounters_Total" value="Total number of boot cycles" />
+              <Text id="TI_REC_BootCycleCounters_Maintenance" value="Boot cycles since maintenance" />
+            
+            
+            <!-- Text IDs for PDV user parameters -->
+            <Text id="TI_M_PdvParameters" value="Process Data Value Parameters" />
+            
+            <Text id="TI_V_PDV_Offset" value="Measurement value offset" />
+            <Text id="TI_V_PDV_Preset" value="Measurement value preset" />
+            <Text id="TI_V_PDV_Output_Characteristics" value="Output characteristics" />
+              <Text id="TI_VAL_PDV_Output_Characteristics_Rising" value="Sensor output normal" />
+              <Text id="TI_VAL_PDV_Output_Characteristics_Falling" value="Sensor output inverted" />
+        
+            <Text id="TI_Event_OutOfRange_Minus" value="Target out-of-range minus" />
+            <Text id="TI_Event_OutOfRange_Plus" value="Target out-of-range plus" />
+            <Text id="TI_Event_NoTarget" value="No Target" />
+            
+            <Text id="TD_Event_OutOfRange_Minus_Descr" value="Target position is out-of-range on the low side" />
+            <Text id="TD_Event_OutOfRange_Plus_Descr" value="Target position is out-of-range on the high side" />
+            <Text id="TD_Event_NoTarget_Descr" value="Target cannot be aquired" />
+            
+        </PrimaryLanguage>
+    </ExternalTextCollection>
+    <Stamp crc="954947175"><Checker name="IODD-Checker V1.1.4" version="V1.1.4.0"/></Stamp>
+</IODevice>

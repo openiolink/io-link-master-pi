@@ -1,0 +1,327 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<IODevice xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.io-link.com/IODD/2009/11" xsi:schemaLocation="http://www.io-link.com/IODD/2009/11 IODD1.0.1.xsd">  
+    <DocumentInfo version="V2.1.1" releaseDate="2013-01-23" copyright="Copyright 2012, Balluff GmbH"/>
+    <ProfileHeader>
+        <ProfileIdentification>IO-Link Device Profile</ProfileIdentification>
+        <ProfileRevision>1.00</ProfileRevision>
+        <ProfileName>Device Profile for IO-Link Devices</ProfileName>
+        <ProfileSource>IO-Link Consortium</ProfileSource>
+        <ProfileClassID>Device</ProfileClassID>
+        <ISO15745Reference>
+            <ISO15745Part>1</ISO15745Part>
+            <ISO15745Edition>1</ISO15745Edition>
+            <ProfileTechnology>IODD</ProfileTechnology>
+        </ISO15745Reference>
+    </ProfileHeader>
+    <ProfileBody>
+        <DeviceIdentity vendorId="888" vendorName="Balluff GmbH" deviceId="262914">
+            <VendorText textId="TI_VendorText"/>
+            <VendorUrl textId="TI_VendorUrl"/>
+            <VendorLogo name="Balluff-logo.png"/>
+            <DeviceFamily textId="TI_DeviceFamily"/>
+            <DeviceVariantCollection>
+                <DeviceVariant productId="BGL003F" hardwareRevision="V1.2" firmwareRevision="V1.3" deviceSymbol="Balluff-BGL_50C-007-S4-pic.png" deviceIcon="Balluff-BGL_50C-007-S4-icon.png">
+                    <ProductName textId="TI_DeviceName"/>
+                    <ProductText textId="TI_DeviceText"/>
+                </DeviceVariant>
+            </DeviceVariantCollection>
+        </DeviceIdentity>
+        <DeviceFunction>
+            <DatatypeCollection>
+                <Datatype xsi:type="RecordT" id="DT_ProcessDataIn" subindexAccessSupported="false" bitLength="16">
+                    <RecordItem subindex="1" bitOffset="0">
+                        <SimpleDatatype xsi:type="BooleanT">
+                            <SingleValue value="true">
+                                <Name textId="TI_ON"/>
+                            </SingleValue>
+                            <SingleValue value="false">
+                                <Name textId="TI_OFF"/>
+                            </SingleValue>
+                        </SimpleDatatype>
+                        <Name textId="TI_V_PDI_Cam1"/>
+                    </RecordItem>
+                    <RecordItem subindex="2" bitOffset="1">
+                        <SimpleDatatype xsi:type="BooleanT">
+                            <SingleValue value="true">
+                                <Name textId="TI_ON"/>
+                            </SingleValue>
+                            <SingleValue value="false">
+                                <Name textId="TI_OFF"/>
+                            </SingleValue>
+                        </SimpleDatatype>
+                        <Name textId="TI_V_PDI_Cam2"/>
+                    </RecordItem>
+                    <RecordItem subindex="3" bitOffset="2">
+                        <SimpleDatatype xsi:type="BooleanT">
+                            <SingleValue value="true">
+                                <Name textId="TI_ON"/>
+                            </SingleValue>
+                            <SingleValue value="false">
+                                <Name textId="TI_OFF"/>
+                            </SingleValue>
+                        </SimpleDatatype>
+                        <Name textId="TI_V_PDI_Cam3"/>
+                    </RecordItem>
+                    <RecordItem subindex="4" bitOffset="3">
+                        <SimpleDatatype xsi:type="BooleanT">
+                            <SingleValue value="true">
+                                <Name textId="TI_ON"/>
+                            </SingleValue>
+                            <SingleValue value="false">
+                                <Name textId="TI_OFF"/>
+                            </SingleValue>
+                        </SimpleDatatype>
+                        <Name textId="TI_V_PDI_Cam4"/>
+                    </RecordItem>
+                    <RecordItem subindex="5" bitOffset="4">
+                        <SimpleDatatype xsi:type="BooleanT">
+                            <SingleValue value="true">
+                                <Name textId="TI_ON"/>
+                            </SingleValue>
+                            <SingleValue value="false">
+                                <Name textId="TI_OFF"/>
+                            </SingleValue>
+                        </SimpleDatatype>
+                        <Name textId="TI_V_PDI_Cam5"/>
+                    </RecordItem>
+                    <RecordItem subindex="6" bitOffset="5">
+                        <SimpleDatatype xsi:type="BooleanT">
+                            <SingleValue value="true">
+                                <Name textId="TI_ON"/>
+                            </SingleValue>
+                            <SingleValue value="false">
+                                <Name textId="TI_OFF"/>
+                            </SingleValue>
+                        </SimpleDatatype>
+                        <Name textId="TI_V_PDI_Cam6"/>
+                    </RecordItem>
+                    <RecordItem subindex="7" bitOffset="6">
+                        <SimpleDatatype xsi:type="UIntegerT" bitLength="10"/>
+                        <Name textId="TI_V_PDI_Position"></Name>
+                    </RecordItem>            
+                </Datatype>
+            </DatatypeCollection>
+            <VariableCollection>
+                <StdVariableRef id="V_DirectParameters_1"/>
+                <StdVariableRef id="V_DirectParameters_2"/>
+                <StdVariableRef id="V_SystemCommand"/>
+                <StdVariableRef id="V_VendorName" defaultValue="BALLUFF "/>
+                <StdVariableRef id="V_VendorText" defaultValue="www.balluff.com"/>
+                <StdVariableRef id="V_ProductName" defaultValue="BGL 50C-007-S4"/>
+                <StdVariableRef id="V_ProductID" defaultValue="BGL003F"/>
+                <StdVariableRef id="V_ProductText" defaultValue="Analog Slot Sensor"/>
+                <StdVariableRef id="V_SerialNumber" defaultValue="00000000"/>
+                <StdVariableRef id="V_HardwareRevision" defaultValue="V1.2"/>
+                <StdVariableRef id="V_FirmwareRevision" defaultValue="V1.3"/>
+                <StdVariableRef id="V_ProcessDataIn"/>
+                <Variable id="v_GenSet" index="64" accessRights="rw">
+                    <Datatype xsi:type="RecordT" subindexAccessSupported="false" bitLength="3">
+                        <RecordItem subindex="1" bitOffset="0">
+                            <SimpleDatatype xsi:type="BooleanT">
+                                <SingleValue value="true">
+                                    <Name textId="TI_FALLING"/>
+                                </SingleValue>
+                                <SingleValue value="false">
+                                    <Name textId="TI_RISING"/>
+                                </SingleValue>
+                            </SimpleDatatype>
+                            <Name textId="TI_V_GenSet_Cam1"></Name>
+                        </RecordItem>
+                        <RecordItem subindex="2" bitOffset="1">
+                            <SimpleDatatype xsi:type="BooleanT">
+                                <SingleValue value="true">
+                                    <Name textId="TI_AREA"/>
+                                </SingleValue>
+                                <SingleValue value="false">
+                                    <Name textId="TI_POINT"/>
+                                </SingleValue>
+                            </SimpleDatatype>
+                            <Name textId="TI_V_GenSet_Cam2"></Name>
+                        </RecordItem>
+                        <RecordItem subindex="3" bitOffset="2">
+                            <SimpleDatatype xsi:type="BooleanT">
+                                <SingleValue value="true">
+                                    <Name textId="TI_ON"/>
+                                </SingleValue>
+                                <SingleValue value="false">
+                                    <Name textId="TI_OFF"/>
+                                </SingleValue>
+                            </SimpleDatatype>
+                            <Name textId="TI_V_GenSet_Cam3"></Name>
+                        </RecordItem>
+                    </Datatype>
+                    <Name textId="TI_V_GenSet"></Name>
+                    <Description textId="TID_V_GenSet"></Description>
+                </Variable>
+                <Variable id="V_Inversion" index="65" accessRights="rw">
+                    <Datatype xsi:type="RecordT" subindexAccessSupported="false" bitLength="4">
+                        <RecordItem subindex="1" bitOffset="0">
+                            <SimpleDatatype xsi:type="BooleanT">
+                                <SingleValue value="true">
+                                    <Name textId="TI_ON"/>
+                                </SingleValue>
+                                <SingleValue value="false">
+                                    <Name textId="TI_OFF"/>
+                                </SingleValue>
+                            </SimpleDatatype>
+                            <Name textId="TI_V_Inversion_Cam1"></Name>
+                        </RecordItem>
+                        <RecordItem subindex="2" bitOffset="1">
+                            <SimpleDatatype xsi:type="BooleanT">
+                                <SingleValue value="true">
+                                    <Name textId="TI_ON"/>
+                                </SingleValue>
+                                <SingleValue value="false">
+                                    <Name textId="TI_OFF"/>
+                                </SingleValue>
+                            </SimpleDatatype>
+                            <Name textId="TI_V_Inversion_Cam2"></Name>
+                        </RecordItem>
+                        <RecordItem subindex="3" bitOffset="2">
+                            <SimpleDatatype xsi:type="BooleanT">
+                                <SingleValue value="true">
+                                    <Name textId="TI_ON"/>
+                                </SingleValue>
+                                <SingleValue value="false">
+                                    <Name textId="TI_OFF"/>
+                                </SingleValue>
+                            </SimpleDatatype>
+                            <Name textId="TI_V_Inversion_Cam3"></Name>
+                        </RecordItem>
+                        <RecordItem subindex="4" bitOffset="3">
+                            <SimpleDatatype xsi:type="BooleanT">
+                                <SingleValue value="true">
+                                    <Name textId="TI_ON"/>
+                                </SingleValue>
+                                <SingleValue value="false">
+                                    <Name textId="TI_OFF"/>
+                                </SingleValue>
+                            </SimpleDatatype>
+                            <Name textId="TI_V_Inversion_Cam4"></Name>
+                        </RecordItem>
+                    </Datatype>
+                    <Name textId="TI_V_Inversion"></Name>
+                    <Description textId="TID_V_Inversion"></Description>
+                </Variable>
+                <Variable id="V_CAM1" index="66" accessRights="rw" defaultValue="200">
+                    <Datatype xsi:type="UIntegerT" bitLength="10"/>
+                    <Name textId="TI_V_CAM1"></Name>
+                    <Description textId="TID_V_CAM1"></Description>
+                </Variable>
+                <Variable id="V_CAM2" index="67" accessRights="rw" defaultValue="400">
+                    <Datatype xsi:type="UIntegerT" bitLength="10"/>
+                    <Name textId="TI_V_CAM2"></Name>
+                    <Description textId="TID_V_CAM2"></Description>
+                </Variable>
+                <Variable id="V_CAM3" index="68" accessRights="rw" defaultValue="600">
+                    <Datatype xsi:type="UIntegerT" bitLength="10"/>
+                    <Name textId="TI_V_CAM3"></Name>
+                    <Description textId="TID_V_CAM3"></Description>
+                </Variable>
+                <Variable id="V_CAM4" index="69" accessRights="rw" defaultValue="800">
+                    <Datatype xsi:type="UIntegerT" bitLength="10"/>
+                    <Name textId="TI_V_CAM4"></Name>
+                    <Description textId="TID_V_CAM4"></Description>
+                </Variable>
+            </VariableCollection>
+            <ProcessDataCollection>
+                <ProcessData id="PD_ProcessData">
+                    <ProcessDataIn id="PD_ProcessDataIn" bitLength="16">
+                        <DatatypeRef datatypeId="DT_ProcessDataIn"/>
+                        <Name textId="TI_PD_ProcessDataIn"/>
+                    </ProcessDataIn>
+                </ProcessData>
+            </ProcessDataCollection>      
+            <UserInterface>
+                <MenuCollection>
+                    <Menu id="ME_Ident">
+                        <VariableRef variableId="V_VendorName"/>
+                        <VariableRef variableId="V_VendorText"/>
+                        <VariableRef variableId="V_ProductName"/>
+                        <VariableRef variableId="V_ProductID"/>
+                        <VariableRef variableId="V_ProductText"/>
+                        <VariableRef variableId="V_SerialNumber"/>
+                        <VariableRef variableId="V_HardwareRevision"/>
+                        <VariableRef variableId="V_FirmwareRevision"/>
+                    </Menu>
+                    <Menu id="ME_Parameter">
+                        <VariableRef variableId="v_GenSet" displayFormat="Dec" accessRightRestriction="ro"></VariableRef>
+                        <VariableRef variableId="V_Inversion" displayFormat="Dec" accessRightRestriction="ro"></VariableRef>
+                        <VariableRef variableId="V_CAM1" displayFormat="Dec" accessRightRestriction="ro"></VariableRef>
+                        <VariableRef variableId="V_CAM2" displayFormat="Dec" accessRightRestriction="ro"></VariableRef>
+                        <VariableRef variableId="V_CAM3" displayFormat="Dec" accessRightRestriction="ro"></VariableRef>
+                        <VariableRef variableId="V_CAM4" displayFormat="Dec" accessRightRestriction="ro"></VariableRef>
+                    </Menu>
+                    <Menu id="ME_S_Parameter">
+                        <VariableRef variableId="v_GenSet" displayFormat="Dec" accessRightRestriction="rw"></VariableRef>
+                        <VariableRef variableId="V_Inversion" displayFormat="Dec" accessRightRestriction="rw"></VariableRef>
+                        <VariableRef variableId="V_CAM1" displayFormat="Dec" accessRightRestriction="rw"></VariableRef>
+                        <VariableRef variableId="V_CAM2" displayFormat="Dec" accessRightRestriction="rw"></VariableRef>
+                        <VariableRef variableId="V_CAM3" displayFormat="Dec" accessRightRestriction="rw"></VariableRef>
+                        <VariableRef variableId="V_CAM4" displayFormat="Dec" accessRightRestriction="rw"></VariableRef>
+                    </Menu>
+                </MenuCollection>
+                <ObserverRoleMenuSet>
+                    <IdentificationMenu menuId="ME_Ident"/>
+                    <ParameterMenu menuId="ME_Parameter"/>
+                </ObserverRoleMenuSet>
+                <MaintenanceRoleMenuSet>
+                    <IdentificationMenu menuId="ME_Ident"/>
+                    <ParameterMenu menuId="ME_Parameter"/>
+                </MaintenanceRoleMenuSet>
+                <SpecialistRoleMenuSet>
+                    <IdentificationMenu menuId="ME_Ident"/>
+                    <ParameterMenu menuId="ME_S_Parameter"/>
+                </SpecialistRoleMenuSet>
+            </UserInterface>
+        </DeviceFunction>
+    </ProfileBody>
+    <CommNetworkProfile xsi:type="IOLinkCommNetworkProfileT" iolinkRevision="V1.0">
+        <TransportLayers>
+            <PhysicalLayer physics="2" minCycleTime="3000" sioSupported="false" baudrate="COM2"/>
+        </TransportLayers>
+    </CommNetworkProfile>
+    <ExternalTextCollection>
+        <PrimaryLanguage xml:lang="en">
+            <Text id="TI_VendorText" value="http://www.balluff.com"/>
+            <Text id="TI_VendorUrl" value="http://www.balluff.com"/>
+            <Text id="TI_DeviceFamily" value="IO-Link Analog Slot Sensor"/>
+            <Text id="TI_DeviceName" value="BGL 50C-007-S4"/>
+            <Text id="TI_DeviceText" value="BGL 50C-007-S4"/>
+            <Text id="TI_RISING" value="rising"/>
+            <Text id="TI_FALLING" value="falling"/>
+            <Text id="TI_AREA" value="area"/>
+            <Text id="TI_POINT" value ="point"/>
+            <Text id="TI_ON" value="on"></Text>
+            <Text id="TI_OFF" value="off"></Text>
+            <Text id="TI_PD_ProcessDataIn" value="Process Data Inputs"/>
+            <Text id="TI_V_PDI_Cam1" value="Warning"></Text>
+            <Text id="TI_V_PDI_Cam2" value="Error"></Text>
+            <Text id="TI_V_PDI_Cam3" value="Point 1"></Text>
+            <Text id="TI_V_PDI_Cam4" value="Point 2"></Text>
+            <Text id="TI_V_PDI_Cam5" value="Point 3"></Text>
+            <Text id="TI_V_PDI_Cam6" value="Point 4"></Text>      
+            <Text id="TI_V_PDI_Position" value="Position"></Text>
+            <Text id="TI_V_GenSet" value="General Settings" ></Text>
+            <Text id="TID_V_GenSet" value="behavior depends on CAM mode"></Text>
+            <Text id="TI_V_GenSet_Cam1" value="Analog value"></Text>
+            <Text id="TI_V_GenSet_Cam2" value="Area/Point"></Text>
+            <Text id="TI_V_GenSet_Cam3" value="Key lock"></Text>
+            <Text id="TI_V_Inversion" value="Outputs inversion" ></Text>
+            <Text id="TID_V_Inversion" value="behavior depends on CAM mode"></Text>
+            <Text id="TI_V_Inversion_Cam1" value="Inverted 1"></Text>
+            <Text id="TI_V_Inversion_Cam2" value="Inverted 2"></Text>
+            <Text id="TI_V_Inversion_Cam3" value="Inverted 3"></Text>
+            <Text id="TI_V_Inversion_Cam4" value="Inverted 4"></Text>
+            <Text id="TI_V_CAM1" value="Cam 1"></Text>
+            <Text id="TID_V_CAM1" value="behavior depends on CAM mode"></Text>
+            <Text id="TI_V_CAM2" value="Cam 2"></Text>
+            <Text id="TID_V_CAM2" value="behavior depends on CAM mode"></Text>
+            <Text id="TI_V_CAM3" value="Cam 3"></Text>
+            <Text id="TID_V_CAM3" value="behavior depends on CAM mode"></Text>
+            <Text id="TI_V_CAM4" value="Cam 4"></Text>
+            <Text id="TID_V_CAM4" value="behavior depends on CAM mode"></Text>
+        </PrimaryLanguage>
+    </ExternalTextCollection>
+    <Stamp crc="4063824543"><Checker name="IODD-Checker V1.0.7" version="V1.0.7.0"/></Stamp>
+</IODevice>

@@ -1,0 +1,592 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<IODevice xmlns="http://www.io-link.com/IODD/2010/10" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.io-link.com/IODD/2010/10 IODD1.1.xsd">
+  <DocumentInfo version="V1.5" releaseDate="2018-05-14" copyright="Balluff GmbH" />
+  <ProfileHeader>
+    <ProfileIdentification>IO Device Profile</ProfileIdentification>
+    <ProfileRevision>1.1</ProfileRevision>
+    <ProfileName>Device Profile for IO Devices</ProfileName>
+    <ProfileSource>IO-Link Consortium</ProfileSource>
+    <ProfileClassID>Device</ProfileClassID>
+    <ISO15745Reference>
+      <ISO15745Part>1</ISO15745Part>
+      <ISO15745Edition>1</ISO15745Edition>
+      <ProfileTechnology>IODD</ProfileTechnology>
+    </ISO15745Reference>
+  </ProfileHeader>
+  <ProfileBody>
+    <DeviceIdentity vendorId="888" vendorName="BALLUFF" deviceId="197122">
+      <VendorText textId="TI_VendorText" />
+      <VendorUrl textId="TI_VendorUrl" />
+      <VendorLogo name="Balluff-logo.png" />
+      <DeviceName textId="TI_Product_Name" />
+      <DeviceFamily textId="TI_DeviceFamily" />
+      <DeviceVariantCollection>
+        <DeviceVariant productId="BTL6AIOL002" deviceSymbol="Balluff-BTL6B-pic.png" deviceIcon="Balluff-BTL6B-icon.png">
+          <Name textId="TI_Product_Name_A02"/>
+          <Description textId="TI_Product_Descr"/>
+        </DeviceVariant>
+       <DeviceVariant productId="BTL6BIOL002" deviceSymbol="Balluff-BTL6B-pic.png" deviceIcon="Balluff-BTL6B-icon.png">
+          <Name textId="TI_Product_Name_B02" />
+          <Description textId="TI_Product_Descr" />
+        </DeviceVariant>		
+        <DeviceVariant productId="BTL6YIOL002" deviceSymbol="Balluff-BTL6B-pic.png" deviceIcon="Balluff-BTL6B-icon.png">
+          <Name textId="TI_Product_Name_Y02" />
+          <Description textId="TI_Product_Descr" />
+        </DeviceVariant>
+       <DeviceVariant productId="BTL6ZIOL002" deviceSymbol="Balluff-BTL6B-pic.png" deviceIcon="Balluff-BTL6B-icon.png">
+          <Name textId="TI_Product_Name_Z02" />
+          <Description textId="TI_Product_Descr" />
+        </DeviceVariant>			
+        <DeviceVariant productId="BTL6AIOL012" deviceSymbol="Balluff-BTL6B-pic.png" deviceIcon="Balluff-BTL6B-icon.png">
+          <Name textId="TI_Product_Name_A12" />
+          <Description textId="TI_Product_Descr" />
+        </DeviceVariant>
+       <DeviceVariant productId="BTL6BIOL012" deviceSymbol="Balluff-BTL6B-pic.png" deviceIcon="Balluff-BTL6B-icon.png">
+          <Name textId="TI_Product_Name_B12" />
+          <Description textId="TI_Product_Descr" />
+        </DeviceVariant>		
+        <DeviceVariant productId="BTL6YIOL012" deviceSymbol="Balluff-BTL6B-pic.png" deviceIcon="Balluff-BTL6B-icon.png">
+          <Name textId="TI_Product_Name_Y12" />
+          <Description textId="TI_Product_Descr" />
+        </DeviceVariant>
+       <DeviceVariant productId="BTL6ZIOL012" deviceSymbol="Balluff-BTL6B-pic.png" deviceIcon="Balluff-BTL6B-icon.png">
+          <Name textId="TI_Product_Name_Z12" />
+          <Description textId="TI_Product_Descr" />
+        </DeviceVariant>	
+        <DeviceVariant productId="BTL6AIOL022" deviceSymbol="Balluff-BTL6B-pic.png" deviceIcon="Balluff-BTL6B-icon.png">
+          <Name textId="TI_Product_Name_A22" />
+          <Description textId="TI_Product_Descr" />
+        </DeviceVariant>
+       <DeviceVariant productId="BTL6BIOL022" deviceSymbol="Balluff-BTL6B-pic.png" deviceIcon="Balluff-BTL6B-icon.png">
+          <Name textId="TI_Product_Name_B22" />
+          <Description textId="TI_Product_Descr" />
+        </DeviceVariant>		
+        <DeviceVariant productId="BTL6YIOL022" deviceSymbol="Balluff-BTL6B-pic.png" deviceIcon="Balluff-BTL6B-icon.png">
+          <Name textId="TI_Product_Name_Y22" />
+          <Description textId="TI_Product_Descr" />
+        </DeviceVariant>
+       <DeviceVariant productId="BTL6ZIOL022" deviceSymbol="Balluff-BTL6B-pic.png" deviceIcon="Balluff-BTL6B-icon.png">
+          <Name textId="TI_Product_Name_Z22" />
+          <Description textId="TI_Product_Descr" />
+        </DeviceVariant>
+		<DeviceVariant productId="BTL6ZIOL202MB000" deviceSymbol="Balluff-BTL6B-pic.png" deviceIcon="Balluff-BTL6B-icon.png">
+          <Name textId="TI_Product_Name_MBZ02" />
+          <Description textId="TI_Product_Descr" />
+        </DeviceVariant>
+		<DeviceVariant productId="BTL6ZIOL212MB000" deviceSymbol="Balluff-BTL6B-pic.png" deviceIcon="Balluff-BTL6B-icon.png">
+          <Name textId="TI_Product_Name_MBZ12" />
+          <Description textId="TI_Product_Descr" />
+        </DeviceVariant>
+		<DeviceVariant productId="BTL6ZIOL222MB000" deviceSymbol="Balluff-BTL6B-pic.png" deviceIcon="Balluff-BTL6B-icon.png">
+          <Name textId="TI_Product_Name_MBZ22" />
+          <Description textId="TI_Product_Descr" />
+        </DeviceVariant>
+		<DeviceVariant productId="BTL6YIOL202MB000" deviceSymbol="Balluff-BTL6B-pic.png" deviceIcon="Balluff-BTL6B-icon.png">
+          <Name textId="TI_Product_Name_MBY02" />
+          <Description textId="TI_Product_Descr" />
+        </DeviceVariant>
+		<DeviceVariant productId="BTL6YIOL212MB000" deviceSymbol="Balluff-BTL6B-pic.png" deviceIcon="Balluff-BTL6B-icon.png">
+          <Name textId="TI_Product_Name_MBY12" />
+          <Description textId="TI_Product_Descr" />
+        </DeviceVariant>
+		<DeviceVariant productId="BTL6YIOL222MB000" deviceSymbol="Balluff-BTL6B-pic.png" deviceIcon="Balluff-BTL6B-icon.png">
+          <Name textId="TI_Product_Name_MBY22" />
+          <Description textId="TI_Product_Descr" />
+        </DeviceVariant>
+      </DeviceVariantCollection>
+    </DeviceIdentity>
+    <DeviceFunction>
+      <Features blockParameter="true" dataStorage="true" profileCharacteristic="1 32768 32770">
+        <SupportedAccessLocks dataStorage="true" localUserInterface="false" localParameterization="false" parameter="false" />
+      </Features>
+      <DatatypeCollection>
+		<Datatype id="DT_PDV" xsi:type="IntegerT" bitLength="32">
+			<SingleValue value="2147483644">
+				<Name textId="TI_ErrorVal"/>
+			</SingleValue>						
+		</Datatype>	  
+	  
+		<Datatype id="DT_4PDVs" xsi:type="RecordT" bitLength="128">
+			<RecordItem subindex="1" bitOffset="0">
+				<DatatypeRef datatypeId="DT_PDV"/> 
+				<Name textId="TI_PDV1"/>
+			</RecordItem>
+			<RecordItem subindex="2" bitOffset="32">
+				<DatatypeRef datatypeId="DT_PDV"/> 
+				<Name textId="TI_PDV2"/>
+			</RecordItem>
+			<RecordItem subindex="3" bitOffset="64">
+				<DatatypeRef datatypeId="DT_PDV"/> 
+				<Name textId="TI_PDV3"/>
+			</RecordItem>
+			<RecordItem subindex="4" bitOffset="96">
+				<DatatypeRef datatypeId="DT_PDV"/> 
+				<Name textId="TI_PDV4"/>
+			</RecordItem>
+		</Datatype>
+		
+		<Datatype id="DT_Pdv_Map_Val" xsi:type="UIntegerT" bitLength="8">
+			<SingleValue xsi:type="UIntegerValueT" value="0">
+				<Name textId="TI_Pos1"/>
+			</SingleValue>		
+			<SingleValue xsi:type="UIntegerValueT" value="1">
+				<Name textId="TI_Pos2"/>
+			</SingleValue>	
+			<SingleValue xsi:type="UIntegerValueT" value="16">
+				<Name textId="TI_Vel1"/>
+			</SingleValue>	
+			<SingleValue xsi:type="UIntegerValueT" value="17">
+				<Name textId="TI_Vel2"/>
+			</SingleValue>	
+			<SingleValue xsi:type="UIntegerValueT" value="48">
+				<Name textId="TI_ActTemp"/>
+			</SingleValue>	
+			<SingleValue xsi:type="UIntegerValueT" value="64">
+				<Name textId="TI_Diff"/>
+			</SingleValue>				
+			<SingleValue xsi:type="UIntegerValueT" value="253">
+				<Name textId="TI_Empty"/>
+			</SingleValue>				
+		</Datatype>				
+		
+		<Datatype id="DT_MagnetCount" xsi:type="UIntegerT" bitLength="8">
+			<SingleValue xsi:type="UIntegerValueT" value="0">
+				<Name textId="TI_FMM_Mode"/>
+			</SingleValue>	
+			<SingleValue xsi:type="UIntegerValueT" value="1">
+				<Name textId="TI_Fix_Mode1"/>
+			</SingleValue>	
+			<SingleValue xsi:type="UIntegerValueT" value="2">
+				<Name textId="TI_Fix_Mode2"/>
+			</SingleValue>							
+		</Datatype>		
+
+		<Datatype id="DT_Event_Config_Bit" xsi:type="BooleanT" >
+			<SingleValue xsi:type="BooleanValueT" value="false">
+				<Name textId="TI_Event_Disabled"/>
+			</SingleValue>
+			<SingleValue xsi:type="BooleanValueT" value="true">
+				<Name textId="TI_Event_Enabled"/>
+			</SingleValue>							
+		</Datatype>		
+		
+		<Datatype id="DT_DiagnoseTime" xsi:type="UIntegerT" bitLength="8">
+			<ValueRange lowerValue="1" upperValue="255" />
+		</Datatype>		
+		
+		</DatatypeCollection>
+	  
+      <VariableCollection>
+        <StdVariableRef id="V_DirectParameters_1" />
+        <StdVariableRef id="V_DirectParameters_2" />
+        <StdVariableRef id="V_SystemCommand">
+			<StdSingleValueRef value="128" />
+			<StdSingleValueRef value="130" />
+			<SingleValue value="224">
+				<Name textId="TN_SetOffset"/>
+			</SingleValue>		
+			<SingleValue value="225">
+				<Name textId="TN_ResetOffset"/>
+			</SingleValue>					
+        </StdVariableRef>		
+        <StdVariableRef id="V_DeviceAccessLocks" excludedFromDataStorage="false" />		
+        <StdVariableRef id="V_VendorName" defaultValue="BALLUFF" />
+        <StdVariableRef id="V_VendorText" defaultValue="www.balluff.com" />
+        <StdVariableRef id="V_ProductName" defaultValue="BTL6-U1x2-Mxxxx-x-S4" />
+        <StdVariableRef id="V_ProductID" defaultValue="BTL6BIOL0x2"></StdVariableRef>
+        <StdVariableRef id="V_ProductText"/>
+        <StdVariableRef id="V_SerialNumber" />
+        <StdVariableRef id="V_HardwareRevision"/>
+        <StdVariableRef id="V_FirmwareRevision"/>
+        <StdVariableRef id="V_ApplicationSpecificTag" />
+		
+		<Variable id="V_OrderName" accessRights="ro" index="1792">
+			<Datatype xsi:type="StringT" encoding="UTF-8" fixedLength="40" />
+			<Name textId="TI_OrderName"/>
+		</Variable>
+		
+		<Variable id="V_OrderCode" accessRights="ro" index="1793">
+			<Datatype xsi:type="StringT" encoding="UTF-8"  fixedLength="7" />
+			<Name textId="TI_OrderCode"/>
+		</Variable>
+				
+		<Variable id="V_Event_Configuration" accessRights="rw" index="81">
+			<Datatype xsi:type="RecordT" bitLength="8">
+				<RecordItem subindex="1" bitOffset="0">
+					<DatatypeRef datatypeId="DT_Event_Config_Bit" />
+					<Name textId="TI_Invalid_Bit"/>
+				</RecordItem>
+				<RecordItem subindex="2" bitOffset="1">
+					<DatatypeRef datatypeId="DT_Event_Config_Bit" />
+					<Name textId="TI_Position_Error"/>
+				</RecordItem>
+				<RecordItem subindex="3" bitOffset="2">
+					<DatatypeRef datatypeId="DT_Event_Config_Bit" />
+					<Name textId="TI_Position_Warning_EP"/>
+				</RecordItem>
+				<RecordItem subindex="4" bitOffset="3">
+					<DatatypeRef datatypeId="DT_Event_Config_Bit" />
+					<Name textId="TI_Position_Warning_NP"/>
+				</RecordItem>	
+				<RecordItem subindex="5" bitOffset="4">
+					<DatatypeRef datatypeId="DT_Event_Config_Bit" />
+					<Name textId="TI_Magnet_Change"/>
+				</RecordItem>					
+			</Datatype>
+			<Name textId="TI_Event_Config"/>
+		</Variable>
+		
+		<Variable id="V_Device_Temperature" accessRights="ro" index="82">
+			<Datatype xsi:type="RecordT" bitLength="40">
+				<RecordItem subindex="1" bitOffset="0">
+					<SimpleDatatype xsi:type="IntegerT" bitLength="8"/>
+					<Name textId="TI_Actual_Temperature"/>
+				</RecordItem>
+				<RecordItem subindex="2" bitOffset="8">
+					<SimpleDatatype xsi:type="IntegerT" bitLength="8"/>
+					<Name textId="TI_Max_OP_Temperature"/>
+				</RecordItem>
+				<RecordItem subindex="3" bitOffset="16">
+					<SimpleDatatype xsi:type="IntegerT" bitLength="8"/>
+					<Name textId="TI_Min_OP_Temperature"/>
+				</RecordItem>
+				<RecordItem subindex="4" bitOffset="24">
+					<SimpleDatatype xsi:type="IntegerT" bitLength="8"/>
+					<Name textId="TI_Max_Temperature_LT"/>
+				</RecordItem>
+				<RecordItem subindex="5" bitOffset="32">
+					<SimpleDatatype xsi:type="IntegerT" bitLength="8"/>
+					<Name textId="TI_Min_Temperature_LT"/>
+				</RecordItem>
+			</Datatype>
+			<Name textId="TI_Device_Temperature"/>
+		</Variable>		
+
+		<Variable id="V_PD_Mapping" accessRights="rw" index="202">
+			<Datatype xsi:type="RecordT" bitLength="32">
+				<RecordItem subindex="1" bitOffset="0">
+					<DatatypeRef datatypeId="DT_Pdv_Map_Val"/>					
+					<Name textId="TI_Mapping_PD1"/>
+				</RecordItem>
+				<RecordItem subindex="2" bitOffset="8">
+					<DatatypeRef datatypeId="DT_Pdv_Map_Val"/>					
+					<Name textId="TI_Mapping_PD2"/>
+				</RecordItem>
+				<RecordItem subindex="3" bitOffset="16">
+					<DatatypeRef datatypeId="DT_Pdv_Map_Val"/>	
+					<Name textId="TI_Mapping_PD3"/>
+				</RecordItem>
+				<RecordItem subindex="4" bitOffset="24">
+					<DatatypeRef datatypeId="DT_Pdv_Map_Val"/>	
+					<Name textId="TI_Mapping_PD4"/>
+				</RecordItem>
+			</Datatype>
+			<Name textId="TI_Mapping"/>
+		</Variable>
+				
+		<Variable id="V_Null_Point_Offset" index="193" accessRights="rw" defaultValue="0" dynamic="false" excludedFromDataStorage="false" modifiesOtherVariables="false">
+			<Datatype xsi:type="IntegerT" bitLength="32"/>
+			<Name textId="TI_Null_Point_Offset"/>
+		</Variable>
+		
+		<Variable id="V_Output_Characteristic" accessRights="rw" index="195">
+			<Datatype xsi:type="BooleanT">
+				<SingleValue xsi:type="BooleanValueT" value="false">
+					<Name textId="TI_Characteristic_Falling"/>
+				</SingleValue>
+				<SingleValue xsi:type="BooleanValueT" value="true">
+					<Name textId="TI_Characteristic_Rising"/>
+				</SingleValue>				
+			</Datatype>
+			<Name textId="TI_Output_Characteristic"/>
+		</Variable>
+
+		<Variable id="V_FMM_Config" accessRights="rw" index="201">
+			<Datatype xsi:type="RecordT" bitLength="16">
+				<RecordItem subindex="1" bitOffset="0">
+					<DatatypeRef datatypeId="DT_MagnetCount"/>
+					<Name textId="TI_FMM_CFG_MAGNET_CNT"/>
+				</RecordItem>
+				<RecordItem subindex="2" bitOffset="8">
+					<DatatypeRef datatypeId="DT_DiagnoseTime"/>
+					<Name textId="TI_FMM_CFG_DIAG_TIME"/>
+				</RecordItem>		
+			</Datatype>
+			<Name textId="TI_FMM_Config"/>
+		</Variable>		
+      </VariableCollection>
+	  
+      <ProcessDataCollection>  
+        <ProcessData id="V_Pd1T">
+	     <ProcessDataIn id="V_Pd1_InT" bitLength="128">
+            <DatatypeRef datatypeId="DT_4PDVs" />
+            <Name textId="TI_PDin" />
+         </ProcessDataIn>
+        </ProcessData>	
+      </ProcessDataCollection>
+	  
+      <EventCollection>
+        <StdEventRef code="35888" />
+        <StdEventRef code="35856" />
+        <StdEventRef code="35872" />
+		<Event code="36000" type="Warning">
+			<Name textId="TI_EV_MagnetChange"/>
+			<Description textId="TI_EV_MagnetChange_Descr"/>
+		</Event>
+      </EventCollection>
+     
+	 <UserInterface> 
+        <ProcessDataRefCollection>
+          <ProcessDataRef processDataId="V_Pd1_InT">
+            <ProcessDataRecordItemInfo displayFormat="Dec" subindex="1"/>
+			<ProcessDataRecordItemInfo displayFormat="Dec" subindex="2"/>
+			<ProcessDataRecordItemInfo displayFormat="Dec" subindex="3"/>
+			<ProcessDataRecordItemInfo displayFormat="Dec" subindex="4"/>
+          </ProcessDataRef>			  
+        </ProcessDataRefCollection>
+        <MenuCollection>
+         <Menu id="M_OR_MR_SR_Ident">
+            <VariableRef variableId="V_VendorName" />
+            <VariableRef variableId="V_VendorText" />
+            <VariableRef variableId="V_ProductName" />
+            <VariableRef variableId="V_ProductID" />
+            <VariableRef variableId="V_ProductText" />
+			<VariableRef variableId="V_SerialNumber" />
+            <VariableRef variableId="V_HardwareRevision" />
+            <VariableRef variableId="V_FirmwareRevision" />
+            <VariableRef variableId="V_ApplicationSpecificTag" accessRightRestriction="ro"/>	
+			<VariableRef variableId="V_OrderName" />
+			<VariableRef variableId="V_OrderCode" />
+         </Menu>	
+		 
+		 <Menu id="M_StandardParams">
+			<Name textId="TI_Standard_Params"/>
+			<RecordItemRef variableId="V_DeviceAccessLocks" subindex = "1" accessRightRestriction="rw" displayFormat="Bin"/>			
+			<VariableRef variableId="V_ApplicationSpecificTag"/>			
+		 </Menu>
+		 
+		 <Menu id="M_TemperatureInfo">
+			<Name textId="TI_Temperature"/>	
+			<RecordItemRef variableId="V_Device_Temperature" subindex = "1" accessRightRestriction="ro" displayFormat="Dec" unitCode="1001"/>
+			<RecordItemRef variableId="V_Device_Temperature" subindex = "2" accessRightRestriction="ro" displayFormat="Dec" unitCode="1001"/>
+			<RecordItemRef variableId="V_Device_Temperature" subindex = "3" accessRightRestriction="ro" displayFormat="Dec" unitCode="1001"/>
+			<RecordItemRef variableId="V_Device_Temperature" subindex = "4" accessRightRestriction="ro" displayFormat="Dec" unitCode="1001"/>
+			<RecordItemRef variableId="V_Device_Temperature" subindex = "5" accessRightRestriction="ro" displayFormat="Dec" unitCode="1001"/>			
+		 </Menu>		
+
+		 <Menu id="M_Event_Cfg">
+			<Name textId="TI_Event_Cfg"/>
+			<RecordItemRef variableId="V_Event_Configuration" subindex="1" displayFormat="Bin"/>
+			<RecordItemRef variableId="V_Event_Configuration" subindex="2" displayFormat="Bin"/>
+			<RecordItemRef variableId="V_Event_Configuration" subindex="3" displayFormat="Bin"/>
+			<RecordItemRef variableId="V_Event_Configuration" subindex="4" displayFormat="Bin"/>
+			<RecordItemRef variableId="V_Event_Configuration" subindex="5" displayFormat="Bin"/>
+		 </Menu>
+		 
+		 <Menu id="M_FMM_Cfg">	
+			<Name textId="TI_Fmm_Cfg"/>		
+			<RecordItemRef variableId="V_FMM_Config" subindex="1" displayFormat="Dec"/>
+			<RecordItemRef variableId="V_FMM_Config" subindex="2" displayFormat="Dec.0" unitCode="1056" gradient="4"/>	
+		 </Menu>	
+
+		 <Menu id="M_Output_Cfg">	
+			<Name textId="TI_Output_Cfg"/>	
+			<VariableRef variableId="V_Null_Point_Offset" unitCode="1014" displayFormat="Dec"/>
+			<VariableRef variableId="V_Output_Characteristic" displayFormat="Hex"/>		
+			<VariableRef variableId="V_PD_Mapping" displayFormat="Hex"/>
+		 </Menu>		 
+		 
+
+         <Menu id="M_MR_SpecialFunctions">	
+			<Name textId="TI_System_Commands"/>
+			<VariableRef variableId="V_SystemCommand">
+              <Button buttonValue="128">
+                <Description textId="TD_DeviceReset" />
+                <ActionStartedMessage textId="T_DeviceResetStarted" />
+              </Button>
+            </VariableRef>		
+			<VariableRef variableId="V_SystemCommand">			
+			  <Button buttonValue="130">
+                <Description textId="TD_FactoryReset" />
+                <ActionStartedMessage textId="T_FactoryResetStarted" />
+              </Button>
+            </VariableRef>	
+			<VariableRef variableId="V_SystemCommand">			
+              <Button buttonValue="224">
+                <Description textId="TD_SetOffset" />
+                <ActionStartedMessage textId="T_SetOffsetStarted" />
+              </Button>
+            </VariableRef>				  
+			<VariableRef variableId="V_SystemCommand">			  
+              <Button buttonValue="225">
+                <Description textId="TD_ResetOffset" />
+                <ActionStartedMessage textId="T_ResetOffsetStarted" />
+              </Button>				  
+            </VariableRef>	  		  
+         </Menu>		 
+		 
+         <Menu id="M_MR_Param">
+			<MenuRef menuId="M_StandardParams"/>
+			<MenuRef menuId="M_Event_Cfg"/>
+			<MenuRef menuId="M_FMM_Cfg"/>
+			<MenuRef menuId="M_Output_Cfg"/>			
+         </Menu>	 
+		 
+         <Menu id="M_SR_Param">
+			<MenuRef menuId="M_MR_SpecialFunctions"/>
+			<MenuRef menuId="M_StandardParams"/>
+			<MenuRef menuId="M_Event_Cfg"/>
+			<MenuRef menuId="M_FMM_Cfg"/>
+			<MenuRef menuId="M_Output_Cfg"/>			           	
+         </Menu>	
+		 
+        </MenuCollection>	
+        <ObserverRoleMenuSet>
+			<IdentificationMenu menuId="M_OR_MR_SR_Ident"/>			
+			<ObservationMenu menuId="M_TemperatureInfo"/>
+        </ObserverRoleMenuSet>
+        <MaintenanceRoleMenuSet>
+			<IdentificationMenu menuId="M_OR_MR_SR_Ident"/>
+			<ParameterMenu menuId="M_MR_Param"/>
+			<ObservationMenu menuId="M_TemperatureInfo"/>		
+        </MaintenanceRoleMenuSet>
+        <SpecialistRoleMenuSet>
+          <IdentificationMenu menuId="M_OR_MR_SR_Ident"/>
+		  <ParameterMenu menuId="M_SR_Param"/>	
+		  <ObservationMenu menuId="M_TemperatureInfo"/>	  	  
+        </SpecialistRoleMenuSet>
+      </UserInterface>
+    </DeviceFunction>
+  </ProfileBody>
+  <CommNetworkProfile xsi:type="IOLinkCommNetworkProfileT" iolinkRevision="V1.1">
+    <TransportLayers>
+      <PhysicalLayer minCycleTime="1500" sioSupported="false" bitrate="COM3" mSequenceCapability="27">
+        <Connection xsi:type="M12-4ConnectionT">
+          <ProductRef productId="BTL6AIOL002" />
+		  <ProductRef productId="BTL6BIOL002" />
+		  <ProductRef productId="BTL6YIOL002" />
+		  <ProductRef productId="BTL6ZIOL002" />
+		  <ProductRef productId="BTL6AIOL012" />
+		  <ProductRef productId="BTL6BIOL012" />
+		  <ProductRef productId="BTL6YIOL012" />
+		  <ProductRef productId="BTL6ZIOL012" />
+		  <ProductRef productId="BTL6AIOL022" />
+		  <ProductRef productId="BTL6BIOL022" />
+		  <ProductRef productId="BTL6YIOL022" />
+		  <ProductRef productId="BTL6ZIOL022" />
+		  <ProductRef productId="BTL6ZIOL202MB000" />
+		  <ProductRef productId="BTL6ZIOL212MB000" />
+		  <ProductRef productId="BTL6ZIOL222MB000" />
+		  <ProductRef productId="BTL6YIOL202MB000" />
+		  <ProductRef productId="BTL6YIOL212MB000" />
+		  <ProductRef productId="BTL6YIOL222MB000" />
+          <Description textId="TI_IOL_Connector" />
+          <Wire1 function="L+" color="BN"></Wire1>
+          <Wire2 function="Other" color="WH"></Wire2>
+          <Wire3 function="L-" color="BU"></Wire3>
+          <Wire4 function="C/Q" color="BK"></Wire4>
+        </Connection>
+      </PhysicalLayer>
+    </TransportLayers>
+    <Test>
+      <Config1 index="193" testValue="0x00,0x00,0x00,0x55"/>
+      <Config2 index="256" testValue="0x00,0x00,0x01,0x55"/>
+      <Config3 testValue="0x31,0x32,0x33,0x34,0x35,0x36,0x37,0x38,0x39,0x40,0x41,0x42,0x43,0x44,0x45,0x46,0x47" index="24" />
+      <Config7 index="16383">
+        <EventTrigger appearValue="00" disappearValue="01" />
+        <EventTrigger appearValue="02" disappearValue="03" />
+      </Config7>
+    </Test>
+  </CommNetworkProfile>
+  <ExternalTextCollection>
+    <PrimaryLanguage xml:lang="en">
+      <Text id="TI_Product_Name" value="BTL6-U1x2-Mxxxx-x-S4" />	
+      <Text id="TI_Product_Name_A02" value="BTL6-U102-Mxxxx-A-S4" />
+      <Text id="TI_Product_Name_B02" value="BTL6-U102-Mxxxx-B-S4" />	  
+	  <Text id="TI_Product_Name_Y02" value="BTL6-U102-Mxxxx-Y-S4" />
+      <Text id="TI_Product_Name_Z02" value="BTL6-U102-Mxxxx-Z-S4" />
+	  <Text id="TI_Product_Name_A12" value="BTL6-U112-Mxxxx-A-S4" />
+      <Text id="TI_Product_Name_B12" value="BTL6-U112-Mxxxx-B-S4" />
+	  <Text id="TI_Product_Name_Y12" value="BTL6-U112-Mxxxx-Y-S4" />
+      <Text id="TI_Product_Name_Z12" value="BTL6-U112-Mxxxx-Z-S4" />
+	  <Text id="TI_Product_Name_A22" value="BTL6-U122-Mxxxx-A-S4" />
+      <Text id="TI_Product_Name_B22" value="BTL6-U122-Mxxxx-B-S4" />
+	  <Text id="TI_Product_Name_Y22" value="BTL6-U122-Mxxxx-Y-S4" />
+      <Text id="TI_Product_Name_Z22" value="BTL6-U122-Mxxxx-Z-S4" />
+	  <Text id="TI_Product_Name_MBZ02" value="BTL6-U102-Mxxxx-Z-MB000-S4" />
+	  <Text id="TI_Product_Name_MBZ12" value="BTL6-U112-Mxxxx-Z-MB000-S4" />
+	  <Text id="TI_Product_Name_MBZ22" value="BTL6-U122-Mxxxx-Z-MB000-S4" />
+	  <Text id="TI_Product_Name_MBY02" value="BTL6-U102-Mxxxx-Y-MB000-S4" />
+	  <Text id="TI_Product_Name_MBY12" value="BTL6-U112-Mxxxx-Y-MB000-S4" />
+	  <Text id="TI_Product_Name_MBY22" value="BTL6-U122-Mxxxx-Y-MB000-S4" />
+      <Text id="TI_PDin" value="Input Data" />
+      <Text id="TI_Product_Descr" value="Position Transducer Rod" />
+      <Text id="TI_IOL_Connector" value="IO-Link Connector" />
+      <Text id="TI_VendorText" value="Balluff" />
+      <Text id="TI_VendorUrl" value="http://www.balluff.com" />
+      <Text id="TI_DeviceFamily" value="BTL - Position Transducer" />
+      <Text id="TD_DeviceReset" value="Device Reset" />
+      <Text id="T_DeviceResetStarted" value="Device Reset is in progress!" />	  
+      <Text id="TD_FactoryReset" value="Factory Reset" />
+      <Text id="T_FactoryResetStarted" value="Factory Reset is in progress!" />	  
+	  <Text id="TN_SetOffset" value="Set Offset Value" />
+      <Text id="TD_SetOffset" value="Set Offset Value to actual Position of Magnet 1" />
+      <Text id="T_SetOffsetStarted" value="Set Offset is in progress!" />	  
+	  <Text id="TN_ResetOffset" value="Reset Offset Value" />	  
+      <Text id="TD_ResetOffset" value="Set Offset Value to 0" />
+      <Text id="T_ResetOffsetStarted" value="Reset Offset is in progress!" />	    
+	  <Text id="TI_PDV1" value="Process Data Variable 1"></Text>
+	  <Text id="TI_PDV2" value="Process Data Variable 2"></Text>
+	  <Text id="TI_PDV3" value="Process Data Variable 3"></Text>
+	  <Text id="TI_PDV4" value="Process Data Variable 4"></Text>	  	  
+	  <Text id="TI_Mapping" value="Process Data Inputs Mapping"/>
+	  <Text id="TI_Mapping_PD1" value="Mapping PDV1"/>
+	  <Text id="TI_Mapping_PD2" value="Mapping PDV2"/>
+	  <Text id="TI_Mapping_PD3" value="Mapping PDV3"/>
+	  <Text id="TI_Mapping_PD4" value="Mapping PDV4"/>
+	  <Text id="TI_Invalid_Bit" value="Invalid Bit Functionality"/>
+	  <Text id="TI_Position_Error" value="Position Error"/>
+	  <Text id="TI_Position_Warning_EP" value="Position Warning Endpoint"/>
+	  <Text id="TI_Position_Warning_NP" value="Position Warning Nullpoint"/>
+	  <Text id="TI_Magnet_Change" value="Magnet Change"/>
+	  <Text id="TI_Event_Config" value="Event Configuration"/>
+	  <Text id="TI_Device_Temperature" value="Device Temperature"/>
+	  <Text id="TI_Min_Temperature_LT" value="Device Minimum Lifetime Temperature"/>
+	  <Text id="TI_Max_Temperature_LT" value="Device Maximum Lifetime Temperature"/>
+	  <Text id="TI_Actual_Temperature" value="Actual Device Temperature"/>
+	  <Text id="TI_Max_OP_Temperature" value="Maximum Operating Temperature"/>
+	  <Text id="TI_Min_OP_Temperature" value="Minimum Operating Temperature"/>
+	  <Text id="TI_Output_Characteristic" value="Output Characteristic"/>
+	  <Text id="TI_FMM_CFG_MAGNET_CNT" value="Magnet Mode"/>
+	  <Text id="TI_FMM_CFG_DIAG_TIME" value="Diagnosis Time for Magnet Change Event"/>	  
+	  <Text id="TI_FMM_Config" value="Magnet Mode Configuration"/>		  
+	  <Text id="TI_Null_Point_Offset" value="Null Point Offset"/>
+	  <Text id="TI_EV_MagnetChange" value="Number Of Magnets"/>
+	  <Text id="TI_EV_MagnetChange_Descr" value="Number Of Magnets has changed - temporary invalid process data"/>
+	  <Text id="TI_OrderName" value="Order Name"/>
+	  <Text id="TI_OrderCode" value="Order Code"/>
+	  <Text id="TI_FMM_Mode" value="Flexible Magnet Mode"/>
+	  <Text id="TI_Pos1" value="Position of Magnet 1"/>
+	  <Text id="TI_Fix_Mode1" value="1 Magnet"/>
+	  <Text id="TI_Vel1" value="Velocity of Magnet 1"/>
+	  <Text id="TI_Characteristic_Falling" value="Falling"/>
+	  <Text id="TI_Pos2" value="Position of Magnet 2"/>
+	  <Text id="TI_Vel2" value="Velocity of Magnet 2"/>
+	  <Text id="TI_ActTemp" value="Actual inner Device Temperature"/>
+	  <Text id="TI_Diff" value="Difference between Position 1 and Position 2"/>
+	  <Text id="TI_Empty" value="Empty - Read as 0"/>
+	  <Text id="TI_Fix_Mode2" value="2 Magnets"/>
+	  <Text id="TI_Characteristic_Rising" value="Rising"/>
+	  <Text id="TI_Standard_Params" value="IO-Link Standard Parameters"/>
+	  <Text id="TI_System_Commands" value="System Commands"/>
+	  <Text id="TI_Event_Cfg" value="Event Configuration"/>
+	  <Text id="TI_Output_Cfg" value="Output Configuration"/>
+	  <Text id="TI_Fmm_Cfg" value="Magnet Mode Configuration"/>
+	  <Text id="TI_Temperature" value="Device Temperature"/>
+	  <Text id="TI_Event_Disabled" value="Disabled"/>	  
+	  <Text id="TI_Event_Enabled" value="Enabled"/>
+	  <Text id="TI_ErrorVal" value="no valid data available"/>
+    </PrimaryLanguage>
+  </ExternalTextCollection>
+  <Stamp crc="3032684027"><Checker name="IODD-Checker V1.1.3" version="V1.1.3.0"/></Stamp>
+</IODevice>

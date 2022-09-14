@@ -1,0 +1,596 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- *************************************** -->
+<IODevice xmlns="http://www.io-link.com/IODD/2009/11" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.io-link.com/IODD/2009/11 IODD1.0.1.xsd">
+	<DocumentInfo copyright="Leuze electronic GmbH + Co. KG" version="V1.1" releaseDate="2016-08-12"/>
+	<!-- ************************************* -->
+	<ProfileHeader>
+		<ProfileIdentification>IO-Link Device Profile</ProfileIdentification>
+		<ProfileRevision>1.00</ProfileRevision>
+		<ProfileName>Device Profile for IO-Link Devices</ProfileName>
+		<ProfileSource>IO-Link Consortium</ProfileSource>
+		<ProfileClassID>Device</ProfileClassID>
+		<ISO15745Reference>
+			<ISO15745Part>1</ISO15745Part>
+			<ISO15745Edition>1</ISO15745Edition>
+			<ProfileTechnology>IODD</ProfileTechnology>
+		</ISO15745Reference>
+	</ProfileHeader>
+	<!-- ************************************* -->
+	<ProfileBody>
+		<DeviceIdentity vendorId="888" vendorName="BALLUFF" deviceId="2064">
+			<VendorText textId="TI_VENDORTEXT"/>
+			<VendorUrl textId="TI_VENDORURL"/>
+			<VendorLogo name="Balluff-logo.png"/>
+			<DeviceFamily textId="TI_DEVICEFAMILY"/>
+			<!-- ************************************* -->
+			<DeviceVariantCollection>
+				<!-- 3: BOD 24K LI04-IOL -->
+				<DeviceVariant productId="50129266" deviceSymbol="balluff-bod24-pic.png" deviceIcon="balluff-bod24-icon.png">
+					<ProductName textId="TI_DV_PN_50129266"/>
+					<ProductText textId="TI_DV_PT_50129266"/>
+				</DeviceVariant>
+				<!-- 3: BOD 24K LI05-IOL -->
+				<DeviceVariant productId="50132941" deviceSymbol="balluff-bod24-pic.png" deviceIcon="balluff-bod24-icon.png">
+					<ProductName textId="TI_DV_PN_50132941"/>
+					<ProductText textId="TI_DV_PT_50132941"/>
+				</DeviceVariant>
+			</DeviceVariantCollection>
+		</DeviceIdentity>
+		<!-- ************************************* -->
+		<DeviceFunction>
+			<DatatypeCollection>
+				<Datatype id="DT_SENSORSTATUS" xsi:type="RecordT" bitLength="8" subindexAccessSupported="false">
+					<RecordItem subindex="1" bitOffset="0">
+						<SimpleDatatype xsi:type="BooleanT">
+							<SingleValue value="false">
+								<Name textId="TI_SENSORSTATUS_BIT0_0"/>
+							</SingleValue>
+							<SingleValue value="true">
+								<Name textId="TI_SENSORSTATUS_BIT0_1"/>
+							</SingleValue>
+						</SimpleDatatype>
+						<Name textId="TI_SENSORSTATUS_BIT0"/>
+					</RecordItem>
+					<!-- neu: 2 bit zusammengefasst -->
+					<RecordItem subindex="2" bitOffset="1">
+						<SimpleDatatype xsi:type="UIntegerT" bitLength="2">
+							<SingleValue value="0">
+								<Name textId="TI_SENSORSTATUS_SIGNAL_OK"/>
+							</SingleValue>
+							<SingleValue value="1">
+								<Name textId="TI_SENSORSTATUS_SIGNAL_TOOLOW"/>
+							</SingleValue>
+							<SingleValue value="2">
+								<Name textId="TI_SENSORSTATUS_SIGNAL_WARNING"/>
+							</SingleValue>
+							<SingleValue value="3">
+								<Name textId="TI_SENSORSTATUS_SIGNAL_TOOLOW"/>
+							</SingleValue>
+						</SimpleDatatype>
+						<Name textId="TI_SENSORSTATUS_BIT12"/>
+					</RecordItem>
+					<RecordItem subindex="3" bitOffset="3">
+						<SimpleDatatype xsi:type="BooleanT">
+							<SingleValue value="false">
+								<Name textId="TI_SENSORSTATUS_BIT3_0"/>
+							</SingleValue>
+							<SingleValue value="true">
+								<Name textId="TI_SENSORSTATUS_BIT3_1"/>
+							</SingleValue>
+						</SimpleDatatype>
+						<Name textId="TI_SENSORSTATUS_BIT3"/>
+					</RecordItem>
+					<RecordItem subindex="4" bitOffset="4">
+						<SimpleDatatype xsi:type="BooleanT">
+							<SingleValue value="false">
+								<Name textId="TI_SENSORSTATUS_BIT4_0"/>
+							</SingleValue>
+							<SingleValue value="true">
+								<Name textId="TI_SENSORSTATUS_BIT4_1"/>
+							</SingleValue>
+						</SimpleDatatype>
+						<Name textId="TI_SENSORSTATUS_BIT4"/>
+					</RecordItem>
+				</Datatype>
+				<Datatype id="DT_RESOLUTION" xsi:type="UIntegerT" bitLength="8">
+					<SingleValue value="0">
+						<Name textId="TI_ME_OBSERV_1MM"/>
+					</SingleValue>
+					<SingleValue value="1">
+						<Name textId="TI_ME_OBSERV_01MM"/>
+					</SingleValue>
+					<SingleValue value="2">
+						<Name textId="TI_ME_OBSERV_001MM"/>
+					</SingleValue>
+				</Datatype>
+				<Datatype id="DT_WMESSMODE" xsi:type="UIntegerT" bitLength="16">
+					<SingleValue value="0">
+						<Name textId="TI_DT_WMESSMODE0"/>
+					</SingleValue>
+					<SingleValue value="1">
+						<Name textId="TI_DT_WMESSMODE1"/>
+					</SingleValue>
+					<SingleValue value="2">
+						<Name textId="TI_DT_WMESSMODE2"/>
+					</SingleValue>
+					<SingleValue value="3">
+						<Name textId="TI_DT_WMESSMODE3"/>
+					</SingleValue>
+				</Datatype>
+				<Datatype id="DT_WFILTER" xsi:type="UIntegerT" bitLength="16">
+					<SingleValue value="0">
+						<Name textId="TI_DT_WFILTER0"/>
+					</SingleValue>
+					<SingleValue value="1">
+						<Name textId="TI_DT_WFILTER1"/>
+					</SingleValue>
+					<SingleValue value="2">
+						<Name textId="TI_DT_WFILTER2"/>
+					</SingleValue>
+				</Datatype>
+				<Datatype id="DT_FLTAVG" xsi:type="UIntegerT" bitLength="16">
+					<ValueRange lowerValue="1" upperValue="99"/>
+				</Datatype>
+				<Datatype id="DT_FLTCENTERNUM" xsi:type="UIntegerT" bitLength="16">
+					<SingleValue value="0">
+						<Name textId="TI_DT_FLTCENTERNUM0"/>
+					</SingleValue>
+					<SingleValue value="1">
+						<Name textId="TI_DT_FLTCENTERNUM1"/>
+					</SingleValue>
+					<SingleValue value="2">
+						<Name textId="TI_DT_FLTCENTERNUM2"/>
+					</SingleValue>
+					<SingleValue value="3">
+						<Name textId="TI_DT_FLTCENTERNUM3"/>
+					</SingleValue>
+					<SingleValue value="4">
+						<Name textId="TI_DT_FLTCENTERNUM4"/>
+					</SingleValue>
+				</Datatype>
+				<Datatype id="DT_FLTCENTERDEPTH" xsi:type="UIntegerT" bitLength="16">
+					<SingleValue value="0">
+						<Name textId="TI_DT_FLTCENTERDEPTH0"/>
+					</SingleValue>
+					<SingleValue value="1">
+						<Name textId="TI_DT_FLTCENTERDEPTH1"/>
+					</SingleValue>
+					<SingleValue value="2">
+						<Name textId="TI_DT_FLTCENTERDEPTH2"/>
+					</SingleValue>
+				</Datatype>
+				<Datatype id="DT_DISPMEASVW" xsi:type="UIntegerT" bitLength="16">
+					<SingleValue value="0">
+						<Name textId="TI_DT_DISPMEASVW0"/>
+					</SingleValue>
+					<SingleValue value="1">
+						<Name textId="TI_DT_DISPMEASVW1"/>
+					</SingleValue>
+					<SingleValue value="2">
+						<Name textId="TI_DT_DISPMEASVW2"/>
+					</SingleValue>
+				</Datatype>
+				<Datatype id="DT_MENUESPERRE" xsi:type="UIntegerT" bitLength="16">
+					<SingleValue value="0">
+						<Name textId="TI_DT_MENUESPERRE0"/>
+					</SingleValue>
+					<SingleValue value="1">
+						<Name textId="TI_DT_MENUESPERRE1"/>
+					</SingleValue>
+				</Datatype>
+			</DatatypeCollection>
+			<!-- ************************************* -->
+			<VariableCollection>
+				<StdVariableRef id="V_DirectParameters_1">
+					<StdRecordItemRef subindex="1"/>
+					<StdRecordItemRef subindex="2"/>
+					<StdRecordItemRef subindex="3"/>
+					<StdRecordItemRef subindex="4"/>
+					<StdRecordItemRef subindex="5"/>
+					<StdRecordItemRef subindex="6"/>
+					<StdRecordItemRef subindex="7"/>
+					<StdRecordItemRef subindex="8"/>
+					<StdRecordItemRef subindex="9"/>
+					<StdRecordItemRef subindex="10"/>
+					<StdRecordItemRef subindex="11"/>
+					<StdRecordItemRef subindex="12"/>
+				</StdVariableRef>
+				<StdVariableRef id="V_DirectParameters_2"/>
+				<StdVariableRef id="V_SystemCommand">
+					<!-- Restore Factory Settings -->
+					<StdSingleValueRef value="130"/>
+					<!-- B0 = 176: Aktivierung -->
+					<SingleValue value="176">
+						<Name textId="TI_STD_SC_176"/>
+					</SingleValue>
+					<!-- B1 = 177: Deaktivierung -->
+					<SingleValue value="177">
+						<Name textId="TI_STD_SC_177"/>
+					</SingleValue>
+				</StdVariableRef>
+				<StdVariableRef id="V_VendorName" defaultValue="BALLUFF" fixedLengthRestriction="40"/>
+				<StdVariableRef id="V_VendorText" defaultValue="www.balluff.com"/>
+				<StdVariableRef id="V_ProductName"/>
+				<StdVariableRef id="V_ProductID"/>
+				<StdVariableRef id="V_ProductText" defaultValue="Optical distance sensor"/>
+				<StdVariableRef id="V_SerialNumber"/>
+				<StdVariableRef id="V_HardwareRevision"/>
+				<StdVariableRef id="V_FirmwareRevision"/>
+				<StdVariableRef id="V_ProcessDataIn"/>
+				<Variable index="190" accessRights="ro" id="V_SENSORSTATUS" dynamic="true">
+					<DatatypeRef datatypeId="DT_SENSORSTATUS"/>
+					<RecordItemInfo subindex="4" defaultValue="true"/>
+					<Name textId="TI_V_SENSORSTATUS"/>
+					<Description textId="TI_VD_SENSORSTATUS"/>
+				</Variable>
+				<Variable index="193" accessRights="ro" id="V_RESOLUTION" defaultValue="0">
+					<DatatypeRef datatypeId="DT_RESOLUTION"/>
+					<Name textId="TI_V_RESOLUTION"/>
+					<Description textId="TI_VD_RESOLUTION"/>
+				</Variable>
+				<Variable index="200" accessRights="rw" id="V_WMESSMODE" defaultValue="0">
+					<DatatypeRef datatypeId="DT_WMESSMODE"/>
+					<Name textId="TI_V_WMESSMODE"/>
+					<Description textId="TI_VD_WMESSMODE"/>
+				</Variable>
+				<Variable index="201" accessRights="rw" id="V_WFILTER" defaultValue="0">
+					<DatatypeRef datatypeId="DT_WFILTER"/>
+					<Name textId="TI_V_WFILTER"/>
+					<Description textId="TI_VD_WFILTER"/>
+				</Variable>
+				<Variable index="202" accessRights="rw" id="V_FLTAVG" defaultValue="1">
+					<DatatypeRef datatypeId="DT_FLTAVG"/>
+					<Name textId="TI_V_FLTAVG"/>
+					<Description textId="TI_VD_FLTAVG"/>
+				</Variable>
+				<Variable index="203" accessRights="rw" id="V_FLTCENTERNUM" defaultValue="0">
+					<DatatypeRef datatypeId="DT_FLTCENTERNUM"/>
+					<Name textId="TI_V_FLTCENTERNUM"/>
+					<Description textId="TI_VD_FLTCENTERNUM"/>
+				</Variable>
+				<Variable index="204" accessRights="rw" id="V_FLTCENTERDEPTH" defaultValue="0">
+					<DatatypeRef datatypeId="DT_FLTCENTERDEPTH"/>
+					<Name textId="TI_V_FLTCENTERDEPTH"/>
+					<Description textId="TI_VD_FLTCENTERDEPTH"/>
+				</Variable>
+				<Variable index="205" accessRights="rw" id="V_DISPMEASVW">
+					<DatatypeRef datatypeId="DT_DISPMEASVW"/>
+					<Name textId="TI_V_DISPMEASVW"/>
+					<Description textId="TI_VD_DISPMEASVW"/>
+				</Variable>
+				<Variable index="206" accessRights="rw" id="V_MENUESPERRE" defaultValue="0">
+					<DatatypeRef datatypeId="DT_MENUESPERRE"/>
+					<Name textId="TI_V_MENUESPERRE"/>
+					<Description textId="TI_VD_MENUESPERRE"/>
+				</Variable>
+			</VariableCollection>
+			<!-- ******************************************************************************** -->
+			<ProcessDataCollection>
+				<!-- BOD 24 LI04-S92 -->
+				<ProcessData id="PD_VAR2">
+					<ProcessDataIn id="PD_PDI_V2" bitLength="16">
+						<Datatype xsi:type="UIntegerT" bitLength="16">
+							<ValueRange lowerValue="0" upperValue="10500"/>
+							<SingleValue value="65535">
+								<Name textId="TI_SV_Fehler1"/>
+							</SingleValue>
+							<SingleValue value="65533">
+								<Name textId="TI_SV_Fehler3"/>
+							</SingleValue>
+						</Datatype>
+						<Name textId="TI_PD_0"/>
+					</ProcessDataIn>
+				</ProcessData>
+			</ProcessDataCollection>
+			<!-- ******************************************************************************** -->
+			<!-- *** No EventCollection for this device *** -->
+			<!-- ******************************************************************************** -->
+			<UserInterface>
+				<MenuCollection>
+					<Menu id="ME_LASER_ON">
+						<Name textId="TI_ME_LASER_ON"/>
+						<VariableRef variableId="V_SystemCommand" accessRightRestriction="wo" buttonValue="176" displayFormat="Button"/>
+						<VariableRef variableId="V_SystemCommand" accessRightRestriction="wo" buttonValue="177" displayFormat="Button"/>
+					</Menu>
+					<Menu id="ME_SPECIALIST_COMMAND">
+						<Name textId="TI_ME_COMMAND"/>
+						<VariableRef variableId="V_SystemCommand" accessRightRestriction="wo" buttonValue="130" displayFormat="Button"/>
+					</Menu>
+					<!-- ***** IDENTs ***** -->
+					<Menu id="ME_OBSERVER_IDENTIFICATION">
+						<Name textId="TI_ME_IDENT"/>
+						<VariableRef variableId="V_VendorName" accessRightRestriction="ro"/>
+						<VariableRef variableId="V_VendorText" accessRightRestriction="ro"/>
+						<VariableRef variableId="V_ProductName" accessRightRestriction="ro"/>
+						<VariableRef variableId="V_ProductID" accessRightRestriction="ro"/>
+						<VariableRef variableId="V_ProductText" accessRightRestriction="ro"/>
+						<VariableRef variableId="V_SerialNumber" accessRightRestriction="ro"/>
+						<VariableRef variableId="V_HardwareRevision" accessRightRestriction="ro"/>
+						<VariableRef variableId="V_FirmwareRevision" accessRightRestriction="ro"/>
+					</Menu>
+					<Menu id="ME_MAINTENANCE_IDENTIFICATION">
+						<Name textId="TI_ME_IDENT"/>
+						<VariableRef variableId="V_VendorName" accessRightRestriction="ro"/>
+						<VariableRef variableId="V_VendorText" accessRightRestriction="ro"/>
+						<VariableRef variableId="V_ProductName" accessRightRestriction="ro"/>
+						<VariableRef variableId="V_ProductID" accessRightRestriction="ro"/>
+						<VariableRef variableId="V_ProductText" accessRightRestriction="ro"/>
+						<VariableRef variableId="V_SerialNumber" accessRightRestriction="ro"/>
+						<VariableRef variableId="V_HardwareRevision" accessRightRestriction="ro"/>
+						<VariableRef variableId="V_FirmwareRevision" accessRightRestriction="ro"/>
+					</Menu>
+					<Menu id="ME_SPECIALIST_IDENTIFICATION">
+						<Name textId="TI_ME_IDENT"/>
+						<VariableRef variableId="V_VendorName" accessRightRestriction="ro"/>
+						<VariableRef variableId="V_VendorText" accessRightRestriction="ro"/>
+						<VariableRef variableId="V_ProductName" accessRightRestriction="ro"/>
+						<VariableRef variableId="V_ProductID" accessRightRestriction="ro"/>
+						<VariableRef variableId="V_ProductText" accessRightRestriction="ro"/>
+						<VariableRef variableId="V_SerialNumber" accessRightRestriction="ro"/>
+						<VariableRef variableId="V_HardwareRevision" accessRightRestriction="ro"/>
+						<VariableRef variableId="V_FirmwareRevision" accessRightRestriction="ro"/>
+					</Menu>
+					<!-- ***** FILTER_PARAMETER ***** -->
+					<Menu id="ME_MAINTENANCE_FILTER_PARAMETER">
+						<Name textId="TI_ME_FILTER_PARAMETER"/>
+						<VariableRef variableId="V_WFILTER" accessRightRestriction="ro"/>
+						<VariableRef variableId="V_FLTAVG" accessRightRestriction="ro"/>
+						<VariableRef variableId="V_FLTCENTERNUM" accessRightRestriction="ro"/>
+						<VariableRef variableId="V_FLTCENTERDEPTH" accessRightRestriction="ro"/>
+					</Menu>
+					<Menu id="ME_SPECIALIST_FILTER_PARAMETER">
+						<Name textId="TI_ME_FILTER_PARAMETER"/>
+						<VariableRef variableId="V_WFILTER"/>
+						<VariableRef variableId="V_FLTAVG"/>
+						<VariableRef variableId="V_FLTCENTERNUM"/>
+						<VariableRef variableId="V_FLTCENTERDEPTH"/>
+					</Menu>
+					<!-- ***** PARAMs ***** -->
+					<Menu id="ME_MAINTENANCE_PARAMETER">
+						<Name textId="TI_ME_PARAMETER"/>
+						<VariableRef variableId="V_WMESSMODE" accessRightRestriction="ro"/>
+						<MenuRef menuId="ME_MAINTENANCE_FILTER_PARAMETER"/>
+						<VariableRef variableId="V_DISPMEASVW"/>
+						<VariableRef variableId="V_MENUESPERRE" accessRightRestriction="ro"/>
+						<MenuRef menuId="ME_LASER_ON"/>
+					</Menu>
+					<Menu id="ME_SPECIALIST_PARAMETER">
+						<Name textId="TI_ME_PARAMETER"/>
+						<VariableRef variableId="V_WMESSMODE"/>
+						<MenuRef menuId="ME_SPECIALIST_FILTER_PARAMETER"/>
+						<VariableRef variableId="V_DISPMEASVW"/>
+						<VariableRef variableId="V_MENUESPERRE"/>
+						<MenuRef menuId="ME_LASER_ON"/>
+						<MenuRef menuId="ME_SPECIALIST_COMMAND"/>
+					</Menu>
+					<!-- ***** OBSERVs ***** -->
+					<Menu id="ME_OBSERVER_OBSERVATION">
+						<Name textId="TI_ME_OBSERV"/>
+						<VariableRef variableId="V_ProcessDataIn" displayFormat="Dec" offset="0"/>
+						<VariableRef variableId="V_RESOLUTION"/>
+					</Menu>
+					<Menu id="ME_MAINTENANCE_OBSERVATION">
+						<Name textId="TI_ME_OBSERV"/>
+						<VariableRef variableId="V_ProcessDataIn" displayFormat="Dec" offset="0"/>
+						<VariableRef variableId="V_RESOLUTION"/>
+					</Menu>
+					<Menu id="ME_SPECIALIST_OBSERVATION">
+						<Name textId="TI_ME_OBSERV"/>
+						<VariableRef variableId="V_ProcessDataIn" displayFormat="Dec" offset="0"/>
+						<VariableRef variableId="V_RESOLUTION"/>
+						<VariableRef variableId="V_SENSORSTATUS"/>
+					</Menu>
+				</MenuCollection>
+				<ObserverRoleMenuSet>
+					<IdentificationMenu menuId="ME_OBSERVER_IDENTIFICATION"/>
+					<ObservationMenu menuId="ME_OBSERVER_OBSERVATION"/>
+				</ObserverRoleMenuSet>
+				<MaintenanceRoleMenuSet>
+					<IdentificationMenu menuId="ME_MAINTENANCE_IDENTIFICATION"/>
+					<ParameterMenu menuId="ME_MAINTENANCE_PARAMETER"/>
+					<ObservationMenu menuId="ME_MAINTENANCE_OBSERVATION"/>
+				</MaintenanceRoleMenuSet>
+				<SpecialistRoleMenuSet>
+					<IdentificationMenu menuId="ME_SPECIALIST_IDENTIFICATION"/>
+					<ParameterMenu menuId="ME_SPECIALIST_PARAMETER"/>
+					<ObservationMenu menuId="ME_SPECIALIST_OBSERVATION"/>
+				</SpecialistRoleMenuSet>
+			</UserInterface>
+		</DeviceFunction>
+	</ProfileBody>
+	<!-- ************************************* -->
+	<CommNetworkProfile xsi:type="IOLinkCommNetworkProfileT" iolinkRevision="V1.0">
+		<TransportLayers>
+			<PhysicalLayer physics="2" minCycleTime="0" sioSupported="false" baudrate="COM2"/>
+		</TransportLayers>
+	</CommNetworkProfile>
+	<!-- ************************************* -->
+	<ExternalTextCollection>
+		<PrimaryLanguage xml:lang="en">
+			<!-- 1 -->
+			<Text id="TI_DV_PT_50129266" value="Opical distance sensor"/>
+			<Text id="TI_DV_PN_50129266" value="BOD 24K LI04-S92"/>
+            <!-- 2 -->
+			<Text id="TI_DV_PT_50132941" value="Opical distance sensor"/>
+			<Text id="TI_DV_PN_50132941" value="BOD 24K LI05-S92"/>
+			<!--************************************************ -->
+			<Text id="TI_VENDORTEXT" value="BALLUFF"/>
+			<Text id="TI_VENDORURL" value="www.balluff.com"/>
+			<Text id="TI_DEVICEFAMILY" value="BOD - Optical distance sensor"/>
+			<Text id="TI_PD_0" value="Measured Value"/>
+			<!-- -->
+			<Text id="TI_V_SENSORSTATUS" value="Sensor Status"/>
+			<Text id="TI_VD_SENSORSTATUS" value="Sensor Status"/>
+			<!-- -->
+			<Text id="TI_SENSORSTATUS_BIT0" value="Laser Status"/>
+			<Text id="TI_SENSORSTATUS_BIT0_0" value="operational "/>
+			<Text id="TI_SENSORSTATUS_BIT0_1" value="error"/>
+			<!-- -->
+			<Text id="TI_SENSORSTATUS_BIT12" value="Receiver Signal Quality"/>
+			<Text id="TI_SENSORSTATUS_SIGNAL_OK" value="good"/>
+			<Text id="TI_SENSORSTATUS_SIGNAL_WARNING" value="weak"/>
+			<Text id="TI_SENSORSTATUS_SIGNAL_TOOLOW" value="too low"/>
+			<!-- -->
+			<Text id="TI_SENSORSTATUS_BIT3" value="Transmitter (laser diode)"/>
+			<Text id="TI_SENSORSTATUS_BIT3_0" value="active"/>
+			<Text id="TI_SENSORSTATUS_BIT3_1" value="inactive"/>
+			<Text id="TI_SENSORSTATUS_BIT4" value="Measured Values"/>
+			<Text id="TI_SENSORSTATUS_BIT4_0" value="outside of the calibrated range"/>
+			<Text id="TI_SENSORSTATUS_BIT4_1" value="inside of the calibrated range"/>
+			<Text id="TI_V_RESOLUTION" value="Resolution"/>
+			<Text id="TI_VD_RESOLUTION" value="Distance = Measured Value * Resolution"/>
+			<Text id="TI_V_WMESSMODE" value="Measurement Mode"/>
+			<Text id="TI_VD_WMESSMODE" value="Measurement Mode defines the preferred detection behavior of the sensor."/>
+			<Text id="TI_DT_WMESSMODE0" value="Standard"/>
+			<Text id="TI_DT_WMESSMODE1" value="Precision"/>
+			<Text id="TI_DT_WMESSMODE2" value="Speed"/>
+			<Text id="TI_DT_WMESSMODE3" value="Light Suppression"/>
+			<!-- -->
+			<Text id="TI_V_WFILTER" value="Filter Type"/>
+			<Text id="TI_VD_WFILTER" value="Averaging: Floating average calculation over n measurements; Center Filter: Average calculation with spike suppression"/>
+			<Text id="TI_DT_WFILTER0" value="Off (no filtering)"/>
+			<Text id="TI_DT_WFILTER1" value="Averaging"/>
+			<Text id="TI_DT_WFILTER2" value="Center Filter"/>
+			<!---->
+			<Text id="TI_V_FLTAVG" value="Measurement Count (Filter Type = Averaging)"/>
+			<Text id="TI_VD_FLTAVG" value="The floating average is calculated over 1 to 99 measured values. Output data is refreshed after each calculation. When the measured value changes stepwise, the output data will in-/decrease linearly  to the new value."/>
+			<!---->
+			<Text id="TI_V_FLTCENTERNUM" value="Measurement Count (Filter Type = Center Filter)"/>
+			<Text id="TI_VD_FLTCENTERNUM" value="The average calculation includes 10 to 50 single measured values. Spikes are suppressed."/>
+			<Text id="TI_DT_FLTCENTERNUM0" value="10"/>
+			<Text id="TI_DT_FLTCENTERNUM1" value="20"/>
+			<Text id="TI_DT_FLTCENTERNUM2" value="30"/>
+			<Text id="TI_DT_FLTCENTERNUM3" value="40"/>
+			<Text id="TI_DT_FLTCENTERNUM4" value="50"/>
+			<!---->
+			<Text id="TI_V_FLTCENTERDEPTH" value="Filter depth (Filter Type = Center Filter)"/>
+			<Text id="TI_VD_FLTCENTERDEPTH" value="Filter depth defines the bandwidth of the spike suppression."/>
+			<Text id="TI_DT_FLTCENTERDEPTH0" value="Coarse"/>
+			<Text id="TI_DT_FLTCENTERDEPTH1" value="Medium"/>
+			<Text id="TI_DT_FLTCENTERDEPTH2" value="Fine"/>
+			<!---->
+			<Text id="TI_V_DISPMEASVW" value="Sensor Display"/>
+			<Text id="TI_VD_DISPMEASVW" value="Auto: Maximum intensity when button is pressed; dimmed to lower intensity while stand-by (after 1 minute)."/>
+			<Text id="TI_DT_DISPMEASVW0" value="On"/>
+			<Text id="TI_DT_DISPMEASVW1" value="Off"/>
+			<Text id="TI_DT_DISPMEASVW2" value="Auto"/>
+			<!---->
+			<Text id="TI_V_MENUESPERRE" value="Key Lock"/>
+			<Text id="TI_VD_MENUESPERRE" value="If activated, local control at the sensor device is disabled."/>
+			<Text id="TI_DT_MENUESPERRE0" value="not activated"/>
+			<Text id="TI_DT_MENUESPERRE1" value="activated"/>
+			<!---->
+			<Text id="TI_STD_SC_176" value="Turn Transmitter (laser diode) on"/>
+			<Text id="TI_STD_SC_177" value="Turn Transmitter (laser diode) off"/>
+			<!-- -->
+			<Text id="TI_ME_LASER_ON" value="Transmitter on/off"/>
+			<Text id="TI_ME_COMMAND" value="Reset Configuration "/>
+			<Text id="TI_ME_IDENT" value="Identifikation"/>
+			<Text id="TI_ME_OBSERV" value="Observation"/>
+			<Text id="TI_ME_FILTER_PARAMETER" value="Measurement Filter"/>
+			<Text id="TI_ME_PARAMETER" value="Parameter"/>
+			<!-- -->
+			<Text id="TI_ME_OBSERV_1MM" value="1 mm"/>
+			<Text id="TI_ME_OBSERV_01MM" value="0.1 mm"/>
+			<Text id="TI_ME_OBSERV_001MM" value="0.01 mm"/>
+			<!-- -->
+			<Text id="TI_SV_Fehler1" value="Signal too low"/>
+			<Text id="TI_SV_Fehler3" value="Laser error"/>
+		</PrimaryLanguage>
+		<Language xml:lang="de">
+			<!-- 1 -->
+			<Text id="TI_DV_PT_50129266" value="Distanzsensor"/>
+			<Text id="TI_DV_PN_50129266" value="BOD 24K LI04-S92"/>
+			<!-- 2 -->
+			<Text id="TI_DV_PT_50132941" value="Distanzsensor"/>
+			<Text id="TI_DV_PN_50132941" value="BOD 24K LI05-S92"/>
+			<!--************************************************ -->
+			<Text id="TI_VENDORTEXT" value="BALLUFF"/>
+			<Text id="TI_VENDORURL" value="www.balluff.com"/>
+			<Text id="TI_DEVICEFAMILY" value="BOD - Optischer Distanzsensor"/>
+			<Text id="TI_PD_0" value="Messwert"/>
+			<!-- -->
+			<Text id="TI_V_SENSORSTATUS" value="Sensorstatus"/>
+			<Text id="TI_VD_SENSORSTATUS" value="Sensorstatus"/>
+			<!-- -->
+			<Text id="TI_SENSORSTATUS_BIT0" value="Laserstatus"/>
+			<Text id="TI_SENSORSTATUS_BIT0_0" value="betriebsbereit"/>
+			<Text id="TI_SENSORSTATUS_BIT0_1" value="Fehler"/>
+			<!-- -->
+			<Text id="TI_SENSORSTATUS_BIT12" value="Empfangssignal"/>
+			<Text id="TI_SENSORSTATUS_SIGNAL_OK" value="gut"/>
+			<Text id="TI_SENSORSTATUS_SIGNAL_WARNING" value="schwach"/>
+			<Text id="TI_SENSORSTATUS_SIGNAL_TOOLOW" value="zu gering"/>
+			<!-- -->
+			<Text id="TI_SENSORSTATUS_BIT3" value="Sender (Laserdiode)"/>
+			<Text id="TI_SENSORSTATUS_BIT3_0" value="aktiv"/>
+			<Text id="TI_SENSORSTATUS_BIT3_1" value="inaktiv"/>
+			<Text id="TI_SENSORSTATUS_BIT4" value="Messwert"/>
+			<Text id="TI_SENSORSTATUS_BIT4_0" value="außerhalb des kalibrierten Bereichs"/>
+			<Text id="TI_SENSORSTATUS_BIT4_1" value="innerhalb des kalibrierten Bereichs"/>
+			<!-- -->
+			<Text id="TI_V_WMESSMODE" value="Betriebsart"/>
+			<Text id="TI_VD_WMESSMODE" value="Einstellung des bevorzugten Messverhaltens"/>
+			<Text id="TI_DT_WMESSMODE0" value="Standard"/>
+			<Text id="TI_DT_WMESSMODE1" value="Präzision"/>
+			<Text id="TI_DT_WMESSMODE2" value="Geschwindigkeit"/>
+			<Text id="TI_DT_WMESSMODE3" value="Fremdlicht-Unterdrückung"/>
+			<!-- -->
+			<Text id="TI_V_WFILTER" value="Messwert-Filter"/>
+			<Text id="TI_VD_WFILTER" value="Mittelwert: gleitender Mittelwert über n Messwerte; Zentralwert: Mittelwert mit Unterdrückung von Extremwerten"/>
+			<Text id="TI_DT_WFILTER0" value="Aus (keine Filterung)"/>
+			<Text id="TI_DT_WFILTER1" value="Mittelwert"/>
+			<Text id="TI_DT_WFILTER2" value="Zentralwert"/>
+			<!-- -->
+			<Text id="TI_V_FLTAVG" value="Anzahl Messungen (Messwert-Filter = Mittelwert)"/>
+			<Text id="TI_VD_FLTAVG" value="(1-99) Der gemittelte Messwert wird nach jeder Messung aktualisiert. Ändert sich der Messwert sprungartig, bewegt sich der Ausgabewert über n Messung linear vom alten zum neuen Messwert."/>
+			<!-- -->
+			<Text id="TI_V_FLTCENTERNUM" value="Anzahl Messungen (Messwert-Filter = Zentralwert)"/>
+			<Text id="TI_VD_FLTCENTERNUM" value="Aus je 10 bis 50 Einzelmessungen wird der Mittelwert gebildet. Extremwerte werden nicht berücksichtigt."/>
+			<Text id="TI_DT_FLTCENTERNUM0" value="10"/>
+			<Text id="TI_DT_FLTCENTERNUM1" value="20"/>
+			<Text id="TI_DT_FLTCENTERNUM2" value="30"/>
+			<Text id="TI_DT_FLTCENTERNUM3" value="40"/>
+			<Text id="TI_DT_FLTCENTERNUM4" value="50"/>
+			<!-- -->
+			<Text id="TI_V_FLTCENTERDEPTH" value="Filtertiefe (Messwert-Filter = Zentralwert)"/>
+			<Text id="TI_VD_FLTCENTERDEPTH" value="Die Filtertiefe bestimmt die Bandbreite der zur Mittelwertbildung herangezogenen Messwerte."/>
+			<Text id="TI_DT_FLTCENTERDEPTH0" value="Grob"/>
+			<Text id="TI_DT_FLTCENTERDEPTH1" value="Mittel"/>
+			<Text id="TI_DT_FLTCENTERDEPTH2" value="Fein"/>
+			<!-- -->
+			<Text id="TI_V_DISPMEASVW" value="Anzeige am Sensor"/>
+			<Text id="TI_VD_DISPMEASVW" value="Automatisch: maximale Helligkeit bei Bedienung am Sensor, reduzierte Helligkeit im Ruhezustand (nach 1 Minute)"/>
+			<Text id="TI_DT_DISPMEASVW0" value="An"/>
+			<Text id="TI_DT_DISPMEASVW1" value="Aus"/>
+			<Text id="TI_DT_DISPMEASVW2" value="Automatisch"/>
+			<!-- -->
+			<Text id="TI_V_MENUESPERRE" value="Tastensperre"/>
+			<Text id="TI_VD_MENUESPERRE" value="Bei aktiver Tastensperre ist eine lokale Bedienung am Gerät nicht möglich."/>
+			<Text id="TI_DT_MENUESPERRE0" value="inaktiv"/>
+			<Text id="TI_DT_MENUESPERRE1" value="aktiv"/>
+			<!-- -->
+			<Text id="TI_ME_LASER_ON" value="Sender ein-/ausschalten"/>
+			<Text id="TI_STD_SC_176" value="Sender (Laserdiode) einschalten"/>
+			<Text id="TI_STD_SC_177" value="Sender (Laserdiode) ausschalten"/>
+			<!-- -->
+			<Text id="TI_ME_COMMAND" value="Konfiguration rücksetzen"/>
+			<Text id="TI_ME_IDENT" value="Identifikation"/>
+			<Text id="TI_ME_OBSERV" value="Beobachten"/>
+			<Text id="TI_ME_FILTER_PARAMETER" value="Messfilter"/>
+			<Text id="TI_ME_PARAMETER" value="Parameter"/>
+			<!-- -->
+			<Text id="TI_V_RESOLUTION" value="Auflösung"/>
+			<Text id="TI_VD_RESOLUTION" value="Distanz = Messwert * Auflösung"/>
+			<Text id="TI_ME_OBSERV_1MM" value="1 mm"/>
+			<Text id="TI_ME_OBSERV_01MM" value="0,1 mm"/>
+			<Text id="TI_ME_OBSERV_001MM" value="0,01 mm"/>
+			<!-- -->
+			<Text id="TI_SV_Fehler1" value="Signal zu gering"/>
+			<Text id="TI_SV_Fehler3" value="Laserfehler"/>
+		</Language>
+		<!--************************************************ -->
+	</ExternalTextCollection>
+	<!-- ************************************* -->
+	<Stamp crc="1324226979"><Checker name="IODD-Checker V1.0.10" version="V1.0.10.0"/></Stamp>
+</IODevice>

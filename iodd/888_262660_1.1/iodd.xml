@@ -1,0 +1,195 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<IODevice xmlns="http://www.io-link.com/IODD/2010/10" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.io-link.com/IODD/2010/10 IODD1.1.xsd">
+  <DocumentInfo version="V1.2" releaseDate="2015-01-30" copyright="BALLUFF" />
+  <ProfileHeader>
+    <ProfileIdentification>IO Device Profile</ProfileIdentification>
+    <ProfileRevision>1.1</ProfileRevision>
+    <ProfileName>Device Profile for IO Devices</ProfileName>
+    <ProfileSource>IO-Link Consortium</ProfileSource>
+    <ProfileClassID>Device</ProfileClassID>
+    <ISO15745Reference>
+      <ISO15745Part>1</ISO15745Part>
+      <ISO15745Edition>1</ISO15745Edition>
+      <ProfileTechnology>IODD</ProfileTechnology>
+    </ISO15745Reference>
+  </ProfileHeader>
+  <ProfileBody>
+    <DeviceIdentity vendorId="888" vendorName="BALLUFF" deviceId="262660">
+      <VendorText textId="TI_VendorText" />
+      <VendorUrl textId="TI_VendorUrl" />
+      <VendorLogo name="Balluff-logo.png" />
+      <DeviceName textId="TI_DeviceName" />
+      <DeviceFamily textId="TI_DeviceFamily" />
+      <DeviceVariantCollection>
+        <DeviceVariant productId="BOS01UT" deviceSymbol="Balluff-BOS01UT-pic.png" deviceIcon="Balluff-BOS01UT-icon.png">
+          <Name textId="TI_SPI_Name" />
+          <Description textId="TI_SPI_Text" />
+        </DeviceVariant>
+      </DeviceVariantCollection>
+    </DeviceIdentity>
+    <DeviceFunction>
+      <Features blockParameter="false" dataStorage="false" profileCharacteristic="6">
+        <SupportedAccessLocks parameter="false" dataStorage="false" localParameterization="false" localUserInterface="false" />
+      </Features>
+      <DatatypeCollection>
+        <Datatype xsi:type="RecordT" id="DT_ProcessDataIn" bitLength="8" subindexAccessSupported="true">
+          <RecordItem subindex="1" bitOffset="0">
+            <SimpleDatatype xsi:type="BooleanT">
+              <SingleValue value="false">
+                <Name textId="TI_PD_ProcessDataIn_Transmitter_Inactive" />
+              </SingleValue>
+              <SingleValue value="true">
+                <Name textId="TI_PD_ProcessDataIn_Transmitter_Active" />
+              </SingleValue>
+            </SimpleDatatype>
+            <Name textId="TI_PD_ProcessDataIn_Transmitter_Status" />
+          </RecordItem>
+        </Datatype>
+        <Datatype xsi:type="RecordT" id="DT_Configuration" bitLength="8" subindexAccessSupported="false">
+          <RecordItem subindex="1" bitOffset="0">
+            <SimpleDatatype xsi:type="BooleanT">
+              <SingleValue value="0">
+                <Name textId="TI_transmitter_off" />
+              </SingleValue>
+              <SingleValue value="1">
+                <Name textId="TI_transmitter_on" />
+              </SingleValue>
+            </SimpleDatatype>
+            <Name textId="TI_transmitter" />
+          </RecordItem>
+        </Datatype>
+      </DatatypeCollection>
+      <VariableCollection>
+        <StdVariableRef id="V_DirectParameters_1" />
+        <StdVariableRef id="V_DirectParameters_2" />
+        <StdVariableRef id="V_SystemCommand" />
+        <StdVariableRef id="V_VendorName" />
+        <StdVariableRef id="V_VendorText" />
+        <StdVariableRef id="V_ProductName" />
+        <StdVariableRef id="V_ProductID" />
+        <StdVariableRef id="V_ProductText" />
+        <StdVariableRef id="V_HardwareRevision" />
+        <StdVariableRef id="V_FirmwareRevision" />
+        <StdVariableRef id="V_ApplicationSpecificTag" excludedFromDataStorage="true" />
+        <Variable id="V_Configuration" index="80" accessRights="rw" excludedFromDataStorage="true">
+          <DatatypeRef datatypeId="DT_Configuration" />
+          <Name textId="TI_Configuration" />
+        </Variable>
+      </VariableCollection>
+      <ProcessDataCollection>
+        <ProcessData id="PD_ProcessData">
+          <ProcessDataIn id="PD_ProcessDataIn" bitLength="8">
+            <DatatypeRef datatypeId="DT_ProcessDataIn" />
+            <Name textId="TI_PD_ProcessDataIn" />
+          </ProcessDataIn>
+        </ProcessData>
+      </ProcessDataCollection>
+      <EventCollection>
+        <Event code="36000" type="Error">
+          <Name textId="TI_ParameterSetChanged" />
+        </Event>
+      </EventCollection>
+      <UserInterface>
+        <MenuCollection>
+          <Menu id="ME_OR_Ident">
+            <VariableRef variableId="V_VendorName" accessRightRestriction="ro" />
+            <VariableRef variableId="V_ProductName" accessRightRestriction="ro" />
+            <VariableRef variableId="V_ProductID" accessRightRestriction="ro" />
+            <VariableRef variableId="V_ProductText" accessRightRestriction="ro" />
+          </Menu>
+          <Menu id="ME_OR_Observe">
+            <VariableRef variableId="V_ApplicationSpecificTag" accessRightRestriction="ro" />
+            <RecordItemRef variableId="V_Configuration" subindex="1" accessRightRestriction="ro" />
+          </Menu>
+          <Menu id="ME_MR_Ident">
+            <VariableRef variableId="V_VendorName" accessRightRestriction="ro" />
+            <VariableRef variableId="V_VendorText" accessRightRestriction="ro" />
+            <VariableRef variableId="V_ProductName" accessRightRestriction="ro" />
+            <VariableRef variableId="V_ProductID" accessRightRestriction="ro" />
+            <VariableRef variableId="V_ProductText" accessRightRestriction="ro" />
+            <VariableRef variableId="V_HardwareRevision" accessRightRestriction="ro" />
+            <VariableRef variableId="V_FirmwareRevision" accessRightRestriction="ro" />
+          </Menu>
+          <Menu id="ME_MR_Observe">
+            <VariableRef variableId="V_ApplicationSpecificTag" accessRightRestriction="ro" />
+          </Menu>
+          <Menu id="ME_MR_Param">
+            <RecordItemRef variableId="V_Configuration" subindex="1" />
+          </Menu>
+          <Menu id="ME_SR_Ident">
+            <VariableRef variableId="V_VendorName" accessRightRestriction="ro" />
+            <VariableRef variableId="V_VendorText" accessRightRestriction="ro" />
+            <VariableRef variableId="V_ProductName" accessRightRestriction="ro" />
+            <VariableRef variableId="V_ProductID" accessRightRestriction="ro" />
+            <VariableRef variableId="V_ProductText" accessRightRestriction="ro" />
+            <VariableRef variableId="V_HardwareRevision" accessRightRestriction="ro" />
+            <VariableRef variableId="V_FirmwareRevision" accessRightRestriction="ro" />
+          </Menu>
+          <Menu id="ME_SR_Observe">
+            <VariableRef variableId="V_ApplicationSpecificTag" accessRightRestriction="ro" />
+          </Menu>
+          <Menu id="ME_SR_Param">
+            <VariableRef variableId="V_ApplicationSpecificTag" />
+            <RecordItemRef variableId="V_Configuration" subindex="1" />
+          </Menu>
+        </MenuCollection>
+        <ObserverRoleMenuSet>
+          <IdentificationMenu menuId="ME_OR_Ident" />
+          <ObservationMenu menuId="ME_OR_Observe" />
+        </ObserverRoleMenuSet>
+        <MaintenanceRoleMenuSet>
+          <IdentificationMenu menuId="ME_MR_Ident" />
+          <ParameterMenu menuId="ME_MR_Param" />
+          <ObservationMenu menuId="ME_MR_Observe" />
+        </MaintenanceRoleMenuSet>
+        <SpecialistRoleMenuSet>
+          <IdentificationMenu menuId="ME_SR_Ident" />
+          <ParameterMenu menuId="ME_SR_Param" />
+          <ObservationMenu menuId="ME_SR_Observe" />
+        </SpecialistRoleMenuSet>
+      </UserInterface>
+    </DeviceFunction>
+  </ProfileBody>
+  <CommNetworkProfile xsi:type="IOLinkCommNetworkProfileT" iolinkRevision="V1.1">
+    <TransportLayers>
+      <PhysicalLayer minCycleTime="5000" sioSupported="true" bitrate="COM2" mSequenceCapability="1">
+        <Connection xsi:type="M5ConnectionT">
+          <ProductRef productId="BOS01UT" />
+          <Wire1 xsi:type="Wire1T" />
+          <Wire2 function="NC" />
+          <Wire3 />
+          <Wire4 />
+        </Connection>
+      </PhysicalLayer>
+    </TransportLayers>
+    <Test>
+      <Config1 index="82" testValue="0x01"></Config1>
+      <Config2 index="256" testValue="0x00,0x02" />
+      <Config3 index="24" testValue="0x01,0x02,0x03,0x04,0x05,0x06,0x07,0x08,0x09,0x0a,0x01,0x02,0x03,0x04,0x05,0x06,0x07,0x08,0x09,0x0a,0x01,0x02,0x03,0x04,0x05,0x06,0x07,0x08,0x09,0x0a,0x01,0x02" />
+      <Config7 index="81">
+        <EventTrigger appearValue="1" disappearValue="0" />
+        <EventTrigger appearValue="3" disappearValue="2" />
+      </Config7>
+    </Test>
+  </CommNetworkProfile>
+  <ExternalTextCollection>
+    <PrimaryLanguage xml:lang="en">
+      <Text id="TI_VendorText" value="BALLUFF" />
+      <Text id="TI_VendorUrl" value="www.balluff.com" />
+      <Text id="TI_DeviceFamily" value="BOS - Optical Sensor" />
+      <Text id="TI_DeviceName" value="Thru-Beam sensor emitter red light" />
+      <Text id="TI_SPI_Name" value="BOS 23K-XI-RS11-S4" />
+      <Text id="TI_ParameterSetChanged" value="Parametersatz wurde geaendert" />
+      <Text id="TI_SPI_Text" value="Thru-Beam sensor emitter red light" />
+      <Text id="TI_PD_ProcessDataIn" value="Process Data" />
+      <Text id="TI_Configuration" value="configuration" />
+      <Text id="TI_PD_ProcessDataIn_Transmitter_Status" value="Transmitter Status" />
+      <Text id="TI_PD_ProcessDataIn_Transmitter_Inactive" value="Transmitter inactive" />
+      <Text id="TI_PD_ProcessDataIn_Transmitter_Active" value="Transmitter active" />
+      <Text id="TI_transmitter" value="transmitter" />
+      <Text id="TI_transmitter_off" value="transmitter off" />
+      <Text id="TI_transmitter_on" value="transmitter on" />
+    </PrimaryLanguage>
+  </ExternalTextCollection>
+  <Stamp crc="2236279505"><Checker name="IODD-Checker V1.1.1" version="V1.1.1.0"/></Stamp>
+</IODevice>

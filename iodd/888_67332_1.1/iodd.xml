@@ -1,0 +1,693 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<IODevice xmlns="http://www.io-link.com/IODD/2010/10" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.io-link.com/IODD/2010/10 IODD1.1.xsd">
+  <DocumentInfo version="V1.2" releaseDate="2019-11-11" copyright="Copyright 2019, Balluff GmbH" />
+  <ProfileHeader>
+    <ProfileIdentification>IO Device Profile</ProfileIdentification>
+    <ProfileRevision>1.1</ProfileRevision>
+    <ProfileName>Device Profile for IO Devices</ProfileName>
+    <ProfileSource>IO-Link Consortium</ProfileSource>
+    <ProfileClassID>Device</ProfileClassID>
+    <ISO15745Reference>
+      <ISO15745Part>1</ISO15745Part>
+      <ISO15745Edition>1</ISO15745Edition>
+      <ProfileTechnology>IODD</ProfileTechnology>
+    </ISO15745Reference>
+  </ProfileHeader>
+  <ProfileBody>
+    <DeviceIdentity vendorId="888" vendorName="BALLUFF" deviceId="67332">
+      <!--additionalDeviceIds="67329 67330 67332"-->
+      <!--0x010703 for BS IP67 XXX-603 3A8 device-->
+      <VendorText textId="TI_VendorText" />
+      <VendorUrl textId="TI_VendorUrl" />
+      <VendorLogo name="Balluff-logo.png" />
+      <DeviceName textId="TI_Product_TP_Name" />
+      <DeviceFamily textId="TI_DeviceFamily" />
+      <DeviceVariantCollection>
+        <DeviceVariant productId="BAE00TP" deviceIcon="BALLUFF-IP67-3A8-icon.png" deviceSymbol="BALLUFF-IP67-3A8-pic.png">
+          <Name textId="TI_Product_TP_Name" />
+          <Description textId="TI_Product_TP_Descr" />
+        </DeviceVariant>
+      </DeviceVariantCollection>
+    </DeviceIdentity>
+    <DeviceFunction>
+      <Features blockParameter="false" dataStorage="false" profileCharacteristic="1 32769 32770 32772">
+        <SupportedAccessLocks parameter="false" dataStorage="false" localUserInterface="false" localParameterization="false" />
+      </Features>
+      <DatatypeCollection>
+        <Datatype id="DT_BCD" xsi:type="BooleanT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <SingleValue value="false" xsi:type="BooleanValueT">
+            <Name textId="TI_BCD_OFF" />
+          </SingleValue>
+          <SingleValue value="true" xsi:type="BooleanValueT">
+            <Name textId="TI_BCD_ON" />
+          </SingleValue>
+        </Datatype>
+        <Datatype id="DT_PD_UOUT" xsi:type="UIntegerT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bitLength="12">
+          <ValueRange upperValue="300" lowerValue="0" />
+        </Datatype>
+        <Datatype id="DT_PD_IOUT" xsi:type="UIntegerT" bitLength="12">
+          <ValueRange upperValue="100" lowerValue="0" />
+        </Datatype>
+        <Datatype id="DT_Status" xsi:type="BooleanT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <SingleValue xsi:type="BooleanValueT" value="false">
+            <Name textId="TI_VAR_Inactive" />
+          </SingleValue>
+          <SingleValue xsi:type="BooleanValueT" value="true">
+            <Name textId="TI_VAR_Active" />
+          </SingleValue>
+        </Datatype>
+      </DatatypeCollection>
+      <VariableCollection>
+        <StdVariableRef id="V_DirectParameters_1" />
+        <StdVariableRef id="V_DirectParameters_2" />
+        <StdVariableRef id="V_SystemCommand">
+          <StdSingleValueRef value="130" />
+        </StdVariableRef>
+        <!--<StdVariableRef id="V_DeviceAccessLocks" xmlns="http://www.io-link.com/IODD/2010/10" />-->
+        <StdVariableRef id="V_VendorName" defaultValue="BALLUFF" />
+        <StdVariableRef id="V_VendorText" defaultValue="www.balluff.com" />
+        <StdVariableRef id="V_ProductName" defaultValue="BAE PS-XA-1W-24-038-607-I"/>
+          <!--defaultValue="BAE PS-XA-1W-24-038-603"-->
+        <!--/StdVariableRef-->
+        <StdVariableRef id="V_ProductID" defaultValue="BAE00TP"/>
+          <!--defaultValue="BAE00ER"-->
+        <!--/StdVariableRef-->
+        <StdVariableRef id="V_ProductText" defaultValue="BAE - Power Supply, single phase, 115/230VAC, 24VDC/3,8A, IP67"/>
+          <!--defaultValue="BAE - Power Supply, single phase, 115/230VAC, 24VDC/3,8A, IP67"-->
+        <!--/StdVariableRef-->
+        <StdVariableRef id="V_HardwareRevision" />
+        <StdVariableRef id="V_FirmwareRevision" />
+        <StdVariableRef id="V_ApplicationSpecificTag" defaultValue="" excludedFromDataStorage="true" />
+        <StdVariableRef id="V_DeviceStatus" />
+        <StdVariableRef id="V_ProcessDataInput"></StdVariableRef>
+        <Variable id="V_StressLevel" index="1280" accessRights="ro" dynamic="true">
+          <Datatype xsi:type="UIntegerT" bitLength="8"></Datatype>
+          <Name textId="TI_StressLevel" />
+          <Description textId="TI_VAR_StressLevel_Descr" />
+        </Variable>
+        <Variable id="V_LifeTimeYears" index="1282" accessRights="ro" dynamic="true">
+          <Datatype xsi:type="IntegerT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bitLength="8"></Datatype>
+          <Name textId="TI_LifeTimeYears" />
+          <Description textId="TI_VAR_LifeTimeYears_Descr" />
+        </Variable>
+        <Variable id="V_InputVoltage" index="1285" accessRights="ro" dynamic="true">
+          <Datatype xsi:type="IntegerT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bitLength="16"></Datatype>
+          <Name textId="TI_InputVoltage" />
+          <Description textId="TI_VAR_InputVoltage_Descr" />
+        </Variable>
+        <Variable id="V_OperationHours" index="1286" accessRights="ro" dynamic="true">
+          <Datatype xsi:type="UIntegerT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bitLength="32"></Datatype>
+          <Name textId="TI_OperationHours" />
+          <Description textId="TI_VAR_OperationHours_Descr" />
+        </Variable>
+        <Variable id="V_MinTemperature" index="1287" accessRights="ro" dynamic="true">
+          <Datatype xsi:type="IntegerT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bitLength="16"></Datatype>
+          <Name textId="TI_MinTemperature" />
+          <Description textId="TI_VAR_MinTemperature_Descr" />
+        </Variable>
+        <Variable id="V_MaxTemperature" index="1288" accessRights="ro" dynamic="true">
+          <Datatype xsi:type="IntegerT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bitLength="16"></Datatype>
+          <Name textId="TI_MaxTemperature" />
+          <Description textId="TI_VAR_MaxTemperature_Descr" />
+        </Variable>
+        <Variable id="V_OutputVoltage" index="1289" accessRights="ro">
+          <Datatype xsi:type="Float32T" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"></Datatype>
+          <Name textId="TI_OutputVoltage" />
+          <Description textId="TI_VAR_OutputVoltage_Descr" />
+        </Variable>
+        <Variable id="V_OutputCurrent" index="1290" accessRights="ro">
+          <Datatype xsi:type="Float32T" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"></Datatype>
+          <Name textId="TI_OutputCurrent" />
+          <Description textId="TI_VAR_OutputCurrent_Descr" />
+        </Variable>
+        <Variable id="V_CombinedTemperature" index="1291" accessRights="ro" dynamic="true">
+          <Datatype xsi:type="IntegerT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bitLength="16"></Datatype>
+          <Name textId="TI_CombinedTemperature" />
+          <Description textId="TI_VAR_CombinedTemperature_Descr" />
+        </Variable>
+        <Variable id="V_PSU_On_Off_Command" index="1312" accessRights="wo">
+          <Datatype xsi:type="UIntegerT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bitLength="8"></Datatype>
+          <Name textId="TI_PSU_On_Off_Command" />
+          <Description textId="TI_VAR_PSU_On_Off_Command_Descr" />
+        </Variable>
+        <Variable id="V_PID_set_Command" index="1313" accessRights="wo">
+          <Datatype xsi:type="UIntegerT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bitLength="16">
+            <SingleValue value="1281">
+              <Name textId="TI_PID_0501" />
+            </SingleValue>
+            <SingleValue value="1283">
+              <Name textId="TI_PID_0503" />
+            </SingleValue>
+            <SingleValue value="1285">
+              <Name textId="TI_PID_0505" />
+            </SingleValue>
+            <SingleValue value="1286">
+              <Name textId="TI_PID_0506" />
+            </SingleValue>
+            <SingleValue value="1793">
+              <Name textId="TI_PID_0701" />
+            </SingleValue>
+            <SingleValue value="1794">
+              <Name textId="TI_PID_0702" />
+            </SingleValue>
+            <SingleValue value="1795">
+              <Name textId="TI_PID_0703" />
+            </SingleValue>
+            <SingleValue value="1796">
+              <Name textId="TI_PID_0704" />
+            </SingleValue>
+            <SingleValue value="1797">
+              <Name textId="TI_PID_0705" />
+            </SingleValue>
+            <SingleValue value="1798">
+              <Name textId="TI_PID_0706" />
+            </SingleValue>
+            <SingleValue value="1799">
+              <Name textId="TI_PID_0707" />
+            </SingleValue>
+          </Datatype>
+          <Name textId="TI_PID_set_Command" />
+          <Description textId="TI_VAR_PID_set_Command_Descr" />
+        </Variable>
+        <Variable id="V_BDC1_Param1" accessRights="rw" index="60" excludedFromDataStorage="true">
+          <Datatype xsi:type="RecordT" subindexAccessSupported="true" bitLength="32" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+            <RecordItem bitOffset="0" subindex="1">
+              <SimpleDatatype xsi:type="IntegerT" bitLength="16" />
+              <Name textId="TI_BDC1_SP1" />
+            </RecordItem>
+            <RecordItem bitOffset="16" subindex="2">
+              <SimpleDatatype xsi:type="IntegerT" bitLength="16">
+                <SingleValue value="0">
+                  <Name textId="TI_SP2_DefaultValue" />
+                </SingleValue>
+              </SimpleDatatype>
+              <Name textId="TI_BDC1_SP2" />
+            </RecordItem>
+          </Datatype>
+          <RecordItemInfo defaultValue="0" subindex="1" />
+          <RecordItemInfo defaultValue="0" subindex="2" />
+          <Name textId="TI_BDC1_Param1" />
+          <Description textId="TI_VAR_BDC1_PARAM1_Descr" />
+        </Variable>
+        <Variable id="V_BDC1_Param2" accessRights="rw" index="61" excludedFromDataStorage="true">
+          <Datatype xsi:type="RecordT" subindexAccessSupported="true" bitLength="32" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+            <RecordItem bitOffset="0" subindex="1">
+              <SimpleDatatype xsi:type="UIntegerT" bitLength="8">
+                <SingleValue value="0">
+                  <Name textId="TI_ValueAsSpecified" />
+                </SingleValue>
+              </SimpleDatatype>
+              <Name textId="TI_SwitchPointLogic" />
+            </RecordItem>
+            <RecordItem bitOffset="8" subindex="2">
+              <SimpleDatatype xsi:type="UIntegerT" bitLength="8">
+                <SingleValue value="0">
+                  <Name textId="TI_Deactivated" />
+                </SingleValue>
+                <SingleValue value="1">
+                  <Name textId="TI_SinglePointMode" />
+                </SingleValue>
+              </SimpleDatatype>
+              <Name textId="TI_SwitchPointMode" />
+            </RecordItem>
+            <RecordItem bitOffset="16" subindex="3">
+              <SimpleDatatype xsi:type="IntegerT" bitLength="16"></SimpleDatatype>
+              <Name textId="TI_SwitchPointHysteresis" />
+            </RecordItem>
+          </Datatype>
+          <RecordItemInfo defaultValue="0" subindex="1" />
+          <RecordItemInfo defaultValue="0" subindex="2" />
+          <RecordItemInfo defaultValue="0" subindex="3" />
+          <Name textId="TI_BDC1_Param2" />
+        </Variable>
+        <Variable id="V_BDC2_Param1" accessRights="rw" index="62" excludedFromDataStorage="true">
+          <Datatype xsi:type="RecordT" subindexAccessSupported="true" bitLength="32" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+            <RecordItem bitOffset="0" subindex="1">
+              <SimpleDatatype xsi:type="IntegerT" bitLength="16" />
+              <Name textId="TI_BDC2_SP1" />
+            </RecordItem>
+            <RecordItem bitOffset="16" subindex="2">
+              <SimpleDatatype xsi:type="IntegerT" bitLength="16">
+                <SingleValue value="0">
+                  <Name textId="TI_SP2_DefaultValue" />
+                </SingleValue>
+              </SimpleDatatype>
+              <Name textId="TI_BDC2_SP2" />
+            </RecordItem>
+          </Datatype>
+          <RecordItemInfo defaultValue="0" subindex="1" />
+          <RecordItemInfo defaultValue="0" subindex="2" />
+          <Name textId="TI_BDC2_Param1" />
+          <Description textId="TI_VAR_BDC2_PARAM1_Descr" />
+        </Variable>
+        <Variable id="V_BDC2_Param2" accessRights="rw" index="63" excludedFromDataStorage="true">
+          <Datatype xsi:type="RecordT" subindexAccessSupported="true" bitLength="32" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+            <RecordItem bitOffset="0" subindex="1">
+              <SimpleDatatype xsi:type="UIntegerT" bitLength="8">
+                <SingleValue value="0">
+                  <Name textId="TI_ValueAsSpecified" />
+                </SingleValue>
+              </SimpleDatatype>
+              <Name textId="TI_SwitchPointLogic" />
+            </RecordItem>
+            <RecordItem bitOffset="8" subindex="2">
+              <SimpleDatatype xsi:type="UIntegerT" bitLength="8">
+                <SingleValue value="0">
+                  <Name textId="TI_Deactivated" />
+                </SingleValue>
+                <SingleValue value="1">
+                  <Name textId="TI_SinglePointMode" />
+                </SingleValue>
+              </SimpleDatatype>
+              <Name textId="TI_SwitchPointMode" />
+            </RecordItem>
+            <RecordItem bitOffset="16" subindex="3">
+              <SimpleDatatype xsi:type="IntegerT" bitLength="16"></SimpleDatatype>
+              <Name textId="TI_SwitchPointHysteresis" />
+            </RecordItem>
+          </Datatype>
+          <RecordItemInfo defaultValue="0" subindex="1" />
+          <RecordItemInfo defaultValue="0" subindex="2" />
+          <RecordItemInfo defaultValue="0" subindex="3" />
+          <Name textId="TI_BDC2_Param2" />
+        </Variable>
+        <Variable id="V_BDC3_Param1" accessRights="rw" index="16384" excludedFromDataStorage="true">
+          <Datatype xsi:type="RecordT" subindexAccessSupported="true" bitLength="32" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+            <RecordItem bitOffset="0" subindex="1">
+              <SimpleDatatype xsi:type="IntegerT" bitLength="16" />
+              <Name textId="TI_BDC3_SP1" />
+            </RecordItem>
+            <RecordItem bitOffset="16" subindex="2">
+              <SimpleDatatype xsi:type="IntegerT" bitLength="16">
+                <SingleValue value="0">
+                  <Name textId="TI_SP2_DefaultValue" />
+                </SingleValue>
+              </SimpleDatatype>
+              <Name textId="TI_BDC3_SP2" />
+            </RecordItem>
+          </Datatype>
+          <RecordItemInfo defaultValue="0" subindex="1" />
+          <RecordItemInfo defaultValue="0" subindex="2" />
+          <Name textId="TI_BDC3_Param1" />
+          <Description textId="TI_VAR_BDC3_PARAM1_Descr" />
+        </Variable>
+        <Variable id="V_BDC3_Param2" accessRights="rw" index="16385" excludedFromDataStorage="true">
+          <Datatype xsi:type="RecordT" subindexAccessSupported="true" bitLength="32" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+            <RecordItem bitOffset="0" subindex="1">
+              <SimpleDatatype xsi:type="UIntegerT" bitLength="8">
+                <SingleValue value="0">
+                  <Name textId="TI_ValueAsSpecified" />
+                </SingleValue>
+              </SimpleDatatype>
+              <Name textId="TI_SwitchPointLogic" />
+            </RecordItem>
+            <RecordItem bitOffset="8" subindex="2">
+              <SimpleDatatype xsi:type="UIntegerT" bitLength="8">
+                <SingleValue value="0">
+                  <Name textId="TI_Deactivated" />
+                </SingleValue>
+                <SingleValue value="1">
+                  <Name textId="TI_SinglePointMode" />
+                </SingleValue>
+              </SimpleDatatype>
+              <Name textId="TI_SwitchPointMode" />
+            </RecordItem>
+            <RecordItem bitOffset="16" subindex="3">
+              <SimpleDatatype xsi:type="IntegerT" bitLength="16"></SimpleDatatype>
+              <Name textId="TI_SwitchPointHysteresis" />
+            </RecordItem>
+          </Datatype>
+          <RecordItemInfo defaultValue="0" subindex="1" />
+          <RecordItemInfo defaultValue="0" subindex="2" />
+          <RecordItemInfo defaultValue="0" subindex="3" />
+          <Name textId="TI_BDC3_Param2" />
+        </Variable>
+        <Variable id="V_BDC4_Param1" accessRights="rw" index="16386" excludedFromDataStorage="true">
+          <Datatype xsi:type="RecordT" subindexAccessSupported="true" bitLength="32" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+            <RecordItem bitOffset="0" subindex="1">
+              <SimpleDatatype xsi:type="IntegerT" bitLength="16" />
+              <Name textId="TI_BDC4_SP1" />
+            </RecordItem>
+            <RecordItem bitOffset="16" subindex="2">
+              <SimpleDatatype xsi:type="IntegerT" bitLength="16">
+                <SingleValue value="0">
+                  <Name textId="TI_SP2_DefaultValue" />
+                </SingleValue>
+              </SimpleDatatype>
+              <Name textId="TI_BDC4_SP2" />
+            </RecordItem>
+          </Datatype>
+          <RecordItemInfo defaultValue="0" subindex="1" />
+          <RecordItemInfo defaultValue="0" subindex="2" />
+          <Name textId="TI_BDC4_Param1" />
+          <Description textId="TI_VAR_BDC4_PARAM1_Descr" />
+        </Variable>
+        <Variable id="V_BDC4_Param2" accessRights="rw" index="16387" excludedFromDataStorage="true">
+          <Datatype xsi:type="RecordT" subindexAccessSupported="true" bitLength="32" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+            <RecordItem bitOffset="0" subindex="1">
+              <SimpleDatatype xsi:type="UIntegerT" bitLength="8">
+                <SingleValue value="0">
+                  <Name textId="TI_ValueAsSpecified" />
+                </SingleValue>
+              </SimpleDatatype>
+              <Name textId="TI_SwitchPointLogic" />
+            </RecordItem>
+            <RecordItem bitOffset="8" subindex="2">
+              <SimpleDatatype xsi:type="UIntegerT" bitLength="8">
+                <SingleValue value="0">
+                  <Name textId="TI_Deactivated" />
+                </SingleValue>
+                <SingleValue value="1">
+                  <Name textId="TI_SinglePointMode" />
+                </SingleValue>
+              </SimpleDatatype>
+              <Name textId="TI_SwitchPointMode" />
+            </RecordItem>
+            <RecordItem bitOffset="16" subindex="3">
+              <SimpleDatatype xsi:type="IntegerT" bitLength="16"></SimpleDatatype>
+              <Name textId="TI_SwitchPointHysteresis" />
+            </RecordItem>
+          </Datatype>
+          <RecordItemInfo defaultValue="0" subindex="1" />
+          <RecordItemInfo defaultValue="0" subindex="2" />
+          <RecordItemInfo defaultValue="0" subindex="3" />
+          <Name textId="TI_BDC4_Param2" />
+        </Variable>
+        <Variable id="V_StatusMask" index="1293" accessRights="ro" dynamic="true">
+          <Datatype xsi:type="RecordT" bitLength="16" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" subindexAccessSupported="false">
+            <RecordItem subindex="1" bitOffset="0">
+              <DatatypeRef datatypeId="DT_Status" />
+              <Name textId="TI_VAR_StatusNoConnection" />
+            </RecordItem>
+            <RecordItem subindex="2" bitOffset="1">
+              <DatatypeRef datatypeId="DT_Status" />
+              <Name textId="TI_VAR_StatusBadConnection" />
+            </RecordItem>
+            <RecordItem subindex="3" bitOffset="2">
+              <DatatypeRef datatypeId="DT_Status" />
+              <Name textId="TI_VAR_DeviceMismatch" />
+            </RecordItem>
+            <RecordItem subindex="4" bitOffset="3">
+              <DatatypeRef datatypeId="DT_Status" />
+              <Name textId="TI_VAR_HighStress" />
+            </RecordItem>
+            <RecordItem subindex="5" bitOffset="4">
+              <DatatypeRef datatypeId="DT_Status" />
+              <Name textId="TI_VAR_FastAging" />
+            </RecordItem>
+            <RecordItem subindex="6" bitOffset="5">
+              <DatatypeRef datatypeId="DT_Status" />
+              <Name textId="TI_VAR_OverTemperature" />
+            </RecordItem>
+            <RecordItem subindex="7" bitOffset="6">
+              <DatatypeRef datatypeId="DT_Status" />
+              <Name textId="TI_VAR_OverLoad" />
+            </RecordItem>
+            <RecordItem subindex="8" bitOffset="7">
+              <DatatypeRef datatypeId="DT_Status" />
+              <Name textId="TI_VAR_OverVoltage" />
+            </RecordItem>
+            <RecordItem subindex="9" bitOffset="8">
+              <DatatypeRef datatypeId="DT_Status" />
+              <Name textId="TI_VAR_OutputDrop" />
+            </RecordItem>
+            <!--<RecordItem subindex="10" bitOffset="9" xmlns="http://www.io-link.com/IODD/2010/10"><DatatypeRef datatypeId="DT_Status" /><Name textId="TI_VAR_InvalidInputVoltage" /></RecordItem>-->
+            <RecordItem subindex="11" bitOffset="10">
+              <DatatypeRef datatypeId="DT_Status" />
+              <Name textId="TI_VAR_PSU_ON" />
+            </RecordItem>
+            <!--<RecordItem subindex="12" bitOffset="11" xmlns="http://www.io-link.com/IODD/2010/10"><DatatypeRef datatypeId="DT_Status" /><Name textId="TI_VAR_BoostON" /></RecordItem>-->
+          </Datatype>
+          <Name textId="TI_VAR_StatusMask" />
+          <Description textId="TI_VAR_StatusMask_Descr" />
+        </Variable>
+      </VariableCollection>
+      <ProcessDataCollection>
+        <ProcessData id="V_PdT">
+          <ProcessDataIn id="V_Pd_InT" bitLength="32">
+            <Datatype xsi:type="RecordT" bitLength="32" subindexAccessSupported="false">
+              <RecordItem subindex="1" bitOffset="0">
+                <DatatypeRef datatypeId="DT_BCD" />
+                <Name textId="TI_PD_BCD_OverLoad" />
+              </RecordItem>
+              <RecordItem subindex="2" bitOffset="1">
+                <DatatypeRef datatypeId="DT_BCD" />
+                <Name textId="TI_PD_BCD_OverVoltage" />
+              </RecordItem>
+              <RecordItem subindex="3" bitOffset="2">
+                <DatatypeRef datatypeId="DT_BCD" />
+                <Name textId="TI_PD_BCD_OverTemperature" />
+              </RecordItem>
+              <RecordItem subindex="4" bitOffset="3">
+                <DatatypeRef datatypeId="DT_BCD" />
+                <Name textId="TI_PD_BCD_OutputDrop" />
+              </RecordItem>
+              <RecordItem subindex="5" bitOffset="7">
+                <DatatypeRef datatypeId="DT_BCD" />
+                <Name textId="TI_PD_Suspicious_Connection" />
+              </RecordItem>
+              <RecordItem subindex="6" bitOffset="8">
+                <DatatypeRef datatypeId="DT_PD_IOUT" />
+                <Name textId="TI_PD_CurrentOutput" />
+              </RecordItem>
+              <RecordItem subindex="7" bitOffset="20">
+                <DatatypeRef datatypeId="DT_PD_UOUT" />
+                <Name textId="TI_PD_VoltageOutput" />
+              </RecordItem>
+            </Datatype>
+            <Name textId="TI_PD" />
+          </ProcessDataIn>
+        </ProcessData>
+      </ProcessDataCollection>
+      <EventCollection>
+        <StdEventRef code="20753" />
+        <StdEventRef code="30480" />
+        <Event code="45056" type="Error">
+          <Name textId="TI_EVENT_NO_CONNECTION" />
+          <Description textId="TD_EVENT_NO_CONNECTION" />
+        </Event>
+        <Event code="45057" type="Error">
+          <Name textId="TI_EVENT_BAD_CONNECTION" />
+          <Description textId="TD_EVENT_BAD_CONNECTION" />
+        </Event>
+      </EventCollection>
+      <UserInterface>
+        <ProcessDataRefCollection>
+          <ProcessDataRef processDataId="V_Pd_InT">
+            <ProcessDataRecordItemInfo subindex="1" />
+            <ProcessDataRecordItemInfo subindex="2" />
+            <ProcessDataRecordItemInfo subindex="3" />
+            <ProcessDataRecordItemInfo subindex="4" />
+            <ProcessDataRecordItemInfo subindex="5" />
+            <ProcessDataRecordItemInfo gradient="0.1" offset="0" unitCode="1209" displayFormat="Dec.1" subindex="6" />
+            <ProcessDataRecordItemInfo gradient="0.1" offset="0" unitCode="1240" displayFormat="Dec.1" subindex="7" />
+          </ProcessDataRef>
+        </ProcessDataRefCollection>
+        <MenuCollection>
+          <Menu id="M_OR_MR_SR_Ident">
+            <VariableRef variableId="V_VendorName" />
+            <VariableRef variableId="V_VendorText" />
+            <VariableRef variableId="V_ProductName" />
+            <VariableRef variableId="V_ProductID" />
+            <VariableRef variableId="V_ProductText" />
+            <VariableRef variableId="V_HardwareRevision" />
+            <VariableRef variableId="V_FirmwareRevision" />
+            <VariableRef variableId="V_ApplicationSpecificTag" />
+          </Menu>
+          <Menu id="M_MR_Param">
+            <!--<VariableRef variableId="V_DeviceAccessLocks" displayFormat="Dec" accessRightRestriction="rw" xmlns="http://www.io-link.com/IODD/2010/10" />-->
+            <VariableRef variableId="V_PSU_On_Off_Command" displayFormat="Dec.1" accessRightRestriction="wo" />
+            <VariableRef variableId="V_PID_set_Command" displayFormat="Dec.1" accessRightRestriction="wo" />
+          </Menu>
+          <Menu id="M_SR_Param">
+            <!--<VariableRef variableId="V_DeviceAccessLocks" displayFormat="Dec" accessRightRestriction="rw" xmlns="http://www.io-link.com/IODD/2010/10" />-->
+            <VariableRef variableId="V_PSU_On_Off_Command" displayFormat="Dec.1" accessRightRestriction="wo" />
+            <VariableRef variableId="V_PID_set_Command" displayFormat="Dec.1" accessRightRestriction="wo" />
+            <VariableRef variableId="V_BDC1_Param1" accessRightRestriction="rw" />
+            <VariableRef variableId="V_BDC1_Param2" accessRightRestriction="rw" />
+            <VariableRef variableId="V_BDC2_Param1" accessRightRestriction="rw" />
+            <VariableRef variableId="V_BDC2_Param2" accessRightRestriction="rw" />
+            <VariableRef variableId="V_BDC3_Param1" accessRightRestriction="rw" />
+            <VariableRef variableId="V_BDC3_Param2" accessRightRestriction="rw" />
+            <VariableRef variableId="V_BDC4_Param1" accessRightRestriction="rw" />
+            <VariableRef variableId="V_BDC4_Param2" accessRightRestriction="rw" />
+          </Menu>
+          <Menu id="M_OR_MR_SR_Observe">
+            <RecordItemRef variableId="V_ProcessDataInput" subindex="6" gradient="0.1" offset="0" displayFormat="Dec" unitCode="1209" accessRightRestriction="ro"></RecordItemRef>
+            <RecordItemRef variableId="V_ProcessDataInput" subindex="7" gradient="0.1" offset="0" displayFormat="Dec" unitCode="1240" accessRightRestriction="ro"></RecordItemRef>
+            <VariableRef variableId="V_StressLevel" displayFormat="Dec" accessRightRestriction="ro" />
+            <VariableRef variableId="V_LifeTimeYears" displayFormat="Dec" accessRightRestriction="ro" />
+            <VariableRef variableId="V_CombinedTemperature" displayFormat="Dec.1" accessRightRestriction="ro" unitCode="1001" />
+            <VariableRef variableId="V_OperationHours" displayFormat="Dec" accessRightRestriction="ro" unitCode="1059" />
+            <VariableRef variableId="V_InputVoltage" displayFormat="Dec.1" accessRightRestriction="ro" unitCode="1240" />
+            <VariableRef variableId="V_MaxTemperature" displayFormat="Dec.1" accessRightRestriction="ro" unitCode="1001" />
+            <VariableRef variableId="V_MinTemperature" displayFormat="Dec.1" accessRightRestriction="ro" unitCode="1001" />
+          </Menu>
+          <Menu id="M_OR_MR_SR_Diagnosis">
+            <VariableRef variableId="V_DeviceStatus" />
+            <VariableRef variableId="V_StatusMask" />
+          </Menu>
+        </MenuCollection>
+        <ObserverRoleMenuSet>
+          <IdentificationMenu menuId="M_OR_MR_SR_Ident" />
+          <ObservationMenu menuId="M_OR_MR_SR_Observe" />
+          <DiagnosisMenu menuId="M_OR_MR_SR_Diagnosis"></DiagnosisMenu>
+        </ObserverRoleMenuSet>
+        <MaintenanceRoleMenuSet>
+          <IdentificationMenu menuId="M_OR_MR_SR_Ident" />
+          <ParameterMenu menuId="M_MR_Param"></ParameterMenu>
+          <ObservationMenu menuId="M_OR_MR_SR_Observe"></ObservationMenu>
+          <DiagnosisMenu menuId="M_OR_MR_SR_Diagnosis"></DiagnosisMenu>
+        </MaintenanceRoleMenuSet>
+        <SpecialistRoleMenuSet>
+          <IdentificationMenu menuId="M_OR_MR_SR_Ident" />
+          <ParameterMenu menuId="M_SR_Param" />
+          <ObservationMenu menuId="M_OR_MR_SR_Observe" />
+          <DiagnosisMenu menuId="M_OR_MR_SR_Diagnosis"></DiagnosisMenu>
+        </SpecialistRoleMenuSet>
+      </UserInterface>
+    </DeviceFunction>
+  </ProfileBody>
+  <CommNetworkProfile xsi:type="IOLinkCommNetworkProfileT" iolinkRevision="V1.1">
+    <TransportLayers>
+      <PhysicalLayer minCycleTime="20000" sioSupported="false" bitrate="COM2" mSequenceCapability="27">
+        <!--<Connection xsi:type="OtherConnectionT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.io-link.com/IODD/2010/10"><ProductRef productId="BAE00TK" /><Description textId="TI_IOL_Connector" /><Wire1 function="L+" color="BN"><Name textId="T_IOLWire1" /></Wire1><Wire2 function="Other" color="WH"><Name textId="T_IOLWire2" /></Wire2><Wire3 function="L-" color="BU"><Name textId="T_IOLWire3" /></Wire3><Wire4 function="C/Q" color="BK"><Name textId="T_IOLWire4" /></Wire4></Connection>-->
+        <!--<Connection xsi:type="OtherConnectionT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.io-link.com/IODD/2010/10"><ProductRef productId="BAE00TH" /><Description textId="TI_IOL_Connector" /><Wire1 function="L+" color="BN"><Name textId="T_IOLWire1" /></Wire1><Wire2 function="Other" color="WH"><Name textId="T_IOLWire2" /></Wire2><Wire3 function="L-" color="BU"><Name textId="T_IOLWire3" /></Wire3><Wire4 function="C/Q" color="BK"><Name textId="T_IOLWire4" /></Wire4></Connection>-->
+        <!--<Connection xsi:type="OtherConnectionT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.io-link.com/IODD/2010/10"><ProductRef productId="BAE00TJ" /><Description textId="TI_IOL_Connector" /><Wire1 function="L+" color="BN"><Name textId="T_IOLWire1" /></Wire1><Wire2 function="Other" color="WH"><Name textId="T_IOLWire2" /></Wire2><Wire3 function="L-" color="BU"><Name textId="T_IOLWire3" /></Wire3><Wire4 function="C/Q" color="BK"><Name textId="T_IOLWire4" /></Wire4></Connection>-->
+        <Connection xsi:type="OtherConnectionT">
+          <ProductRef productId="BAE00TP" />
+          <Description textId="TI_IOL_Connector" />
+          <Wire1 function="L+" color="BN">
+            <Name textId="T_IOLWire1" />
+          </Wire1>
+          <Wire2 function="Other" color="WH">
+            <Name textId="T_IOLWire2" />
+          </Wire2>
+          <Wire3 function="L-" color="BU">
+            <Name textId="T_IOLWire3" />
+          </Wire3>
+          <Wire4 function="C/Q" color="BK">
+            <Name textId="T_IOLWire4" />
+          </Wire4>
+        </Connection>
+      </PhysicalLayer>
+    </TransportLayers>
+    <Test>
+      <Config1 index="64" testValue="0x55,0xaa" />
+      <Config2 index="1000" testValue="0x00" />
+      <Config3 index="24" testValue="0x31,0x32,0x33,0x34,0x35,0x36,0x37,0x38,0x39,0x40,0x41,0x42,0x43,0x44,0x45,0x46,0x47,0x48,0x49,0x50,0x51,0x52,0x56,0x57,0x31,0x32,0x33,0x34,0x35,0x36,0x37,0x38" />
+    </Test>
+  </CommNetworkProfile>
+  <ExternalTextCollection>
+    <PrimaryLanguage xml:lang="en">
+      <Text id="T_IOLWire1" value="Pin 1" />
+      <Text id="T_IOLWire2" value="Pin 2" />
+      <Text id="T_IOLWire3" value="Pin 3" />
+      <Text id="T_IOLWire4" value="Pin 4" />
+      <Text id="TI_IOL_Connector" value="IO-Link Connector" />
+      <Text id="TI_VendorText" value="BALLUFF" />
+      <Text id="TI_VendorUrl" value="http://www.balluff.com" />
+      <Text id="TI_DeviceFamily" value="BAE Power Supply" />
+      <!--<Text id="TI_Product_Common_Name" value="BAE PS-XA-1W-24-038-603" xmlns="http://www.io-link.com/IODD/2010/10" />-->
+      <!--<Text id="TI_Product_TK_Name" value="BAE PS-XA-1W-24-038-603-I" xmlns="http://www.io-link.com/IODD/2010/10" />-->
+      <!--<Text id="TI_Product_TH_Name" value="BAE PS-XA-1W-24-038-601-I" xmlns="http://www.io-link.com/IODD/2010/10" />-->
+      <!--<Text id="TI_Product_TJ_Name" value="BAE PS-XA-1W-24-038-602-I" xmlns="http://www.io-link.com/IODD/2010/10" />-->
+      <Text id="TI_Product_TP_Name" value="BAE PS-XA-1W-24-038-607-I" />
+      <!--<Text id="TI_Product_TK_Descr" value="BAE - Power Supply, single phase, 115/230VAC, 24VDC/3,8A, IP67" xmlns="http://www.io-link.com/IODD/2010/10" />-->
+      <!--<Text id="TI_Product_TH_Descr" value="BAE - Power Supply, single phase, 115/230VAC, 24VDC/3,8A, IP67" xmlns="http://www.io-link.com/IODD/2010/10" />-->
+      <!--<Text id="TI_Product_TJ_Descr" value="BAE - Power Supply, single phase, 115/230VAC, 24VDC/3,8A, IP67" xmlns="http://www.io-link.com/IODD/2010/10" />-->
+      <Text id="TI_Product_TP_Descr" value="BAE - Power Supply, single phase, 115/230VAC, 24VDC/3,8A, IP67" />
+      <Text id="TI_PD" value="Process Data In" />
+      <Text id="TI_StressLevel" value="Stress Level" />
+      <Text id="TI_LifeTimeYears" value="Life time" />
+      <Text id="TI_CombinedTemperature" value="Temperature" />
+      <Text id="TI_InputVoltage" value="Input Voltage" />
+      <Text id="TI_OperationHours" value="Operational Hours" />
+      <Text id="TI_MinTemperature" value="Min Temperature" />
+      <Text id="TI_MaxTemperature" value="Max Temperature" />
+      <Text id="TI_OutputVoltage" value="Output Voltage" />
+      <Text id="TI_OutputCurrent" value="Output Current" />
+      <Text id="TI_PSU_On_Off_Command" value="PSU On/Off Command" />
+      <Text id="TI_PID_set_Command" value="PID set Command" />
+      <Text id="TI_PID_0501" value="BAE00TR (BAE PS-XA-1W-24-025-101)" />
+      <Text id="TI_PID_0503" value="BAE00T4 (BAE PS-XA-1S-24-050-102)" />
+      <Text id="TI_PID_0505" value="BAE00LJ (BAE PS-XA-1S-24-100-103)" />
+      <Text id="TI_PID_0506" value="BAE00M3 (BAE PS-XA-1S-24-200-104)" />
+      <Text id="TI_PID_0701" value="BAE00TH (BAE PS-XA-1W-24-038-601-I)" />
+      <Text id="TI_PID_0702" value="BAE00TJ (BAE PS-XA-1W-24-038-602-I)" />
+      <Text id="TI_PID_0703" value="BAE00TK (BAE PS-XA-1W-24-038-603-I)" />
+      <Text id="TI_PID_0704" value="BAE00TP (BAE PS-XA-1W-24-038-607-I)" />
+      <Text id="TI_PID_0705" value="BAE00TL (BAE PS-XA-1W-24-080-604-I)" />
+      <Text id="TI_PID_0706" value="BAE00TM (BAE PS-XA-1W-24-080-605-I)" />
+      <Text id="TI_PID_0707" value="BAE00TN (BAE PS-XA-1W-24-080-606-I)" />
+      <Text id="TI_BDC1_Param1" value="BDC Over Load" />
+      <Text id="TI_BDC2_Param1" value="BDC Over Voltage" />
+      <Text id="TI_BDC3_Param1" value="BDC Over Temperature" />
+      <Text id="TI_BDC4_Param1" value="BDC Output Drop" />
+      <Text id="TI_BDC1_SP1" value="Switchpoint#1 for Over Load" />
+      <Text id="TI_BDC2_SP1" value="Switchpoint#1 for Over Voltage" />
+      <Text id="TI_BDC3_SP1" value="Switchpoint#1 for Over Temperature" />
+      <Text id="TI_BDC4_SP1" value="Switchpoint#1 for Output Drop" />
+      <Text id="TI_BDC1_SP2" value="Switchpoint#2 for Over Load" />
+      <Text id="TI_BDC2_SP2" value="Switchpoint#2 for Over Voltage" />
+      <Text id="TI_BDC3_SP2" value="Switchpoint#2 for Over Temperature" />
+      <Text id="TI_BDC4_SP2" value="Switchpoint#2 for Output Drop" />
+      <Text id="TI_BDC1_Param2" value="BDC Over Load" />
+      <Text id="TI_BDC2_Param2" value="BDC Over Voltage" />
+      <Text id="TI_BDC3_Param2" value="BDC Over Temperature" />
+      <Text id="TI_BDC4_Param2" value="BDC Output Drop" />
+      <Text id="TI_ValueAsSpecified" value="Normal operation" />
+      <Text id="TI_SwitchPointLogic" value="Switchpoint logic" />
+      <Text id="TI_Deactivated" value="Deactivated" />
+      <Text id="TI_SinglePointMode" value="Singlepoint mode" />
+      <Text id="TI_SwitchPointMode" value="Switchpoint mode" />
+      <Text id="TI_SP2_DefaultValue" value="SP2 is not used" />
+      <Text id="TI_SwitchPointHysteresis" value="Switchpoint Hysteresis"></Text>
+      <Text id="TI_EVENT_NO_CONNECTION" value="No Connection with PSU" />
+      <Text id="TI_EVENT_BAD_CONNECTION" value="Bad Connection with PSU" />
+      <Text id="TI_BCD_ON" value="On"></Text>
+      <Text id="TI_BCD_OFF" value="Off" />
+      <Text id="TI_PD_BCD_OverVoltage" value="Over voltage" />
+      <Text id="TI_PD_BCD_OverLoad" value="Over load" />
+      <Text id="TI_PD_BCD_OverTemperature" value="Over temperature" />
+      <Text id="TI_PD_BCD_OutputDrop" value="Output drop" />
+      <Text id="TI_PD_Suspicious_Connection" value="Suspicious Connection" />
+      <Text id="TI_PD_CurrentOutput" value="Output current" />
+      <Text id="TI_PD_VoltageOutput" value="Output voltage" />
+      <Text id="TI_VAR_BDC1_PARAM1_Descr" value="Only SP1 supported. Value as &lt;limit x 10&gt;" />
+      <Text id="TI_VAR_BDC2_PARAM1_Descr" value="Only SP1 supported. Value as &lt;limit x 10&gt;" />
+      <Text id="TI_VAR_BDC3_PARAM1_Descr" value="Only SP1 supported. Value as degree" />
+      <Text id="TI_VAR_BDC4_PARAM1_Descr" value="Only SP1 supported. Value as &lt;limit x 10&gt;" />
+      <Text id="TI_VAR_StressLevel_Descr" value="Indicates PSU stress level" />
+      <Text id="TI_VAR_LifeTimeYears_Descr" value="Expected lifetime in years" />
+      <Text id="TI_VAR_CombinedTemperature_Descr" value="Measured device temperature" />
+      <Text id="TI_VAR_InputVoltage_Descr" value="Measured input voltage" />
+      <Text id="TI_VAR_OperationHours_Descr" value="PSU cumulative operating hours" />
+      <Text id="TI_VAR_MinTemperature_Descr" value="Lowest recorded temperature" />
+      <Text id="TI_VAR_MaxTemperature_Descr" value="Highest recorded temperature" />
+      <Text id="TI_VAR_OutputVoltage_Descr" value="Measured PSU output voltage" />
+      <Text id="TI_VAR_OutputCurrent_Descr" value="Measured PSU output current"></Text>
+      <Text id="TD_EVENT_NO_CONNECTION" value="IO-Clip lost connection to PSU"></Text>
+      <Text id="TD_EVENT_BAD_CONNECTION" value="IO-Clip has bad connection to PSU" />
+      <Text id="TI_VAR_PSU_On_Off_Command_Descr" value="Set PSU output On=1/Off=0" />
+      <Text id="TI_VAR_PID_set_Command_Descr" value="Set PSU Product ID" />
+      <Text id="TI_VAR_StatusMask_Descr" value="Device Internal Status Information" />
+      <Text id="TI_VAR_Inactive" value="Inactive" />
+      <Text id="TI_VAR_Active" value="Active" />
+      <Text id="TI_VAR_StatusNoConnection" value="No Connection with PSU" />
+      <Text id="TI_VAR_StatusBadConnection" value="Bad Connection with PSU" />
+      <Text id="TI_VAR_DeviceMismatch" value="PSU changed " />
+      <Text id="TI_VAR_HighStress" value="High stress" />
+      <Text id="TI_VAR_FastAging" value="Fast aging " />
+      <Text id="TI_VAR_OverTemperature" value="Temperature out of limit" />
+      <Text id="TI_VAR_OverLoad" value="Output current out of limit" />
+      <Text id="TI_VAR_OverVoltage" value="Output voltage out of limit" />
+      <Text id="TI_VAR_OutputDrop" value="Output voltage dropped" />
+      <!--<Text id="TI_VAR_InvalidInputVoltage" value="Input voltage value not available" xmlns="http://www.io-link.com/IODD/2010/10" />-->
+      <Text id="TI_VAR_PSU_ON" value="PSU ON" />
+      <!--<Text id="TI_VAR_BoostON" value="Boosting ON" xmlns="http://www.io-link.com/IODD/2010/10" />-->
+      <Text id="TI_VAR_StatusMask" value="Device status collection" />
+    </PrimaryLanguage>
+  </ExternalTextCollection>
+  <Stamp crc="3511093342"><Checker name="IODD-Checker V1.1.3" version="V1.1.3.0"/></Stamp>
+</IODevice>

@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<IODevice xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.io-link.com/IODD/2009/11" xsi:schemaLocation="http://www.io-link.com/IODD/2009/11 IODD1.0.1.xsd">
+  <DocumentInfo copyright="Copyright 2010, Balluff GmbH" releaseDate="2010-02-15" version="V1.0" />
+  <ProfileHeader>
+    <ProfileIdentification>IO-Link Device Profile</ProfileIdentification>
+    <ProfileRevision>1.00</ProfileRevision>
+    <ProfileName>Device Profile for IO-Link Devices</ProfileName>
+    <ProfileSource>IO-Link Consortium</ProfileSource>
+    <ProfileClassID>Device</ProfileClassID>
+    <ISO15745Reference>
+      <ISO15745Part>1</ISO15745Part>
+      <ISO15745Edition>1</ISO15745Edition>
+      <ProfileTechnology>IODD</ProfileTechnology>
+    </ISO15745Reference>
+  </ProfileHeader>
+  <ProfileBody>
+    <DeviceIdentity deviceId="131329" vendorId="888" vendorName="Balluff GmbH">
+      <VendorText textId="TI_VendorText" />
+      <VendorUrl textId="TI_VendorUrl" />
+      <VendorLogo name="Balluff-logo.png" />
+      <DeviceFamily textId="TI_DeviceFamily" />
+      <DeviceVariantCollection>
+        <DeviceVariant deviceIcon="Balluff-BAW002F-icon.png" deviceSymbol="Balluff-BAW002F-pic.png" firmwareRevision="1.00" hardwareRevision="1.00" productId="153938">
+          <ProductName textId="TI_BAW002F_Name" />
+          <ProductText textId="TI_BAW002F_Text" />
+        </DeviceVariant>
+      </DeviceVariantCollection>
+    </DeviceIdentity>
+    <DeviceFunction>
+      <VariableCollection>
+        <StdVariableRef id="V_DirectParameters_1" />
+        <StdVariableRef id="V_DirectParameters_2" />
+        <StdVariableRef id="V_SystemCommand" />
+        <StdVariableRef defaultValue="Balluff GmbH" id="V_VendorName" />
+        <StdVariableRef defaultValue="www.balluff.com" id="V_VendorText" />
+        <StdVariableRef defaultValue="BAW M18MI-BLC50B-S04G" id="V_ProductName" />
+        <StdVariableRef defaultValue="153938" id="V_ProductID" />
+        <StdVariableRef defaultValue="Inductive distance sensor, 1...5mm" id="V_ProductText" />
+        <StdVariableRef defaultValue="1.00" id="V_HardwareRevision" />
+        <StdVariableRef defaultValue="1.01" id="V_FirmwareRevision" />
+      </VariableCollection>
+      <ProcessDataCollection>
+        <ProcessData id="V_PD">
+          <ProcessDataIn id="V_PDI" bitLength="24">
+            <Datatype xsi:type="RecordT" bitLength="24">
+              <RecordItem subindex="1" bitOffset="0">
+                <SimpleDatatype xsi:type="UIntegerT" bitLength="10" />
+                <Name textId="TI_V_PDI_Distance" />
+              </RecordItem>
+              <RecordItem subindex="2" bitOffset="10">
+                <SimpleDatatype xsi:type="UIntegerT" bitLength="14" />
+                <Name textId="TI_V_PDI_Reserved" />
+              </RecordItem>
+            </Datatype>
+            <Name textId="TI_V_PDI" />
+          </ProcessDataIn>
+        </ProcessData>
+      </ProcessDataCollection>
+      <UserInterface>
+        <MenuCollection>
+          <Menu id="ME_Ident">
+            <VariableRef variableId="V_VendorName" />
+            <VariableRef variableId="V_VendorText" />
+            <VariableRef variableId="V_ProductName" />
+            <VariableRef variableId="V_ProductID" />
+            <VariableRef variableId="V_ProductText" />
+            <VariableRef variableId="V_HardwareRevision" />
+            <VariableRef variableId="V_FirmwareRevision" />
+          </Menu>
+        </MenuCollection>
+        <ObserverRoleMenuSet>
+          <IdentificationMenu menuId="ME_Ident" />
+        </ObserverRoleMenuSet>
+        <MaintenanceRoleMenuSet>
+          <IdentificationMenu menuId="ME_Ident" />
+        </MaintenanceRoleMenuSet>
+        <SpecialistRoleMenuSet>
+          <IdentificationMenu menuId="ME_Ident" />
+        </SpecialistRoleMenuSet>
+      </UserInterface>
+    </DeviceFunction>
+  </ProfileBody>
+  <CommNetworkProfile xsi:type="IOLinkCommNetworkProfileT" iolinkRevision="V1.0">
+    <TransportLayers>
+      <PhysicalLayer baudrate="COM2" minCycleTime="5000" physics="2" sioSupported="false" />
+    </TransportLayers>
+  </CommNetworkProfile>
+  <ExternalTextCollection>
+    <PrimaryLanguage xml:lang="en">
+      <Text id="TI_VendorText" value="Balluff GmbH" />
+      <Text id="TI_VendorUrl" value="http://www.balluff.de" />
+      <Text id="TI_DeviceFamily" value="BAW - Inductive distance sensor" />
+      <Text id="TI_BAW002F_Name" value="BAW M18MI-BLC50B-S04G" />
+      <Text id="TI_BAW002F_Text" value="Inductive distance sensor, 1...5mm" />
+      <Text id="TI_V_PDI_Distance" value="Distance absolute" />
+      <Text id="TI_V_PDI_Reserved" value="Reserved bits" />
+      <Text id="TI_V_PDI" value="Process Data Inputs" />
+    </PrimaryLanguage>
+  </ExternalTextCollection>
+  <Stamp crc="315137490"><Checker name="IODD-Checker V1.0.10" version="V1.0.10.0"/></Stamp>
+</IODevice>

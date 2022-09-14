@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<IODevice xmlns="http://www.io-link.com/IODD/2010/10" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.io-link.com/IODD/2010/10 IODD1.1.xsd">
+  <DocumentInfo copyright="Copyright 2019, Balluff GmbH" releaseDate="2019-07-09" version="V1.0" />
+  <ProfileHeader>
+    <ProfileIdentification>IO Device Profile</ProfileIdentification>
+    <ProfileRevision>1.1</ProfileRevision>
+    <ProfileName>Device Profile for IO Devices</ProfileName>
+    <ProfileSource>IO-Link Consortium</ProfileSource>
+    <ProfileClassID>Device</ProfileClassID>
+    <ISO15745Reference>
+      <ISO15745Part>1</ISO15745Part>
+      <ISO15745Edition>1</ISO15745Edition>
+      <ProfileTechnology>IODD</ProfileTechnology>
+    </ISO15745Reference>
+  </ProfileHeader>
+  <ProfileBody>
+    <DeviceIdentity vendorId="888" vendorName="Balluff" deviceId="263430">
+      <VendorText textId="TI_VendorText" />
+      <VendorUrl textId="TI_VendorUrl" />
+      <VendorLogo name="Balluff-logo.png" />
+      <DeviceName textId="TI_DeviceName" />
+      <DeviceFamily textId="TI_DeviceFamily" />
+      <DeviceVariantCollection>
+        <DeviceVariant productId="BOS027W" deviceSymbol="Balluff-BOS18XTIRS20-pic.png" deviceIcon="Balluff-BOS18XTIRS20-icon.png">
+          <Name textId="TI_ProductName" />
+          <Description textId="TI_ProductText" />
+        </DeviceVariant>
+      </DeviceVariantCollection>
+    </DeviceIdentity>
+    <DeviceFunction>
+      <Features blockParameter="false" dataStorage="false" profileCharacteristic="0">
+        <SupportedAccessLocks parameter="false" dataStorage="false" localParameterization="false" localUserInterface="false" />
+      </Features>
+      <VariableCollection>
+        <StdVariableRef id="V_DirectParameters_1"></StdVariableRef>
+        <StdVariableRef id="V_DirectParameters_2" />
+        <DirectParameterOverlay accessRights="rw" id="V_DirectParameters">
+          <Datatype xsi:type="RecordT" bitLength="128">
+            <RecordItem subindex="4" bitOffset="96" accessRightRestriction="ro">
+              <SimpleDatatype xsi:type="UIntegerT" bitLength="8"></SimpleDatatype>
+              <Name textId="TI_Temperature" />
+            </RecordItem>
+          </Datatype>
+          <RecordItemInfo defaultValue="0" subindex="4" />
+          <Name textId="TI_Observation" />
+        </DirectParameterOverlay>
+      </VariableCollection>
+      <ProcessDataCollection>
+        <ProcessData id="V_PD">
+          <ProcessDataIn id="V_PD_ProcessDataIn" bitLength="3">
+            <Datatype xsi:type="RecordT" subindexAccessSupported="false" bitLength="3">
+              <RecordItem subindex="1" bitOffset="0">
+                <SimpleDatatype xsi:type="BooleanT">
+                  <SingleValue value="true">
+                    <Name textId="TI_True" />
+                  </SingleValue>
+                  <SingleValue value="false">
+                    <Name textId="TI_False" />
+                  </SingleValue>
+                </SimpleDatatype>
+                <Name textId="TI_RESERVED" />
+              </RecordItem>
+              <RecordItem subindex="2" bitOffset="1">
+                <SimpleDatatype xsi:type="BooleanT">
+                  <SingleValue value="true">
+                    <Name textId="TI_True" />
+                  </SingleValue>
+                  <SingleValue value="false">
+                    <Name textId="TI_False" />
+                  </SingleValue>
+                </SimpleDatatype>
+                <Name textId="TI_RESERVED" />
+              </RecordItem>
+              <RecordItem subindex="3" bitOffset="2">
+                <SimpleDatatype xsi:type="BooleanT">
+                  <SingleValue value="true">
+                    <Name textId="TI_True" />
+                  </SingleValue>
+                  <SingleValue value="false">
+                    <Name textId="TI_False" />
+                  </SingleValue>
+                </SimpleDatatype>
+                <Name textId="TI_RESERVED" />
+              </RecordItem>
+            </Datatype>
+            <Name textId="TI_V_PDI" />
+          </ProcessDataIn>
+        </ProcessData>
+      </ProcessDataCollection>
+      <UserInterface>
+        <MenuCollection>
+          <Menu id="ME_Identification_RO">
+            <Name textId="TI_ME_Identification_RO"></Name>
+            <RecordItemRef variableId="V_DirectParameters_1" subindex="8"></RecordItemRef>
+            <RecordItemRef variableId="V_DirectParameters_1" subindex="9"></RecordItemRef>
+            <RecordItemRef variableId="V_DirectParameters_1" subindex="10"></RecordItemRef>
+            <RecordItemRef variableId="V_DirectParameters_1" subindex="11"></RecordItemRef>
+            <RecordItemRef variableId="V_DirectParameters_1" subindex="12" />
+          </Menu>
+          <Menu id="ME_Observation_RO">
+            <Name textId="TI_ME_Observation_RO"></Name>
+            <VariableRef variableId="V_DirectParameters" displayFormat="Hex"></VariableRef>
+          </Menu>
+        </MenuCollection>
+        <ObserverRoleMenuSet>
+          <IdentificationMenu menuId="ME_Identification_RO" />
+          <ObservationMenu menuId="ME_Observation_RO" />
+        </ObserverRoleMenuSet>
+        <MaintenanceRoleMenuSet>
+          <IdentificationMenu menuId="ME_Identification_RO" />
+          <ObservationMenu menuId="ME_Observation_RO" />
+        </MaintenanceRoleMenuSet>
+        <SpecialistRoleMenuSet>
+          <IdentificationMenu menuId="ME_Identification_RO" />
+          <ObservationMenu menuId="ME_Observation_RO" />
+        </SpecialistRoleMenuSet>
+      </UserInterface>
+    </DeviceFunction>
+  </ProfileBody>
+  <CommNetworkProfile xsi:type="IOLinkCommNetworkProfileT" iolinkRevision="V1.1">
+    <TransportLayers>
+      <PhysicalLayer bitrate="COM2" minCycleTime="4000" sioSupported="true" mSequenceCapability="0">
+        <Connection xsi:type="M12-4ConnectionT">
+          <ProductRef productId="BOS027W"></ProductRef>
+          <Wire1 />
+          <Wire2 function="Other" />
+          <Wire3 />
+          <Wire4 />
+        </Connection>
+      </PhysicalLayer>
+    </TransportLayers>
+    <Test />
+  </CommNetworkProfile>
+  <ExternalTextCollection>
+    <PrimaryLanguage xml:lang="en">
+      <Text id="TI_VendorText" value="innovating automation"></Text>
+      <Text id="TI_VendorUrl" value="http://www.balluff.com" />
+      <Text id="TI_DeviceFamily" value="BOS - Optical Sensor" />
+      <Text id="TI_DeviceName" value="BOS 18MR-XTI-RS20" />
+      <Text id="TI_ProductName" value="BOS 18MR-XTI-RS20-S4"></Text>
+      <Text id="TI_ProductText" value="Through-beam sensor emitter" />
+      <Text id="TI_V_PDI" value="Process Data Inputs" />
+      <Text id="TI_ME_Identification_RO" value="Identification"></Text>
+      <Text id="TI_ME_Observation_RO" value="Observation"></Text>
+      <Text id="TI_Observation" value="Observation"></Text>
+      <Text id="TI_Temperature" value="Temperature"></Text>
+      <Text id="TI_True" value="true"></Text>
+      <Text id="TI_False" value="false"></Text>
+      <Text id="TI_RESERVED" value="reserved"></Text>
+    </PrimaryLanguage>
+  </ExternalTextCollection>
+  <Stamp crc="1490701753"><Checker name="IODD-Checker V1.1.4" version="V1.1.4.0"/></Stamp>
+</IODevice>

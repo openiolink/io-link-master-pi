@@ -1,0 +1,639 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<IODevice xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.io-link.com/IODD/2009/11" xsi:schemaLocation="http://www.io-link.com/IODD/2009/11 IODD1.0.1.xsd">
+  <DocumentInfo version="V1.7" releaseDate="2016-10-11" copyright="Copyright 2011, Balluff GmbH" />
+  <ProfileHeader>
+    <ProfileIdentification>IO-Link Device Profile</ProfileIdentification>
+    <ProfileRevision>1.00</ProfileRevision>
+    <ProfileName>Device Profile for IO-Link Devices</ProfileName>
+    <ProfileSource>IO-Link Consortium</ProfileSource>
+    <ProfileClassID>Device</ProfileClassID>
+    <ISO15745Reference>
+      <ISO15745Part>1</ISO15745Part>
+      <ISO15745Edition>1</ISO15745Edition>
+      <ProfileTechnology>IODD</ProfileTechnology>
+    </ISO15745Reference>
+  </ProfileHeader>
+  <ProfileBody>
+    <DeviceIdentity vendorId="888" vendorName="BALLUFF" deviceId="330246">
+      <VendorText textId="TI_VendorText" />
+      <VendorUrl textId="TI_VendorUrl" />
+      <VendorLogo name="Balluff-logo.png" /> 
+      <DeviceFamily textId="TI_DeviceFamily" />
+      <DeviceVariantCollection>
+        <DeviceVariant productId="BNI0087" deviceSymbol="Balluff-BNI_IOL-800-000-Z037-pic.png" deviceIcon="Balluff-BNI_IOL-800-000-Z037-icon.png">
+          <ProductName textId="TI_Product1_Name" />
+          <ProductText textId="TI_Product1_Descr" />
+        </DeviceVariant>
+      </DeviceVariantCollection>
+    </DeviceIdentity>
+    <DeviceFunction>
+      <DatatypeCollection>
+	    <Datatype id="DT_ReservedNib" xsi:type="UIntegerT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bitLength="4">
+        </Datatype>
+        <Datatype id="DT_Color" xsi:type="UIntegerT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bitLength="3">
+          <SingleValue value="0">
+            <Name textId="TI_VAR_Color_Off" />
+          </SingleValue>
+          <SingleValue value="1">
+            <Name textId="TI_VAR_Color_Green" />
+          </SingleValue>
+          <SingleValue value="2">
+            <Name textId="TI_VAR_Color_Red" />
+          </SingleValue>
+          <SingleValue value="3">
+            <Name textId="TI_VAR_Color_Yellow" />
+          </SingleValue>
+          <SingleValue value="4">
+            <Name textId="TI_VAR_Color_Blue" />
+          </SingleValue>
+          <SingleValue value="5">
+            <Name textId="TI_VAR_Color_Orange" />
+          </SingleValue>
+          <SingleValue value="6">
+            <Name textId="TI_VAR_Color_UserDefined" />
+          </SingleValue>
+          <SingleValue value="7">
+            <Name textId="TI_VAR_Color_White" />
+          </SingleValue>
+        </Datatype>
+        <Datatype id="DT_Blinking" xsi:type="BooleanT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <SingleValue xsi:type="BooleanValueT" value="false">
+            <Name textId="TI_VAR_notBlink" />
+          </SingleValue>
+          <SingleValue xsi:type="BooleanValueT" value="true">
+            <Name textId="TI_VAR_Blink" />
+          </SingleValue>
+        </Datatype>
+        <Datatype id="DT_BuzzerOn" xsi:type="BooleanT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <SingleValue xsi:type="BooleanValueT" value="false">
+            <Name textId="TI_VAR_BuzzerOff" />
+          </SingleValue>
+          <SingleValue xsi:type="BooleanValueT" value="true">
+            <Name textId="TI_VAR_BuzzerOn" />
+          </SingleValue>
+        </Datatype>
+		<Datatype id="DT_SyncImp" xsi:type="BooleanT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <SingleValue xsi:type="BooleanValueT" value="false">
+            <Name textId="TI_VAR_SyncImpOff" />
+          </SingleValue>
+          <SingleValue xsi:type="BooleanValueT" value="true">
+            <Name textId="TI_VAR_SyncImpOn" />
+          </SingleValue>
+        </Datatype>
+		<Datatype id="DT_SyncStart" xsi:type="BooleanT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <SingleValue xsi:type="BooleanValueT" value="false">
+            <Name textId="TI_VAR_SyncStartOff" />
+          </SingleValue>
+          <SingleValue xsi:type="BooleanValueT" value="true">
+            <Name textId="TI_VAR_SyncStartOn" />
+          </SingleValue>
+		</Datatype>
+        <Datatype id="DT_BuzzerType" xsi:type="UIntegerT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bitLength="2">
+          <SingleValue value="0">
+            <Name textId="TI_VAR_BuzzerTypeConst"/>
+          </SingleValue>
+          <SingleValue value="1">
+            <Name textId="TI_VAR_BuzzerType1Hz"/>
+          </SingleValue>
+          <SingleValue value="2">
+            <Name textId="TI_VAR_BuzzerType5Hz"/>
+          </SingleValue>
+          <SingleValue value="3">
+            <Name textId="TI_VAR_BuzzerType3Pulse"/>
+          </SingleValue>
+        </Datatype>
+        <Datatype id="DT_Mode" xsi:type="UIntegerT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bitLength="2">
+          <SingleValue value="0">
+            <Name textId="TI_VAR_ModeSegment"/>
+          </SingleValue>
+          <SingleValue value="2">
+            <Name textId="TI_VAR_ModeRunlight"/>
+          </SingleValue>
+          <SingleValue value="3">
+            <Name textId="TI_VAR_ModeFlexible"/>
+          </SingleValue>
+        </Datatype>
+        <Datatype id="DT_UsLow" xsi:type="BooleanT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <SingleValue xsi:type="BooleanValueT" value="false">
+            <Name textId="TI_VAR_UsVoltageOk" />
+          </SingleValue>
+          <SingleValue xsi:type="BooleanValueT" value="true">
+            <Name textId="TI_VAR_UsVoltageLow" />
+          </SingleValue>
+        </Datatype>
+        <Datatype id="DT_LEDVoltage" xsi:type="BooleanT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <SingleValue xsi:type="BooleanValueT" value="false">
+            <Name textId="TI_VAR_LEDVoltageOk" />
+          </SingleValue>
+          <SingleValue xsi:type="BooleanValueT" value="true">
+            <Name textId="TI_VAR_LEDVoltageLow" />
+          </SingleValue>
+        </Datatype>
+        <Datatype id="DT_Brightness" xsi:type="UIntegerT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bitLength="7">
+        </Datatype>
+        <Datatype id="DT_Frequency" xsi:type="UIntegerT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bitLength="3">
+          <SingleValue value="1">
+            <Name textId="TI_VAR_0Hz5"/>
+          </SingleValue>
+          <SingleValue value="2">
+            <Name textId="TI_VAR_1Hz"/>
+          </SingleValue>
+          <SingleValue value="3">
+            <Name textId="TI_VAR_2Hz"/>
+          </SingleValue>
+          <SingleValue value="4">
+            <Name textId="TI_VAR_5Hz"/>
+          </SingleValue>
+          <SingleValue value="5">
+            <Name textId="TI_VAR_10Hz"/>
+          </SingleValue>
+        </Datatype>
+        <Datatype id="DT_BlinkingMode" xsi:type="BooleanT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <SingleValue xsi:type="BooleanValueT" value="false">
+            <Name textId="TI_VAR_ModeBlink" />
+          </SingleValue>
+          <SingleValue xsi:type="BooleanValueT" value="true">
+            <Name textId="TI_VAR_ModeFlash" />
+          </SingleValue>
+        </Datatype>
+		<Datatype id="DT_LED_State" xsi:type="BooleanT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <SingleValue xsi:type="BooleanValueT" value="false">
+            <Name textId="TI_VAR_LEDOff" />
+          </SingleValue>
+          <SingleValue xsi:type="BooleanValueT" value="true">
+            <Name textId="TI_VAR_LEDOn" />
+          </SingleValue>
+        </Datatype>
+        <Datatype id="DT_Byte" xsi:type="UIntegerT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bitLength="8">
+        </Datatype>
+      </DatatypeCollection>
+      <VariableCollection>
+        <StdVariableRef id="V_DirectParameters_1" />
+        <StdVariableRef id="V_DirectParameters_2" />
+        <StdVariableRef id="V_SystemCommand">
+          <StdSingleValueRef value="130" />
+        </StdVariableRef>
+        <StdVariableRef id="V_VendorName" defaultValue="BALLUFF" />
+        <StdVariableRef id="V_VendorText" defaultValue="www.balluff.com" />
+        <StdVariableRef id="V_ProductName" defaultValue="BNI IOL-800-000-Z037" />
+        <StdVariableRef id="V_ProductID" defaultValue="BNI0087" />
+        <StdVariableRef id="V_ProductText" defaultValue="Smart Light 1 segment with buzzer" />
+        <StdVariableRef id="V_HardwareRevision" />
+        <StdVariableRef id="V_FirmwareRevision" />
+        <Variable id="V_Mode" index="64" accessRights="rw" defaultValue="0">
+          <DatatypeRef datatypeId="DT_Mode" />
+          <Name textId="TI_VAR_Mode" />
+          <Description textId="TI_VAR_Mode" />
+        </Variable>
+        <Variable id="V_RunlightStaticColor" index="77" accessRights="rw" defaultValue="0">
+          <DatatypeRef datatypeId="DT_Color" />
+          <Name textId="TI_VAR_RunlightStaticColor" />
+          <Description textId="TI_VAR_RunlightStaticColor" />
+        </Variable>
+        <Variable id="V_RunlightRunningColor" index="78" accessRights="rw" defaultValue="1">
+          <DatatypeRef datatypeId="DT_Color" />
+          <Name textId="TI_VAR_RunlightRunningColor" />
+          <Description textId="TI_VAR_RunlightRunningColor" />
+        </Variable>
+        <Variable id="V_SupplyMonitor" index="80" accessRights="ro">
+          <Datatype xsi:type="RecordT" bitLength="2">
+            <RecordItem subindex="1" bitOffset="0">
+              <DatatypeRef datatypeId="DT_UsLow" />
+              <Name textId="TI_VAR_UsVoltage" />
+            </RecordItem>
+            <RecordItem subindex="2" bitOffset="1">
+              <DatatypeRef datatypeId="DT_LEDVoltage" />
+              <Name textId="TI_VAR_LEDVoltage" />
+            </RecordItem>
+          </Datatype>          
+          <Name textId="TI_VAR_SupplyMonitor" />
+          <Description textId="TI_VAR_SupplyMonitor" />
+        </Variable>
+        <Variable id="V_Brightness" index="81" accessRights="rw">
+          <Datatype xsi:type="RecordT" bitLength="24">
+            <RecordItem subindex="1" bitOffset="16">
+              <DatatypeRef datatypeId="DT_Brightness" />
+              <Name textId="TI_VAR_BrightnessRed" />
+            </RecordItem>
+            <RecordItem subindex="2" bitOffset="8">
+              <DatatypeRef datatypeId="DT_Brightness" />
+              <Name textId="TI_VAR_BrightnessGreen" />
+            </RecordItem>
+            <RecordItem subindex="3" bitOffset="0">
+              <DatatypeRef datatypeId="DT_Brightness" />
+              <Name textId="TI_VAR_BrightnessBlue" />
+            </RecordItem>
+          </Datatype>          
+          <RecordItemInfo subindex="1" defaultValue="127" />
+          <RecordItemInfo subindex="2" defaultValue="127" />
+          <RecordItemInfo subindex="3" defaultValue="127" />  		  
+		  <Name textId="TI_VAR_Brightness" />
+          <Description textId="TI_VAR_Brightness" />
+        </Variable>
+        <Variable id="V_Frequency" index="82" accessRights="rw" defaultValue="2">
+          <DatatypeRef datatypeId="DT_Frequency" />
+          <Name textId="TI_VAR_Frequency" />
+          <Description textId="TI_VAR_Frequency" />
+        </Variable>
+        <Variable id="V_BlinkingMode" index="83" accessRights="rw">
+          <Datatype xsi:type="RecordT" bitLength="1" subindexAccessSupported = "false">
+            <RecordItem subindex="1" bitOffset="0">
+              <DatatypeRef datatypeId="DT_BlinkingMode" />
+              <Name textId="TI_VAR_BlinkingModeSeg1" />
+            </RecordItem>
+          </Datatype>          
+          <RecordItemInfo subindex="1" defaultValue="0" />
+		  <Name textId="TI_VAR_BlinkingMode" />
+          <Description textId="TI_VAR_BlinkingMode" />
+        </Variable>
+        <Variable id="V_UserColor" index="252" accessRights="rw">
+          <Datatype xsi:type="RecordT" bitLength="24">
+            <RecordItem subindex="1" bitOffset="16">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_UserColorRed" />
+            </RecordItem>
+            <RecordItem subindex="2" bitOffset="8">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_UserColorGreen" />
+            </RecordItem>
+            <RecordItem subindex="3" bitOffset="0">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_UserColorBlue" />
+            </RecordItem>
+          </Datatype>
+          <RecordItemInfo subindex="1" defaultValue="0" />
+          <RecordItemInfo subindex="2" defaultValue="128" />
+          <RecordItemInfo subindex="3" defaultValue="128" /> 
+		  <Name textId="TI_VAR_UserColor" />
+          <Description textId="TI_VAR_UserColor" />
+        </Variable>
+        <Variable id="V_BuzzerType" index="254" accessRights="rw" defaultValue="0">
+          <DatatypeRef datatypeId="DT_BuzzerType" />
+          <Name textId="TI_VAR_BuzzerType" />
+        </Variable>
+		<Variable id="V_LED_1" index="161" accessRights="rw">
+          <Datatype xsi:type="RecordT" bitLength="40">
+            <RecordItem subindex="1" bitOffset="32">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDColorR" />
+            </RecordItem>
+            <RecordItem subindex="2" bitOffset="24">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDColorG" />
+            </RecordItem>
+            <RecordItem subindex="3" bitOffset="16">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDColorB" />
+            </RecordItem>
+            <RecordItem subindex="4" bitOffset="8">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDOnBrightness" />
+            </RecordItem>
+            <RecordItem subindex="5" bitOffset="0">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDOffBrightness" />
+            </RecordItem>
+          </Datatype>
+          <Name textId="TI_VAR_LED1" />
+          <Description textId="TI_VAR_LED1" />
+        </Variable>
+        <Variable id="V_LED_2" index="162" accessRights="rw">
+          <Datatype xsi:type="RecordT" bitLength="40">
+            <RecordItem subindex="1" bitOffset="32">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDColorR" />
+            </RecordItem>
+            <RecordItem subindex="2" bitOffset="24">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDColorG" />
+            </RecordItem>
+            <RecordItem subindex="3" bitOffset="16">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDColorB" />
+            </RecordItem>
+            <RecordItem subindex="4" bitOffset="8">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDOnBrightness" />
+            </RecordItem>
+            <RecordItem subindex="5" bitOffset="0">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDOffBrightness" />
+            </RecordItem>
+          </Datatype>
+          <Name textId="TI_VAR_LED2" />
+          <Description textId="TI_VAR_LED2" />
+        </Variable>
+        <Variable id="V_LED_3" index="163" accessRights="rw">
+          <Datatype xsi:type="RecordT" bitLength="40">
+            <RecordItem subindex="1" bitOffset="32">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDColorR" />
+            </RecordItem>
+            <RecordItem subindex="2" bitOffset="24">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDColorG" />
+            </RecordItem>
+            <RecordItem subindex="3" bitOffset="16">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDColorB" />
+            </RecordItem>
+            <RecordItem subindex="4" bitOffset="8">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDOnBrightness" />
+            </RecordItem>
+            <RecordItem subindex="5" bitOffset="0">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDOffBrightness" />
+            </RecordItem>
+          </Datatype>
+          <Name textId="TI_VAR_LED3" />
+          <Description textId="TI_VAR_LED3" />
+        </Variable>
+        <Variable id="V_LED_4" index="164" accessRights="rw">
+          <Datatype xsi:type="RecordT" bitLength="40">
+            <RecordItem subindex="1" bitOffset="32">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDColorR" />
+            </RecordItem>
+            <RecordItem subindex="2" bitOffset="24">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDColorG" />
+            </RecordItem>
+            <RecordItem subindex="3" bitOffset="16">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDColorB" />
+            </RecordItem>
+            <RecordItem subindex="4" bitOffset="8">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDOnBrightness" />
+            </RecordItem>
+            <RecordItem subindex="5" bitOffset="0">
+              <DatatypeRef datatypeId="DT_Byte" />
+              <Name textId="TI_VAR_LEDOffBrightness" />
+            </RecordItem>
+          </Datatype>
+          <Name textId="TI_VAR_LED4" />
+          <Description textId="TI_VAR_LED4" />
+        </Variable>
+      </VariableCollection>
+      <ProcessDataCollection>
+        <ProcessData id="V_PdT_Segment">
+          <Condition variableId="V_Mode" value="0"/>
+          <ProcessDataOut id="V_Pd_OutSegmentT" bitLength="8">
+            <Datatype xsi:type="RecordT" bitLength="8">
+              <RecordItem subindex="1" bitOffset="3">
+                <DatatypeRef datatypeId="DT_Blinking" />
+                <Name textId="TI_PD_Blinking_Segment1" />
+              </RecordItem>
+              <RecordItem subindex="2" bitOffset="0">
+                <DatatypeRef datatypeId="DT_Color" />
+                <Name textId="TI_PD_Color_Segment1" />
+              </RecordItem>
+			  <RecordItem subindex="3" bitOffset="7">
+                <DatatypeRef datatypeId="DT_BuzzerOn" />
+                <Name textId="TI_PD_BuzzerOn" />
+              </RecordItem>
+			  <RecordItem subindex="4" bitOffset="6">	 
+                <DatatypeRef datatypeId="DT_SyncImp" />
+                <Name textId="TI_PD_SyncImp" />
+              </RecordItem>
+			  <RecordItem subindex="5" bitOffset="5">			 
+                <DatatypeRef datatypeId="DT_SyncStart" />
+                <Name textId="TI_PD_SyncStart" />
+              </RecordItem>
+
+            </Datatype>          
+            <Name textId="TI_PD_Out" />
+          </ProcessDataOut>
+        </ProcessData>
+        <ProcessData id="V_PdT_Runlight">
+          <Condition variableId="V_Mode" value="2"/>
+          <ProcessDataOut id="V_Pd_RunlightOutT" bitLength="8">
+            <Datatype xsi:type="RecordT" bitLength="8">
+              <RecordItem subindex="1" bitOffset="7">
+                <DatatypeRef datatypeId="DT_BuzzerOn" />
+                <Name textId="TI_PD_BuzzerOn" />
+              </RecordItem>
+			  <RecordItem subindex="2" bitOffset="6">	 
+                <DatatypeRef datatypeId="DT_SyncImp" />
+                <Name textId="TI_PD_SyncImp" />
+              </RecordItem>
+			  <RecordItem subindex="3" bitOffset="5">			 
+                <DatatypeRef datatypeId="DT_SyncStart" />
+                <Name textId="TI_PD_SyncStart" />      
+              </RecordItem>
+			  <RecordItem subindex="4" bitOffset="0">
+                <DatatypeRef datatypeId="DT_ReservedNib" />
+                <Name textId="TI_PD_ReservedNib" />
+              </RecordItem>
+            </Datatype>          
+            <Name textId="TI_PD_Out" />
+          </ProcessDataOut>
+        </ProcessData>
+		<ProcessData id="V_PdT_Flexible">
+          <Condition variableId="V_Mode" value="3"/>
+          <ProcessDataOut id="V_Pd_OutFlexibleT" bitLength="8">
+            <Datatype xsi:type="RecordT" bitLength="8">
+              <RecordItem subindex="1" bitOffset="0">
+                <DatatypeRef datatypeId="DT_LED_State" />
+                <Name textId="TI_PD_LED1" />
+              </RecordItem>
+              <RecordItem subindex="2" bitOffset="1">
+                <DatatypeRef datatypeId="DT_LED_State" />
+                <Name textId="TI_PD_LED2" />
+              </RecordItem>
+              <RecordItem subindex="3" bitOffset="2">
+                <DatatypeRef datatypeId="DT_LED_State" />
+                <Name textId="TI_PD_LED3" />
+              </RecordItem>
+              <RecordItem subindex="4" bitOffset="3">
+                <DatatypeRef datatypeId="DT_LED_State" />
+                <Name textId="TI_PD_LED4" />
+              </RecordItem>
+			  <RecordItem subindex="5" bitOffset="6">	 
+                <DatatypeRef datatypeId="DT_SyncImp" />
+                <Name textId="TI_PD_SyncImp" />
+              </RecordItem>
+			  <RecordItem subindex="6" bitOffset="5">			 
+                <DatatypeRef datatypeId="DT_SyncStart" />
+                <Name textId="TI_PD_SyncStart" />      
+              </RecordItem>
+			  <RecordItem subindex="7" bitOffset="7">
+                <DatatypeRef datatypeId="DT_BuzzerOn" />
+                <Name textId="TI_PD_BuzzerOn" />
+              </RecordItem>
+			</Datatype>          
+            <Name textId="TI_PD_Out" />
+          </ProcessDataOut>
+        </ProcessData>
+      </ProcessDataCollection>
+      <EventCollection>
+        <Event code="20754" type="Warning" mode="AppearDisappear">
+          <Name textId="TI_Ev_LowUs" />
+          <Description textId="TI_EvDescr_LowUs" />
+        </Event>
+      </EventCollection>      
+      <UserInterface>
+        <MenuCollection>
+          <Menu id="M_OR_MR_SR_Ident">
+            <VariableRef variableId="V_VendorName" />
+            <VariableRef variableId="V_VendorText" />
+            <VariableRef variableId="V_ProductName" />
+            <VariableRef variableId="V_ProductID" />
+            <VariableRef variableId="V_ProductText" />
+            <VariableRef variableId="V_HardwareRevision" />
+            <VariableRef variableId="V_FirmwareRevision" />
+          </Menu>
+          <Menu id="M_OR_Param">
+            <VariableRef variableId="V_Mode" accessRightRestriction="ro" displayFormat="Dec" />
+            <VariableRef variableId="V_RunlightStaticColor" accessRightRestriction="ro" displayFormat="Dec" />
+            <VariableRef variableId="V_RunlightRunningColor" accessRightRestriction="ro" displayFormat="Dec" />
+            <VariableRef variableId="V_SupplyMonitor" accessRightRestriction="ro" displayFormat="Dec" />
+            <VariableRef variableId="V_Brightness" accessRightRestriction="ro" displayFormat="Dec" />
+            <VariableRef variableId="V_Frequency" accessRightRestriction="ro" displayFormat="Dec" />
+            <VariableRef variableId="V_BlinkingMode" accessRightRestriction="ro" displayFormat="Dec" />
+            <VariableRef variableId="V_UserColor" accessRightRestriction="ro" displayFormat="Dec" />
+            <VariableRef variableId="V_BuzzerType" accessRightRestriction="ro" displayFormat="Dec" />
+			<VariableRef variableId="V_LED_1" accessRightRestriction="ro" displayFormat="Dec" />
+            <VariableRef variableId="V_LED_2" accessRightRestriction="ro" displayFormat="Dec" />
+            <VariableRef variableId="V_LED_3" accessRightRestriction="ro" displayFormat="Dec" />
+            <VariableRef variableId="V_LED_4" accessRightRestriction="ro" displayFormat="Dec" />
+          </Menu>
+          <Menu id="M_MR_Param">
+            <VariableRef variableId="V_Mode" accessRightRestriction="rw" displayFormat="Dec" />
+            <VariableRef variableId="V_RunlightStaticColor" accessRightRestriction="rw" displayFormat="Dec" />
+            <VariableRef variableId="V_RunlightRunningColor" accessRightRestriction="rw" displayFormat="Dec" />
+            <VariableRef variableId="V_SupplyMonitor" accessRightRestriction="ro" displayFormat="Dec" />
+            <VariableRef variableId="V_Brightness" accessRightRestriction="rw" displayFormat="Dec" />
+            <VariableRef variableId="V_Frequency" accessRightRestriction="rw" displayFormat="Dec" />
+            <VariableRef variableId="V_BlinkingMode" accessRightRestriction="rw" displayFormat="Dec" />
+            <VariableRef variableId="V_UserColor" accessRightRestriction="rw" displayFormat="Dec" />
+            <VariableRef variableId="V_BuzzerType" accessRightRestriction="rw" displayFormat="Dec" />
+			<VariableRef variableId="V_LED_1" accessRightRestriction="rw" displayFormat="Dec" />
+            <VariableRef variableId="V_LED_2" accessRightRestriction="rw" displayFormat="Dec" />
+            <VariableRef variableId="V_LED_3" accessRightRestriction="rw" displayFormat="Dec" />
+            <VariableRef variableId="V_LED_4" accessRightRestriction="rw" displayFormat="Dec" />
+          </Menu>
+          <Menu id="M_SR_Param">
+            <VariableRef variableId="V_Mode" accessRightRestriction="rw" displayFormat="Dec" />
+            <VariableRef variableId="V_RunlightStaticColor" accessRightRestriction="rw" displayFormat="Dec" />
+            <VariableRef variableId="V_RunlightRunningColor" accessRightRestriction="rw" displayFormat="Dec" />
+            <VariableRef variableId="V_SupplyMonitor" accessRightRestriction="ro" displayFormat="Dec" />
+            <VariableRef variableId="V_Brightness" accessRightRestriction="rw" displayFormat="Dec" />
+            <VariableRef variableId="V_Frequency" accessRightRestriction="rw" displayFormat="Dec" />
+            <VariableRef variableId="V_BlinkingMode" accessRightRestriction="rw" displayFormat="Dec" />
+            <VariableRef variableId="V_UserColor" accessRightRestriction="rw" displayFormat="Dec" />
+            <VariableRef variableId="V_BuzzerType" accessRightRestriction="rw" displayFormat="Dec" />
+			<VariableRef variableId="V_LED_1" accessRightRestriction="rw" displayFormat="Dec" />
+            <VariableRef variableId="V_LED_2" accessRightRestriction="rw" displayFormat="Dec" />
+            <VariableRef variableId="V_LED_3" accessRightRestriction="rw" displayFormat="Dec" />
+            <VariableRef variableId="V_LED_4" accessRightRestriction="rw" displayFormat="Dec" />
+          </Menu>
+        </MenuCollection>
+        <ObserverRoleMenuSet>
+          <IdentificationMenu menuId="M_OR_MR_SR_Ident" />
+          <ParameterMenu menuId="M_OR_Param" />
+        </ObserverRoleMenuSet>
+        <MaintenanceRoleMenuSet>
+          <IdentificationMenu menuId="M_OR_MR_SR_Ident" />
+          <ParameterMenu menuId="M_MR_Param" />
+        </MaintenanceRoleMenuSet>
+        <SpecialistRoleMenuSet>
+          <IdentificationMenu menuId="M_OR_MR_SR_Ident" />
+          <ParameterMenu menuId="M_SR_Param" />
+        </SpecialistRoleMenuSet>
+      </UserInterface>
+    </DeviceFunction>
+  </ProfileBody>
+  <CommNetworkProfile xsi:type="IOLinkCommNetworkProfileT" iolinkRevision="V1.0">
+    <TransportLayers>
+      <PhysicalLayer physics="2" minCycleTime="5000" sioSupported="false" baudrate="COM2" />
+    </TransportLayers>
+  </CommNetworkProfile>
+  <ExternalTextCollection>
+    <PrimaryLanguage xml:lang="en">
+      <Text id="TI_VendorText" value="BALLUFF" />
+      <Text id="TI_VendorUrl" value="www.balluff.com" />
+      <Text id="TI_DeviceFamily" value="BNI - Smart Light" />
+      <Text id="TI_Product1_Name" value="BNI IOL-800-000-Z037" />
+      <Text id="TI_Product1_Descr" value="Smart light 1 segment with buzzer" />
+      <Text id="TI_VAR_Color_Off" value="Off" />
+      <Text id="TI_VAR_Color_Green" value="Green" />
+      <Text id="TI_VAR_Color_Red" value="Red" />
+      <Text id="TI_VAR_Color_Yellow" value="Yellow" />
+      <Text id="TI_VAR_Color_Blue" value="Blue" />
+      <Text id="TI_VAR_Color_Orange" value="Orange" />
+      <Text id="TI_VAR_Color_UserDefined" value="User defined" />
+      <Text id="TI_VAR_Color_White" value="White" />
+      <Text id="TI_VAR_notBlink" value="Segment does not blink" />
+      <Text id="TI_VAR_Blink" value="Segment blinks" />
+      <Text id="TI_VAR_Mode" value="Operating mode"/>
+      <Text id="TI_VAR_ModeSegment" value="Segment mode"/>
+      <Text id="TI_VAR_ModeRunlight" value="Runlight mode"/>
+	  <Text id="TI_VAR_ModeFlexible" value="Flexible mode"/>
+      <Text id="TI_VAR_RunlightStaticColor" value="Runlight mode, Background color"/>
+      <Text id="TI_VAR_RunlightRunningColor" value="Runlight mode, Color of the running segment"/>
+      <Text id="TI_VAR_SupplyMonitor" value="Supply monitoring"/>
+      <Text id="TI_VAR_UsVoltageOk" value="Ok"/>
+      <Text id="TI_VAR_UsVoltageLow" value="Low Us"/>
+      <Text id="TI_VAR_LEDVoltageOk" value="Ok"/>
+      <Text id="TI_VAR_LEDVoltageLow" value="Low LED Voltage"/>
+      <Text id="TI_VAR_UsVoltage" value="Supply Voltage"/>
+      <Text id="TI_VAR_LEDVoltage" value="Supply Voltage LED"/>
+      <Text id="TI_VAR_Brightness" value="Brightness"/> 
+      <Text id="TI_VAR_BrightnessRed" value="Red channel brightness"/> 
+      <Text id="TI_VAR_BrightnessGreen" value="Green channel brightness"/> 
+      <Text id="TI_VAR_BrightnessBlue" value="Blue channel brightness"/> 
+      <Text id="TI_VAR_UserColor" value="User defined color"/> 
+      <Text id="TI_VAR_UserColorRed" value="Red channel"/> 
+      <Text id="TI_VAR_UserColorGreen" value="Green channel"/> 
+      <Text id="TI_VAR_UserColorBlue" value="Blue channel"/> 
+      <Text id="TI_VAR_Frequency" value="Blinking frequency"/> 
+      <Text id="TI_VAR_BuzzerOn" value="On" />
+      <Text id="TI_VAR_BuzzerOff" value="Off" />
+      <Text id="TI_VAR_BuzzerType" value="Buzzer type" />
+      <Text id="TI_VAR_BuzzerTypeConst" value="Continuous sound" />
+      <Text id="TI_VAR_BuzzerType1Hz" value="1 Hz chopped sound" />
+      <Text id="TI_VAR_BuzzerType5Hz" value="5 Hz chopped sound" />
+      <Text id="TI_VAR_BuzzerType3Pulse" value="3 short beep" />
+	  <Text id="TI_VAR_SyncImpOn" value="On" />
+      <Text id="TI_VAR_SyncImpOff" value="Off" />
+      <Text id="TI_VAR_SyncStartOn" value="On" />
+      <Text id="TI_VAR_SyncStartOff" value="Off" />
+      <Text id="TI_VAR_0Hz5" value="0.5 Hz"/> 
+      <Text id="TI_VAR_1Hz" value="1 Hz"/> 
+      <Text id="TI_VAR_2Hz" value="2 Hz"/> 
+      <Text id="TI_VAR_5Hz" value="5 Hz"/> 
+      <Text id="TI_VAR_10Hz" value="10 Hz"/> 
+      <Text id="TI_VAR_BlinkingMode" value="Blinking mode"/> 
+      <Text id="TI_VAR_BlinkingModeSeg1" value="Segment 1 blinking mode"/> 
+      <Text id="TI_VAR_ModeBlink" value="Blinking with 50% duty cycle"/> 
+      <Text id="TI_VAR_ModeFlash" value="Flashing"/>
+	  <Text id="TI_VAR_LED1" value="LED 1 settings"/>
+      <Text id="TI_VAR_LED2" value="LED 2 settings"/>
+      <Text id="TI_VAR_LED3" value="LED 3 settings"/>
+      <Text id="TI_VAR_LED4" value="LED 4 settings"/>
+	  <Text id="TI_VAR_LEDOff" value="Off"/>
+      <Text id="TI_VAR_LEDOn" value="On"/>
+      <Text id="TI_VAR_LEDColorR" value="Red component"/>
+      <Text id="TI_VAR_LEDColorG" value="Green component"/>
+      <Text id="TI_VAR_LEDColorB" value="Blue component"/>
+      <Text id="TI_VAR_LEDOnBrightness" value="On brightness"/>
+      <Text id="TI_VAR_LEDOffBrightness" value="Off brightness"/>
+      <Text id="TI_PD_Out" value="Process Data Out" />
+      <Text id="TI_PD_Blinking_Segment1" value="Segment 1 blinks"/>
+      <Text id="TI_PD_Color_Segment1" value="Color of segment 1"/>
+      <Text id="TI_PD_BuzzerOn" value="Buzzer State" />
+	  <Text id="TI_PD_SyncImp" value="Sync Impulse" />
+	  <Text id="TI_PD_SyncStart" value="Sync Start" />
+      <Text id="TI_PD_LED1" value="LED 1 state"/>
+      <Text id="TI_PD_LED2" value="LED 2 state"/>
+      <Text id="TI_PD_LED3" value="LED 3 state"/>
+      <Text id="TI_PD_LED4" value="LED 4 state"/>
+	  <Text id="TI_PD_ReservedNib" value="Reserved" />
+      <Text id="TI_Ev_LowUs" value="Low Supply Voltage" />
+      <Text id="TI_EvDescr_LowUs" value="Low Supply Voltage" />      
+    </PrimaryLanguage>
+  </ExternalTextCollection>
+  <Stamp crc="2842859778"><Checker name="IODD-Checker V1.0.9" version="V1.0.9.0"/></Stamp>
+</IODevice>

@@ -1,0 +1,785 @@
+<?xml version="1.0" encoding="utf-8"?>
+<IODevice xmlns = "http://www.io-link.com/IODD/2010/10" xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation = "http://www.io-link.com/IODD/2010/10 IODD1.1.xsd">
+  <DocumentInfo copyright = "Copyright 2017, Balluff GmbH" releaseDate = "2017-03-15" version = "V0.1"/>
+  <ProfileHeader>
+    <ProfileIdentification>IO Device Profile</ProfileIdentification>
+    <ProfileRevision>1.1</ProfileRevision>
+    <ProfileName>Device Profile for IO Devices</ProfileName>
+    <ProfileSource>IO-Link Consortium</ProfileSource>
+    <ProfileClassID>Device</ProfileClassID>
+    <ISO15745Reference>
+      <ISO15745Part>1</ISO15745Part>
+      <ISO15745Edition>1</ISO15745Edition>
+      <ProfileTechnology>IODD</ProfileTechnology>
+    </ISO15745Reference>
+  </ProfileHeader>
+  <ProfileBody>
+    <DeviceIdentity vendorId = "888" vendorName ="Balluff" deviceId = "329494">
+      <VendorText textId = "TI_VendorText"/>
+      <VendorUrl textId = "TI_VendorUrl"/>
+      <VendorLogo name = "Balluff-logo.png"/>
+      <DeviceName textId = "TI_DeviceName"/>
+      <DeviceFamily textId = "TI_DeviceFamily"/>
+      <DeviceVariantCollection>
+        <DeviceVariant productId = "BNI00CL" deviceSymbol = "Balluff-BNI_IOL_355_S02_Z013-pic.png" deviceIcon = "Balluff-BNI_IOL_355_S02_Z013-icon.png">
+          <Name textId = "TI_Device1_Name"/>
+          <Description textId = "TD_Device1_Desc"/>
+        </DeviceVariant>
+      </DeviceVariantCollection>
+    </DeviceIdentity>
+    <DeviceFunction>
+      <Features blockParameter="true" dataStorage="true">
+         <SupportedAccessLocks parameter="true" dataStorage="true" localUserInterface="false" localParameterization="false"  />
+      </Features>
+	  <!--Features blockParameter="true" dataStorage="false">
+        <SupportedAccessLocks parameter="false" dataStorage="false" localUserInterface="false" localParameterization="false"  />
+      </Features-->
+      <VariableCollection>
+        <StdVariableRef id = "V_DirectParameters_1"/>
+        <StdVariableRef id = "V_DirectParameters_2"/>
+        <StdVariableRef id = "V_SystemCommand">
+          <StdSingleValueRef value = "130"/>
+        </StdVariableRef>
+        <StdVariableRef id ="V_DeviceAccessLocks"/>
+        <StdVariableRef id = "V_VendorName" defaultValue="Balluff"/>
+        <StdVariableRef id = "V_VendorText" defaultValue="innovating automation"/>
+        <StdVariableRef id = "V_ProductName" defaultValue="BNI IOL-355-S02-Z013"/>
+        <StdVariableRef id = "V_ProductID" defaultValue="BNI00CL"/>
+        <StdVariableRef id = "V_ProductText" defaultValue="Sensor- / Aktorhub mit galvanischer Trennung"/>
+        <StdVariableRef id = "V_SerialNumber" />
+        <StdVariableRef id = "V_HardwareRevision" />
+        <StdVariableRef id = "V_FirmwareRevision" />
+        <StdVariableRef id = "V_ApplicationSpecificTag" defaultValue = "********************************" fixedLengthRestriction = "32"/>
+
+<!-- Feature 2: Input Inversion Configuration -->
+        <Variable id = "V_InputInversion" index = "64" accessRights = "rw">
+          <Datatype xsi:type = "RecordT" bitLength = "8" subindexAccessSupported = "true">
+            <RecordItem subindex = "1" bitOffset = "0">
+              <SimpleDatatype xsi:type = "BooleanT">
+				<SingleValue value = "false">
+                  <Name textId = "TI_Not_Inverted"/>
+                </SingleValue>
+				<SingleValue value = "true">
+                  <Name textId = "TI_Inverted"/>
+                </SingleValue>
+			  </SimpleDatatype>
+              <Name textId = "TI_InversionPort0Pin4"/>
+            </RecordItem>
+            <RecordItem subindex = "2" bitOffset = "1">
+              <SimpleDatatype xsi:type = "BooleanT">
+				<SingleValue value = "false">
+                  <Name textId = "TI_Not_Inverted"/>
+                </SingleValue>
+				<SingleValue value = "true">
+                  <Name textId = "TI_Inverted"/>
+                </SingleValue>
+			  </SimpleDatatype>
+              <Name textId = "TI_InversionPort2Pin4"/>
+            </RecordItem>
+            <RecordItem subindex = "3" bitOffset = "2">
+              <SimpleDatatype xsi:type = "BooleanT">
+				<SingleValue value = "false">
+                  <Name textId = "TI_Not_Inverted"/>
+                </SingleValue>
+				<SingleValue value = "true">
+                  <Name textId = "TI_Inverted"/>
+                </SingleValue>
+			  </SimpleDatatype>
+              <Name textId = "TI_InversionPort4Pin4"/>
+            </RecordItem>
+            <RecordItem subindex = "4" bitOffset = "3">
+              <SimpleDatatype xsi:type = "BooleanT">
+				<SingleValue value = "false">
+                  <Name textId = "TI_Not_Inverted"/>
+                </SingleValue>
+				<SingleValue value = "true">
+                  <Name textId = "TI_Inverted"/>
+                </SingleValue>
+			  </SimpleDatatype>
+              <Name textId = "TI_InversionPort6Pin4"/>
+            </RecordItem>
+            <RecordItem subindex = "5" bitOffset = "4">
+              <SimpleDatatype xsi:type = "BooleanT">
+				<SingleValue value = "false">
+                  <Name textId = "TI_Not_Inverted"/>
+                </SingleValue>
+				<SingleValue value = "true">
+                  <Name textId = "TI_Inverted"/>
+                </SingleValue>
+			  </SimpleDatatype>
+              <Name textId = "TI_InversionPort0Pin2"/>
+            </RecordItem>
+            <RecordItem subindex = "6" bitOffset = "5">
+              <SimpleDatatype xsi:type = "BooleanT">
+				<SingleValue value = "false">
+                  <Name textId = "TI_Not_Inverted"/>
+                </SingleValue>
+				<SingleValue value = "true">
+                  <Name textId = "TI_Inverted"/>
+                </SingleValue>
+			  </SimpleDatatype>
+              <Name textId = "TI_InversionPort2Pin2"/>
+            </RecordItem>
+            <RecordItem subindex = "7" bitOffset = "6">
+              <SimpleDatatype xsi:type = "BooleanT">
+				<SingleValue value = "false">
+                  <Name textId = "TI_Not_Inverted"/>
+                </SingleValue>
+				<SingleValue value = "true">
+                  <Name textId = "TI_Inverted"/>
+                </SingleValue>
+			  </SimpleDatatype>
+              <Name textId = "TI_InversionPort4Pin2"/>
+            </RecordItem>
+            <RecordItem subindex = "8" bitOffset = "7">
+              <SimpleDatatype xsi:type = "BooleanT">
+				<SingleValue value = "false">
+                  <Name textId = "TI_Not_Inverted"/>
+                </SingleValue>
+				<SingleValue value = "true">
+                  <Name textId = "TI_Inverted"/>
+                </SingleValue>
+			  </SimpleDatatype>
+              <Name textId = "TI_InversionPort6Pin2"/>
+            </RecordItem>
+          </Datatype>
+          <Name textId = "TI_InputInversion"/>
+          <Description textId = "TD_InputInversion"/>
+        </Variable>
+
+<!-- Feature 3: output safe state Configuration -->
+        <Variable id = "V_OutputSafeStatePin4" index = "66" accessRights = "rw">
+          <Datatype xsi:type = "RecordT" bitLength = "8" subindexAccessSupported = "true">
+            <RecordItem subindex = "1" bitOffset = "0">
+              <SimpleDatatype xsi:type = "UIntegerT" bitLength = "2">
+                <SingleValue value = "0">
+                  <Name textId = "TI_OutputUaMinus"/>
+                </SingleValue>
+                <SingleValue value = "1">
+                  <Name textId = "TI_OutputUaPlus"/>
+                </SingleValue>
+                <SingleValue value = "2">
+                  <Name textId = "TI_OutputNoChange"/>
+                </SingleValue>
+              </SimpleDatatype>
+              <Name textId = "TI_SafeStatePort1Pin4"/>
+            </RecordItem>
+            <RecordItem subindex = "2" bitOffset = "2">
+              <SimpleDatatype xsi:type = "UIntegerT" bitLength = "2">
+                <SingleValue value = "0">
+                  <Name textId = "TI_OutputUaMinus"/>
+                </SingleValue>
+                <SingleValue value = "1">
+                  <Name textId = "TI_OutputUaPlus"/>
+                </SingleValue>
+                <SingleValue value = "2">
+                  <Name textId = "TI_OutputNoChange"/>
+                </SingleValue>
+              </SimpleDatatype>
+              <Name textId = "TI_SafeStatePort3Pin4"/>
+            </RecordItem>
+            <RecordItem subindex = "3" bitOffset = "4">
+              <SimpleDatatype xsi:type = "UIntegerT" bitLength = "2">
+                <SingleValue value = "0">
+                  <Name textId = "TI_OutputUaMinus"/>
+                </SingleValue>
+                <SingleValue value = "1">
+                  <Name textId = "TI_OutputUaPlus"/>
+                </SingleValue>
+                <SingleValue value = "2">
+                  <Name textId = "TI_OutputNoChange"/>
+                </SingleValue>
+              </SimpleDatatype>
+              <Name textId = "TI_SafeStatePort5Pin4"/>
+            </RecordItem>
+            <RecordItem subindex = "4" bitOffset = "6">
+              <SimpleDatatype xsi:type = "UIntegerT" bitLength = "2">
+                <SingleValue value = "0">
+                  <Name textId = "TI_OutputUaMinus"/>
+                </SingleValue>
+                <SingleValue value = "1">
+                  <Name textId = "TI_OutputUaPlus"/>
+                </SingleValue>
+                <SingleValue value = "2">
+                  <Name textId = "TI_OutputNoChange"/>
+                </SingleValue>
+              </SimpleDatatype>
+              <Name textId = "TI_SafeStatePort7Pin4"/>
+            </RecordItem>
+          </Datatype>
+          <Name textId = "TI_OutputSafeStatePin4"/>
+          <Description textId = "TD_OutputSafeStatePin4"/>
+        </Variable>
+        
+        <Variable id = "V_OutputSafeStatePin2" index = "67" accessRights = "rw">
+          <Datatype xsi:type = "RecordT" bitLength = "8" subindexAccessSupported = "true">
+            <RecordItem subindex = "1" bitOffset = "0">
+              <SimpleDatatype xsi:type = "UIntegerT" bitLength = "2">
+                <SingleValue value = "0">
+                  <Name textId = "TI_OutputUaMinus"/>
+                </SingleValue>
+                <SingleValue value = "1">
+                  <Name textId = "TI_OutputUaPlus"/>
+                </SingleValue>
+                <SingleValue value = "2">
+                  <Name textId = "TI_OutputNoChange"/>
+                </SingleValue>
+              </SimpleDatatype>
+              <Name textId = "TI_SafeStatePort1Pin2"/>
+            </RecordItem>
+            <RecordItem subindex = "2" bitOffset = "2">
+              <SimpleDatatype xsi:type = "UIntegerT" bitLength = "2">
+                <SingleValue value = "0">
+                  <Name textId = "TI_OutputUaMinus"/>
+                </SingleValue>
+                <SingleValue value = "1">
+                  <Name textId = "TI_OutputUaPlus"/>
+                </SingleValue>
+                <SingleValue value = "2">
+                  <Name textId = "TI_OutputNoChange"/>
+                </SingleValue>
+              </SimpleDatatype>
+              <Name textId = "TI_SafeStatePort3Pin2"/>
+            </RecordItem>
+            <RecordItem subindex = "3" bitOffset = "4">
+              <SimpleDatatype xsi:type = "UIntegerT" bitLength = "2">
+                <SingleValue value = "0">
+                  <Name textId = "TI_OutputUaMinus"/>
+                </SingleValue>
+                <SingleValue value = "1">
+                  <Name textId = "TI_OutputUaPlus"/>
+                </SingleValue>
+                <SingleValue value = "2">
+                  <Name textId = "TI_OutputNoChange"/>
+                </SingleValue>
+              </SimpleDatatype>
+              <Name textId = "TI_SafeStatePort5Pin2"/>
+            </RecordItem>
+            <RecordItem subindex = "4" bitOffset = "6">
+              <SimpleDatatype xsi:type = "UIntegerT" bitLength = "2">
+                <SingleValue value = "0">
+                  <Name textId = "TI_OutputUaMinus"/>
+                </SingleValue>
+                <SingleValue value = "1">
+                  <Name textId = "TI_OutputUaPlus"/>
+                </SingleValue>
+                <SingleValue value = "2">
+                  <Name textId = "TI_OutputNoChange"/>
+                </SingleValue>
+              </SimpleDatatype>
+              <Name textId = "TI_SafeStatePort7Pin2"/>
+            </RecordItem>
+          </Datatype>
+          <Name textId = "TI_OutputSafeStatePin2"/>
+          <Description textId = "TD_OutputSafeStatePin2"/>
+        </Variable>
+        
+
+<!-- Feature 4: Input and Voltage Monitoring -->
+        <Variable id = "V_InputMonitoring" index = "68" accessRights = "ro">
+          <Datatype xsi:type = "RecordT" bitLength = "8" subindexAccessSupported = "true">
+            <RecordItem subindex = "1" bitOffset = "0">
+              <SimpleDatatype xsi:type = "BooleanT">
+				<SingleValue value = "false">
+                  <Name textId = "TI_OK"/>
+                </SingleValue>
+				<SingleValue value = "true">
+                  <Name textId = "TI_UnderVoltage"/>
+                </SingleValue>
+			  </SimpleDatatype>
+              <Name textId = "TI_UnderVoltageUs"/>
+            </RecordItem>
+            <RecordItem subindex = "2" bitOffset = "1">
+              <SimpleDatatype xsi:type = "BooleanT">
+				<SingleValue value = "false">
+                  <Name textId = "TI_OK"/>
+                </SingleValue>
+				<SingleValue value = "true">
+                  <Name textId = "TI_UnderVoltage"/>
+                </SingleValue>
+			  </SimpleDatatype>
+              <Name textId = "TI_UnderVoltageUpower1"/>
+            </RecordItem>
+            <RecordItem subindex = "3" bitOffset = "2">
+              <SimpleDatatype xsi:type = "BooleanT">
+				<SingleValue value = "false">
+                  <Name textId = "TI_OK"/>
+                </SingleValue>
+				<SingleValue value = "true">
+                  <Name textId = "TI_UnderVoltage"/>
+                </SingleValue>
+			  </SimpleDatatype>
+              <Name textId = "TI_UnderVoltageUa"/>
+            </RecordItem>
+            <RecordItem subindex = "4" bitOffset = "3">
+              <SimpleDatatype xsi:type = "BooleanT">
+				<SingleValue value = "false">
+                  <Name textId = "TI_OK"/>
+                </SingleValue>
+				<SingleValue value = "true">
+                  <Name textId = "TI_UnderVoltageLock"/>
+                </SingleValue>
+			  </SimpleDatatype>
+              <Name textId = "TI_UnderVoltageLockUa"/>
+            </RecordItem>
+            <RecordItem subindex = "5" bitOffset = "4">
+              <SimpleDatatype xsi:type = "BooleanT">
+				<SingleValue value = "false">
+                  <Name textId = "TI_OK"/>
+                </SingleValue>
+				<SingleValue value = "true">
+                  <Name textId = "TI_Error"/>
+                </SingleValue>
+			  </SimpleDatatype>
+              <Name textId = "TI_ErrorPort0"/>
+            </RecordItem>
+            <RecordItem subindex = "6" bitOffset = "5">
+              <SimpleDatatype xsi:type = "BooleanT">
+				<SingleValue value = "false">
+                  <Name textId = "TI_OK"/>
+                </SingleValue>
+				<SingleValue value = "true">
+                  <Name textId = "TI_Error"/>
+                </SingleValue>
+			  </SimpleDatatype>
+              <Name textId = "TI_ErrorPort2"/>
+            </RecordItem>
+            <RecordItem subindex = "7" bitOffset = "6">
+              <SimpleDatatype xsi:type = "BooleanT">
+				<SingleValue value = "false">
+                  <Name textId = "TI_OK"/>
+                </SingleValue>
+				<SingleValue value = "true">
+                  <Name textId = "TI_Error"/>
+                </SingleValue>
+			  </SimpleDatatype>
+              <Name textId = "TI_ErrorPort4"/>
+            </RecordItem>
+            <RecordItem subindex = "8" bitOffset = "7">
+              <SimpleDatatype xsi:type = "BooleanT">
+				<SingleValue value = "false">
+                  <Name textId = "TI_OK"/>
+                </SingleValue>
+				<SingleValue value = "true">
+                  <Name textId = "TI_Error"/>
+                </SingleValue>
+			  </SimpleDatatype>
+              <Name textId = "TI_ErrorPort6"/>
+            </RecordItem>
+          </Datatype>
+          <Name textId = "TI_InputMonitoring"/>
+          <Description textId = "TD_InputMonitoring"/>
+        </Variable>        
+        
+<!-- Feature 5: Output Monitoring -->
+        <Variable id = "V_OutputMonitoring" index = "69" accessRights = "ro">
+          <Datatype xsi:type = "RecordT" bitLength = "8" subindexAccessSupported = "true">
+            <RecordItem subindex = "1" bitOffset = "0">
+              <SimpleDatatype xsi:type = "BooleanT">
+				<SingleValue value = "false">
+                  <Name textId = "TI_OK"/>
+                </SingleValue>
+				<SingleValue value = "true">
+                  <Name textId = "TI_Error"/>
+                </SingleValue>
+			  </SimpleDatatype>
+              <Name textId = "TI_ErrorPort1Pin4"/>
+            </RecordItem>
+            <RecordItem subindex = "2" bitOffset = "1">
+              <SimpleDatatype xsi:type = "BooleanT">
+				<SingleValue value = "false">
+                  <Name textId = "TI_OK"/>
+                </SingleValue>
+				<SingleValue value = "true">
+                  <Name textId = "TI_Error"/>
+                </SingleValue>
+			  </SimpleDatatype>
+              <Name textId = "TI_ErrorPort3Pin4"/>
+            </RecordItem>
+            <RecordItem subindex = "3" bitOffset = "2">
+              <SimpleDatatype xsi:type = "BooleanT">
+				<SingleValue value = "false">
+                  <Name textId = "TI_OK"/>
+                </SingleValue>
+				<SingleValue value = "true">
+                  <Name textId = "TI_Error"/>
+                </SingleValue>
+			  </SimpleDatatype>
+              <Name textId = "TI_ErrorPort5Pin4"/>
+            </RecordItem>
+            <RecordItem subindex = "4" bitOffset = "3">
+              <SimpleDatatype xsi:type = "BooleanT">
+				<SingleValue value = "false">
+                  <Name textId = "TI_OK"/>
+                </SingleValue>
+				<SingleValue value = "true">
+                  <Name textId = "TI_Error"/>
+                </SingleValue>
+			  </SimpleDatatype>
+              <Name textId = "TI_ErrorPort7Pin4"/>
+            </RecordItem>
+            <RecordItem subindex = "5" bitOffset = "4">
+              <SimpleDatatype xsi:type = "BooleanT">
+				<SingleValue value = "false">
+                  <Name textId = "TI_OK"/>
+                </SingleValue>
+				<SingleValue value = "true">
+                  <Name textId = "TI_Error"/>
+                </SingleValue>
+			  </SimpleDatatype>
+              <Name textId = "TI_ErrorPort1Pin2"/>
+            </RecordItem>
+            <RecordItem subindex = "6" bitOffset = "5">
+              <SimpleDatatype xsi:type = "BooleanT">
+				<SingleValue value = "false">
+                  <Name textId = "TI_OK"/>
+                </SingleValue>
+				<SingleValue value = "true">
+                  <Name textId = "TI_Error"/>
+                </SingleValue>
+			  </SimpleDatatype>
+              <Name textId = "TI_ErrorPort3Pin2"/>
+            </RecordItem>
+            <RecordItem subindex = "7" bitOffset = "6">
+              <SimpleDatatype xsi:type = "BooleanT">
+				<SingleValue value = "false">
+                  <Name textId = "TI_OK"/>
+                </SingleValue>
+				<SingleValue value = "true">
+                  <Name textId = "TI_Error"/>
+                </SingleValue>
+			  </SimpleDatatype>
+              <Name textId = "TI_ErrorPort5Pin2"/>
+            </RecordItem>
+            <RecordItem subindex = "8" bitOffset = "7">
+              <SimpleDatatype xsi:type = "BooleanT">
+				<SingleValue value = "false">
+                  <Name textId = "TI_OK"/>
+                </SingleValue>
+				<SingleValue value = "true">
+                  <Name textId = "TI_Error"/>
+                </SingleValue>
+			  </SimpleDatatype>
+              <Name textId = "TI_ErrorPort7Pin2"/>
+            </RecordItem>
+          </Datatype>
+          <Name textId = "TI_OutputMonitoring"/>
+          <Description textId = "TD_OutputMonitoring"/>
+        </Variable>
+        
+<!-- Feature 6: Event blocking -->
+        <Variable id = "V_EventBlocking" index = "249" accessRights = "rw">
+          <Datatype xsi:type = "RecordT" bitLength = "32" subindexAccessSupported = "true">
+            <RecordItem subindex = "2" bitOffset = "1">
+              <SimpleDatatype xsi:type = "BooleanT">
+				<SingleValue value = "false">
+                  <Name textId = "TI_NotBlocked"/>
+                </SingleValue>
+				<SingleValue value = "true">
+                  <Name textId = "TI_Blocked"/>
+                </SingleValue>
+			  </SimpleDatatype>
+              <Name textId = "TI_EventBlockingUpower1"/>
+            </RecordItem>
+            <RecordItem subindex = "17" bitOffset = "16">
+              <SimpleDatatype xsi:type = "BooleanT">
+				<SingleValue value = "false">
+                  <Name textId = "TI_NotBlocked"/>
+                </SingleValue>
+				<SingleValue value = "true">
+                  <Name textId = "TI_Blocked"/>
+                </SingleValue>
+			  </SimpleDatatype>
+              <Name textId = "TI_EventBlockingUa"/>
+            </RecordItem>
+            <RecordItem subindex = "18" bitOffset = "17">
+              <SimpleDatatype xsi:type = "BooleanT">
+				<SingleValue value = "false">
+                  <Name textId = "TI_NotBlocked"/>
+                </SingleValue>
+				<SingleValue value = "true">
+                  <Name textId = "TI_Blocked"/>
+                </SingleValue>
+			  </SimpleDatatype>
+              <Name textId = "TI_EventBlockingUs"/>
+            </RecordItem>
+          </Datatype>
+          <Name textId = "TI_EventBlocking"/>
+          <Description textId = "TD_EventBlocking"/>
+        </Variable>
+
+<!-- Feature 7: Reactivating -->
+        <Variable id = "V_OutputReactivating" index = "250" accessRights = "rw">
+          <Datatype xsi:type = "RecordT" bitLength = "4" subindexAccessSupported = "true">
+            <RecordItem subindex = "1" bitOffset = "0">
+              <SimpleDatatype xsi:type = "UIntegerT" bitLength = "2">
+                <SingleValue value = "0">
+                  <Name textId = "TI_OutputReactivating_UaOn0"/>
+                </SingleValue>
+                <SingleValue value = "1">
+                  <Name textId = "TI_OutputReactivating_UaOn1"/>
+                </SingleValue>
+                <SingleValue value = "2">
+                  <Name textId = "TI_OutputReactivating_UaOn2"/>
+                </SingleValue>
+              </SimpleDatatype>
+              <Name textId = "TI_OutputReactivating_Option"/>
+            </RecordItem>
+			<RecordItem subindex = "2" bitOffset = "2">
+              <SimpleDatatype xsi:type = "BooleanT">
+				<SingleValue value = "false">
+                  <Name textId = "TI_UnderVoltageLock_Low"/>
+                </SingleValue>
+				<SingleValue value = "true">
+                  <Name textId = "TI_UnderVoltageLock_High"/>
+                </SingleValue>
+              </SimpleDatatype>
+              <Name textId = "TI_OutputReactivating_Unlock"/>
+            </RecordItem>
+          </Datatype>
+          <Name textId = "TI_OutputReactivating"/>
+          <Description textId = "TD_OutputReactivating"/>
+        </Variable>
+<!-- Feature 8: Gating Time -->
+        <Variable id = "V_GatingTime" index = "251" accessRights = "rw" defaultValue = "100">
+          <Datatype xsi:type = "UIntegerT" bitLength = "16"/>
+          <Name textId = "TI_GatingTime"/>
+          <Description textId = "TD_GatingTime"/>
+        </Variable>
+      </VariableCollection>
+      <ProcessDataCollection>
+        <ProcessData id = "V_PD">
+          <ProcessDataIn id = "V_PDI" bitLength = "24">
+            <Datatype xsi:type="UIntegerT" bitLength="24"/>
+            <Name textId = "TI_PDI"/>
+          </ProcessDataIn>
+          <ProcessDataOut id = "V_PDO" bitLength = "8">
+            <Datatype xsi:type="UIntegerT" bitLength="8"/>
+            <Name textId = "TI_PDO"/>
+          </ProcessDataOut>
+        </ProcessData>
+      </ProcessDataCollection>
+      <ErrorTypeCollection>
+        <StdErrorTypeRef additionalCode = "17"/>
+        <StdErrorTypeRef additionalCode = "18"/>
+        <StdErrorTypeRef additionalCode = "35"/>
+        <StdErrorTypeRef additionalCode = "48"/>
+        <StdErrorTypeRef additionalCode = "51"/>
+        <StdErrorTypeRef additionalCode = "52"/>
+        <StdErrorTypeRef additionalCode = "53"/>
+      </ErrorTypeCollection>
+      <EventCollection>
+        <StdEventRef code = "20753"/>
+        <StdEventRef code = "20754"/>
+        <StdEventRef code = "30480"/>
+      </EventCollection>
+      <UserInterface>
+        <MenuCollection>
+          <Menu id = "M_OB_Identification">
+            <VariableRef variableId = "V_VendorName"/>
+            <VariableRef variableId = "V_VendorText"/>
+            <VariableRef variableId = "V_ProductName"/>
+            <VariableRef variableId = "V_ProductID"/>
+            <VariableRef variableId = "V_ProductText"/>
+            <VariableRef variableId = "V_HardwareRevision"/>
+            <VariableRef variableId = "V_FirmwareRevision"/>
+            <VariableRef variableId = "V_SerialNumber"/>
+            <VariableRef variableId = "V_ApplicationSpecificTag" accessRightRestriction = "ro"/>
+          </Menu>
+          <Menu id = "M_SP_Identification">
+            <VariableRef variableId = "V_VendorName"/>
+            <VariableRef variableId = "V_VendorText"/>
+            <VariableRef variableId = "V_ProductName"/>
+            <VariableRef variableId = "V_ProductID"/>
+            <VariableRef variableId = "V_ProductText"/>
+            <VariableRef variableId = "V_HardwareRevision"/>
+            <VariableRef variableId = "V_FirmwareRevision"/>
+            <VariableRef variableId = "V_SerialNumber"/>
+            <VariableRef variableId = "V_ApplicationSpecificTag" accessRightRestriction = "rw"/>
+          </Menu>
+          <Menu id = "M_OB_Parameter">
+            <VariableRef variableId ="V_DeviceAccessLocks" accessRightRestriction="ro" />
+            <VariableRef variableId = "V_InputInversion" accessRightRestriction = "ro"/>
+            <VariableRef variableId = "V_OutputSafeStatePin4" accessRightRestriction = "ro"/>
+            <VariableRef variableId = "V_OutputSafeStatePin2" accessRightRestriction = "ro"/>
+            <VariableRef variableId = "V_EventBlocking" accessRightRestriction = "ro"/>
+            <VariableRef variableId = "V_OutputReactivating" accessRightRestriction = "ro"/>
+            <VariableRef variableId = "V_GatingTime" accessRightRestriction = "ro" unitCode = "1056"/>
+          </Menu>
+          <Menu id = "M_M_Parameter">
+            <VariableRef variableId = "V_SystemCommand">
+              <Button buttonValue="130">
+                <Description textId="TD_FactoryReset" />
+                <ActionStartedMessage textId="TI_FactoryResetStarted" />
+              </Button>
+            </VariableRef>
+            <VariableRef variableId ="V_DeviceAccessLocks" accessRightRestriction="ro" />
+            <VariableRef variableId = "V_InputInversion" accessRightRestriction = "ro"/>
+            <VariableRef variableId = "V_OutputSafeStatePin4" accessRightRestriction = "ro"/>
+            <VariableRef variableId = "V_OutputSafeStatePin2" accessRightRestriction = "ro"/>
+            <VariableRef variableId = "V_EventBlocking" accessRightRestriction = "ro"/>
+            <VariableRef variableId = "V_OutputReactivating" accessRightRestriction = "ro"/>
+            <VariableRef variableId = "V_GatingTime" accessRightRestriction = "ro" unitCode = "1056"/>
+          </Menu>
+          <Menu id = "M_SP_Parameter">
+            <VariableRef variableId = "V_SystemCommand">
+              <Button buttonValue="130">
+                <Description textId="TD_FactoryReset" />
+                <ActionStartedMessage textId="TI_FactoryResetStarted" />
+              </Button>
+            </VariableRef>
+            <VariableRef variableId ="V_DeviceAccessLocks" accessRightRestriction="rw" />
+            <VariableRef variableId = "V_InputInversion" accessRightRestriction = "rw"/>
+            <VariableRef variableId = "V_OutputSafeStatePin4" accessRightRestriction = "rw"/>
+            <VariableRef variableId = "V_OutputSafeStatePin2" accessRightRestriction = "rw"/>
+            <VariableRef variableId = "V_EventBlocking" accessRightRestriction = "rw"/>
+            <VariableRef variableId = "V_OutputReactivating" accessRightRestriction = "rw"/>
+            <VariableRef variableId = "V_GatingTime" accessRightRestriction = "rw" unitCode = "1056" />
+          </Menu>
+          <Menu id = "M_Observation">
+            <VariableRef variableId = "V_InputMonitoring" accessRightRestriction = "ro"/>
+            <VariableRef variableId = "V_OutputMonitoring" accessRightRestriction = "ro"/>
+          </Menu>
+        </MenuCollection>
+        <ObserverRoleMenuSet>
+          <IdentificationMenu menuId = "M_OB_Identification"/>
+          <ParameterMenu menuId = "M_OB_Parameter"/>
+          <ObservationMenu menuId = "M_Observation"/>
+        </ObserverRoleMenuSet>
+        <MaintenanceRoleMenuSet>
+          <IdentificationMenu menuId = "M_SP_Identification"/>
+          <ParameterMenu menuId = "M_M_Parameter"/>
+          <ObservationMenu menuId = "M_Observation"/>
+        </MaintenanceRoleMenuSet>
+        <SpecialistRoleMenuSet>
+          <IdentificationMenu menuId = "M_SP_Identification"/>
+          <ParameterMenu menuId = "M_SP_Parameter"/>
+          <ObservationMenu menuId = "M_Observation"/>
+        </SpecialistRoleMenuSet>
+      </UserInterface>
+    </DeviceFunction>
+  </ProfileBody>
+  <CommNetworkProfile xsi:type = "IOLinkCommNetworkProfileT" iolinkRevision = "V1.1">
+    <TransportLayers>
+      <PhysicalLayer bitrate = "COM3" minCycleTime = "400" sioSupported = "false" mSequenceCapability = "11">
+        <Connection xsi:type = "M12-4ConnectionT">
+          <ProductRef productId = "BNI00CL"/>
+          <Wire1 function = "L+"/>
+          <Wire2 function = "Other"/>
+          <Wire3 function = "L-"/>
+          <Wire4 function = "C/Q"/>
+        </Connection>
+      </PhysicalLayer>
+    </TransportLayers>
+    <Test>
+      <Config1 index="66" testValue="0x55" />
+      <Config2 index="1000" testValue="0x00" />
+      <Config3 index="24" testValue="0x2A,0x2A,0x2A,0x2A,0x2A,0x2A,0x2A,0x2A,0x2A,0x2A,0x2A,0x2A,0x2A,0x2A,0x2A,0x2A,0x2A,0x2A,0x2A,0x2A,0x2A,0x2A,0x2A,0x2A,0x2A,0x2A,0x2A,0x2A,0x2A,0x2A,0x2A,0x2A"/>
+    </Test>
+  </CommNetworkProfile>
+  <ExternalTextCollection>
+    <PrimaryLanguage xml:lang = "en">
+
+      <Text id="TD_FactoryReset" value="Factory Reset" />
+      <Text id="TI_FactoryResetStarted" value="Factory Reset is now in progress!" />
+<!-- Feature 1: Mandatory Identification  -->
+      <Text id = "TI_VendorText"   value = "innovating automation"/>
+      <Text id = "TI_VendorUrl"    value = "http://www.balluff.com"/>
+      <Text id = "TI_DeviceFamily" value = "BNI - Sensor/Actor hub metal"/>
+      <Text id = "TI_DeviceName"   value = "BNI IOL-355-S02-Z013"/>
+      <Text id = "TI_Device1_Name" value = "BNI IOL-355-S02-Z013"/>
+      <Text id = "TD_Device1_Desc" value = "Sensor- / Aktorhub mit galvanischer Trennung"/>
+
+<!-- Feature 2: Input Inversion Configuration -->
+      <Text id="TI_InputInversion"     value = "Input Inversion"/>
+      <Text id="TD_InputInversion"     value = "Inversion of the states of input pins"/>
+	  <Text id="TI_Not_Inverted"       value = "Not Inverted"/>
+	  <Text id="TI_Inverted"           value = "Inverted"/>
+      <Text id="TI_InversionPort0Pin4" value = "Inversion Port 0 Pin 4"/>
+      <Text id="TI_InversionPort2Pin4" value = "Inversion Port 2 Pin 4"/>
+      <Text id="TI_InversionPort4Pin4" value = "Inversion Port 4 Pin 4"/>
+      <Text id="TI_InversionPort6Pin4" value = "Inversion Port 6 Pin 4"/>
+      <Text id="TI_InversionPort0Pin2" value = "Inversion Port 0 Pin 2"/>
+      <Text id="TI_InversionPort2Pin2" value = "Inversion Port 2 Pin 2"/>
+      <Text id="TI_InversionPort4Pin2" value = "Inversion Port 4 Pin 2"/>
+      <Text id="TI_InversionPort6Pin2" value = "Inversion Port 6 Pin 2"/>
+
+<!-- Feature 3: output safe state Configuration -->
+      <Text id="TI_OutputSafeStatePin4" value = "Output Safe State Pin4"/>
+      <Text id="TD_OutputSafeStatePin4" value = "Safe State of the ourput ports pin 4"/>
+      <Text id="TI_SafeStatePort1Pin4"  value = "Output Safe State Port 1 Pin 4"/>
+      <Text id="TI_SafeStatePort3Pin4"  value = "Output Safe State Port 3 Pin 4"/>
+      <Text id="TI_SafeStatePort5Pin4"  value = "Output Safe State Port 5 Pin 4"/>
+      <Text id="TI_SafeStatePort7Pin4"  value = "Output Safe State Port 7 Pin 4"/>
+     
+      <Text id="TI_OutputSafeStatePin2" value = "Output Safe State Pin2"/>
+      <Text id="TD_OutputSafeStatePin2" value = "Safe State of the ourput ports pin 2"/>
+      <Text id="TI_SafeStatePort1Pin2"  value = "Output Safe State Port 1 Pin 2"/>
+      <Text id="TI_SafeStatePort3Pin2"  value = "Output Safe State Port 3 Pin 2"/>
+      <Text id="TI_SafeStatePort5Pin2"  value = "Output Safe State Port 5 Pin 2"/>
+      <Text id="TI_SafeStatePort7Pin2"  value = "Output Safe State Port 7 Pin 2"/>
+	 
+      <Text id="TI_OutputUaMinus"  value = "Output Safe State to Ua-"/>
+      <Text id="TI_OutputUaPlus"   value = "Output Safe State to Ua+"/>
+      <Text id="TI_OutputNoChange" value = "Output hold current state"/>
+	 
+<!-- Feature 4: Input and Voltage Monitoring -->
+      <Text id="TI_InputMonitoring"     value = "Input Monitoring"/>
+      <Text id="TD_InputMonitoring"     value = "Monitoring errors of voltage and input ports"/>
+	  <Text id="TI_OK"                  value = "OK"/>
+	  <Text id="TI_UnderVoltage"        value = "Under Voltage"/>
+	  <Text id="TI_UnderVoltageLock"    value = "Under Voltage Locked"/>
+	  <Text id="TI_Error"               value = "Error"/>
+      <Text id="TI_UnderVoltageUs"      value = "State of under voltage of Us"/>
+      <Text id="TI_UnderVoltageUpower1" value = "State of under voltage of Upower1"/>
+      <Text id="TI_UnderVoltageUa"      value = "State of under voltage of Ua"/>
+	  <Text id="TI_UnderVoltageLockUa"  value = "State of under voltage Lock of Ua"/>
+      <Text id="TI_ErrorPort0"          value = "Error on Port 0"/>
+      <Text id="TI_ErrorPort2"          value = "Error on Port 2"/>
+      <Text id="TI_ErrorPort4"          value = "Error on Port 4"/>
+      <Text id="TI_ErrorPort6"          value = "Error on Port 6"/>
+
+<!-- Feature 5: Output Monitoring -->
+      <Text id="TI_OutputMonitoring"    value = "Output Monitoring"/>
+      <Text id="TD_OutputMonitoring"    value = "Monitoring errors of output ports and pins"/>
+      <Text id="TI_ErrorPort1Pin4"      value = "Error on Port 1 pin 4"/>
+      <Text id="TI_ErrorPort3Pin4"      value = "Error on Port 3 pin 4"/>
+      <Text id="TI_ErrorPort5Pin4"      value = "Error on Port 5 pin 4"/>
+      <Text id="TI_ErrorPort7Pin4"      value = "Error on Port 7 pin 4"/>
+      <Text id="TI_ErrorPort1Pin2"      value = "Error on Port 1 pin 2"/>
+      <Text id="TI_ErrorPort3Pin2"      value = "Error on Port 3 pin 2"/>
+      <Text id="TI_ErrorPort5Pin2"      value = "Error on Port 5 pin 2"/>
+      <Text id="TI_ErrorPort7Pin2"      value = "Error on Port 7 pin 2"/>
+	  
+<!-- Feature 6: Monitoring blocking -->
+      <Text id="TI_EventBlocking"         value = "Monitoring Blocking"/>
+      <Text id="TD_EventBlocking"         value = "Defines whether under voltage evenets will be blocked"/>
+      <Text id="TI_EventBlockingUs"       value = "Blocking event of under voltage of Us"/>
+      <Text id="TI_EventBlockingUpower1"  value = "Blocking event of under voltage of Upower1"/>
+      <Text id="TI_EventBlockingUa"       value = "Blocking event of under voltage of Ua"/>
+      <Text id="TI_NotBlocked"            value = "Not blocked"/>
+      <Text id="TI_Blocked"               value = "Blocked"/>
+	  
+<!-- Feature 7: Reactivating -->
+      <Text id="TI_OutputReactivating"         value = "Output Reactivating"/>
+      <Text id="TD_OutputReactivating"         value = "Reactivate outputs options and under voltage lock of Ua"/>
+      <Text id="TI_OutputReactivating_Option"  value = "Determines how to reactivate outputs from under voltage of Ua"/>
+      <Text id="TI_OutputReactivating_Unlock"  value = "Unlock the under voltage lock of Ua with setting low th high"/>
+      <Text id="TI_UnderVoltageLock_Low"       value = "Unlock bit is low"/>
+      <Text id="TI_UnderVoltageLock_High"      value = "Unlock bit is high"/>
+      <Text id="TI_OutputReactivating_UaOn0"   value = "UaOn0"/>
+      <Text id="TI_OutputReactivating_UaOn1"   value = "UaOn1"/>
+      <Text id="TI_OutputReactivating_UaOn2"   value = "UaOn2"/>
+	  
+<!-- Feature 8: Gating Time -->
+      <Text id="TI_GatingTime"         value = "Gating Time"/>
+      <Text id="TD_GatingTime"         value = "Gating time of detecting under voltage of Ua"/>
+	  
+	  
+      <Text id = "TI_PDI" value = "Process Data Inputs"/>
+      <Text id = "TI_PDO" value = "Process Data Outputs"/>
+
+    </PrimaryLanguage>
+  </ExternalTextCollection>
+  <Stamp crc="937085593"><Checker name="IODD-Checker V1.1.3" version="V1.1.3.0"/></Stamp>
+</IODevice>

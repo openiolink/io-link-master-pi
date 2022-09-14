@@ -1,0 +1,255 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<IODevice xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.io-link.com/IODD/2009/11" xsi:schemaLocation="http://www.io-link.com/IODD/2009/11 IODD1.0.1.xsd">
+  <DocumentInfo version="V1.1" releaseDate="2015-01-30" copyright="Copyright 2010, Balluff GmbH" />
+  <ProfileHeader>
+    <ProfileIdentification>IO-Link Device Profile</ProfileIdentification>
+    <ProfileRevision>1.00</ProfileRevision>
+    <ProfileName>Device Profile for IO-Link Devices</ProfileName>
+    <ProfileSource>IO-Link Consortium</ProfileSource>
+    <ProfileClassID>Device</ProfileClassID>
+    <ISO15745Reference>
+      <ISO15745Part>1</ISO15745Part>
+      <ISO15745Edition>1</ISO15745Edition>
+      <ProfileTechnology>IODD</ProfileTechnology>
+    </ISO15745Reference>
+  </ProfileHeader>
+  <ProfileBody>
+    <DeviceIdentity vendorId="888" vendorName="BALLUFF" deviceId="328711">
+      <VendorText textId="TI_VendorText" />
+      <VendorUrl textId="TI_VendorUrl" />
+      <VendorLogo name="Balluff-logo.png" />
+      <DeviceFamily textId="TI_DeviceFamily" />
+      <DeviceVariantCollection>
+        <DeviceVariant productId="BNI001M" hardwareRevision="1" firmwareRevision="1.0" deviceSymbol="Balluff-BNI001M-pic.png" deviceIcon="Balluff-BNI001M-icon.png">
+          <ProductName textId="TI_Product1_Name" />
+          <ProductText textId="TI_Product1_Descr" />
+        </DeviceVariant>
+      </DeviceVariantCollection>
+    </DeviceIdentity>
+    <DeviceFunction>
+      <DatatypeCollection>
+        <Datatype id="DT_DigitalOut" xsi:type="BooleanT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <SingleValue xsi:type="BooleanValueT" value="false">
+            <Name textId="TI_PD_DigitalOut_low" />
+          </SingleValue>
+          <SingleValue xsi:type="BooleanValueT" value="true">
+            <Name textId="TI_PD_DigitalOut_high" />
+          </SingleValue>
+        </Datatype>
+        <Datatype id="DT_DigitalOutReserved" xsi:type="UIntegerT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bitLength="5">
+          <SingleValue value="0">
+            <Name textId="TI_PD_DigitalOut_low" />
+          </SingleValue>
+		  <SingleValue value="1">
+            <Name textId="TI_PD_DigitalOut_high" />
+          </SingleValue>
+        </Datatype>
+      </DatatypeCollection>
+      <VariableCollection>
+        <StdVariableRef id="V_DirectParameters_1" />
+        <StdVariableRef id="V_DirectParameters_2" />
+        <StdVariableRef id="V_VendorName" defaultValue="BALLUFF" />
+        <StdVariableRef id="V_VendorText" defaultValue="www.balluff.com" />
+        <StdVariableRef id="V_ProductName" defaultValue="BNI IOL-751-V03-K007" />
+        <StdVariableRef id="V_ProductID" defaultValue="BNI001M" />
+        <StdVariableRef id="V_ProductText" defaultValue="Valve plug CG13 24 2-3" />
+        <StdVariableRef id="V_HardwareRevision" defaultValue="1" />
+        <StdVariableRef id="V_FirmwareRevision" defaultValue="1.0" />
+      </VariableCollection>
+      <ProcessDataCollection>
+        <ProcessData id="V_PdT">
+          <ProcessDataOut id="V_Pd_OutT" bitLength="32">
+            <Datatype xsi:type="RecordT" bitLength="32">
+              <Name textId="TI_DT_IOL_Pd" />
+              <RecordItem subindex="1" bitOffset="0">
+                <DatatypeRef datatypeId="DT_DigitalOut" />
+                <Name textId="TI_PD_Switchstate_01" />
+              </RecordItem>
+              <RecordItem subindex="2" bitOffset="1">
+                <DatatypeRef datatypeId="DT_DigitalOut" />
+                <Name textId="TI_PD_Switchstate_02" />
+              </RecordItem>
+              <RecordItem subindex="3" bitOffset="2">
+                <DatatypeRef datatypeId="DT_DigitalOut" />
+                <Name textId="TI_PD_Switchstate_03" />
+              </RecordItem>
+              <RecordItem subindex="4" bitOffset="3">
+                <DatatypeRef datatypeId="DT_DigitalOut" />
+                <Name textId="TI_PD_Switchstate_04" />
+              </RecordItem>
+              <RecordItem subindex="5" bitOffset="4">
+                <DatatypeRef datatypeId="DT_DigitalOut" />
+                <Name textId="TI_PD_Switchstate_05" />
+              </RecordItem>
+              <RecordItem subindex="6" bitOffset="5">
+                <DatatypeRef datatypeId="DT_DigitalOut" />
+                <Name textId="TI_PD_Switchstate_06" />
+              </RecordItem>
+              <RecordItem subindex="7" bitOffset="6">
+                <DatatypeRef datatypeId="DT_DigitalOut" />
+                <Name textId="TI_PD_Switchstate_07" />
+              </RecordItem>
+              <RecordItem subindex="8" bitOffset="7">
+                <DatatypeRef datatypeId="DT_DigitalOut" />
+                <Name textId="TI_PD_Switchstate_08" />
+              </RecordItem>
+              <RecordItem subindex="9" bitOffset="8">
+                <DatatypeRef datatypeId="DT_DigitalOut" />
+                <Name textId="TI_PD_Switchstate_09" />
+              </RecordItem>
+              <RecordItem subindex="10" bitOffset="9">
+                <DatatypeRef datatypeId="DT_DigitalOut" />
+                <Name textId="TI_PD_Switchstate_10" />
+              </RecordItem>
+              <RecordItem subindex="11" bitOffset="10">
+                <DatatypeRef datatypeId="DT_DigitalOut" />
+                <Name textId="TI_PD_Switchstate_11" />
+              </RecordItem>
+              <RecordItem subindex="12" bitOffset="11">
+                <DatatypeRef datatypeId="DT_DigitalOutReserved" />
+                <Name textId="TI_PD_Switchstate_12" />
+              </RecordItem>
+              <RecordItem subindex="13" bitOffset="16">
+                <DatatypeRef datatypeId="DT_DigitalOut" />
+                <Name textId="TI_PD_Switchstate_13" />
+              </RecordItem>
+              <RecordItem subindex="14" bitOffset="17">
+                <DatatypeRef datatypeId="DT_DigitalOut" />
+                <Name textId="TI_PD_Switchstate_14" />
+              </RecordItem>
+              <RecordItem subindex="15" bitOffset="18">
+                <DatatypeRef datatypeId="DT_DigitalOut" />
+                <Name textId="TI_PD_Switchstate_15" />
+              </RecordItem>
+              <RecordItem subindex="16" bitOffset="19">
+                <DatatypeRef datatypeId="DT_DigitalOut" />
+                <Name textId="TI_PD_Switchstate_16" />
+              </RecordItem>
+              <RecordItem subindex="17" bitOffset="20">
+                <DatatypeRef datatypeId="DT_DigitalOut" />
+                <Name textId="TI_PD_Switchstate_17" />
+              </RecordItem>
+              <RecordItem subindex="18" bitOffset="21">
+                <DatatypeRef datatypeId="DT_DigitalOut" />
+                <Name textId="TI_PD_Switchstate_18" />
+              </RecordItem>
+              <RecordItem subindex="19" bitOffset="22">
+                <DatatypeRef datatypeId="DT_DigitalOut" />
+                <Name textId="TI_PD_Switchstate_19" />
+              </RecordItem>
+              <RecordItem subindex="20" bitOffset="23">
+                <DatatypeRef datatypeId="DT_DigitalOut" />
+                <Name textId="TI_PD_Switchstate_20" />
+              </RecordItem>
+              <RecordItem subindex="21" bitOffset="24">
+                <DatatypeRef datatypeId="DT_DigitalOut" />
+                <Name textId="TI_PD_Switchstate_21" />
+              </RecordItem>
+              <RecordItem subindex="22" bitOffset="25">
+                <DatatypeRef datatypeId="DT_DigitalOut" />
+                <Name textId="TI_PD_Switchstate_22" />
+              </RecordItem>
+              <RecordItem subindex="23" bitOffset="26">
+                <DatatypeRef datatypeId="DT_DigitalOut" />
+                <Name textId="TI_PD_Switchstate_23" />
+              </RecordItem>
+              <RecordItem subindex="24" bitOffset="27">
+                <DatatypeRef datatypeId="DT_DigitalOutReserved" />
+                <Name textId="TI_PD_Switchstate_24" />
+              </RecordItem>
+            </Datatype>
+            <Name textId="TI_PD" />
+          </ProcessDataOut>
+        </ProcessData>
+      </ProcessDataCollection>
+      <EventCollection>
+        <!--0x5112-->
+        <Event code="20754" type="Warning" mode="AppearDisappear">
+          <Name textId="TI_Ev_LowSupply24" />
+          <Description textId="TI_EvDescr_LowSupply24" />
+        </Event>
+        <!--0x5114-->
+        <Event code="20756" type="Error" mode="AppearDisappear">
+          <Name textId="TI_Ev_LowActorVoltage" />
+          <Description textId="TI_EvDescr_LowActorVoltage" />
+        </Event>
+        <!--0x5151-->
+        <Event code="20817" type="Error" mode="AppearDisappear">
+          <Name textId="TI_Ev_ShortCircuitOutput" />
+          <Description textId="TI_EvDescr_ShortCircuitOutput" />
+        </Event>
+      </EventCollection>
+      <UserInterface>
+        <MenuCollection>
+          <Menu id="M_OR_MR_SR_Ident">
+            <VariableRef variableId="V_VendorName" />
+            <VariableRef variableId="V_VendorText" />
+            <VariableRef variableId="V_ProductName" />
+            <VariableRef variableId="V_ProductID" />
+            <VariableRef variableId="V_ProductText" />
+            <VariableRef variableId="V_HardwareRevision" />
+            <VariableRef variableId="V_FirmwareRevision" />
+          </Menu>
+        </MenuCollection>
+        <ObserverRoleMenuSet>
+          <IdentificationMenu menuId="M_OR_MR_SR_Ident" />
+        </ObserverRoleMenuSet>
+        <MaintenanceRoleMenuSet>
+          <IdentificationMenu menuId="M_OR_MR_SR_Ident" />
+        </MaintenanceRoleMenuSet>
+        <SpecialistRoleMenuSet>
+          <IdentificationMenu menuId="M_OR_MR_SR_Ident" />
+        </SpecialistRoleMenuSet>
+      </UserInterface>
+    </DeviceFunction>
+  </ProfileBody>
+  <CommNetworkProfile xsi:type="IOLinkCommNetworkProfileT" iolinkRevision="V1.0">
+    <TransportLayers>
+      <PhysicalLayer physics="2" minCycleTime="3000" sioSupported="false" baudrate="COM2" />
+    </TransportLayers>
+  </CommNetworkProfile>
+  <ExternalTextCollection>
+    <PrimaryLanguage xml:lang="en">
+      <Text id="TI_VendorText" value="BALLUFF" />
+      <Text id="TI_VendorUrl" value="www.balluff.com" />
+      <Text id="TI_DeviceFamily" value="BNI - Valve plug" />
+      <Text id="TI_Product1_Name" value="BNI IOL-751-V03-K007" />
+      <Text id="TI_Product1_Descr" value="Valve plug CG13 24 2-3" />
+      <Text id="TI_DT_IOL_Pd" value="Datatype ProcessDataOut" />
+      <Text id="TI_PD" value="ProcessDataOut" />     
+      <Text id="TI_PD_Switchstate_01" value="Output station 01.12" />
+      <Text id="TI_PD_Switchstate_02" value="Output station 02.12" />
+      <Text id="TI_PD_Switchstate_03" value="Output station 03.12" />
+      <Text id="TI_PD_Switchstate_04" value="Output station 04.12" />
+      <Text id="TI_PD_Switchstate_05" value="Output station 05.12" />
+      <Text id="TI_PD_Switchstate_06" value="Output station 06.12" />
+      <Text id="TI_PD_Switchstate_07" value="Output station 07.12" />
+      <Text id="TI_PD_Switchstate_08" value="Output station 08.12" />
+      <Text id="TI_PD_Switchstate_09" value="Output station 09.12" />
+      <Text id="TI_PD_Switchstate_10" value="Output station 10.12" />
+      <Text id="TI_PD_Switchstate_11" value="Output station 11.12" />
+      <Text id="TI_PD_Switchstate_12" value="Output station 12.12" />
+      <Text id="TI_PD_Switchstate_13" value="Output station 01.14" />
+      <Text id="TI_PD_Switchstate_14" value="Output station 02.14" />
+      <Text id="TI_PD_Switchstate_15" value="Output station 03.14" />
+      <Text id="TI_PD_Switchstate_16" value="Output station 04.14" />
+      <Text id="TI_PD_Switchstate_17" value="Output station 05.14" />
+      <Text id="TI_PD_Switchstate_18" value="Output station 06.14" />
+      <Text id="TI_PD_Switchstate_19" value="Output station 07.14" />
+      <Text id="TI_PD_Switchstate_20" value="Output station 08.14" />
+      <Text id="TI_PD_Switchstate_21" value="Output station 09.14" />
+      <Text id="TI_PD_Switchstate_22" value="Output station 10.14" />
+      <Text id="TI_PD_Switchstate_23" value="Output station 11.14" />
+      <Text id="TI_PD_Switchstate_24" value="Output station 12.14" />
+      <Text id="TI_PD_DigitalOut_high" value="true" />
+      <Text id="TI_PD_DigitalOut_low" value="false" />
+      <Text id="TI_Ev_ShortCircuitOutput" value="Short circuit output" />
+      <Text id="TI_EvDescr_ShortCircuitOutput" value="Short circuit output" />
+      <Text id="TI_Ev_LowActorVoltage" value="Low actor voltage" />
+      <Text id="TI_EvDescr_LowActorVoltage" value="Low actor voltage" />
+      <Text id="TI_Ev_LowSupply24" value="Low supply voltage 24V" />
+      <Text id="TI_EvDescr_LowSupply24" value="Low supply voltage 24V" />
+    </PrimaryLanguage>
+  </ExternalTextCollection>
+  <Stamp crc="3023479957"><Checker name="IODD-Checker V1.0.9" version="V1.0.9.0"/></Stamp>
+</IODevice>
