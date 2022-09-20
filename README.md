@@ -13,7 +13,7 @@ To use the application on RaspberryPi4B, the operating system [Raspbian](http://
 
 This can get installed using the command:
 ```bash
-sudo apt-get install wiringpi cmake libmosquitto
+sudo apt-get install mosquitto wiringpi cmake
 ```
 If wiringpi is not available install the .deb file provided in this repo using the command:
 ```bash
